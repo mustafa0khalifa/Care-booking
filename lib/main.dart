@@ -1,0 +1,129 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/providers/authProvider.dart';
+import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/Services/childCare.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/careCategory.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/gender.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/location.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/PostMyNeedsProvider/additionalServicesProvider.dart';
+import 'providers/PostMyNeedsProvider/advancedNursingProvider.dart';
+import 'providers/PostMyNeedsProvider/childCareProvider.dart';
+import 'providers/PostMyNeedsProvider/elderlyCareProvider.dart';
+import 'providers/PostMyNeedsProvider/pcrServicesProvider.dart';
+import 'providers/PostMyNeedsProvider/scheduleProvider.dart';
+import 'providers/careCategoryProvider.dart';
+import 'providers/myBookingProvider.dart';
+import 'screens/BookingsDashboard/bookingsDashboard.dart';
+import 'screens/Browse Caregivers/browseCaregivers.dart';
+import 'screens/ClientNotifications/clientNotifications.dart';
+import 'screens/FavoriteCaregivers/favoriteCaregivers.dart';
+import 'screens/ForgetPassword/forgetPassword.dart';
+import 'screens/MyBookings/myBookings.dart';
+import 'screens/MyBookings/widgets/bookingDetails.dart';
+import 'screens/MyBookings/widgets/bookingRate.dart';
+import 'screens/PostMyNeeds/postMyNeeds.dart';
+import 'screens/PostMyNeeds/widgets/Services/additionalServices.dart';
+import 'screens/PostMyNeeds/widgets/Services/advancedNursing.dart';
+import 'screens/PostMyNeeds/widgets/Services/elderlyCare.dart';
+import 'screens/PostMyNeeds/widgets/Services/pcrServices.dart';
+import 'screens/PostMyNeeds/widgets/caregiversInrAea.dart';
+import 'screens/PostMyNeeds/widgets/schedule.dart';
+import 'screens/auth/mainAuth.dart';
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const _MyApp());
+}
+
+class _MyApp extends StatelessWidget {
+  const _MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MultiProvider(providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthProvidere(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ForgetPassProvidere(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => MyBookingProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ChildCareProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ElderlyCareProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AdvancedNursingProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PcrServicesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CareCategoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AdditionalServicesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ScheduleProvider(),
+        ),
+      ], child: MyApp()),
+    );
+  }
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // final AuthProvidere auth = AuthProvidere();
+    bool isLoged = AuthProvidere.isLog;
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Client Portal',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'Lato',
+        ),
+        home: isLoged ? AuthScreen() : AuthScreen(),
+        routes: {
+          AuthScreen.routeName: (context) => AuthScreen(),
+          ForgetPassword.routeName: (context) => ForgetPassword(),
+          BrowseCaregivers.routeName: (context) => BrowseCaregivers(),
+          BookingsDashboard.routeName: (context) => BookingsDashboard(),
+          MyBookings.routeName: (context) => MyBookings(),
+          BookingDetails.routeName: (context) => BookingDetails(),
+          BookingRate.routeName: (context) => BookingRate(),
+          FavoriteCaregivers.routeName: (context) => FavoriteCaregivers(),
+          ClientNotifications.routeName: (context) => ClientNotifications(),
+          PostMyNeeds.routeName: (context) => PostMyNeeds(),
+          Location.routeName: (context) => Location(),
+          CareCategory.routeName: (context) => CareCategory(),
+          Gender.routeName: (context) => Gender(),
+          CaregiversInrAea.routeName: (context) => CaregiversInrAea(),
+          ChildCare.routeName: (context) => ChildCare(),
+          ElderlyCare.routeName: (context) => ElderlyCare(),
+          AdvancedNursing.routeName: (context) => AdvancedNursing(),
+          PcrServices.routeName: (context) => PcrServices(),
+          AdditionalServices.routeName: (context) => AdditionalServices(),
+          Schedule.routeName: (context) => Schedule(),
+        });
+  }
+}
