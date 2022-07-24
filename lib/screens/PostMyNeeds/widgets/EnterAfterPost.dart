@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dart';
 import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EnterAfterPost extends StatefulWidget {
   static const routeName = '/enterAfterPost-screen';
@@ -14,7 +15,9 @@ class EnterAfterPost extends StatefulWidget {
 class _EnterAfterPostState extends State<EnterAfterPost> {
   @override
   Widget build(BuildContext context) {
+    final AuthProvidere auth = AuthProvidere();
     final deviceSize = MediaQuery.of(context).size;
+    AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
       drawer: NavBar(),
       body: Container(
@@ -46,7 +49,8 @@ class _EnterAfterPostState extends State<EnterAfterPost> {
                   ),
                   onPressed: () {
                     print('Pressed');
-                    AuthProvidere.authMode = 'Signup';
+                    auth.changeFromPostMyNeeds('true');
+
                     Navigator.of(context).pushNamed(AuthScreen.routeName);
                   },
                 ),
@@ -102,7 +106,7 @@ class _EnterAfterPostState extends State<EnterAfterPost> {
                         ..onTap = () {
                           // ignore: avoid_print
                           print("Tap Sign in");
-                          AuthProvidere.authMode = 'Signin';
+                          auth.changeFromPostMyNeeds('true');
                           Navigator.of(context).pushNamed(AuthScreen.routeName);
                         },
                     ),

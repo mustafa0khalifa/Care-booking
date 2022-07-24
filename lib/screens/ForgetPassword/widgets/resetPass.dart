@@ -2,9 +2,9 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
-import 'package:flutter_application_10000/screens/Browse%20Caregivers/browseCaregivers.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/forgetPassword.dart';
 
+import '../../PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import '../../auth/mainAuth.dart';
 
 class ResetPassword extends StatefulWidget {

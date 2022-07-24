@@ -3,10 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/BookingsDashboard/bookingsDashboard.dart';
-import 'package:flutter_application_10000/screens/Browse%20Caregivers/browseCaregivers.dart';
 import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
 import 'package:flutter_application_10000/screens/auth/widgets/signin.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../PostMyNeeds/widgets/afterPostingRequest.dart';
 
 class Signup extends StatefulWidget {
   static const routeName = '/signup-screen';
@@ -70,14 +72,24 @@ class _SignupState extends State<Signup> {
 
     if (email == 'Ali.Hamdar@gmail.com' &&
         checkPassword(password, confirmPassword)) {
-      auth.changeLogState();
+      auth.login();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Sign Up Ok ..."),
         duration: Duration(seconds: 2),
       ));
-      Navigator.of(context).pushNamed(
-        BookingsDashboard.routeName,
-      );
+
+      //////
+      final prefs = await SharedPreferences.getInstance();
+      if (prefs.getString('fromPostMyNeeds') == 'true') {
+        auth.changeFromPostMyNeeds('false');
+        Navigator.of(context).pushNamed(
+          AfterPostingRequest.routeName,
+        );
+      } else {
+        Navigator.of(context).pushNamed(
+          BookingsDashboard.routeName,
+        );
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Sign Up Error !!!"),

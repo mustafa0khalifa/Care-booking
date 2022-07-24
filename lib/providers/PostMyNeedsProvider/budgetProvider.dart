@@ -5,14 +5,14 @@ class BudgetProvider extends ChangeNotifier {
 
   static double valueSlider = 30;
 
-  void changeSpecificBudget() {
-    specificBudget = !specificBudget;
+  void changeValueSlider(double val) {
+    valueSlider = val;
 
     notifyListeners();
   }
 
-  void changeValueSlider(double val) {
-    valueSlider = val;
+  void changeSpecificBudget() {
+    specificBudget = !specificBudget;
 
     notifyListeners();
   }

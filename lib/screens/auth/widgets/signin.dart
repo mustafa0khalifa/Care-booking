@@ -2,13 +2,14 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
-import 'package:flutter_application_10000/screens/Browse%20Caregivers/browseCaregivers.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/forgetPassword.dart';
 import 'package:flutter_application_10000/screens/auth/widgets/signup.dart';
 import 'package:flutter_application_10000/theme/style.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../BookingsDashboard/bookingsDashboard.dart';
+import '../../PostMyNeeds/widgets/afterPostingRequest.dart';
 import '../mainAuth.dart';
 
 class Signin extends StatefulWidget {
@@ -66,14 +67,36 @@ class _SigninState extends State<Signin> {
 
     print(checkPassword(password));
     if (email == 'Ali.Hamdar@gmail.com' && checkPassword(password)) {
-      auth.changeLogState();
+      auth.login();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Sign In Ok ..."),
         duration: Duration(seconds: 2),
       ));
-      Navigator.of(context).pushNamed(
-        BookingsDashboard.routeName,
-      );
+
+      //////
+      ///
+
+      String log = '';
+      final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+      _prefs.then((SharedPreferences prefs) async {
+        final prefs = await SharedPreferences.getInstance();
+        final key = 'fromPostMyNeeds';
+        log = prefs.getString(key)!;
+        print('llllllllllllllllll');
+        print(prefs.getString(key));
+      });
+      print(log);
+
+      if (log == 'true') {
+        auth.changeFromPostMyNeeds('false');
+        Navigator.of(context).pushNamed(
+          AfterPostingRequest.routeName,
+        );
+      } else {
+        Navigator.of(context).pushNamed(
+          BookingsDashboard.routeName,
+        );
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Sign In Error !!!"),

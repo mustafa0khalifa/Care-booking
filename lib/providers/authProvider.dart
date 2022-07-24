@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum AuthMode { Signup, Signin }
 
@@ -7,11 +8,37 @@ class AuthProvidere extends ChangeNotifier {
 
   static String authMode = 'Signup';
   static bool valueCheckbox = false;
+  static bool fromPostMyNeeds = false;
 
-  void changeLogState() {
-    isLog = !isLog;
+  void login() async {
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final key = 'login';
+    _prefs.then((SharedPreferences prefs) async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'login';
+      prefs.setString(key, 'true');
+    });
+  }
 
-    notifyListeners();
+  void logout() async {
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final key = 'login';
+    _prefs.then((SharedPreferences prefs) async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'login';
+      prefs.setString(key, 'false');
+    });
+  }
+
+  void changeFromPostMyNeeds(String val) async {
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final key = 'fromPostMyNeeds';
+    final value = val;
+    _prefs.then((SharedPreferences prefs) async {
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'fromPostMyNeeds';
+      prefs.setString(key, val);
+    });
   }
 
   void changeCheckboxState() {
