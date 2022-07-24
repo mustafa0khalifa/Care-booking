@@ -7,6 +7,8 @@ import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/Services/p
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/gender.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
+import 'NavBar.dart';
+
 class CareCategory extends StatefulWidget {
   static const routeName = '/careCategory-screen';
   String groupValueRadio = 'val1';
@@ -19,6 +21,7 @@ class _CareCategoryState extends State<CareCategory> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

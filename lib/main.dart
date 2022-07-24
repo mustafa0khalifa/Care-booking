@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/providers/PostMyNeedsProvider/NavBarProvider.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/Services/childCare.dart';
@@ -9,6 +10,10 @@ import 'package:provider/provider.dart';
 
 import 'providers/PostMyNeedsProvider/additionalServicesProvider.dart';
 import 'providers/PostMyNeedsProvider/advancedNursingProvider.dart';
+import 'providers/PostMyNeedsProvider/automaticMatchingOptionProvider.dart';
+import 'providers/PostMyNeedsProvider/budgetProvider.dart';
+import 'providers/PostMyNeedsProvider/careRecipientsProvider.dart';
+import 'providers/PostMyNeedsProvider/caregiverPreferencesProvider.dart';
 import 'providers/PostMyNeedsProvider/childCareProvider.dart';
 import 'providers/PostMyNeedsProvider/elderlyCareProvider.dart';
 import 'providers/PostMyNeedsProvider/pcrServicesProvider.dart';
@@ -24,11 +29,20 @@ import 'screens/MyBookings/myBookings.dart';
 import 'screens/MyBookings/widgets/bookingDetails.dart';
 import 'screens/MyBookings/widgets/bookingRate.dart';
 import 'screens/PostMyNeeds/postMyNeeds.dart';
+import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients.dart';
+import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients2.dart';
+import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients3.dart';
+import 'screens/PostMyNeeds/widgets/EnterAfterPost.dart';
 import 'screens/PostMyNeeds/widgets/Services/additionalServices.dart';
 import 'screens/PostMyNeeds/widgets/Services/advancedNursing.dart';
 import 'screens/PostMyNeeds/widgets/Services/elderlyCare.dart';
 import 'screens/PostMyNeeds/widgets/Services/pcrServices.dart';
+import 'screens/PostMyNeeds/widgets/automaticMatchingOption.dart';
+import 'screens/PostMyNeeds/widgets/budget.dart';
+import 'screens/PostMyNeeds/widgets/caregaverClientRequest.dart';
+import 'screens/PostMyNeeds/widgets/caregiverPreferences.dart';
 import 'screens/PostMyNeeds/widgets/caregiversInrAea.dart';
+import 'screens/PostMyNeeds/widgets/myCareRequestSummary.dart';
 import 'screens/PostMyNeeds/widgets/schedule.dart';
 import 'screens/auth/mainAuth.dart';
 
@@ -75,6 +89,21 @@ class _MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ScheduleProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => NavBarProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CaregiverPreferencesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BudgetProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CareRecipientsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AutomaticMatchingOptionProvider(),
+        ),
       ], child: MyApp()),
     );
   }
@@ -102,7 +131,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? AuthScreen() : AuthScreen(),
+        home: isLoged ? BookingsDashboard() : EnterAfterPost(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
@@ -124,6 +153,17 @@ class _MyAppState extends State<MyApp> {
           PcrServices.routeName: (context) => PcrServices(),
           AdditionalServices.routeName: (context) => AdditionalServices(),
           Schedule.routeName: (context) => Schedule(),
+          CaregiverPreferences.routeName: (context) => CaregiverPreferences(),
+          Budget.routeName: (context) => Budget(),
+          CareRecipients.routeName: (context) => CareRecipients(),
+          CareRecipients2.routeName: (context) => CareRecipients2(),
+          CareRecipients3.routeName: (context) => CareRecipients3(),
+          MyCareRequestSummary.routeName: (context) => MyCareRequestSummary(),
+          AutomaticMatchingOption.routeName: (context) =>
+              AutomaticMatchingOption(),
+          CaregaverClientRequest.routeName: (context) =>
+              CaregaverClientRequest(),
+          EnterAfterPost.routeName: (context) => EnterAfterPost(),
         });
   }
 }

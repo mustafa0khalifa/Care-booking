@@ -249,8 +249,8 @@ class _SigninState extends State<Signin> {
               Text(
                 "___________ or Sign in with ___________",
                 style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
                     color: Color(0xff000000)),
               ),
               Padding(

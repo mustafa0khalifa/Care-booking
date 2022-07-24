@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
-import 'package:flutter_application_10000/providers/careCategoryProvider.dart';
+import '../../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
+import '../NavBar.dart';
+import 'careRecipients2.dart';
 
-import '../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
-import 'NavBar.dart';
-
-class CaregiversInrAea extends StatefulWidget {
-  static const routeName = '/caregiversInrAea-screen';
+class CareRecipients extends StatefulWidget {
+  static const routeName = '/careRecipients-screen';
 
   @override
-  _CaregiversInrAeaState createState() => _CaregiversInrAeaState();
+  _CareRecipientsAeaState createState() => _CareRecipientsAeaState();
 }
 
-class _CaregiversInrAeaState extends State<CaregiversInrAea> {
+class _CareRecipientsAeaState extends State<CareRecipients> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -28,7 +27,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
             children: [
               Center(
                 child: Text(
-                  'Here are some of our caregivers in your area',
+                  'Select all the care recipients',
                   style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.w600,
@@ -45,7 +44,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                       height: deviceSize.height,
                       width: deviceSize.width,
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
-                      isSelectedPage: false,
+                      isSelectedPage: true,
                     );
                   },
                 ),
@@ -59,8 +58,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                           Colors.greenAccent //elevated btton background color
                       ),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushNamed(CareCategoryProvider.routCategorySelected);
+                    Navigator.of(context).pushNamed(CareRecipients2.routeName);
                   },
                   child: Text("Next"),
                 ),

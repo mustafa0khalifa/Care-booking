@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
+import 'NavBar.dart';
 import 'caregiversInrAea.dart';
 
 class Gender extends StatefulWidget {
@@ -15,6 +16,7 @@ class _GenderState extends State<Gender> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

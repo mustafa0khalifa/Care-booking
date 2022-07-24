@@ -32,6 +32,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                 width: deviceSize.width * 0.9,
                 isPending: true,
                 isDatiel: true,
+                isRequest: false,
               ),
               Padding(
                 padding: EdgeInsets.all(deviceSize.height * 0.02),

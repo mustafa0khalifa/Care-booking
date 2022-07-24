@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/advancedNursingProvider.dart';
 import '../../../../providers/PostMyNeedsProvider/elderlyCareProvider.dart';
+import '../NavBar.dart';
 import 'additionalServices.dart';
 
 class AdvancedNursing extends StatefulWidget {
@@ -19,6 +20,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

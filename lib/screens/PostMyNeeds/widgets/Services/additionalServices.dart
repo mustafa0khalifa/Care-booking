@@ -4,6 +4,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
+import '../NavBar.dart';
 
 class AdditionalServices extends StatefulWidget {
   static const routeName = '/additionalServices-screen';
@@ -17,6 +18,7 @@ class _AdditionalServicesState extends State<AdditionalServices> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

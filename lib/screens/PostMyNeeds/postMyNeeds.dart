@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/location.dart';
 
+import 'widgets/NavBar.dart';
+
 class PostMyNeeds extends StatelessWidget {
   static const routeName = '/postMyNeeds-screen';
 
@@ -9,10 +11,9 @@ class PostMyNeeds extends StatelessWidget {
     final deviceSize = MediaQuery.of(context).size;
 
     return Scaffold(
-        // resizeToAvoidBottomInset: false,
-        body: Container(
-            height: deviceSize.height,
-            width: deviceSize.width,
-            child: Location()));
+      // resizeToAvoidBottomInset: false,
+      drawer: NavBar(),
+      body: Location(),
+    );
   }
 }

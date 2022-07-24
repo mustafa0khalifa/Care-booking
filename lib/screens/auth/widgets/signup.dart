@@ -302,43 +302,52 @@ class _SignupState extends State<Signup> {
                   ),
                 ],
               ),
-              TextButton(
-                child: Text('Sign up now'),
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: Colors.teal,
-                  onSurface: Colors.grey,
+              SizedBox(
+                width: deviceSize.width * 0.6,
+                child: TextButton(
+                  child: Text('Sign up now'),
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    backgroundColor: Colors.teal,
+                    onSurface: Colors.grey,
+                  ),
+                  onPressed: () {
+                    print('Pressed');
+                    _submit();
+                  },
                 ),
-                onPressed: () {
-                  print('Pressed');
-                  _submit();
-                },
               ),
               Text(
                 "OR",
                 style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
                     color: Color(0xff000000)),
               ),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.red //elevated btton background color
-                    ),
-                icon: Image.asset(
-                    width: deviceSize.width * 0.076,
-                    fit: BoxFit.contain,
-                    'assets/images/google.png'),
-                onPressed: () {},
-                label: Text("Sign up using Gmail"),
+              SizedBox(
+                width: deviceSize.width * 0.6,
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.red //elevated btton background color
+                      ),
+                  icon: Image.asset(
+                      width: deviceSize.width * 0.076,
+                      fit: BoxFit.contain,
+                      'assets/images/google.png'),
+                  onPressed: () {},
+                  label: Text("Sign up using Gmail"),
+                ),
               ),
-              ElevatedButton.icon(
-                icon: Image.asset(
-                    width: deviceSize.width * 0.076,
-                    fit: BoxFit.contain,
-                    'assets/images/facebook.png'),
-                onPressed: () {},
-                label: Text("Sign up using Facebook"),
+              SizedBox(
+                width: deviceSize.width * 0.6,
+                child: ElevatedButton.icon(
+                  icon: Image.asset(
+                      width: deviceSize.width * 0.076,
+                      fit: BoxFit.contain,
+                      'assets/images/facebook.png'),
+                  onPressed: () {},
+                  label: Text("Sign up using Facebook"),
+                ),
               ),
               SizedBox(
                 height: deviceSize.height * 0.0127,

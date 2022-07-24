@@ -2,11 +2,13 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/scheduleProvider.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/caregiverPreferences.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
 import '../../../providers/PostMyNeedsProvider/scheduleProvider.dart';
+import 'NavBar.dart';
 
 class Schedule extends StatefulWidget {
   static const routeName = '/schedule-screen';
@@ -20,6 +22,7 @@ class _ScheduleState extends State<Schedule> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -1315,7 +1318,8 @@ class _ScheduleState extends State<Schedule> {
                             Colors.greenAccent //elevated btton background color
                         ),
                     onPressed: () {
-                      //Navigator.of(context).pushNamed(CaregiversInrAea.routeName);
+                      Navigator.of(context)
+                          .pushNamed(CaregiverPreferences.routeName);
                     },
                     child: Text("Next"),
                   ),

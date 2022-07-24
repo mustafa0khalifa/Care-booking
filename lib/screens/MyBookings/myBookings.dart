@@ -30,6 +30,7 @@ class _MyBookingsdState extends State<MyBookings> {
                   width: deviceSize.width * 0.9,
                   isPending: _isState,
                   isDatiel: false,
+                  isRequest: false,
                 );
               })),
     );

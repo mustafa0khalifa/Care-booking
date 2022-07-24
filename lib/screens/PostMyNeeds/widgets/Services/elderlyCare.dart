@@ -3,6 +3,7 @@ import 'package:flutter_application_10000/models/testModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/elderlyCareProvider.dart';
+import '../NavBar.dart';
 import 'additionalServices.dart';
 
 class ElderlyCare extends StatefulWidget {
@@ -18,6 +19,7 @@ class _ElderlyCareState extends State<ElderlyCare> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
