@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dart';
 
+import 'BrowseCaregivers/browseCaregivers.dart';
+
 class CompleteYourRequest extends StatefulWidget {
   static const routeName = '/completeYourRequest-screen';
 
@@ -437,6 +439,20 @@ class _CompleteYourRequestState extends State<CompleteYourRequest> {
                       ),
                     ],
                   )),
+              Container(
+                margin: EdgeInsets.all(deviceSize.height * 0.05),
+                alignment: Alignment.bottomRight,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary:
+                          Colors.greenAccent //elevated btton background color
+                      ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(BrowseCaregivers.routeName);
+                  },
+                  child: Text("Next"),
+                ),
+              ),
             ],
           ),
         ),

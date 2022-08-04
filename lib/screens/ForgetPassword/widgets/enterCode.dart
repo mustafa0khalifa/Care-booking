@@ -46,26 +46,17 @@ class _EnterCodeState extends State<EnterCode> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.all(deviceSize.height * 0.01277),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          "Enter the verification code ",
-                          style: TextStyle(
-                              fontSize: 17.0,
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xff000000)),
-                        ),
-                      ),
-                    ),
-                  ],
+              SizedBox(
+                width: deviceSize.width * 0.9,
+                child: Text(
+                  "Enter the verification code ",
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: 20),
                 ),
               ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               TextFormField(
                 controller: _codeController,
                 keyboardType: TextInputType.number,
@@ -78,7 +69,7 @@ class _EnterCodeState extends State<EnterCode> {
                     hintText: 'Enter Code',
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 15)),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.019)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -102,8 +93,7 @@ class _EnterCodeState extends State<EnterCode> {
                   ),
                 ],
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: deviceSize.height * 0.0255)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,

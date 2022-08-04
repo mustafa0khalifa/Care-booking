@@ -47,24 +47,17 @@ class _EnterNumberState extends State<EnterNumber> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.all(deviceSize.height * 0.038),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "Enter the mobile number associated with FAN account, and we will send you a verification code",
-                        style: TextStyle(
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
-                      ),
-                    ),
-                  ],
+              SizedBox(
+                width: deviceSize.width * 0.9,
+                child: Text(
+                  "Enter the mobile number associated with FAN account, and we will send you a verification code",
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: 20),
                 ),
               ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               TextFormField(
                 controller: _numberController,
                 keyboardType: TextInputType.number,
@@ -77,7 +70,7 @@ class _EnterNumberState extends State<EnterNumber> {
                     hintText: 'Enter your number',
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 15)),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.019)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,

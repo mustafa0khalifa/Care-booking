@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 class FavoriteCaregiversModel {
+  String imageUrl;
   String firstName;
   int age;
   String nationality;
@@ -10,9 +9,9 @@ class FavoriteCaregiversModel {
   String clientReferences;
   String caregiversBiography;
   String qualifications;
-  List<String> iCONS;
 
   FavoriteCaregiversModel({
+    required this.imageUrl,
     required this.firstName,
     required this.age,
     required this.nationality,
@@ -22,6 +21,5 @@ class FavoriteCaregiversModel {
     required this.clientReferences,
     required this.caregiversBiography,
     required this.qualifications,
-    required this.iCONS,
   });
 }

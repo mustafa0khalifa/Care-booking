@@ -20,7 +20,8 @@ class _MyBookingsdState extends State<MyBookings> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+          margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: ListView.builder(
               itemCount: 6,
               itemBuilder: (context, count) {

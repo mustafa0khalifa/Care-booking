@@ -2,7 +2,6 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
-import 'package:flutter_application_10000/screens/ForgetPassword/forgetPassword.dart';
 
 import '../../PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import '../../auth/mainAuth.dart';
@@ -48,72 +47,57 @@ class _ResetPasswordState extends State<ResetPassword> {
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                  padding: EdgeInsets.only(top: deviceSize.height * 0.0127)),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    "Password",
-                    style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff000000)),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.76,
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Password'),
-                      obscureText: true,
-                      controller: _passwordController,
-                      onFieldSubmitted: (_) {
-                        FocusScope.of(context).requestFocus(_confPassFocusNode);
-                      },
-                      validator: (value) {
-                        if (value!.isEmpty || value.length < 5) {
-                          return 'Password is too short!';
-                        }
-                        return null;
-                      },
-                    ),
-                  )
-                ],
+              Text(
+                "Password",
+                style: TextStyle(
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helvetica',
+                    fontSize: 16),
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: deviceSize.height * 0.0127)),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    "Confirm Password",
-                    style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff000000)),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.76,
-                    child: TextFormField(
-                      decoration:
-                          InputDecoration(labelText: 'Confirm Password'),
-                      obscureText: true,
-                      focusNode: _confPassFocusNode,
-                      controller: _confirmPasswordController,
-                      validator: (value) {
-                        if (value != _passwordController.text) {
-                          return 'Passwords do not match!';
-                        }
-                      },
-                    ),
-                  )
-                ],
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+              SizedBox(
+                width: deviceSize.width * 0.8,
+                child: TextFormField(
+                  decoration: InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  controller: _passwordController,
+                  onFieldSubmitted: (_) {
+                    FocusScope.of(context).requestFocus(_confPassFocusNode);
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty || value.length < 5) {
+                      return 'Password is too short!';
+                    }
+                    return null;
+                  },
+                ),
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: deviceSize.height * 0.0383)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+              Text(
+                "Confirm Password",
+                style: TextStyle(
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helvetica',
+                    fontSize: 16),
+              ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+              SizedBox(
+                width: deviceSize.width * 0.8,
+                child: TextFormField(
+                  decoration: InputDecoration(labelText: 'Confirm Password'),
+                  obscureText: true,
+                  focusNode: _confPassFocusNode,
+                  controller: _confirmPasswordController,
+                  validator: (value) {
+                    if (value != _passwordController.text) {
+                      return 'Passwords do not match!';
+                    }
+                  },
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -19,6 +19,7 @@ class ForgetPassword extends StatelessWidget {
         body: Container(
       height: deviceSize.height,
       width: deviceSize.width,
+      margin: EdgeInsets.all(deviceSize.height * 0.03),
       child: Consumer<ForgetPassProvidere>(
         builder: (_, foo, __) => Center(
             child: ForgetPassProvidere.ForgetPassMode == 'enterNumber'

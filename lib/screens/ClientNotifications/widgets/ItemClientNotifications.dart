@@ -28,23 +28,23 @@ class itemClientNotifications extends StatelessWidget {
           title: Text(
             '${this.subject}',
             style: TextStyle(
-                fontSize: 15.0,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff000000)),
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica',
+                fontSize: 20),
           ),
           subtitle: Text(
             '${this.content}',
             style: TextStyle(
-                fontSize: 15.0,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff000000)),
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica',
+                fontSize: 16),
           ),
           trailing: Text(
             '${this.date}',
             style: TextStyle(
-                fontSize: 15.0,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff000000)),
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica',
+                fontSize: 16),
           ),
         ));
   }

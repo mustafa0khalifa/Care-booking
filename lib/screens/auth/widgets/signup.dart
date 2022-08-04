@@ -5,6 +5,7 @@ import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/BookingsDashboard/bookingsDashboard.dart';
 import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
 import 'package:flutter_application_10000/screens/auth/widgets/signin.dart';
+import 'package:flutter_application_10000/theme/style.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -109,286 +110,449 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    return Container(
-      height: deviceSize.height,
-      width: deviceSize.width,
-      padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                "Create your account",
-                style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff000000)),
-              ),
-              SizedBox(
-                height: deviceSize.height * 0.0217,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: deviceSize.width * 0.2,
-                    child: Text(
-                      "Email",
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
-                    ),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.51,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'E-Mail',
-                      ),
-                      //autofocus: ,
-                      keyboardType: TextInputType.emailAddress,
-                      onFieldSubmitted: (_) {
-                        FocusScope.of(context).requestFocus(_mobileFocusNode);
-                      },
-                      validator: (value) {
-                        if (value!.isEmpty || !value.contains('@')) {
-                          return 'Invalid email!';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _authData['email'] = value!;
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: deviceSize.width * 0.2,
-                    child: Text(
-                      "Mobile Number",
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
-                    ),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.51,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'M-Number',
-                      ),
-                      //autofocus: ,
-                      keyboardType: TextInputType.number,
-                      onFieldSubmitted: (_) {
-                        FocusScope.of(context).requestFocus(_passFocusNode);
-                      },
-                      focusNode: _mobileFocusNode,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Invalid number!';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _authData['mobileNumber'] = value!;
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: deviceSize.width * 0.2,
-                    child: Text(
-                      "Password",
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
-                    ),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.51,
-                    child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Password'),
-                      obscureText: true,
-                      controller: _passwordController,
-                      onFieldSubmitted: (_) {
-                        FocusScope.of(context).requestFocus(_confPassFocusNode);
-                      },
-                      focusNode: _passFocusNode,
-                      validator: (value) {
-                        if (value!.isEmpty || value.length < 5) {
-                          return 'Password is too short!';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        _authData['password'] = value!;
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: deviceSize.width * 0.2,
-                    child: Text(
-                      "Confirm Password",
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
-                    ),
-                  ),
-                  SizedBox(
-                    width: deviceSize.width * 0.51,
-                    child: TextFormField(
-                      decoration:
-                          InputDecoration(labelText: 'Confirm Password'),
-                      obscureText: true,
-                      focusNode: _confPassFocusNode,
-                      validator: (value) {
-                        if (value != _passwordController.text) {
-                          return 'Passwords do not match!';
-                        }
-                      },
-                      onSaved: (value) {
-                        _authData['confirmPassword'] = value!;
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: deviceSize.width * 0.1913,
-                    child: Consumer<AuthProvidere>(
-                      builder: (_, foo, __) => CheckboxListTile(
-                        activeColor: Colors.green,
-                        value: AuthProvidere.valueCheckbox,
-                        onChanged: (val) {
-                          foo.changeCheckboxState();
-                        },
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: EasyRichText(
-                      "I agree to FAN Terms and Services and Privacy Policies",
-                      patternList: [
-                        EasyRichTextPattern(
-                          targetString: 'italic',
-                          style: const TextStyle(fontStyle: FontStyle.italic),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: deviceSize.height * 0.77,
+            child: Container(
+              padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
+              margin: EdgeInsets.all(deviceSize.height * 0.03),
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        color: Color.fromARGB(255, 248, 199, 217),
+                        padding: EdgeInsets.all(3),
+                        child: Text(
+                          "Create your account",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: 20),
                         ),
-                        EasyRichTextPattern(
-                          targetString: 'Terms and Services',
-                          style: const TextStyle(color: Colors.blue),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.03)),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: Text(
+                          "Email",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: 16),
                         ),
-                        EasyRichTextPattern(
-                          targetString: 'Privacy Policies',
-                          style: const TextStyle(color: Colors.blue),
+                      ),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontFamily: 'Helvetica',
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'info@findnurse.com',
+                            labelStyle: TextStyle(
+                                color: Color(0xffcbcbcb),
+                                fontFamily: 'Helvetica',
+                                fontSize: 12),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xff28306e), width: 1.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide:
+                                    BorderSide(color: Color(0xff28306e))),
+                          ),
+                          //autofocus: ,
+                          keyboardType: TextInputType.emailAddress,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_mobileFocusNode);
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty || !value.contains('@')) {
+                              return 'Invalid email!';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _authData['email'] = value!;
+                          },
                         ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.03)),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: Text(
+                          "Mobile Number",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontFamily: 'Helvetica',
+                          ),
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xff28306e), width: 1.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            labelText: '+961 0 000 000',
+                            labelStyle: TextStyle(
+                                color: Color(0xffcbcbcb),
+                                fontFamily: 'Helvetica',
+                                fontSize: 12),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide:
+                                    BorderSide(color: Color(0xff28306e))),
+                          ),
+                          //autofocus: ,
+                          keyboardType: TextInputType.number,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context).requestFocus(_passFocusNode);
+                          },
+                          focusNode: _mobileFocusNode,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Invalid number!';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _authData['mobileNumber'] = value!;
+                          },
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.03)),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: Text(
+                          "Password",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontFamily: 'Helvetica',
+                          ),
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xff28306e), width: 1.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            labelText: '************',
+                            labelStyle: TextStyle(
+                                color: Color(0xffcbcbcb),
+                                fontFamily: 'Helvetica',
+                                fontSize: 12),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide:
+                                    BorderSide(color: Color(0xff28306e))),
+                          ),
+                          obscureText: true,
+                          controller: _passwordController,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_confPassFocusNode);
+                          },
+                          focusNode: _passFocusNode,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 5) {
+                              return 'Password is too short!';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _authData['password'] = value!;
+                          },
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.03)),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: Text(
+                          "Confirm Password",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontFamily: 'Helvetica',
+                          ),
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xff28306e), width: 1.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            labelText: '************',
+                            labelStyle: TextStyle(
+                                color: Color(0xffcbcbcb),
+                                fontFamily: 'Helvetica',
+                                fontSize: 12),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide:
+                                    BorderSide(color: Color(0xff28306e))),
+                          ),
+                          obscureText: true,
+                          focusNode: _confPassFocusNode,
+                          validator: (value) {
+                            if (value != _passwordController.text) {
+                              return 'Passwords do not match!';
+                            }
+                          },
+                          onSaved: (value) {
+                            _authData['confirmPassword'] = value!;
+                          },
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      SizedBox(
+                        width: deviceSize.width * 0.9,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: deviceSize.width * 0.1913,
+                              child: Consumer<AuthProvidere>(
+                                builder: (_, foo, __) => CheckboxListTile(
+                                  activeColor: Colors.green,
+                                  value: AuthProvidere.valueCheckbox,
+                                  onChanged: (val) {
+                                    foo.changeCheckboxState();
+                                  },
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: EasyRichText(
+                                "I agree to FAN Terms and Services and Privacy Policies",
+                                patternList: [
+                                  EasyRichTextPattern(
+                                    targetString: 'I agree to FAN',
+                                    style: TextStyle(
+                                        color: Color(0xffcbcbcb),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 12),
+                                  ),
+                                  EasyRichTextPattern(
+                                    targetString: 'and',
+                                    style: TextStyle(
+                                        color: Color(0xffcbcbcb),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 12),
+                                  ),
+                                  EasyRichTextPattern(
+                                    targetString: 'Terms and Services',
+                                    style: const TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 18, 101, 168),
+                                        fontSize: 12),
+                                  ),
+                                  EasyRichTextPattern(
+                                    targetString: 'Privacy Policies',
+                                    style: const TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 18, 101, 168),
+                                        fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      SizedBox(
+                        width: deviceSize.width * 0.8,
+                        child: TextButton(
+                          child: Text('Sign up now'),
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Color.fromARGB(255, 71, 201, 188),
+                            onSurface: Colors.grey,
+                          ),
+                          onPressed: () {
+                            print('Pressed');
+                            _submit();
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+              height: deviceSize.height * 0.23,
+              width: deviceSize.width,
+              padding: EdgeInsets.all(deviceSize.height * 0.03),
+              decoration: BoxDecoration(
+                  color: Color(0xff28306e),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))
+                  //more than 50% of width makes circle
+                  ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        "______ or Sign in with ______",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontFamily: 'Helvetica',
+                            fontSize: 16),
+                      ),
+                    ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: deviceSize.width * 0.4,
+                            height: deviceSize.height * 0.05,
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 248, 248, 248),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                      width: deviceSize.width * 0.0765,
+                                      'assets/images/google.png'),
+                                  Text(
+                                    'Google',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            )),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.03)),
+                        SizedBox(
+                            width: deviceSize.width * 0.4,
+                            height: deviceSize.height * 0.05,
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 248, 248, 248),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                      width: deviceSize.width * 0.0765,
+                                      'assets/images/facebook.png'),
+                                  Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            )),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: deviceSize.width * 0.6,
-                child: TextButton(
-                  child: Text('Sign up now'),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Colors.teal,
-                    onSurface: Colors.grey,
-                  ),
-                  onPressed: () {
-                    print('Pressed');
-                    _submit();
-                  },
-                ),
-              ),
-              Text(
-                "OR",
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff000000)),
-              ),
-              SizedBox(
-                width: deviceSize.width * 0.6,
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.red //elevated btton background color
+                    Padding(
+                        padding:
+                            EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    Center(
+                      child: EasyRichText(
+                        "Already a member? Sign in",
+                        patternList: [
+                          EasyRichTextPattern(
+                              targetString: 'Already a member?',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: 12)),
+                          EasyRichTextPattern(
+                            targetString: 'Sign in',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontFamily: 'Helvetica',
+                                fontSize: 12),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                // ignore: avoid_print
+                                print("Tap Sign up");
+                                auth.changeAuthSteta();
+                                Navigator.of(context)
+                                    .pushNamed(AuthScreen.routeName);
+                              },
+                          ),
+                        ],
                       ),
-                  icon: Image.asset(
-                      width: deviceSize.width * 0.076,
-                      fit: BoxFit.contain,
-                      'assets/images/google.png'),
-                  onPressed: () {},
-                  label: Text("Sign up using Gmail"),
-                ),
-              ),
-              SizedBox(
-                width: deviceSize.width * 0.6,
-                child: ElevatedButton.icon(
-                  icon: Image.asset(
-                      width: deviceSize.width * 0.076,
-                      fit: BoxFit.contain,
-                      'assets/images/facebook.png'),
-                  onPressed: () {},
-                  label: Text("Sign up using Facebook"),
-                ),
-              ),
-              SizedBox(
-                height: deviceSize.height * 0.0127,
-              ),
-              Center(
-                child: EasyRichText(
-                  "Already a member? Sign in",
-                  patternList: [
-                    EasyRichTextPattern(
-                      targetString: 'italic',
-                      style: const TextStyle(fontStyle: FontStyle.italic),
-                    ),
-                    EasyRichTextPattern(
-                      targetString: 'Sign in',
-                      style: const TextStyle(color: Colors.blue),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // ignore: avoid_print
-                          print("Tap Sign up");
-                          auth.changeAuthSteta();
-                          Navigator.of(context).pushNamed(AuthScreen.routeName);
-                        },
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        ),
+              )),
+        ],
       ),
     );
   }

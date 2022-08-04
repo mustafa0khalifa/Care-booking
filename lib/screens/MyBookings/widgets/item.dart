@@ -43,63 +43,62 @@ class ItemPending extends StatelessWidget {
                   Text(
                     '${careModel.CareType}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.caregiverWeight}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.genderPreferences}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.categoriesDetails}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.additionalServices}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.schedule_Shift}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.price} USD',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                 ],
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: width * 0.04)),
             SizedBox(
               width: width * 0.48,
               child: Column(
@@ -109,41 +108,41 @@ class ItemPending extends StatelessWidget {
                   Text(
                     '${careModel.agePreferences}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.certificationsPreferences}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.languagesPreferences}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.careRecipientsCount}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.2)),
                   Text(
                     '${careModel.careRecipientsDetails}',
                     style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff000000)),
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: 16),
                   ),
                   Padding(padding: EdgeInsets.only(top: height * 0.4)),
                   isRequest || isDatiel

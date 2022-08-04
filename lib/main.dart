@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/NavBarProvider.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
+import 'package:flutter_application_10000/providers/bookNowProvider.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
+import 'package:flutter_application_10000/screens/BookNow/bookNow.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/Services/childCare.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/careCategory.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/gender.dart';
@@ -20,9 +22,32 @@ import 'providers/PostMyNeedsProvider/childCareProvider.dart';
 import 'providers/PostMyNeedsProvider/elderlyCareProvider.dart';
 import 'providers/PostMyNeedsProvider/pcrServicesProvider.dart';
 import 'providers/PostMyNeedsProvider/scheduleProvider.dart';
+import 'providers/bookDashboardProvide.dart';
 import 'providers/careCategoryProvider.dart';
+import 'providers/careCategoryProviderBokNow.dart';
+import 'providers/itemFavoriteCareProvider.dart';
 import 'providers/myBookingProvider.dart';
+import 'screens/BookNow/widgets/AfterBookingRequest/afterBookingRequest.dart';
+import 'screens/BookNow/widgets/CareRecipients/careRecipients2BookNow.dart';
+import 'screens/BookNow/widgets/CareRecipients/careRecipients3BookNow.dart';
+import 'screens/BookNow/widgets/CareRecipients/careRecipientsBookNow.dart';
+import 'screens/BookNow/widgets/ScheduleBookNow.dart';
+import 'screens/BookNow/widgets/Services/additionalServicesBookNow.dart';
+import 'screens/BookNow/widgets/Services/advancedNursingBookNow.dart';
+import 'screens/BookNow/widgets/Services/childCareBookNow.dart';
+import 'screens/BookNow/widgets/Services/elderlyCareBookNow.dart';
+import 'screens/BookNow/widgets/Services/pcrServicesBookNow.dart';
+import 'screens/BookNow/widgets/acceptBookingBookNow.dart';
+import 'screens/BookNow/widgets/afterPostingRequestBookNow.dart';
+import 'screens/BookNow/widgets/careCategoryBookNow.dart';
+import 'screens/BookNow/widgets/WhereYouNeedBookNow.dart';
+import 'screens/BookNow/widgets/caregaverClientRequestBookNow.dart';
+import 'screens/BookNow/widgets/caregiversInrAeaBookNow.dart';
+import 'screens/BookNow/widgets/completeYourRequestBookNow.dart';
+import 'screens/BookNow/widgets/myCareRequestSummaryBookNow.dart';
+import 'screens/BookNow/widgets/pricingCalculatorBookNow.dart';
 import 'screens/BookingsDashboard/bookingsDashboard.dart';
+import 'screens/CaregiverProfile/caregiverProfile.dart';
 import 'screens/ClientNotifications/clientNotifications.dart';
 import 'screens/FavoriteCaregivers/favoriteCaregivers.dart';
 import 'screens/ForgetPassword/forgetPassword.dart';
@@ -90,6 +115,9 @@ class _MyApp extends StatelessWidget {
           create: (_) => CareCategoryProvider(),
         ),
         ChangeNotifierProvider(
+          create: (_) => CareCategoryBookNowProvider(),
+        ),
+        ChangeNotifierProvider(
           create: (_) => AdditionalServicesProvider(),
         ),
         ChangeNotifierProvider(
@@ -112,6 +140,15 @@ class _MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => BrowseCaregiversProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => bookNowProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BookDashboardProvide(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ItemFavoriteCareProvider(),
         ),
       ], child: MyApp()),
     );
@@ -147,7 +184,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : BrowseCaregivers(),
+        home: isLoged ? BookingsDashboard() : AuthScreen(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
@@ -184,6 +221,40 @@ class _MyAppState extends State<MyApp> {
           AcceptBooking.routeName: (context) => AcceptBooking(),
           CompleteYourRequest.routeName: (context) => CompleteYourRequest(),
           BrowseCaregivers.routeName: (context) => BrowseCaregivers(),
+          CaregiverProfile.routeName: (context) => CaregiverProfile(),
+          BookNow.routeName: (context) => BookNow(),
+          CareCategoryBookNow.routeName: (context) => CareCategoryBookNow(),
+          ScheduleBookNow.routeName: (context) => ScheduleBookNow(),
+          WhereYouNeedBookNow.routeName: (context) => WhereYouNeedBookNow(),
+          ChildCareBookNow.routeName: (context) => ChildCareBookNow(),
+          ElderlyCareBookNow.routeName: (context) => ElderlyCareBookNow(),
+          AdvancedNursingBookNow.routeName: (context) =>
+              AdvancedNursingBookNow(),
+          PcrServicesBookNow.routeName: (context) => PcrServicesBookNow(),
+          AdditionalServicesBookNow.routeName: (context) =>
+              AdditionalServicesBookNow(),
+          PricingCalculatorBookNow.routeName: (context) =>
+              PricingCalculatorBookNow(),
+          CaregiversInrAeaBookNow.routeName: (context) =>
+              CaregiversInrAeaBookNow(), //////////////////////llll
+          CareRecipientsBookNow.routeName: (context) => CareRecipientsBookNow(),
+          CareRecipients2BookNow.routeName: (context) =>
+              CareRecipients2BookNow(),
+          CareRecipients3BookNow.routeName: (context) =>
+              CareRecipients3BookNow(),
+          MyCareRequestSummaryBookNow.routeName: (context) =>
+              MyCareRequestSummaryBookNow(),
+
+          CaregaverClientRequestBookNow.routeName: (context) =>
+              CaregaverClientRequestBookNow(),
+
+          AfterPostingRequestBookNow.routeName: (context) =>
+              AfterPostingRequestBookNow(),
+          AfterBookingRequestBookNow.routeName: (context) =>
+              AfterBookingRequestBookNow(),
+          AcceptBookingBookNow.routeName: (context) => AcceptBookingBookNow(),
+          CompleteYourRequestBookNow.routeName: (context) =>
+              CompleteYourRequestBookNow(),
         });
   }
 }

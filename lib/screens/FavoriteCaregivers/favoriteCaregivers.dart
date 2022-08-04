@@ -19,6 +19,7 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
           height: deviceSize.height,
           width: deviceSize.width,
           padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
+          margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: ListView.builder(
             itemCount: 6,
             itemBuilder: (context, index) {

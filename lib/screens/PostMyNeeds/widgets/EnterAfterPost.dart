@@ -6,6 +6,8 @@ import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dar
 import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'afterPostingRequest.dart';
+
 class EnterAfterPost extends StatefulWidget {
   static const routeName = '/enterAfterPost-screen';
   @override
@@ -48,10 +50,14 @@ class _EnterAfterPostState extends State<EnterAfterPost> {
                     onSurface: Colors.grey,
                   ),
                   onPressed: () {
+                    /*
                     print('Pressed');
                     auth.changeFromPostMyNeeds('true');
 
                     Navigator.of(context).pushNamed(AuthScreen.routeName);
+                    */
+                    Navigator.of(context)
+                        .pushNamed(AfterPostingRequest.routeName);
                   },
                 ),
               ),
