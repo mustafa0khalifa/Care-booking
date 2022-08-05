@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class MyBookingProvider extends ChangeNotifier {
-  static String stateMyBooking = 'isPending';
+  static String stateMyBooking = 'Pending Booking';
   static double rating1 = 2;
   static double rating2 = 0;
   static double rating3 = 1;

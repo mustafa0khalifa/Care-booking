@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../models/testModel.dart';
 import '../../../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
+import 'filter.dart';
 
 class MainBrowseCaregaver extends StatefulWidget {
   static const routeName = '/mainBrowseCaregaver-screen';
@@ -34,7 +35,7 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
     return Container(
         height: deviceSize.height,
         width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+        padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
         child: Container(
           margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: ListView(
@@ -43,6 +44,25 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: SizedBox(
+                      width: deviceSize.width * 0.4,
+                      child: TextButton(
+                        child: Text('Filter setting'),
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color.fromARGB(255, 71, 201, 188),
+                          onSurface: Colors.grey,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(
+                            Filter.routeName,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     width: deviceSize.width * 0.8,
                     child: Text(

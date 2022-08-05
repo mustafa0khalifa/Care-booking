@@ -14,9 +14,21 @@ class MyBookings extends StatefulWidget {
 class _MyBookingsdState extends State<MyBookings> {
   @override
   Widget build(BuildContext context) {
-    bool _isState = MyBookingProvider.stateMyBooking == 'isPending';
+    bool _isState = MyBookingProvider.stateMyBooking == 'Pending Booking';
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            "${MyBookingProvider.stateMyBooking}",
+            style: TextStyle(
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica-Bold',
+                fontSize: 20),
+          ),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

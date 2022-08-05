@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'providers/PostMyNeedsProvider/BrowseCaregiversProvider.dart';
+import 'providers/PostMyNeedsProvider/CategoriesProvider.dart';
 import 'providers/PostMyNeedsProvider/additionalServicesProvider.dart';
 import 'providers/PostMyNeedsProvider/advancedNursingProvider.dart';
 import 'providers/PostMyNeedsProvider/automaticMatchingOptionProvider.dart';
@@ -56,9 +57,14 @@ import 'screens/MyBookings/widgets/bookingDetails.dart';
 import 'screens/MyBookings/widgets/bookingRate.dart';
 import 'screens/PostMyNeeds/postMyNeeds.dart';
 import 'screens/PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
+import 'screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/filter.dart';
+import 'screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/mainBrowseCaregaver.dart';
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients.dart';
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients2.dart';
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients3.dart';
+import 'screens/PostMyNeeds/widgets/Categories/widgets/buildCaterorie.dart';
+import 'screens/PostMyNeeds/widgets/Categories/widgets/creatCaterorie.dart';
+import 'screens/PostMyNeeds/widgets/Categories/widgets/reviewCaterorie.dart';
 import 'screens/PostMyNeeds/widgets/EnterAfterPost.dart';
 import 'screens/PostMyNeeds/widgets/Services/additionalServices.dart';
 import 'screens/PostMyNeeds/widgets/Services/advancedNursing.dart';
@@ -72,6 +78,7 @@ import 'screens/PostMyNeeds/widgets/budget.dart';
 import 'screens/PostMyNeeds/widgets/caregaverClientRequest.dart';
 import 'screens/PostMyNeeds/widgets/caregiverPreferences.dart';
 import 'screens/PostMyNeeds/widgets/caregiversInrAea.dart';
+import 'screens/PostMyNeeds/widgets/Categories/categories.dart';
 import 'screens/PostMyNeeds/widgets/completeYourRequest.dart';
 import 'screens/PostMyNeeds/widgets/myCareRequestSummary.dart';
 import 'screens/PostMyNeeds/widgets/schedule.dart';
@@ -150,6 +157,9 @@ class _MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ItemFavoriteCareProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => CategoriesProvider(),
+        ),
       ], child: MyApp()),
     );
   }
@@ -184,7 +194,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : AuthScreen(),
+        home: isLoged ? BookingsDashboard() : BrowseCaregivers(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
@@ -195,6 +205,10 @@ class _MyAppState extends State<MyApp> {
           FavoriteCaregivers.routeName: (context) => FavoriteCaregivers(),
           ClientNotifications.routeName: (context) => ClientNotifications(),
           PostMyNeeds.routeName: (context) => PostMyNeeds(),
+          Categories.routeName: (context) => Categories(),
+          BuildCaterorie.routeName: (context) => BuildCaterorie(),
+          ReviewCaterorie.routeName: (context) => ReviewCaterorie(),
+          CreatCaterorie.routeName: (context) => CreatCaterorie(),
           Location.routeName: (context) => Location(),
           CareCategory.routeName: (context) => CareCategory(),
           Gender.routeName: (context) => Gender(),
@@ -221,6 +235,8 @@ class _MyAppState extends State<MyApp> {
           AcceptBooking.routeName: (context) => AcceptBooking(),
           CompleteYourRequest.routeName: (context) => CompleteYourRequest(),
           BrowseCaregivers.routeName: (context) => BrowseCaregivers(),
+          Filter.routeName: (context) => Filter(),
+          MainBrowseCaregaver.routeName: (context) => MainBrowseCaregaver(),
           CaregiverProfile.routeName: (context) => CaregiverProfile(),
           BookNow.routeName: (context) => BookNow(),
           CareCategoryBookNow.routeName: (context) => CareCategoryBookNow(),

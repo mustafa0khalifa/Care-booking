@@ -90,7 +90,7 @@ class TestModel {
       ]);
   static PendingBookingsModel testPending = new PendingBookingsModel(
       CareType: "Child Care",
-      agePreferences: "I prefer caregiver between 20 and 30",
+      agePreferences: "between 20 and 30 years old",
       schedule_Shift: "Every Monday from 5:00 AM to 8:00 AM",
       careRecipientsCount: "2 Care ",
       careRecipientsDetails: "Recipient 5 kg, Male, 3 months",
@@ -98,8 +98,8 @@ class TestModel {
       additionalServices: "   ",
       caregiverWeight: "50 KM  - 20 minutes",
       certificationsPreferences: "Certifications Preferences: None",
-      genderPreferences: "Gender Preferences: Prefer Male",
-      languagesPreferences: "Languages Preferences: None",
+      genderPreferences: "Male",
+      languagesPreferences: "Arabic",
       price: 25);
 
   static FavoriteCaregiversModel testFavoriteCaregivers =

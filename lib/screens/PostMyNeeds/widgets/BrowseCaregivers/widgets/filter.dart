@@ -3,8 +3,11 @@ import 'package:flutter_application_10000/providers/PostMyNeedsProvider/BrowseCa
 import 'package:provider/provider.dart';
 
 import '../browseCaregivers.dart';
+import 'mainBrowseCaregaver.dart';
 
 class Filter extends StatefulWidget {
+  static const routeName = '/filter-screen';
+
   @override
   _FilterState createState() => _FilterState();
 }
@@ -23,9 +26,20 @@ class _FilterState extends State<Filter> {
   String dropdownvalue2 = 'USD';
   var items2 = ['USD', 'LBP'];
 
+  String dropdownAge1 = '35';
+  var itemsAge1 = ['35', '38', '40'];
+  String dropdownMorThan = '3';
+  var itemsMorThan = ['3', '5', '6'];
+  String dropdownIn = 'Child Care';
+  var itemsIn = ['Child Care'];
+  String dropdownAge2 = '45';
+  var itemsAge2 = ['45', '48', '50'];
+
   String dropdownvalue3 = 'Nursing';
   var items3 = ['Nursing'];
 
+  String dropdownLanguage = 'Arabic';
+  var itemsLanguage = ['Arabic', 'English'];
   String dropdownvalue4 = 'Chaild Care';
   var items4 = ['Chaild Care'];
 
@@ -35,115 +49,81 @@ class _FilterState extends State<Filter> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    return Container(
-        height: deviceSize.height,
-        width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
-        child: Container(
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            "Filter Setting",
+            style: TextStyle(
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica-Bold',
+                fontSize: 20),
+          ),
+        ),
+      ),
+      body: Container(
+          height: deviceSize.height,
+          width: deviceSize.width,
+          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+          margin: EdgeInsets.all(0.03 * deviceSize.height),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.6,
-                      child: Text(
-                        maxLines: 2,
-                        "My Location:  Location Name/ Position",
-                        style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 0, 0, 0)),
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: null,
-                        icon: Icon(Icons.location_city_outlined))
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
-                ),
                 Card(
                   elevation: 5.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       side: BorderSide(color: Colors.black87)),
                   child: Container(
-                    margin: EdgeInsets.all(deviceSize.height * 0.01),
+                    padding: EdgeInsets.all(deviceSize.height * 0.01),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Filter by",
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(top: 0.005 * deviceSize.height),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Use this option to exclude caregivers who are booked on a certain date or show caregivers whose bookings end prior to this date, in case they are currently booked.",
-                              style: TextStyle(
-                                  fontSize: 11.0,
-                                  fontWeight: FontWeight.w300,
-                                  color: Color.fromARGB(255, 22, 116, 14)),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(top: 0.03 * deviceSize.height),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Gender",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("All"),
-                                      leading: Radio(
-                                          activeColor: Colors.greenAccent,
-                                          value: 'all',
-                                          groupValue:
-                                              BrowseCaregiversProvider.groubVal,
-                                          onChanged: (value) {
-                                            foo.changeGroubVal(value as String);
-                                          })),
+                          Row(
+                            children: [
+                              SizedBox(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color(
+                                        0xff28306e), //elevated btton background color
+                                  ),
+                                  onPressed: () => {print('ok')},
+                                  child: Text('Gender',
+                                      style: TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: 16)),
                                 ),
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Male"),
-                                      leading: Radio(
+                              ),
+                              Row(
+                                children: [
+                                  Consumer<BrowseCaregiversProvider>(
+                                    builder: (_, foo, __) => Radio(
+                                        activeColor: Colors.greenAccent,
+                                        value: 'all',
+                                        groupValue:
+                                            BrowseCaregiversProvider.groubVal,
+                                        onChanged: (value) {
+                                          foo.changeGroubVal(value as String);
+                                        }),
+                                  ),
+                                  Text('All',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: 14)),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Consumer<BrowseCaregiversProvider>(
+                                      builder: (_, foo, __) => Radio(
                                           activeColor: Colors.greenAccent,
                                           value: 'male',
                                           groupValue:
@@ -151,11 +131,17 @@ class _FilterState extends State<Filter> {
                                           onChanged: (value) {
                                             foo.changeGroubVal(value as String);
                                           })),
-                                ),
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Female"),
-                                      leading: Radio(
+                                  Text('Male',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: 14)),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Consumer<BrowseCaregiversProvider>(
+                                      builder: (_, foo, __) => Radio(
                                           activeColor: Colors.greenAccent,
                                           value: 'female',
                                           groupValue:
@@ -163,9 +149,14 @@ class _FilterState extends State<Filter> {
                                           onChanged: (value) {
                                             foo.changeGroubVal(value as String);
                                           })),
-                                )
-                              ],
-                            ),
+                                  Text('Female',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: 14)),
+                                ],
+                              )
+                            ],
                           ),
                           Padding(
                             padding:
@@ -176,20 +167,8 @@ class _FilterState extends State<Filter> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Distance",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
                                 child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
+                                  builder: (_, foo, __) => Checkbox(
                                     activeColor: Colors.green,
                                     value: BrowseCaregiversProvider.distance,
                                     onChanged: (val) {
@@ -198,30 +177,34 @@ class _FilterState extends State<Filter> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                width: deviceSize.width * 0.3,
+                                child: Text("Distance",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 18)),
+                              ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: SizedBox(
-                              width: deviceSize.width * 0.8,
-                              child: Consumer<BrowseCaregiversProvider>(
-                                builder: (_, foo, __) => Slider(
-                                    value: BrowseCaregiversProvider.valueSlider,
-                                    min: 10.0,
-                                    max: 100.0,
-                                    divisions: 10,
-                                    activeColor: Colors.green,
-                                    inactiveColor: Colors.orange,
-                                    label:
-                                        '${BrowseCaregiversProvider.valueSlider}',
-                                    onChanged: (double newValue) {
-                                      foo.changeValueSlider(newValue);
-                                    },
-                                    semanticFormatterCallback:
-                                        (double newValue) {
-                                      return '${newValue.round()} dollars';
-                                    }),
-                              ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Consumer<BrowseCaregiversProvider>(
+                              builder: (_, foo, __) => Slider(
+                                  value: BrowseCaregiversProvider.valueSlider,
+                                  min: 10.0,
+                                  max: 100.0,
+                                  divisions: 10,
+                                  activeColor: Color(0xff28306e),
+                                  inactiveColor: Color(0xffcbcbcb),
+                                  label:
+                                      '${BrowseCaregiversProvider.valueSlider}',
+                                  onChanged: (double newValue) {
+                                    foo.changeValueSlider(newValue);
+                                  },
+                                  semanticFormatterCallback: (double newValue) {
+                                    return '${newValue.round()} dollars';
+                                  }),
                             ),
                           ),
                           SizedBox(
@@ -229,12 +212,11 @@ class _FilterState extends State<Filter> {
                             child: Center(
                               child: Consumer<BrowseCaregiversProvider>(
                                 builder: (_, foo, __) => Text(
-                                  maxLines: 2,
-                                  "${BrowseCaregiversProvider.valueSlider}",
+                                  "${BrowseCaregiversProvider.valueSlider.toInt()}  areoun me",
                                   style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: 14),
                                 ),
                               ),
                             ),
@@ -243,74 +225,156 @@ class _FilterState extends State<Filter> {
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
                           ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Care Required *",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Child Care"),
-                                      leading: Radio(
-                                          activeColor: Colors.greenAccent,
-                                          value: 'child',
-                                          groupValue:
-                                              BrowseCaregiversProvider.groubVal,
-                                          onChanged: (value) {
-                                            foo.changeGroubVal(value as String);
-                                          })),
-                                ),
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Elderly Care"),
-                                      leading: Radio(
-                                          activeColor: Colors.greenAccent,
-                                          value: 'elderly',
-                                          groupValue:
-                                              BrowseCaregiversProvider.groubVal,
-                                          onChanged: (value) {
-                                            foo.changeGroubVal(value as String);
-                                          })),
-                                ),
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Advanced Nursing Care"),
-                                      leading: Radio(
-                                          activeColor: Colors.greenAccent,
-                                          value: 'advanced',
-                                          groupValue:
-                                              BrowseCaregiversProvider.groubVal,
-                                          onChanged: (value) {
-                                            foo.changeGroubVal(value as String);
-                                          })),
-                                ),
-                                Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => ListTile(
-                                      title: Text("Lab / PCR Services"),
-                                      leading: Radio(
-                                          activeColor: Colors.greenAccent,
-                                          value: 'lab',
-                                          groupValue:
-                                              BrowseCaregiversProvider.groubVal,
-                                          onChanged: (value) {
-                                            foo.changeGroubVal(value as String);
-                                          })),
-                                )
-                              ],
-                            ),
-                          ),
+                          Card(
+                              elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  side: BorderSide(color: Colors.black87)),
+                              child: Container(
+                                padding:
+                                    EdgeInsets.all(deviceSize.height * 0.01),
+                                child: Column(children: [
+                                  Center(
+                                    child: SizedBox(
+                                      width: deviceSize.width * 0.3,
+                                      child: Text("Care Required",
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica',
+                                              fontSize: 18)),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 0.03 * deviceSize.height),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        width: deviceSize.width * 0.4,
+                                        child: Row(
+                                          children: [
+                                            Consumer<BrowseCaregiversProvider>(
+                                                builder: (_, foo, __) => Radio(
+                                                    activeColor:
+                                                        Colors.greenAccent,
+                                                    value: 'child',
+                                                    groupValue:
+                                                        BrowseCaregiversProvider
+                                                            .groubVal,
+                                                    onChanged: (value) {
+                                                      foo.changeGroubVal(
+                                                          value as String);
+                                                    })),
+                                            SizedBox(
+                                              width: deviceSize.width * 0.2,
+                                              child: Text("Child Care",
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: deviceSize.width * 0.35,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Consumer<BrowseCaregiversProvider>(
+                                                builder: (_, foo, __) => Radio(
+                                                    activeColor:
+                                                        Colors.greenAccent,
+                                                    value: 'elderly',
+                                                    groupValue:
+                                                        BrowseCaregiversProvider
+                                                            .groubVal,
+                                                    onChanged: (value) {
+                                                      foo.changeGroubVal(
+                                                          value as String);
+                                                    })),
+                                            SizedBox(
+                                              width: deviceSize.width * 0.2,
+                                              child: Text("Elderly Care",
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        width: deviceSize.width * 0.4,
+                                        child: Row(
+                                          children: [
+                                            Consumer<BrowseCaregiversProvider>(
+                                                builder: (_, foo, __) => Radio(
+                                                    activeColor:
+                                                        Colors.greenAccent,
+                                                    value: 'advanced',
+                                                    groupValue:
+                                                        BrowseCaregiversProvider
+                                                            .groubVal,
+                                                    onChanged: (value) {
+                                                      foo.changeGroubVal(
+                                                          value as String);
+                                                    })),
+                                            SizedBox(
+                                              width: deviceSize.width * 0.2,
+                                              child: Text(
+                                                  "Advanced Nursing Care",
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: deviceSize.width * 0.35,
+                                        child: Row(
+                                          children: [
+                                            Consumer<BrowseCaregiversProvider>(
+                                                builder: (_, foo, __) => Radio(
+                                                    activeColor:
+                                                        Colors.greenAccent,
+                                                    value: 'lab',
+                                                    groupValue:
+                                                        BrowseCaregiversProvider
+                                                            .groubVal,
+                                                    onChanged: (value) {
+                                                      foo.changeGroubVal(
+                                                          value as String);
+                                                    })),
+                                            SizedBox(
+                                              width: deviceSize.width * 0.2,
+                                              child: Text("Lab / PCR Services",
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ]),
+                              )),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
@@ -320,20 +384,8 @@ class _FilterState extends State<Filter> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Payment Rate",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
                                 child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
+                                  builder: (_, foo, __) => Checkbox(
                                     activeColor: Colors.green,
                                     value: BrowseCaregiversProvider.paymentRate,
                                     onChanged: (val) {
@@ -342,128 +394,111 @@ class _FilterState extends State<Filter> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                width: deviceSize.width * 0.3,
+                                child: Text("Payment Rate",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 18)),
+                              ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: SizedBox(
-                                width: deviceSize.width * 0.8,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
                                   children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        SizedBox(
-                                          width: deviceSize.width * 0.35,
-                                          child: Text(
-                                            'Hours / Day',
-                                            style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w400,
-                                                color: Color(0xff000000)),
-                                          ),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownvalue,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items: items.map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownvalue = val as String;
-                                              });
-                                            }),
-                                      ],
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        SizedBox(
-                                          width: deviceSize.width * 0.35,
-                                          child: Text(
-                                            'Currency',
-                                            style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w400,
-                                                color: Color(0xff000000)),
-                                          ),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownvalue2,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items: items2.map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownvalue2 = val as String;
-                                              });
-                                            }),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(
-                                          0.005 * deviceSize.height),
-                                      child: SizedBox(
-                                        width: deviceSize.width * 0.8,
-                                        child:
-                                            Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) => Slider(
-                                              value: BrowseCaregiversProvider
-                                                  .valueSlider2,
-                                              min: 10.0,
-                                              max: 100.0,
-                                              divisions: 10,
-                                              activeColor: Colors.green,
-                                              inactiveColor: Colors.orange,
-                                              label:
-                                                  '${BrowseCaregiversProvider.valueSlider2}',
-                                              onChanged: (double newValue) {
-                                                foo.changeValueSlider2(
-                                                    newValue);
-                                              },
-                                              semanticFormatterCallback:
-                                                  (double newValue) {
-                                                return '${newValue.round()} dollars';
-                                              }),
-                                        ),
-                                      ),
-                                    ),
                                     SizedBox(
-                                      width: deviceSize.width * 0.8,
-                                      child: Center(
-                                        child:
-                                            Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) => Text(
-                                            maxLines: 2,
-                                            "${BrowseCaregiversProvider.valueSlider2}",
-                                            style: TextStyle(
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w400,
-                                                color: Color.fromARGB(
-                                                    255, 0, 0, 0)),
-                                          ),
-                                        ),
-                                      ),
+                                      child: Text('Hours / Day',
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica',
+                                              fontSize: 14)),
                                     ),
+                                    DropdownButton(
+                                        value: dropdownvalue,
+                                        icon: Icon(Icons.keyboard_arrow_down),
+                                        items: items.map((String items) {
+                                          return DropdownMenuItem(
+                                              value: items,
+                                              child: Text(items,
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)));
+                                        }).toList(),
+                                        onChanged: (val) {
+                                          setState(() {
+                                            dropdownvalue = val as String;
+                                          });
+                                        }),
                                   ],
-                                )),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      child: Text('Currency',
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica',
+                                              fontSize: 14)),
+                                    ),
+                                    DropdownButton(
+                                        value: dropdownvalue2,
+                                        icon: Icon(Icons.keyboard_arrow_down),
+                                        items: items2.map((String items) {
+                                          return DropdownMenuItem(
+                                              value: items,
+                                              child: Text(items,
+                                                  style: TextStyle(
+                                                      color: Color(0xff28306e),
+                                                      fontFamily: 'Helvetica',
+                                                      fontSize: 14)));
+                                        }).toList(),
+                                        onChanged: (val) {
+                                          setState(() {
+                                            dropdownvalue2 = val as String;
+                                          });
+                                        }),
+                                  ],
+                                )
+                              ]),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Consumer<BrowseCaregiversProvider>(
+                              builder: (_, foo, __) => Slider(
+                                  value: BrowseCaregiversProvider.valueSlider2,
+                                  min: 10.0,
+                                  max: 100.0,
+                                  divisions: 10,
+                                  activeColor: Color(0xff28306e),
+                                  inactiveColor: Color(0xffcbcbcb),
+                                  label:
+                                      '${BrowseCaregiversProvider.valueSlider2}',
+                                  onChanged: (double newValue) {
+                                    foo.changeValueSlider2(newValue);
+                                  },
+                                  semanticFormatterCallback: (double newValue) {
+                                    return '${newValue.round()} dollars';
+                                  }),
+                            ),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Center(
+                              child: Consumer<BrowseCaregiversProvider>(
+                                builder: (_, foo, __) => Text(
+                                  "${BrowseCaregiversProvider.valueSlider2.toInt()}  \$",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ),
                           ),
                           Padding(
                             padding:
@@ -474,20 +509,8 @@ class _FilterState extends State<Filter> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  'Age',
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff000000)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.18,
-                                height: deviceSize.height * 0.07,
                                 child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
+                                  builder: (_, foo, __) => Checkbox(
                                     activeColor: Colors.green,
                                     value: BrowseCaregiversProvider.age,
                                     onChanged: (val) {
@@ -496,103 +519,95 @@ class _FilterState extends State<Filter> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                width: deviceSize.width * 0.3,
+                                child: Text("Age",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 18)),
+                              ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      'Between',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      '${BrowseCaregiversProvider.numAge1}',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                    child: Column(
+                          Card(
+                            elevation: 5.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(color: Colors.black87)),
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.height * 0.01),
+                              child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfAge1(false),
-                                        },
-                                        icon: Icon(Icons.arrow_upward_rounded),
-                                      ),
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          child: Text('Between',
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 14)),
+                                        ),
+                                        DropdownButton(
+                                            value: dropdownAge1,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items:
+                                                itemsAge1.map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize: 14)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                dropdownvalue = val as String;
+                                              });
+                                            }),
+                                      ],
                                     ),
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfAge1(true),
-                                        },
-                                        icon:
-                                            Icon(Icons.arrow_downward_rounded),
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      'and',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      '${BrowseCaregiversProvider.numAge2}',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                    child: Column(
-                                  children: [
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfAge2(false),
-                                        },
-                                        icon: Icon(Icons.arrow_upward_rounded),
-                                      ),
-                                    ),
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfAge2(true),
-                                        },
-                                        icon:
-                                            Icon(Icons.arrow_downward_rounded),
-                                      ),
-                                    ),
-                                  ],
-                                ))
-                              ],
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          child: Text('And',
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 14)),
+                                        ),
+                                        DropdownButton(
+                                            value: dropdownAge2,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items:
+                                                itemsAge2.map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize: 14)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                dropdownvalue2 = val as String;
+                                              });
+                                            }),
+                                      ],
+                                    )
+                                  ]),
                             ),
                           ),
                           Padding(
@@ -602,13 +617,16 @@ class _FilterState extends State<Filter> {
                           SizedBox(
                             width: deviceSize.width * 0.8,
                             child: Text(
-                              maxLines: 2,
-                              "Services Required",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
+                                maxLines: 2,
+                                "Services Required",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
                           ),
                           Card(
                             elevation: 5.0,
@@ -616,24 +634,21 @@ class _FilterState extends State<Filter> {
                                 borderRadius: BorderRadius.circular(15.0),
                                 side: BorderSide(color: Colors.black87)),
                             child: Container(
-                              margin: EdgeInsets.all(deviceSize.width * 0.01),
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: deviceSize.width * 0.1913,
                                         child:
                                             Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
+                                          builder: (_, foo, __) => Checkbox(
                                             activeColor: Colors.green,
                                             value: BrowseCaregiversProvider
                                                 .newpornCheck,
@@ -644,16 +659,11 @@ class _FilterState extends State<Filter> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: Text(
-                                          maxLines: 2,
-                                          "Newborn (0 - 3 month)",
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0)),
-                                        ),
+                                        child: Text("Newborn (0 - 3 month)",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
                                       ),
                                     ],
                                   ),
@@ -668,17 +678,15 @@ class _FilterState extends State<Filter> {
                                         children: [
                                           Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width:
-                                                    deviceSize.width * 0.1913,
                                                 child: Consumer<
                                                     BrowseCaregiversProvider>(
                                                   builder: (_, foo, __) =>
-                                                      CheckboxListTile(
+                                                      Checkbox(
                                                     activeColor: Colors.green,
                                                     value:
                                                         BrowseCaregiversProvider
@@ -690,33 +698,26 @@ class _FilterState extends State<Filter> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: deviceSize.width * 0.3,
-                                                child: Text(
-                                                  maxLines: 2,
-                                                  "Basic Care",
-                                                  style: TextStyle(
-                                                      fontSize: 14.0,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Color.fromARGB(
-                                                          255, 0, 0, 0)),
-                                                ),
+                                                child: Text("Basic Care",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xff28306e),
+                                                        fontFamily: 'Helvetica',
+                                                        fontSize: 14)),
                                               ),
                                             ],
                                           ),
                                           Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width:
-                                                    deviceSize.width * 0.1913,
                                                 child: Consumer<
                                                     BrowseCaregiversProvider>(
                                                   builder: (_, foo, __) =>
-                                                      CheckboxListTile(
+                                                      Checkbox(
                                                     activeColor: Colors.green,
                                                     value:
                                                         BrowseCaregiversProvider
@@ -728,34 +729,26 @@ class _FilterState extends State<Filter> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: deviceSize.width * 0.3,
-                                                child: Text(
-                                                  maxLines: 2,
-                                                  "Service 2",
-                                                  style: TextStyle(
-                                                      fontSize: 14.0,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Color.fromARGB(
-                                                          255, 0, 0, 0)),
-                                                ),
+                                                child: Text("Service 2",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xff28306e),
+                                                        fontFamily: 'Helvetica',
+                                                        fontSize: 14)),
                                               ),
                                             ],
                                           ),
                                         ],
                                       )),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: deviceSize.width * 0.1913,
                                         child:
                                             Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
+                                          builder: (_, foo, __) => Checkbox(
                                             activeColor: Colors.green,
                                             value: BrowseCaregiversProvider
                                                 .infantCheck,
@@ -766,31 +759,23 @@ class _FilterState extends State<Filter> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: Text(
-                                          maxLines: 2,
-                                          "Infant (3 - 12 months)",
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0)),
-                                        ),
+                                        child: Text("Infant (3 - 12 months)",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
                                       ),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: deviceSize.width * 0.1913,
                                         child:
                                             Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
+                                          builder: (_, foo, __) => Checkbox(
                                             activeColor: Colors.green,
                                             value: BrowseCaregiversProvider
                                                 .toddlerCheck,
@@ -801,31 +786,23 @@ class _FilterState extends State<Filter> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: Text(
-                                          maxLines: 2,
-                                          "Toddler (1 - 3 years)",
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0)),
-                                        ),
+                                        child: Text("Toddler (1 - 3 years)",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
                                       ),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: deviceSize.width * 0.1913,
                                         child:
                                             Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
+                                          builder: (_, foo, __) => Checkbox(
                                             activeColor: Colors.green,
                                             value: BrowseCaregiversProvider
                                                 .preschoolerCheck,
@@ -836,31 +813,23 @@ class _FilterState extends State<Filter> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: Text(
-                                          maxLines: 2,
-                                          "Preschooler (3 - 5 years)",
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0)),
-                                        ),
+                                        child: Text("Preschooler (3 - 5 years)",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
                                       ),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: deviceSize.width * 0.1913,
                                         child:
                                             Consumer<BrowseCaregiversProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
+                                          builder: (_, foo, __) => Checkbox(
                                             activeColor: Colors.green,
                                             value: BrowseCaregiversProvider
                                                 .primaryschoolerCheck,
@@ -871,16 +840,12 @@ class _FilterState extends State<Filter> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: deviceSize.width * 0.3,
                                         child: Text(
-                                          maxLines: 2,
-                                          "Primary Schooler (5 - 12 years)",
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0)),
-                                        ),
+                                            "Primary Schooler (5 - 12 years)",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
                                       ),
                                     ],
                                   ),
@@ -895,1320 +860,797 @@ class _FilterState extends State<Filter> {
                           SizedBox(
                             width: deviceSize.width * 0.8,
                             child: Text(
-                              maxLines: 2,
-                              "Caregiver Type / Quallifications",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
+                                maxLines: 2,
+                                "Caregiver Type / Quallifications",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(0.005 * deviceSize.height),
-                            child: Container(
-                              margin: EdgeInsets.all(deviceSize.width * 0.01),
-                              child: DropdownButton(
-                                  value: dropdownvalue3,
-                                  icon: Icon(Icons.keyboard_arrow_down),
-                                  items: items3.map((String items) {
-                                    return DropdownMenuItem(
-                                        value: items, child: Text(items));
-                                  }).toList(),
-                                  onChanged: (val) {
-                                    setState(() {
-                                      dropdownvalue3 = val as String;
-                                    });
-                                  }),
-                            ),
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.1913,
-                                child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
-                                    activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider
-                                        .registeredNurseCheck,
-                                    onChanged: (val) {
-                                      foo.changeregisteredNurseCheck();
-                                    },
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Registered nurse",
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
-                                child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
-                                    activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider
-                                        .practicalNurseCheck,
-                                    onChanged: (val) {
-                                      foo.changepracticalNurseCheck();
-                                    },
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Practical nurse",
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(top: 0.03 * deviceSize.height),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Years of Experience",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
-                                child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
-                                    activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider
-                                        .yearsOfExperienceCheck,
-                                    onChanged: (val) {
-                                      foo.changeyearsOfExperienceCheck();
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.height * 0.03),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      'More than',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  child: Consumer<BrowseCaregiversProvider>(
-                                    builder: (_, foo, __) => Text(
-                                      '${BrowseCaregiversProvider.numfExperience}',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                    child: Column(
-                                  children: [
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfExperience(false),
-                                        },
-                                        icon: Icon(Icons.arrow_upward_rounded),
-                                      ),
-                                    ),
-                                    Consumer<BrowseCaregiversProvider>(
-                                      builder: (_, foo, __) => IconButton(
-                                        onPressed: () => {
-                                          foo.changeNumberOfExperience(true),
-                                        },
-                                        icon:
-                                            Icon(Icons.arrow_downward_rounded),
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                                DropdownButton(
-                                    value: dropdownvalue4,
-                                    icon: Icon(Icons.keyboard_arrow_down),
-                                    items: items4.map((String items) {
-                                      return DropdownMenuItem(
-                                          value: items, child: Text(items));
-                                    }).toList(),
-                                    onChanged: (val) {
-                                      setState(() {
-                                        dropdownvalue4 = val as String;
-                                      });
-                                    }),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(top: 0.03 * deviceSize.height),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Languages Spoken",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .arabicCheck,
-                                          onChanged: (val) {
-                                            foo.changearabicCheck();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Arabic",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .englishCheck,
-                                          onChanged: (val) {
-                                            foo.changeenglishCheck();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "English",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .frenchCheck,
-                                          onChanged: (val) {
-                                            foo.changefrenchCheck();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "French",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 0.02 * deviceSize.height),
+                                width: deviceSize.width * 0.9,
+                                child: Center(
                                   child: DropdownButton(
-                                      value: dropdownvalue5,
+                                      value: dropdownvalue3,
                                       icon: Icon(Icons.keyboard_arrow_down),
-                                      items: items5.map((String items) {
+                                      items: items3.map((String items) {
                                         return DropdownMenuItem(
-                                            value: items, child: Text(items));
+                                            value: items,
+                                            child: Text(items,
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: 14)));
                                       }).toList(),
                                       onChanged: (val) {
                                         setState(() {
-                                          dropdownvalue5 = val as String;
+                                          dropdownvalue3 = val as String;
                                         });
                                       }),
                                 ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Additional Services",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
+                              ),
+                              SizedBox(
+                                  width: deviceSize.width * 0.5,
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          child: Consumer<
+                                              BrowseCaregiversProvider>(
+                                            builder: (_, foo, __) => Checkbox(
+                                              activeColor: Colors.green,
+                                              value: BrowseCaregiversProvider
+                                                  .registeredNurseCheck,
+                                              onChanged: (val) {
+                                                foo.changeregisteredNurseCheck();
+                                              },
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Light housekeeping",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.brevet,
-                                          onChanged: (val) {
-                                            foo.changebrevet();
-                                          },
+                                        SizedBox(
+                                          child: Text("Registered nurse",
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 16)),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Cooking for Kids",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .highSchool,
-                                          onChanged: (val) {
-                                            foo.changehighSchool();
-                                          },
+                                  )),
+                              SizedBox(
+                                  width: deviceSize.width * 0.5,
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          child: Consumer<
+                                              BrowseCaregiversProvider>(
+                                            builder: (_, foo, __) => Checkbox(
+                                              activeColor: Colors.green,
+                                              value: BrowseCaregiversProvider
+                                                  .practicalNurseCheck,
+                                              onChanged: (val) {
+                                                foo.changepracticalNurseCheck();
+                                              },
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Cooking for Elderly",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.bachelor,
-                                          onChanged: (val) {
-                                            foo.changebachelor();
-                                          },
+                                        SizedBox(
+                                          child: Text("Practical nurse",
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 16)),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Pick up / Drop off for kids",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.master,
-                                          onChanged: (val) {
-                                            foo.changemaster();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Transportation accompany elderly to go from one place to another",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider.PhD,
-                                          onChanged: (val) {
-                                            foo.changePhD();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Running errands and shopping",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Other Preferences",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
+                                  ))
+                            ],
                           ),
                           Padding(
                             padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Non-smoker",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.brevet,
-                                          onChanged: (val) {
-                                            foo.changebrevet();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Cat friendly",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .highSchool,
-                                          onChanged: (val) {
-                                            foo.changehighSchool();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Dog friendly",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
                           ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Text(
-                              maxLines: 2,
-                              "Additional Preferences",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Additional Preferences",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.brevet,
-                                          onChanged: (val) {
-                                            foo.changebrevet();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "etc",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Active on Platform",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
                                 child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
+                                  builder: (_, foo, __) => Checkbox(
                                     activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider
-                                        .yearsOfExperienceCheck,
+                                    value: BrowseCaregiversProvider.age,
                                     onChanged: (val) {
-                                      foo.changeyearsOfExperienceCheck();
+                                      foo.changeAge();
                                     },
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Today ",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.brevet,
-                                          onChanged: (val) {
-                                            foo.changebrevet();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "since 10 days  ",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .highSchool,
-                                          onChanged: (val) {
-                                            foo.changehighSchool();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "since 4 weeks",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.bachelor,
-                                          onChanged: (val) {
-                                            foo.changebachelor();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "since 6 Months ",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.master,
-                                          onChanged: (val) {
-                                            foo.changemaster();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "since more than 6 Months ",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
                               SizedBox(
-                                width: deviceSize.width * 0.3,
-                                child: Text(
-                                  maxLines: 2,
-                                  "Availability",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 0, 0, 0)),
-                                ),
-                              ),
-                              SizedBox(
-                                width: deviceSize.width * 0.1913,
-                                child: Consumer<BrowseCaregiversProvider>(
-                                  builder: (_, foo, __) => CheckboxListTile(
-                                    activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider
-                                        .yearsOfExperienceCheck,
-                                    onChanged: (val) {
-                                      foo.changeyearsOfExperienceCheck();
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 0.01 * deviceSize.height),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Specify Date",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.2,
-                                      child: TextField(
-                                        style: TextStyle(
-                                            color: Colors.blue.shade900,
-                                            fontSize: 11),
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                borderSide: BorderSide(
-                                                    color: Colors.grey)),
-                                            hintText: ' / / ',
-                                            hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 11)),
-                                      ),
-                                    ),
-                                    Icon(Icons.date_range_outlined)
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 0.005 * deviceSize.height),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.8,
-                                  child: Text(
-                                    maxLines: 5,
-                                    "Use this option to exclude caregivers who are not booked on a certain date or show caregivers whose bookings end prior to this dtae, in case they are currently booked.",
+                                child: Text("Years of Experience",
                                     style: TextStyle(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w300,
-                                        color:
-                                            Color.fromARGB(255, 22, 116, 14)),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 0.01 * deviceSize.height),
-                                ),
-                                Row(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: 18)),
+                              ),
+                            ],
+                          ),
+                          Card(
+                            elevation: 5.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(color: Colors.black87)),
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.height * 0.01),
+                              child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    SizedBox(
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) => Text(
-                                          'From',
-                                          style: TextStyle(
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff000000)),
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          child: Text('More than',
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 14)),
                                         ),
-                                      ),
+                                        DropdownButton(
+                                            value: dropdownMorThan,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items: itemsMorThan
+                                                .map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize: 14)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                dropdownMorThan = val as String;
+                                              });
+                                            }),
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.2,
-                                      child: TextField(
-                                        style: TextStyle(
-                                            color: Colors.blue.shade900,
-                                            fontSize: 11),
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                borderSide: BorderSide(
-                                                    color: Colors.grey)),
-                                            hintText: '',
-                                            hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 11)),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) => Text(
-                                          'To',
-                                          style: TextStyle(
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff000000)),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          child: Text('in',
+                                              style: TextStyle(
+                                                  color: Color(0xff28306e),
+                                                  fontFamily: 'Helvetica',
+                                                  fontSize: 14)),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.2,
-                                      child: TextField(
-                                        style: TextStyle(
-                                            color: Colors.blue.shade900,
-                                            fontSize: 11),
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                borderSide: BorderSide(
-                                                    color: Colors.grey)),
-                                            hintText: '',
-                                            hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 11)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 0.01 * deviceSize.height),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.noDegree,
-                                          onChanged: (val) {
-                                            foo.changenoDegree();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Live-In ",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.brevet,
-                                          onChanged: (val) {
-                                            foo.changebrevet();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Day Shifts",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value: BrowseCaregiversProvider
-                                              .highSchool,
-                                          onChanged: (val) {
-                                            foo.changehighSchool();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Night Shifts",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      width: deviceSize.width * 0.1913,
-                                      child: Consumer<BrowseCaregiversProvider>(
-                                        builder: (_, foo, __) =>
-                                            CheckboxListTile(
-                                          activeColor: Colors.green,
-                                          value:
-                                              BrowseCaregiversProvider.bachelor,
-                                          onChanged: (val) {
-                                            foo.changebachelor();
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Weekends",
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromARGB(255, 0, 0, 0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                        DropdownButton(
+                                            value: dropdownIn,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items: itemsIn.map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize: 14)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                dropdownIn = val as String;
+                                              });
+                                            }),
+                                      ],
+                                    )
+                                  ]),
                             ),
                           ),
                           Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.03)),
+                            padding:
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Text(
+                                maxLines: 2,
+                                "Languages Spoken",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
+                          ),
+                          Center(
+                            child: DropdownButton(
+                                value: dropdownLanguage,
+                                icon: Icon(Icons.keyboard_arrow_down),
+                                items: itemsLanguage.map((String items) {
+                                  return DropdownMenuItem(
+                                      value: items,
+                                      child: Text(items,
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica',
+                                              fontSize: 14)));
+                                }).toList(),
+                                onChanged: (val) {
+                                  setState(() {
+                                    dropdownLanguage = val as String;
+                                  });
+                                }),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Text(
+                                maxLines: 2,
+                                "Education / Degre",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
+                          ),
+                          Card(
+                            elevation: 5.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(color: Colors.black87)),
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .newpornCheck,
+                                            onChanged: (val) {
+                                              foo.changenewpornCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("No Dergre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .infantCheck,
+                                            onChanged: (val) {
+                                              foo.changeinfantCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Brovet Bp. oroquivaion1",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .toddlerCheck,
+                                            onChanged: (val) {
+                                              foo.changetoddlerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text(
+                                            "High School ,Bt or equivaient",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .preschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changepreschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Mastrer\'s degre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .primaryschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changeprimaryschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Phd",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Text(
+                                maxLines: 2,
+                                "Additional Services",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
+                          ),
+                          Card(
+                            elevation: 5.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(color: Colors.black87)),
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .newpornCheck,
+                                            onChanged: (val) {
+                                              foo.changenewpornCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("No Dergre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .infantCheck,
+                                            onChanged: (val) {
+                                              foo.changeinfantCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Brovet Bp. oroquivaion1",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .toddlerCheck,
+                                            onChanged: (val) {
+                                              foo.changetoddlerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text(
+                                            "High School ,Bt or equivaient",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .preschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changepreschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Mastrer\'s degre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .primaryschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changeprimaryschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Phd",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Text(
+                                maxLines: 2,
+                                "Other Preferences",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: 18)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
+                          ),
+                          Card(
+                            elevation: 5.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(color: Colors.black87)),
+                            child: Container(
+                              padding: EdgeInsets.all(deviceSize.width * 0.01),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .newpornCheck,
+                                            onChanged: (val) {
+                                              foo.changenewpornCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("No Dergre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .infantCheck,
+                                            onChanged: (val) {
+                                              foo.changeinfantCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Brovet Bp. oroquivaion1",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .toddlerCheck,
+                                            onChanged: (val) {
+                                              foo.changetoddlerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text(
+                                            "High School ,Bt or equivaient",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .preschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changepreschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Mastrer\'s degre",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        child:
+                                            Consumer<BrowseCaregiversProvider>(
+                                          builder: (_, foo, __) => Checkbox(
+                                            activeColor: Colors.green,
+                                            value: BrowseCaregiversProvider
+                                                .primaryschoolerCheck,
+                                            onChanged: (val) {
+                                              foo.changeprimaryschoolerCheck();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        child: Text("Phd",
+                                            style: TextStyle(
+                                                color: Color(0xff28306e),
+                                                fontFamily: 'Helvetica',
+                                                fontSize: 16)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
                         ],
                       ),
                     ),
                   ),
                 ),
-                Consumer<BrowseCaregiversProvider>(
-                  builder: (_, foo, __) => Container(
-                    margin: EdgeInsets.all(deviceSize.height * 0.05),
-                    alignment: Alignment.bottomRight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors
-                              .greenAccent //elevated btton background color
-                          ),
-                      onPressed: () => {
-                        foo.changeBrowseCaregiversMode(),
+                Padding(
+                  padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: SizedBox(
+                    width: deviceSize.width * 0.4,
+                    child: TextButton(
+                      child: Text('Filter setting'),
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor: Color.fromARGB(255, 71, 201, 188),
+                        onSurface: Colors.grey,
+                      ),
+                      onPressed: () {
                         Navigator.of(context).pushNamed(
                           BrowseCaregivers.routeName,
-                        )
+                        );
                       },
-                      child: Text("Reset"),
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

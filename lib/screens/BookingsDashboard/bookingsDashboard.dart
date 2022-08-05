@@ -130,7 +130,8 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                         ),
                         onLongPress: () => {foo.ClicedPreviousBooking()},
                         onTap: () => {
-                          widget.myBook.changeStateMyBooking('isPrevious'),
+                          widget.myBook
+                              .changeStateMyBooking('Previous Booking'),
                           Navigator.of(context).pushNamed(
                             MyBookings.routeName,
                           )
@@ -196,7 +197,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                         ),
                         onLongPress: () => {foo.ClicedCurrentBooking()},
                         onTap: () => {
-                          widget.myBook.changeStateMyBooking('isCurrent'),
+                          widget.myBook.changeStateMyBooking('Current Booking'),
                           Navigator.of(context).pushNamed(
                             MyBookings.routeName,
                           )
@@ -262,7 +263,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                         ),
                         onLongPress: () => {foo.ClicedPndingBooking()},
                         onTap: () => {
-                          widget.myBook.changeStateMyBooking('isPending'),
+                          widget.myBook.changeStateMyBooking('Pending Booking'),
                           Navigator.of(context).pushNamed(
                             MyBookings.routeName,
                           )

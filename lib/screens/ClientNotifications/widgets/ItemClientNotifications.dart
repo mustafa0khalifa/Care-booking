@@ -29,22 +29,33 @@ class itemClientNotifications extends StatelessWidget {
             '${this.subject}',
             style: TextStyle(
                 color: Color(0xff28306e),
-                fontFamily: 'Helvetica',
+                fontFamily: 'Helvetica_Bold',
+                fontWeight: FontWeight.bold,
                 fontSize: 20),
           ),
-          subtitle: Text(
-            '${this.content}',
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica',
-                fontSize: 16),
+          contentPadding: EdgeInsets.all(5),
+          subtitle: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              '${this.content}',
+              style: TextStyle(
+                  color: Color(0xff28306e),
+                  fontFamily: 'Helvetica',
+                  fontSize: 16),
+            ),
           ),
-          trailing: Text(
-            '${this.date}',
-            style: TextStyle(
+          trailing: Container(
+            decoration: BoxDecoration(
                 color: Color(0xff28306e),
-                fontFamily: 'Helvetica',
-                fontSize: 16),
+                borderRadius: BorderRadius.all(Radius.circular(10))
+                //more than 50% of width makes circle
+                ),
+            padding: EdgeInsets.all(0.01 * height),
+            child: Text(
+              '${this.date}',
+              style: TextStyle(
+                  color: Colors.white, fontFamily: 'Helvetica', fontSize: 16),
+            ),
           ),
         ));
   }

@@ -15,10 +15,22 @@ class _ClientNotificationsState extends State<ClientNotifications> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            "Notification",
+            style: TextStyle(
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica-Bold',
+                fontSize: 20),
+          ),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.01 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: ListView.builder(
             itemCount: 20,

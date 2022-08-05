@@ -5,7 +5,7 @@ class FavoriteCaregiversModel {
   String nationality;
   double distance;
   int rating;
-  double providedHoursofcare;
+  int providedHoursofcare;
   String clientReferences;
   String caregiversBiography;
   String qualifications;

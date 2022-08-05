@@ -18,15 +18,28 @@ class BrowseCaregivers extends StatelessWidget {
 
     return Scaffold(
         // resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Text(
+              "Browse Caregaver",
+              style: TextStyle(
+                  color: Color(0xff28306e),
+                  fontFamily: 'Helvetica-Bold',
+                  fontSize: 20),
+            ),
+          ),
+        ),
         body: Container(
-      height: deviceSize.height,
-      width: deviceSize.width,
-      child: Consumer<AuthProvidere>(
-        builder: (_, foo, __) => Center(
-            child: BrowseCaregiversProvider.browseCaregiversMode == 'filter'
+          height: deviceSize.height,
+          width: deviceSize.width,
+          child: Consumer<AuthProvidere>(
+              builder: (_, foo, __) => Center(
+                    /* child: BrowseCaregiversProvider.browseCaregiversMode == 'filter'
                 ? Filter()
-                : MainBrowseCaregaver()),
-      ),
-    ));
+                : MainBrowseCaregaver()),*/
+                    child: MainBrowseCaregaver(),
+                  )),
+        ));
   }
 }

@@ -15,6 +15,18 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            "Favorite care giver",
+            style: TextStyle(
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica-Bold',
+                fontSize: 20),
+          ),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
