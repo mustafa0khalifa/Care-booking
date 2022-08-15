@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/NavBarProvider.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
@@ -5,9 +7,10 @@ import 'package:flutter_application_10000/providers/bookNowProvider.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
 import 'package:flutter_application_10000/screens/BookNow/bookNow.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/Services/childCare.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/buildRequest.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/careCategory.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/gender.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/location.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/locations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,6 +25,7 @@ import 'providers/PostMyNeedsProvider/caregiverPreferencesProvider.dart';
 import 'providers/PostMyNeedsProvider/childCareProvider.dart';
 import 'providers/PostMyNeedsProvider/elderlyCareProvider.dart';
 import 'providers/PostMyNeedsProvider/pcrServicesProvider.dart';
+import 'providers/PostMyNeedsProvider/scheduleDateProvider.dart';
 import 'providers/PostMyNeedsProvider/scheduleProvider.dart';
 import 'providers/bookDashboardProvide.dart';
 import 'providers/careCategoryProvider.dart';
@@ -55,6 +59,7 @@ import 'screens/ForgetPassword/forgetPassword.dart';
 import 'screens/MyBookings/myBookings.dart';
 import 'screens/MyBookings/widgets/bookingDetails.dart';
 import 'screens/MyBookings/widgets/bookingRate.dart';
+import 'providers/PostMyNeedsProvider/buildCategoriesProvider.dart';
 import 'screens/PostMyNeeds/postMyNeeds.dart';
 import 'screens/PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import 'screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/filter.dart';
@@ -62,8 +67,8 @@ import 'screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/mainBrowseCaregaver
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients.dart';
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients2.dart';
 import 'screens/PostMyNeeds/widgets/CareRecipients/careRecipients3.dart';
+import 'screens/PostMyNeeds/widgets/CareRecipients/mainRecipients.dart';
 import 'screens/PostMyNeeds/widgets/Categories/widgets/buildCaterorie.dart';
-import 'screens/PostMyNeeds/widgets/Categories/widgets/creatCaterorie.dart';
 import 'screens/PostMyNeeds/widgets/Categories/widgets/reviewCaterorie.dart';
 import 'screens/PostMyNeeds/widgets/EnterAfterPost.dart';
 import 'screens/PostMyNeeds/widgets/Services/additionalServices.dart';
@@ -71,6 +76,8 @@ import 'screens/PostMyNeeds/widgets/Services/advancedNursing.dart';
 import 'screens/PostMyNeeds/widgets/Services/elderlyCare.dart';
 import 'screens/PostMyNeeds/widgets/Services/pcrServices.dart';
 import 'screens/PostMyNeeds/widgets/AfterBookingRequest/afterBookingRequest.dart';
+import 'screens/PostMyNeeds/widgets/WhenYoyNeed/oneVisite.dart';
+import 'screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
 import 'screens/PostMyNeeds/widgets/acceptBooking.dart';
 import 'screens/PostMyNeeds/widgets/afterPostingRequest.dart';
 import 'screens/PostMyNeeds/widgets/automaticMatchingOption.dart';
@@ -81,7 +88,7 @@ import 'screens/PostMyNeeds/widgets/caregiversInrAea.dart';
 import 'screens/PostMyNeeds/widgets/Categories/categories.dart';
 import 'screens/PostMyNeeds/widgets/completeYourRequest.dart';
 import 'screens/PostMyNeeds/widgets/myCareRequestSummary.dart';
-import 'screens/PostMyNeeds/widgets/schedule.dart';
+import 'screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
 import 'screens/auth/mainAuth.dart';
 
 void main() {
@@ -90,7 +97,7 @@ void main() {
 }
 
 class _MyApp extends StatelessWidget {
-  const _MyApp({Key? key}) : super(key: key);
+  const _MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -160,6 +167,12 @@ class _MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => CategoriesProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => BuildCategoriesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ScheduleDateProvider(),
+        ),
       ], child: MyApp()),
     );
   }
@@ -194,7 +207,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : BrowseCaregivers(),
+        home: isLoged ? BookingsDashboard() : AuthScreen(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
@@ -206,10 +219,9 @@ class _MyAppState extends State<MyApp> {
           ClientNotifications.routeName: (context) => ClientNotifications(),
           PostMyNeeds.routeName: (context) => PostMyNeeds(),
           Categories.routeName: (context) => Categories(),
-          BuildCaterorie.routeName: (context) => BuildCaterorie(),
+          BuildCategory.routeName: (context) => BuildCategory(),
           ReviewCaterorie.routeName: (context) => ReviewCaterorie(),
-          CreatCaterorie.routeName: (context) => CreatCaterorie(),
-          Location.routeName: (context) => Location(),
+          Locations.routeName: (context) => Locations(),
           CareCategory.routeName: (context) => CareCategory(),
           Gender.routeName: (context) => Gender(),
           CaregiversInrAea.routeName: (context) => CaregiversInrAea(),
@@ -218,9 +230,13 @@ class _MyAppState extends State<MyApp> {
           AdvancedNursing.routeName: (context) => AdvancedNursing(),
           PcrServices.routeName: (context) => PcrServices(),
           AdditionalServices.routeName: (context) => AdditionalServices(),
+          BuildRequest.routeName: (context) => BuildRequest(),
           Schedule.routeName: (context) => Schedule(),
+          OneVisite.routeName: (context) => OneVisite(),
+          Variable.routeName: (context) => Variable(),
           CaregiverPreferences.routeName: (context) => CaregiverPreferences(),
           Budget.routeName: (context) => Budget(),
+          MainRecipients.routeName: (context) => MainRecipients(),
           CareRecipients.routeName: (context) => CareRecipients(),
           CareRecipients2.routeName: (context) => CareRecipients2(),
           CareRecipients3.routeName: (context) => CareRecipients3(),

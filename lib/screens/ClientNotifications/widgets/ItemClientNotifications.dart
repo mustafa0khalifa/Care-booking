@@ -31,7 +31,7 @@ class itemClientNotifications extends StatelessWidget {
                 color: Color(0xff28306e),
                 fontFamily: 'Helvetica_Bold',
                 fontWeight: FontWeight.bold,
-                fontSize: 20),
+                fontSize: width * 0.045),
           ),
           contentPadding: EdgeInsets.all(5),
           subtitle: Padding(
@@ -41,7 +41,7 @@ class itemClientNotifications extends StatelessWidget {
               style: TextStyle(
                   color: Color(0xff28306e),
                   fontFamily: 'Helvetica',
-                  fontSize: 16),
+                  fontSize: width * 0.04),
             ),
           ),
           trailing: Container(
@@ -54,7 +54,9 @@ class itemClientNotifications extends StatelessWidget {
             child: Text(
               '${this.date}',
               style: TextStyle(
-                  color: Colors.white, fontFamily: 'Helvetica', fontSize: 16),
+                  color: Colors.white,
+                  fontFamily: 'Helvetica',
+                  fontSize: width * 0.04),
             ),
           ),
         ));

@@ -3,8 +3,7 @@ import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dart';
 
 import '../../../providers/myBookingProvider.dart';
-import '../../MyBookings/myBookings.dart';
-import 'AfterBookingRequest/afterBookingRequest.dart';
+import '../../BookingsDashboard/bookingsDashboard.dart';
 import 'completeYourRequest.dart';
 
 class AcceptBooking extends StatefulWidget {
@@ -21,7 +20,33 @@ class _AcceptBookingState extends State<AcceptBooking> {
     final deviceSize = MediaQuery.of(context).size;
     AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Accept Booking",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,

@@ -218,20 +218,18 @@ class _BookingDetailsState extends State<BookingDetails> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "Booking Details",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: 20),
-          ),
+        centerTitle: true,
+        title: Text(
+          "Booking Details",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: 20),
         ),
       ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: SingleChildScrollView(
             child: Column(

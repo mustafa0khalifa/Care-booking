@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/advancedNursingProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../pricingCalculatorBookNow.dart';
 
 class AdvancedNursingBookNow extends StatefulWidget {
@@ -17,10 +18,37 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Advanced Nursing",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
@@ -31,13 +59,11 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                   'What type of services do you need?',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 20),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                   child: TextField(
                     style: TextStyle(color: Colors.blue.shade900, fontSize: 11),
                     decoration: InputDecoration(
@@ -49,7 +75,7 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   height: deviceSize.height * 0.5,
                   child: Card(
@@ -79,11 +105,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                             ),
                             SizedBox(
                               width: deviceSize.width * 0.7,
-                              child: Text('IntravenousTherapy (IV)',
-                                  style: TextStyle(
-                                      color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica',
-                                      fontSize: 18)),
+                              child: Text(
+                                'IntravenousTherapy (IV)',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.045),
+                              ),
                             ),
                           ],
                         ),
@@ -113,11 +141,12 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
                                     child: Text(
-                                        'Intravenous Therapy (IV) Insertion',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                      'Intravenous Therapy (IV) Insertion',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -143,11 +172,12 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
                                     child: Text(
-                                        'Intravenous Therapy (Antibiotic, Total Parenteral and Enteral Nutrition. Other meds) ',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                      'Intravenous Therapy (Antibiotic, Total Parenteral and Enteral Nutrition. Other meds) ',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -172,20 +202,19 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Intramuscular Injections',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Intramuscular Injections',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
                             ],
                           ),
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.03)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -205,11 +234,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                             ),
                             SizedBox(
                               width: deviceSize.width * 0.7,
-                              child: Text('Other advanced nursing services',
-                                  style: TextStyle(
-                                      color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica',
-                                      fontSize: 18)),
+                              child: Text(
+                                'Other advanced nursing services',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.045),
+                              ),
                             ),
                           ],
                         ),
@@ -238,11 +269,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Wound Care',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Wound Care',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -268,11 +301,12 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
                                     child: Text(
-                                        'Foley Insertion (For Female Patients)',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                      'Foley Insertion (For Female Patients)',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -298,11 +332,12 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
                                     child: Text(
-                                        'Foley Insertion (For Male Patients)',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                      'Foley Insertion (For Male Patients)',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -327,11 +362,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Suture Removal',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Suture Removal',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -356,11 +393,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('JP/Hemovac Removal',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'JP/Hemovac Removal',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -384,11 +423,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Patient Education: Diabetic',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Patient Education: Diabetic',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -412,11 +453,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Patient Education: Post-CVA',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Patient Education: Post-CVA',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -440,11 +483,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Patient Education: Post-Ops',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Patient Education: Post-Ops',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -469,11 +514,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Tracheostomy Care',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Tracheostomy Care',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -498,11 +545,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Gastrostomy Care',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Gastrostomy Care',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -528,11 +577,12 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
                                     child: Text(
-                                        'Adjusting setting and monitoring Bipap or Ventilator',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                      'Adjusting setting and monitoring Bipap or Ventilator',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -557,11 +607,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Suctioning',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Suctioning',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -586,11 +638,13 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                                   ),
                                   SizedBox(
                                     width: deviceSize.width * 0.6,
-                                    child: Text('Pressure Ulcer Care',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 16)),
+                                    child: Text(
+                                      'Pressure Ulcer Care',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -604,40 +658,37 @@ class _AdvancedNursingBookNowState extends State<AdvancedNursingBookNow> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
-                    'Indicate here if any equipment or special instructions are needed',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: 20)),
+                  'Indicate here if any equipment or special instructions are needed',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.03),
+                ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.03),
                   child: TextField(
                     style: TextStyle(color: Colors.blue.shade900, fontSize: 11),
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.grey)),
-                        hintText: '',
-                        hintStyle: TextStyle(color: Colors.grey, fontSize: 11)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.grey)),
+                    ),
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'Prescrptions',
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                          fontSize: 20),
+                    SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: Text(
+                        'Prescrptions',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.045),
+                      ),
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(left: deviceSize.width * 0.5)),
                     IconButton(onPressed: null, icon: Icon(Icons.attach_file)),
                   ],
                 ),

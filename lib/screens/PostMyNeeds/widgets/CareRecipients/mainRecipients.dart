@@ -1,17 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/automaticMatchingOption.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/caregiverPreferences.dart';
-import '../../BookingsDashboard/bookingsDashboard.dart';
-import 'NavBar.dart';
+//
 
-class MyCareRequestSummary extends StatefulWidget {
-  static const routeName = '/myCareRequestSummary-screen';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/oneVisite.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
+import 'careRecipients2.dart';
+import 'careRecipients3.dart';
+
+class MainRecipients extends StatefulWidget {
+  static const routeName = '/mainRecipients-screen';
 
   @override
-  _MyCareRequestSummaryState createState() => _MyCareRequestSummaryState();
+  _MainRecipientsState createState() => _MainRecipientsState();
 }
 
-class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
+class _MainRecipientsState extends State<MainRecipients> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -36,7 +44,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Requst Summary",
+          "Care Recipients",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -46,11 +54,11 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -162,21 +170,6 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       ),
                     ),
                     Container(
-                      width: deviceSize.width * 0.07,
-                      height: deviceSize.width * 0.07,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(100)),
-                      child: Text(
-                        '8',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                    ),
-                    Container(
                       width: deviceSize.width * 0.1,
                       height: deviceSize.width * 0.1,
                       alignment: Alignment.center,
@@ -184,9 +177,24 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                           color: Color(0xff28306e),
                           borderRadius: BorderRadius.circular(100)),
                       child: Text(
-                        '9',
+                        '8',
                         style: TextStyle(
                             color: Colors.white,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '9',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
                             fontSize: deviceSize.width * 0.04),
                       ),
@@ -196,67 +204,118 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
                 Text(
-                  'Our last questions :)',
+                  'Select the 2 care recipients for this booking',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
-                Text(
-                  'Title',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
-                ),
-                Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(color: Colors.grey)),
-                      child: Container(
-                        margin: EdgeInsets.all(deviceSize.width * 0.03),
-                        child: Text(
-                          'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.18,
+                      height: deviceSize.height * 0.07,
+                      child: Consumer<AdditionalServicesProvider>(
+                        builder: (_, foo, __) => CheckboxListTile(
+                          activeColor: Colors.green,
+                          value: AdditionalServicesProvider.pickUp,
+                          onChanged: (val) {
+                            foo.changepickUpCheckbox();
+                          },
                         ),
-                      )),
+                      ),
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.7,
+                      child: Text(
+                        'Hadi, 3 years',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Text(
-                  'Feel free to add any additional information about your care needs',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.18,
+                      height: deviceSize.height * 0.07,
+                      child: Consumer<AdditionalServicesProvider>(
+                        builder: (_, foo, __) => CheckboxListTile(
+                          activeColor: Colors.green,
+                          value: AdditionalServicesProvider.cookingForElderly,
+                          onChanged: (val) {
+                            foo.changecookingForElderlyCheckbox();
+                          },
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.7,
+                      child: Text(
+                        'Hadia, 5 years',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.18,
+                      height: deviceSize.height * 0.07,
+                      child: Consumer<AdditionalServicesProvider>(
+                        builder: (_, foo, __) => CheckboxListTile(
+                          activeColor: Colors.green,
+                          value: AdditionalServicesProvider.haveACar,
+                          onChanged: (val) {
+                            foo.changehaveACarCheckbox();
+                          },
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.7,
+                      child: Text(
+                        'Um Ayman, 66 years',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
-                  child: SizedBox(
-                    width: deviceSize.width * 0.8,
-                    child: TextField(
-                      style:
-                          TextStyle(color: Colors.blue.shade900, fontSize: 11),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(color: Colors.grey)),
-                      ),
-                    ),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Add new care recipient',
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.03),
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,
@@ -290,7 +349,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                                 CareCategory.routeName,
                               ),*/
                           Navigator.of(context)
-                              .pushNamed(AutomaticMatchingOption.routeName),
+                              .pushNamed(CareRecipients3.routeName),
                         },
                         child: Text("Next"),
                       ),

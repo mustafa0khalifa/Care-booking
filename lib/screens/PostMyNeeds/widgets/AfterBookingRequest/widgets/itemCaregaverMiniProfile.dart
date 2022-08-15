@@ -38,9 +38,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                         child: Text(
                           'Caregiver Mini Profile',
                           style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff000000)),
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: width * 0.04),
                         ),
                       ),
                     ),
@@ -56,13 +56,10 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               "View Full Profile",
                               patternList: [
                                 EasyRichTextPattern(
-                                  targetString: 'italic',
-                                  style: const TextStyle(
-                                      fontStyle: FontStyle.italic),
-                                ),
-                                EasyRichTextPattern(
                                   targetString: 'View Full Profile',
-                                  style: const TextStyle(color: Colors.blue),
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: width * 0.035),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       {
@@ -85,13 +82,10 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               "Ask for Documents",
                               patternList: [
                                 EasyRichTextPattern(
-                                  targetString: 'italic',
-                                  style: const TextStyle(
-                                      fontStyle: FontStyle.italic),
-                                ),
-                                EasyRichTextPattern(
                                   targetString: 'Ask for Documents',
-                                  style: const TextStyle(color: Colors.blue),
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: width * 0.035),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       {
@@ -129,9 +123,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                         child: Text(
                           'Suggestions',
                           style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xff000000)),
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: width * 0.04),
                         ),
                       ),
                     ),
@@ -147,9 +141,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               child: Text(
                                 'Budget',
                                 style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: width * 0.035),
                               ),
                             ),
                             Padding(
@@ -159,9 +153,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               child: Text(
                                 'Transportation Fees',
                                 style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: width * 0.035),
                               ),
                             ),
                           ],
@@ -176,9 +170,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               child: Text(
                                 'Extra Services Fees',
                                 style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: width * 0.035),
                               ),
                             ),
                             Padding(
@@ -188,9 +182,9 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               child: Text(
                                 'Shifts Selected ',
                                 style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: width * 0.035),
                               ),
                             ),
                           ],
@@ -209,13 +203,10 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               "Accept",
                               patternList: [
                                 EasyRichTextPattern(
-                                  targetString: 'italic',
-                                  style: const TextStyle(
-                                      fontStyle: FontStyle.italic),
-                                ),
-                                EasyRichTextPattern(
                                   targetString: 'Accept',
-                                  style: const TextStyle(color: Colors.blue),
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: width * 0.035),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       {
@@ -238,13 +229,10 @@ class itemCaregaverMiniProfile extends StatelessWidget {
                               "Decline",
                               patternList: [
                                 EasyRichTextPattern(
-                                  targetString: 'italic',
-                                  style: const TextStyle(
-                                      fontStyle: FontStyle.italic),
-                                ),
-                                EasyRichTextPattern(
                                   targetString: 'Decline',
-                                  style: const TextStyle(color: Colors.blue),
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: width * 0.035),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       {

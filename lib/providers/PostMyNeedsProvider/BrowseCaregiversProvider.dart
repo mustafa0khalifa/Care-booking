@@ -31,6 +31,12 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   static bool bachelor = false;
   static bool master = false;
   static bool PhD = false;
+  static bool years = false;
+
+  void changeyears() {
+    years = !years;
+    notifyListeners();
+  }
 
   void changenoDegree() {
     noDegree = !noDegree;

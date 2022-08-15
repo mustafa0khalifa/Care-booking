@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
+import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/CategoriesProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import 'widgets/buildCaterorie.dart';
-import 'widgets/creatCaterorie.dart';
 import 'widgets/reviewCaterorie.dart';
 
 class Categories extends StatefulWidget {
@@ -20,15 +20,30 @@ class _CategoriesState extends State<Categories> {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "Primary Destinations",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: 20),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
           ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Post My Needs",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
         ),
       ),
       body: Container(
@@ -41,15 +56,6 @@ class _CategoriesState extends State<Categories> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Please choose your suitable destination",
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: 18),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
                 Consumer<CategoriesProvider>(
                   builder: (_, foo, __) => InkWell(
                     child: Center(
@@ -78,7 +84,7 @@ class _CategoriesState extends State<Categories> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.04)),
                               ),
                             ),
                             SizedBox(
@@ -98,7 +104,7 @@ class _CategoriesState extends State<Categories> {
                     onTap: () => {
                       foo.ClickBuild(),
                       Navigator.of(context).pushNamed(
-                        BuildCaterorie.routeName,
+                        BuildCategory.routeName,
                       )
                     },
                   ),
@@ -133,7 +139,7 @@ class _CategoriesState extends State<Categories> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.04)),
                               ),
                             ),
                             SizedBox(
@@ -188,7 +194,7 @@ class _CategoriesState extends State<Categories> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.04)),
                               ),
                             ),
                             SizedBox(
@@ -208,7 +214,7 @@ class _CategoriesState extends State<Categories> {
                     onTap: () => {
                       foo.ClickCreat(),
                       Navigator.of(context).pushNamed(
-                        CreatCaterorie.routeName,
+                        AuthScreen.routeName,
                       )
                     },
                   ),

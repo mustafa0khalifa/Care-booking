@@ -5,8 +5,8 @@ import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/budget.dar
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/careCategory.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/caregiversInrAea.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/gender.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/location.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/schedule.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/locations.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/PostMyNeedsProvider/NavBarProvider.dart';
@@ -100,7 +100,7 @@ class NavBar extends StatelessWidget {
         leading: Icon(Icons.location_city_outlined),
         title: Text('Location'),
         onTap: () => {
-          Navigator.of(context).pushNamed(Location.routeName),
+          Navigator.of(context).pushNamed(Locations.routeName),
         },
       ),
       ListTile(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dart';
 
+import '../../BookingsDashboard/bookingsDashboard.dart';
+
 class CompleteYourRequestBookNow extends StatefulWidget {
   static const routeName = '/completeYourRequestBookNow-screen';
 
@@ -30,11 +32,36 @@ class _CompleteYourRequestBookNowState
     final deviceSize = MediaQuery.of(context).size;
     AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Complete Request",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
         margin: EdgeInsets.all(deviceSize.height * 0.03),
         child: SingleChildScrollView(
           child: Column(
@@ -43,27 +70,13 @@ class _CompleteYourRequestBookNowState
             children: <Widget>[
               SizedBox(
                 width: deviceSize.width * 0.9,
-                child: Center(
-                  child: Text(
-                    maxLines: 3,
-                    "Complete your Request",
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica_Bold',
-                        fontSize: 20),
-                  ),
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-              SizedBox(
-                width: deviceSize.width * 0.9,
                 child: Text(
                   maxLines: 10,
                   "Fill care recipients address in details",
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(
@@ -89,7 +102,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -111,7 +124,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -139,7 +152,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -161,7 +174,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -189,7 +202,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -211,7 +224,7 @@ class _CompleteYourRequestBookNowState
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helvetica',
-                                            fontSize: 16),
+                                            fontSize: deviceSize.width * 0.035),
                                       ));
                                 }).toList(),
                                 onChanged: (val) {
@@ -232,7 +245,7 @@ class _CompleteYourRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(
@@ -258,7 +271,7 @@ class _CompleteYourRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.04),
                 ),
               ),
               Padding(
@@ -286,7 +299,7 @@ class _CompleteYourRequestBookNowState
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Padding(
@@ -306,7 +319,7 @@ class _CompleteYourRequestBookNowState
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.035),
                                     ),
                                   ),
                                   SizedBox(
@@ -346,7 +359,7 @@ class _CompleteYourRequestBookNowState
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.035),
                                     ),
                                   ),
                                   SizedBox(
@@ -392,7 +405,7 @@ class _CompleteYourRequestBookNowState
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Padding(
@@ -412,7 +425,7 @@ class _CompleteYourRequestBookNowState
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.035),
                                     ),
                                   ),
                                   SizedBox(
@@ -452,7 +465,7 @@ class _CompleteYourRequestBookNowState
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.035),
                                     ),
                                   ),
                                   SizedBox(
@@ -490,7 +503,13 @@ class _CompleteYourRequestBookNowState
                           Color(0xff28306e) //elevated btton background color
                       ),
                   onPressed: () {
-                    //Navigator.of(context).pushNamed(BrowseCaregivers.routeName);
+                    Navigator.pushAndRemoveUntil<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              BookingsDashboard()),
+                      (Route<dynamic> route) => false,
+                    );
                   },
                   child: Text("Next"),
                 ),

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/providers/authProvider.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/widgets/enterCode.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/widgets/enterNumber.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/widgets/resetPass.dart';
 import 'package:provider/provider.dart';
-
-import '../../providers/authProvider.dart';
 
 class ForgetPassword extends StatelessWidget {
   static const routeName = '/forgetPassword-screen';

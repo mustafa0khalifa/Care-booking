@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/BookNow/bookNow.dart';
 import '../../../../models/testModel.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../../../MyBookings/widgets/item.dart';
 import 'widgets/itemCaregaverMiniProfile.dart';
 
@@ -20,6 +21,33 @@ class _CAfterBookingRequestBookNowState
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Booking Request",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -51,7 +79,7 @@ class _CAfterBookingRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 16),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -71,7 +99,7 @@ class _CAfterBookingRequestBookNowState
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: 16),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                       Padding(
                           padding:
@@ -94,7 +122,9 @@ class _CAfterBookingRequestBookNowState
                                       }
                                     }
                                   },
-                                style: const TextStyle(color: Colors.blue),
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: deviceSize.width * 0.035),
                               ),
                             ],
                           ),
@@ -112,7 +142,7 @@ class _CAfterBookingRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),

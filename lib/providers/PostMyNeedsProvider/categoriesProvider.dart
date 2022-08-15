@@ -18,72 +18,54 @@ class CategoriesProvider extends ChangeNotifier {
   static bool clickCareRecipients = false;
 
   void ClickCareRecipients() {
-    setAllCreatFalse();
-
     clickCareRecipients = true;
 
     notifyListeners();
   }
 
   void ClickBudget() {
-    setAllCreatFalse();
-
     clickBudget = true;
 
     notifyListeners();
   }
 
   void ClickSchedule() {
-    setAllRiviewFalse();
-
     clickSchedule = true;
 
     notifyListeners();
   }
 
   void ClickCaregiverPreferences() {
-    setAllRiviewFalse();
-
     clickCaregiverPreferences = true;
 
     notifyListeners();
   }
 
   void ClickCareCategory() {
-    setAllRiviewFalse();
-
     clickCareCategory = true;
 
     notifyListeners();
   }
 
   void ClickCaregiversInrAea() {
-    setAllRiviewFalse();
-
     clickCaregiversInrAea = true;
 
     notifyListeners();
   }
 
   void ClickGender() {
-    setAllBuildFalse();
-
     clickGender = true;
 
     notifyListeners();
   }
 
   void ClickLocation() {
-    setAllBuildFalse();
-
     clickLocation = true;
 
     notifyListeners();
   }
 
   void ClickCar() {
-    setAllBuildFalse();
-
     clickCar = true;
 
     notifyListeners();
@@ -116,23 +98,5 @@ class CategoriesProvider extends ChangeNotifier {
     clickBuild = false;
     clickReview = false;
     clickCreat = false;
-  }
-
-  void setAllBuildFalse() {
-    clickCar = false;
-    clickLocation = false;
-    clickGender = false;
-  }
-
-  void setAllRiviewFalse() {
-    clickCaregiversInrAea = false;
-    clickCaregiverPreferences = false;
-    clickCareCategory = false;
-    clickSchedule = false;
-  }
-
-  void setAllCreatFalse() {
-    clickBudget = false;
-    clickCareRecipients = false;
   }
 }

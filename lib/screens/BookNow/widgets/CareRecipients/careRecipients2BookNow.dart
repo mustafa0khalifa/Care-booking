@@ -3,6 +3,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/careRecipientsProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import 'careRecipients3BookNow.dart';
 
 class CareRecipients2BookNow extends StatefulWidget {
@@ -31,10 +32,37 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients2BookNow> {
       ),
     );
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Care Recipients",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -62,8 +90,8 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients2BookNow> {
                             'I am Pregnant',
                             style: TextStyle(
                                 color: Color(0xff28306e),
-                                fontFamily: 'Helvetica_Bold',
-                                fontSize: 16),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.045),
                           ),
                           consumer,
                         ],
@@ -75,8 +103,8 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients2BookNow> {
                         'Would you like to share with us your due date?',
                         style: TextStyle(
                             color: Color(0xff28306e),
-                            fontFamily: 'Helvetica_Bold',
-                            fontSize: 16),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.045),
                       ),
                       Padding(
                           padding:

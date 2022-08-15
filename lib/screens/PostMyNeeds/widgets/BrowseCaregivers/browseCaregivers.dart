@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
+import 'package:flutter_application_10000/screens/BookingsDashboard/bookingsDashboard.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/filter.dart';
-import 'package:flutter_application_10000/screens/auth/widgets/signin.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/PostMyNeedsProvider/BrowseCaregiversProvider.dart';
 import 'widgets/mainBrowseCaregaver.dart';
 
 enum AuthMode { Signup, Signin }
@@ -15,21 +14,53 @@ class BrowseCaregivers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+        key: scaffoldKey,
         // resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Center(
-            child: Text(
-              "Browse Caregaver",
-              style: TextStyle(
-                  color: Color(0xff28306e),
-                  fontFamily: 'Helvetica-Bold',
-                  fontSize: 20),
+          leading: IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Color(0xff28306e),
             ),
+            onPressed: () {
+              if (scaffoldKey.currentState!.isDrawerOpen) {
+                scaffoldKey.currentState!.closeDrawer();
+                //close drawer, if drawer is open
+              } else {
+                scaffoldKey.currentState!.openDrawer();
+                //open drawer, if drawer is closed
+              }
+            },
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.home,
+                color: Color(0xff28306e),
+              ),
+              onPressed: () {
+                Navigator.pushAndRemoveUntil<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (BuildContext context) => BookingsDashboard()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+            ),
+          ],
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: Text(
+            "Browse Caregaver",
+            style: TextStyle(
+                color: Color(0xff28306e),
+                fontFamily: 'Helvetica-Bold',
+                fontSize: deviceSize.width * 0.055),
           ),
         ),
+        drawer: Filter(),
         body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

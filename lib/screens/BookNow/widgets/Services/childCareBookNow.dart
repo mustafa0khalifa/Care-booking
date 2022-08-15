@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/childCareProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../pricingCalculatorBookNow.dart';
 
 class ChildCareBookNow extends StatefulWidget {
@@ -17,10 +18,37 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Child Care",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
@@ -32,29 +60,29 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.45,
+                      width: deviceSize.width * 0.4,
                       child: Text(
                         'Please specify the age group(s)',
                         style: TextStyle(
                             color: Color(0xff28306e),
-                            fontFamily: 'Helvetica_Bold',
-                            fontSize: 20),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.045),
                       ),
                     ),
                     SizedBox(
-                      width: deviceSize.width * 0.45,
+                      width: deviceSize.width * 0.4,
                       child: Text(
                         'Number of children',
                         style: TextStyle(
                             color: Color(0xff28306e),
-                            fontFamily: 'Helvetica_Bold',
-                            fontSize: 20),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.045),
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.05)),
                 Card(
                   elevation: 5.0,
                   shape: RoundedRectangleBorder(
@@ -83,13 +111,13 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                             ),
                           ),
                           SizedBox(
-                            width: deviceSize.width * 0.5,
+                            width: deviceSize.width * 0.45,
                             child: Text(
                               'Newborn (0 - 3 month)',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 16),
+                                  fontSize: deviceSize.width * 0.04),
                             ),
                           ),
                           Padding(
@@ -102,7 +130,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ),
@@ -115,7 +143,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfChildrenNewborn(false),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_upward_rounded),
+                                  icon: Icon(Icons.minimize),
                                 ),
                               ),
                               Consumer<ChildCareProvider>(
@@ -124,7 +152,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfChildrenNewborn(true),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_downward_rounded),
+                                  icon: Icon(Icons.add),
                                 ),
                               ),
                             ],
@@ -150,13 +178,13 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                             ),
                           ),
                           SizedBox(
-                            width: deviceSize.width * 0.5,
+                            width: deviceSize.width * 0.45,
                             child: Text(
                               'Infant (3 - 12 months)',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 16),
+                                  fontSize: deviceSize.width * 0.04),
                             ),
                           ),
                           Padding(
@@ -169,7 +197,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ),
@@ -182,7 +210,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfInfant(false),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_upward_rounded),
+                                  icon: Icon(Icons.minimize),
                                 ),
                               ),
                               Consumer<ChildCareProvider>(
@@ -191,7 +219,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfInfant(true),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_downward_rounded),
+                                  icon: Icon(Icons.add),
                                 ),
                               ),
                             ],
@@ -217,18 +245,18 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                             ),
                           ),
                           SizedBox(
-                            width: deviceSize.width * 0.5,
+                            width: deviceSize.width * 0.45,
                             child: Text(
                               'Toddler (1 - 3 years)',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 16),
+                                  fontSize: deviceSize.width * 0.04),
                             ),
                           ),
                           Padding(
                               padding: EdgeInsets.only(
-                                  left: deviceSize.width * 0.10)),
+                                  left: deviceSize.width * 0.1)),
                           SizedBox(
                             child: Consumer<ChildCareProvider>(
                               builder: (_, foo, __) => Text(
@@ -236,7 +264,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ),
@@ -249,7 +277,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfToddler(false),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_upward_rounded),
+                                  icon: Icon(Icons.minimize),
                                 ),
                               ),
                               Consumer<ChildCareProvider>(
@@ -258,7 +286,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfToddler(true),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_downward_rounded),
+                                  icon: Icon(Icons.add),
                                 ),
                               ),
                             ],
@@ -284,13 +312,13 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                             ),
                           ),
                           SizedBox(
-                            width: deviceSize.width * 0.5,
+                            width: deviceSize.width * 0.45,
                             child: Text(
                               'Preschooler (3 - 5 years)',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 16),
+                                  fontSize: deviceSize.width * 0.04),
                             ),
                           ),
                           Padding(
@@ -303,7 +331,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ),
@@ -316,7 +344,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfPreschooler(false),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_upward_rounded),
+                                  icon: Icon(Icons.minimize),
                                 ),
                               ),
                               Consumer<ChildCareProvider>(
@@ -325,7 +353,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfPreschooler(true),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_downward_rounded),
+                                  icon: Icon(Icons.add),
                                 ),
                               ),
                             ],
@@ -352,13 +380,13 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                             ),
                           ),
                           SizedBox(
-                            width: deviceSize.width * 0.5,
+                            width: deviceSize.width * 0.45,
                             child: Text(
                               'Primary Schooler (5 - 12 years)',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 16),
+                                  fontSize: deviceSize.width * 0.04),
                             ),
                           ),
                           Padding(
@@ -371,7 +399,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ),
@@ -384,7 +412,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfPrimarySchooler(false),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_upward_rounded),
+                                  icon: Icon(Icons.minimize),
                                 ),
                               ),
                               Consumer<ChildCareProvider>(
@@ -393,7 +421,7 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                                     foo.changeNumberOfPrimarySchooler(true),
                                     foo.calculateNumberOfChildren(),
                                   },
-                                  icon: Icon(Icons.arrow_downward_rounded),
+                                  icon: Icon(Icons.add),
                                 ),
                               ),
                             ],
@@ -409,15 +437,12 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.8,
-                      child: Text(
-                        'Total number of children to be cared for',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: 16),
-                      ),
+                    Text(
+                      'Total number of children to be cared for',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.03),
                     ),
                     Consumer<ChildCareProvider>(
                       builder: (_, foo, __) => Text(
@@ -425,24 +450,24 @@ class _ChildCareBookNowState extends State<ChildCareBookNow> {
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: 16),
+                            fontSize: deviceSize.width * 0.03),
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Card(
                   elevation: 5.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       side: BorderSide(color: Colors.black87)),
                   child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
+                    padding: const EdgeInsets.all(5),
+                    child: Text(
                       'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
                       style: TextStyle(
-                          fontSize: 12.0,
+                          fontSize: deviceSize.width * 0.03,
                           fontWeight: FontWeight.w300,
                           color: Color.fromARGB(255, 14, 138, 62)),
                     ),

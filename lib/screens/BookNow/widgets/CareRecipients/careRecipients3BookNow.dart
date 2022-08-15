@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/careRecipientsProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../myCareRequestSummaryBookNow.dart';
 
 class CareRecipients3BookNow extends StatefulWidget {
@@ -19,10 +20,37 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
     String dropdownvalue = 'My parent';
     var items = ['My parent', 'Myself', 'My child', 'Other'];
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Care Recipients",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
@@ -32,17 +60,15 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
-                Center(
-                  child: Text(
-                    'Tell us more about the care recipients',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica_Bold',
-                        fontSize: 20),
-                  ),
+                Text(
+                  'Tell us more about the care recipients',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,7 +85,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.04),
                           ),
                         ),
                         SizedBox(
@@ -81,14 +107,14 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.02),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'We will not share this information with caregivers until after the booking is confirmed.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -96,7 +122,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -113,7 +139,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.04),
                           ),
                         ),
                         SizedBox(
@@ -135,14 +161,14 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'We will not share this information with caregivers until after the booking is confirmed.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -150,7 +176,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -169,7 +195,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                                 leading: Radio(
                                     activeColor: Colors.greenAccent,
@@ -190,7 +216,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                                 leading: Radio(
                                     activeColor: Colors.greenAccent,
@@ -205,14 +231,14 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'Gender of your care recipient will be included  in the care request to help caregivers.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -220,7 +246,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -231,17 +257,17 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: deviceSize.width * 0.5,
+                          width: deviceSize.width * 0.4,
                           child: Text(
                             '{Care Recipient} Weight',
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.04),
                           ),
                         ),
                         SizedBox(
-                          width: deviceSize.width * 0.3,
+                          width: deviceSize.width * 0.35,
                           child: TextField(
                             style: TextStyle(
                                 color: Colors.blue.shade900, fontSize: 11),
@@ -257,26 +283,26 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                           ),
                         ),
                         SizedBox(
-                          width: deviceSize.width * 0.1,
+                          width: deviceSize.width * 0.15,
                           child: Text(
                             'Kgs',
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.035),
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'This will help the caregiver to estimate the level of physical effort needed while caring for {your care recipient Name}.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -284,21 +310,18 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.65,
-                      child: Text(
-                        'Relationship to Client',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: 16),
-                      ),
+                    Text(
+                      'Relationship to Client',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.04),
                     ),
                     DropdownButton(
                         value: dropdownvalue,
@@ -309,9 +332,9 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                               child: Text(
                                 items,
                                 style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w300,
-                                    color: Color(0xff28306e)),
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.04),
                               ));
                         }).toList(),
                         onChanged: (val) {
@@ -322,7 +345,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -335,11 +358,11 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: 16),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.03),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
@@ -358,14 +381,14 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'This infornation will help the caregiver learn more about your needs.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -373,7 +396,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -386,11 +409,11 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: 16),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
@@ -409,14 +432,14 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: Text(
                         'We will not share this information with caregivers until after the booking is confirmed.',
                         style: TextStyle(
-                            fontSize: 11.0,
+                            fontSize: deviceSize.width * 0.025,
                             fontWeight: FontWeight.w300,
                             color: Color.fromARGB(255, 5, 107, 36)),
                       ),
@@ -431,9 +454,13 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipients3BookNow> {
                         primary:
                             Colors.greenAccent //elevated btton background color
                         ),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(MyCareRequestSummaryBookNow.routeName);
+                    onPressed: () => {
+                      /*Navigator.of(context).pushNamed(
+                            MyCareRequestSammury.routeName,
+                          ),*/
+                      Navigator.of(context).pushNamed(
+                        MyCareRequestSummaryBookNow.routeName,
+                      ),
                     },
                     child: Text("Next"),
                   ),

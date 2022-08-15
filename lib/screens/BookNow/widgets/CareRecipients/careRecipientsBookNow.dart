@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
 import 'careRecipients2BookNow.dart';
 
@@ -16,24 +17,41 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipientsBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Care Recipients",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Text(
-                  'Select all the care recipients',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 20),
-                ),
-              ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.05)),
               SizedBox(
                 height: deviceSize.height * 0.6,
@@ -49,8 +67,8 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipientsBookNow> {
                   },
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.05)),
               Container(
+                margin: EdgeInsets.all(deviceSize.height * 0.05),
                 alignment: Alignment.bottomRight,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(

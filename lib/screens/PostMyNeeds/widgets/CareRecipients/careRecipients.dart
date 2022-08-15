@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
 import '../NavBar.dart';
 import 'careRecipients2.dart';
@@ -16,7 +17,33 @@ class _CareRecipientsAeaState extends State<CareRecipients> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Care Recipients",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -25,18 +52,9 @@ class _CareRecipientsAeaState extends State<CareRecipients> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Text(
-                  'Select all the care recipients',
-                  style: TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff000000)),
-                ),
-              ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.05)),
               SizedBox(
-                height: deviceSize.height * 0.7,
+                height: deviceSize.height * 0.6,
                 child: ListView.builder(
                   itemCount: 6,
                   itemBuilder: (context, index) {

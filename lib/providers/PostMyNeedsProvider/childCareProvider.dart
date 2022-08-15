@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ChildCareProvider extends ChangeNotifier {
-  static bool newbornCheckbox = false;
+  static bool newbornCheckbox = true;
   static int numberOfChildrenNewborn = 0;
 
   static bool infantCheckbox = false;
@@ -30,18 +30,12 @@ class ChildCareProvider extends ChangeNotifier {
   }
 
   void changeNumberOfChildrenNewborn(bool isPlus) {
-    if (newbornCheckbox) {
-      if (isPlus) {
-        numberOfChildrenNewborn++;
-      } else {
-        if (numberOfChildrenNewborn != 0) {
-          numberOfChildrenNewborn--;
-        }
+    if (isPlus) {
+      numberOfChildrenNewborn++;
+    } else {
+      if (numberOfChildrenNewborn != 0) {
+        numberOfChildrenNewborn--;
       }
-    }
-
-    if (numberOfChildrenNewborn == 0 && newbornCheckbox) {
-      changeNewbornCheckbox();
     }
     notifyListeners();
   }
@@ -58,19 +52,14 @@ class ChildCareProvider extends ChangeNotifier {
   }
 
   void changeNumberOfInfant(bool isPlus) {
-    if (infantCheckbox) {
-      if (isPlus) {
-        numberOfInfant++;
-      } else {
-        if (numberOfInfant != 0) {
-          numberOfInfant--;
-        }
+    if (isPlus) {
+      numberOfInfant++;
+    } else {
+      if (numberOfInfant != 0) {
+        numberOfInfant--;
       }
     }
 
-    if (numberOfInfant == 0 && infantCheckbox) {
-      changeInfantCheckbox();
-    }
     notifyListeners();
   }
 
@@ -86,19 +75,14 @@ class ChildCareProvider extends ChangeNotifier {
   }
 
   void changeNumberOfToddler(bool isPlus) {
-    if (toddlerCheckbox) {
-      if (isPlus) {
-        numberOfToddler++;
-      } else {
-        if (numberOfToddler != 0) {
-          numberOfToddler--;
-        }
+    if (isPlus) {
+      numberOfToddler++;
+    } else {
+      if (numberOfToddler != 0) {
+        numberOfToddler--;
       }
     }
 
-    if (numberOfToddler == 0 && toddlerCheckbox) {
-      changeToddlerCheckbox();
-    }
     notifyListeners();
   }
 
@@ -114,19 +98,14 @@ class ChildCareProvider extends ChangeNotifier {
   }
 
   void changeNumberOfPreschooler(bool isPlus) {
-    if (preschoolerCheckbox) {
-      if (isPlus) {
-        numberOfPreschooler++;
-      } else {
-        if (numberOfPreschooler != 0) {
-          numberOfPreschooler--;
-        }
+    if (isPlus) {
+      numberOfPreschooler++;
+    } else {
+      if (numberOfPreschooler != 0) {
+        numberOfPreschooler--;
       }
     }
 
-    if (numberOfPreschooler == 0 && preschoolerCheckbox) {
-      changePreschoolerCheckbox();
-    }
     notifyListeners();
   }
 
@@ -142,19 +121,14 @@ class ChildCareProvider extends ChangeNotifier {
   }
 
   void changeNumberOfPrimarySchooler(bool isPlus) {
-    if (primarySchoolerCheckbox) {
-      if (isPlus) {
-        numberOfPrimarySchooler++;
-      } else {
-        if (numberOfPrimarySchooler != 0) {
-          numberOfPrimarySchooler--;
-        }
+    if (isPlus) {
+      numberOfPrimarySchooler++;
+    } else {
+      if (numberOfPrimarySchooler != 0) {
+        numberOfPrimarySchooler--;
       }
     }
 
-    if (numberOfPrimarySchooler == 0 && primarySchoolerCheckbox) {
-      changePrimarySchoolerCheckbox();
-    }
     notifyListeners();
   }
 

@@ -1,10 +1,12 @@
+import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/providers/PostMyNeedsProvider/buildCategoriesProvider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/PostMyNeedsProvider/advancedNursingProvider.dart';
 import '../../../../providers/PostMyNeedsProvider/pcrServicesProvider.dart';
-import '../NavBar.dart';
-import 'additionalServices.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
+import '../Categories/widgets/buildCaterorie.dart';
+import '../caregiverPreferences.dart';
 
 class PcrServices extends StatefulWidget {
   static const routeName = '/_pcrServicesState-screen';
@@ -19,58 +21,237 @@ class _PcrServicesState extends State<PcrServices> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Pcr Services",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
-                  style: TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff000000)),
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'How many people will get the test? ',
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff000000)),
-                    ),
-                    Padding(
-                        padding:
-                            EdgeInsets.only(left: deviceSize.width * 0.10)),
-                    SizedBox(
-                      child: Consumer<PcrServicesProvider>(
-                        builder: (_, foo, __) => Text(
-                          '${PcrServicesProvider.numberOfPeopleTest}',
-                          style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff000000)),
-                        ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
                       ),
                     ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '2',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '3',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '4',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.1,
+                      height: deviceSize.width * 0.1,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Color(0xff28306e),
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '5',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '6',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '7',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '8',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '9',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.orange[100],
+                      border: Border.all(color: Colors.orange),
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: EdgeInsets.all(deviceSize.width * 0.03),
+                  child: Text(
+                    'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.04),
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Row(
+                  children: [
                     SizedBox(
-                        child: Column(
+                      width: deviceSize.width * 0.6,
+                      child: EasyRichText(
+                        "How many people will get the test?",
+                        patternList: [
+                          EasyRichTextPattern(
+                            targetString: 'How many people will get the test?',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
                       children: [
                         Consumer<PcrServicesProvider>(
                           builder: (_, foo, __) => IconButton(
                             onPressed: () => {
                               foo.changeNumberOfPeopleTest(false),
                             },
-                            icon: Icon(Icons.arrow_upward_rounded),
+                            icon: Icon(Icons.remove_circle_outline,
+                                size: deviceSize.width * 0.07),
+                          ),
+                        ),
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => Text(
+                            '${PcrServicesProvider.numberOfPeopleTest}',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
                           ),
                         ),
                         Consumer<PcrServicesProvider>(
@@ -78,503 +259,503 @@ class _PcrServicesState extends State<PcrServices> {
                             onPressed: () => {
                               foo.changeNumberOfPeopleTest(true),
                             },
-                            icon: Icon(Icons.arrow_downward_rounded),
+                            icon: Icon(
+                              Icons.add_circle_outline_outlined,
+                              size: deviceSize.width * 0.07,
+                            ),
                           ),
-                        ),
+                        )
                       ],
-                    ))
+                    )
                   ],
                 ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'What type of services do you need?',
                   style: TextStyle(
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000)),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  height: deviceSize.height * 0.5,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
-                    child: ListView(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: deviceSize.width * 0.18,
-                              height: deviceSize.height * 0.07,
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => CheckboxListTile(
-                                  activeColor: Colors.green,
-                                  value:
-                                      PcrServicesProvider.covidTestingCheckbox,
-                                  onChanged: (val) {
-                                    foo.changecovidTestingCheckbox();
-                                  },
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: deviceSize.width * 0.4,
-                              child: Text(
-                                'COVID-19 testing',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
-                              ),
-                            ),
-                            SizedBox(
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => Text(
-                                  '${PcrServicesProvider.numberOfCovidTesting}',
-                                  style: TextStyle(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff000000)),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                                child: Column(
-                              children: [
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfCovidTesting(false),
-                                    },
-                                    icon: Icon(Icons.arrow_upward_rounded),
-                                  ),
-                                ),
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfCovidTesting(true),
-                                    },
-                                    icon: Icon(Icons.arrow_downward_rounded),
-                                  ),
-                                ),
-                              ],
-                            ))
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider.standardPCR,
-                                        onChanged: (val) {
-                                          foo.changeStandardPCRCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Standard PCR (Result within 12 to 48 hours)',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider.fastPCR,
-                                        onChanged: (val) {
-                                          foo.changeFastPCRCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Fast PCR (Result within 6 to 8 hours)',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider.rapidPCR,
-                                        onChanged: (val) {
-                                          foo.changeRapidPCRCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Rapid PCR (Result within 30 mins)',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider.immunityPCR,
-                                        onChanged: (val) {
-                                          foo.changeImmunityPCRCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Immunity Test',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider
-                                            .covidGeneXpertTest,
-                                        onChanged: (val) {
-                                          foo.changeCovidGeneXpertTestCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Covid GeneXpert Test',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: deviceSize.width * 0.18,
-                              height: deviceSize.height * 0.07,
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => CheckboxListTile(
-                                  activeColor: Colors.green,
-                                  value:
-                                      PcrServicesProvider.bloodTestingCheckbox,
-                                  onChanged: (val) {
-                                    foo.changeBloodTestingCheckbox();
-                                  },
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: deviceSize.width * 0.4,
-                              child: Text(
-                                'Blood testing',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
-                              ),
-                            ),
-                            SizedBox(
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => Text(
-                                  '${PcrServicesProvider.numberOfBloodTesting}',
-                                  style: TextStyle(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff000000)),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                                child: Column(
-                              children: [
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfBloodTesting(false),
-                                    },
-                                    icon: Icon(Icons.arrow_upward_rounded),
-                                  ),
-                                ),
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfBloodTesting(true),
-                                    },
-                                    icon: Icon(Icons.arrow_downward_rounded),
-                                  ),
-                                ),
-                              ],
-                            ))
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value: PcrServicesProvider
-                                            .allBloodTestTypes,
-                                        onChanged: (val) {
-                                          foo.changeAllBloodTestTypesCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'All blood test types',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: deviceSize.width * 0.18,
-                              height: deviceSize.height * 0.07,
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => CheckboxListTile(
-                                  activeColor: Colors.green,
-                                  value: PcrServicesProvider.otherLabCheckbox,
-                                  onChanged: (val) {
-                                    foo.changeOtherLabCheckbox();
-                                  },
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: deviceSize.width * 0.4,
-                              child: Text(
-                                'Other Lab Work Ups',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xff000000)),
-                              ),
-                            ),
-                            SizedBox(
-                              child: Consumer<PcrServicesProvider>(
-                                builder: (_, foo, __) => Text(
-                                  '${PcrServicesProvider.numberOfOtherLab}',
-                                  style: TextStyle(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff000000)),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                                child: Column(
-                              children: [
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfOtherLab(false),
-                                    },
-                                    icon: Icon(Icons.arrow_upward_rounded),
-                                  ),
-                                ),
-                                Consumer<PcrServicesProvider>(
-                                  builder: (_, foo, __) => IconButton(
-                                    onPressed: () => {
-                                      foo.changeNumberOfOtherLab(true),
-                                    },
-                                    icon: Icon(Icons.arrow_downward_rounded),
-                                  ),
-                                ),
-                              ],
-                            ))
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: deviceSize.width * 0.18,
-                                    height: deviceSize.height * 0.07,
-                                    child: Consumer<PcrServicesProvider>(
-                                      builder: (_, foo, __) => CheckboxListTile(
-                                        activeColor: Colors.green,
-                                        value:
-                                            PcrServicesProvider.collectingUrine,
-                                        onChanged: (val) {
-                                          foo.changeCollectingUrineCheckbox();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.6,
-                                    child: Text(
-                                      'Collecting urine/stool samples',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff000000)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
-                  'indicate the detailed names of laboratory tests required',
+                  'COVID-19 testing',
                   style: TextStyle(
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000)),
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue.shade900, fontSize: 11),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.6,
+                        child: EasyRichText(
+                          "Standard PCR\n\nResult within 12 to 48 hours",
+                          patternList: [
+                            EasyRichTextPattern(
+                              targetString: 'Standard PCR',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                            EasyRichTextPattern(
+                              targetString: 'Result within 12 to 48 hours',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOfsPCR(false),
+                              },
+                              icon: Icon(Icons.remove_circle_outline,
+                                  size: deviceSize.width * 0.07),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => Text(
+                              '${PcrServicesProvider.numberOfsPCR}',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOfsPCR(true),
+                              },
+                              icon: Icon(
+                                Icons.add_circle_outline_outlined,
+                                size: deviceSize.width * 0.07,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Prescrptions',
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000)),
-                    ),
-                    IconButton(onPressed: null, icon: Icon(Icons.attach_file)),
-                    Container(
-                      margin: EdgeInsets.all(deviceSize.height * 0.05),
-                      alignment: Alignment.bottomRight,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors
-                                .greenAccent //elevated btton background color
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.6,
+                        child: EasyRichText(
+                          "Fast PCR\n\nResult within 6 to 8 hours",
+                          patternList: [
+                            EasyRichTextPattern(
+                              targetString: 'Fast PCR',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: deviceSize.width * 0.04),
                             ),
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(AdditionalServices.routeName);
-                        },
-                        child: Text("Next"),
+                            EasyRichTextPattern(
+                              targetString: 'Result within 6 to 8 hours',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOffPCR(false),
+                              },
+                              icon: Icon(Icons.remove_circle_outline,
+                                  size: deviceSize.width * 0.07),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => Text(
+                              '${PcrServicesProvider.numberOffPCR}',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOffPCR(true),
+                              },
+                              icon: Icon(
+                                Icons.add_circle_outline_outlined,
+                                size: deviceSize.width * 0.07,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.6,
+                        child: EasyRichText(
+                          "Rapid PCR\n\nResult within 30 mins",
+                          patternList: [
+                            EasyRichTextPattern(
+                              targetString: 'Rapid PCR',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                            EasyRichTextPattern(
+                              targetString: 'Result within 30 mins',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOfrPCR(false),
+                              },
+                              icon: Icon(Icons.remove_circle_outline,
+                                  size: deviceSize.width * 0.07),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => Text(
+                              '${PcrServicesProvider.numberOfrPCR}',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOfrPCR(true),
+                              },
+                              icon: Icon(
+                                Icons.add_circle_outline_outlined,
+                                size: deviceSize.width * 0.07,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.6,
+                        child: EasyRichText(
+                          "Immunity Test",
+                          patternList: [
+                            EasyRichTextPattern(
+                              targetString: 'Immunity Test',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOftest(false),
+                              },
+                              icon: Icon(Icons.remove_circle_outline,
+                                  size: deviceSize.width * 0.07),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => Text(
+                              '${PcrServicesProvider.numberOftest}',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ),
+                          Consumer<PcrServicesProvider>(
+                            builder: (_, foo, __) => IconButton(
+                              onPressed: () => {
+                                foo.changeNumberOfnumberOftest(true),
+                              },
+                              icon: Icon(
+                                Icons.add_circle_outline_outlined,
+                                size: deviceSize.width * 0.07,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.6,
+                      child: EasyRichText(
+                        "Blood testing",
+                        patternList: [
+                          EasyRichTextPattern(
+                            targetString: 'Blood testing',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                        ],
                       ),
                     ),
+                    Row(
+                      children: [
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => IconButton(
+                            onPressed: () => {
+                              foo.changeNumberOfBloodTesting(false),
+                            },
+                            icon: Icon(Icons.remove_circle_outline,
+                                size: deviceSize.width * 0.07),
+                          ),
+                        ),
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => Text(
+                            '${PcrServicesProvider.numberOfBloodTesting}',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                        ),
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => IconButton(
+                            onPressed: () => {
+                              foo.changeNumberOfBloodTesting(true),
+                            },
+                            icon: Icon(
+                              Icons.add_circle_outline_outlined,
+                              size: deviceSize.width * 0.07,
+                            ),
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.6,
+                      child: EasyRichText(
+                        "Other Lab Work Ups",
+                        patternList: [
+                          EasyRichTextPattern(
+                            targetString: 'Other Lab Work Ups',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => IconButton(
+                            onPressed: () => {
+                              foo.changeNumberOfOtherLab(false),
+                            },
+                            icon: Icon(Icons.remove_circle_outline,
+                                size: deviceSize.width * 0.07),
+                          ),
+                        ),
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => Text(
+                            '${PcrServicesProvider.numberOfOtherLab}',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                        ),
+                        Consumer<PcrServicesProvider>(
+                          builder: (_, foo, __) => IconButton(
+                            onPressed: () => {
+                              foo.changeNumberOfOtherLab(true),
+                            },
+                            icon: Icon(
+                              Icons.add_circle_outline_outlined,
+                              size: deviceSize.width * 0.07,
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                TextField(
+                  style: TextStyle(
+                      color: Colors.blue.shade900,
+                      fontSize: deviceSize.width * 0.035),
+                  decoration: InputDecoration(
+                    label: Text(
+                        'Indicate here if any equipment or special instructions are needed'),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: Text(
+                        'Prescrptions',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.045),
+                      ),
+                    ),
+                    IconButton(onPressed: null, icon: Icon(Icons.attach_file)),
+                  ],
+                ),
+                Consumer<BuildCategoriesProvider>(
+                  builder: (_, foo, __) => Container(
+                    margin: EdgeInsets.all(deviceSize.height * 0.05),
+                    alignment: Alignment.bottomRight,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .orangeAccent //elevated btton background color
+                              ),
+                          onPressed: () => {
+                            /*Navigator.of(context).pushNamed(
+                                CareCategory.routeName,
+                              ),*/
+                            Navigator.of(context).pop()
+                          },
+                          child: Text("Back"),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.2)),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .greenAccent //elevated btton background color
+                              ),
+                          onPressed: () => {
+                            /*Navigator.of(context).pushNamed(
+                                CareCategory.routeName,
+                              ),*/
+                            Navigator.of(context)
+                                .pushNamed(CaregiverPreferences.routeName),
+                          },
+                          child: Text("Next"),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           )),

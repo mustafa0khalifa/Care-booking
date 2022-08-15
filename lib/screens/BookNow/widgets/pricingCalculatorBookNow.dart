@@ -3,6 +3,7 @@ import 'package:flutter_application_10000/providers/PostMyNeedsProvider/budgetPr
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
+import '../../BookingsDashboard/bookingsDashboard.dart';
 import 'Services/additionalServicesBookNow.dart';
 
 class PricingCalculatorBookNow extends StatefulWidget {
@@ -20,6 +21,33 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Pricing Calculator",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -52,16 +80,16 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
                                   'Total number of days of booking',
                                   style: TextStyle(
                                       color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica_Bold',
-                                      fontSize: 16),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Text(
                                 '8',
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: 16),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ],
                           ),
@@ -78,16 +106,16 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
                                   'Total number of shifts',
                                   style: TextStyle(
                                       color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica_Bold',
-                                      fontSize: 16),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Text(
                                 '12',
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: 16),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ],
                           ),
@@ -104,16 +132,16 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
                                   'Total number of hours requested',
                                   style: TextStyle(
                                       color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica_Bold',
-                                      fontSize: 16),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Text(
                                 '24',
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: 16),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ],
                           ),
@@ -129,7 +157,7 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -138,7 +166,7 @@ class _PricingCalculatorBookNowState extends State<PricingCalculatorBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.035),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),

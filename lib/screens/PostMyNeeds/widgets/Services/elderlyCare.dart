@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/models/testModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/elderlyCareProvider.dart';
-import '../NavBar.dart';
-import 'additionalServices.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
+import '../../../../providers/PostMyNeedsProvider/buildCategoriesProvider.dart';
+import '../caregiverPreferences.dart';
 
 class ElderlyCare extends StatefulWidget {
   static const routeName = '/elderlyCare-screen';
@@ -15,458 +15,796 @@ class ElderlyCare extends StatefulWidget {
 }
 
 class _ElderlyCareState extends State<ElderlyCare> {
+  bool select1Elder = true;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Elderly Care",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '2',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '3',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '4',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.1,
+                      height: deviceSize.width * 0.1,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Color(0xff28306e),
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '5',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '6',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '7',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '8',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    Container(
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Text(
+                        '9',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
                 Text(
                   'How many elderly need care? ',
                   style: TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff000000)),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.02),
-                  child: Column(
-                    children: [
-                      ListTile(
-                          title: Text("1 elder / senior"),
-                          leading: Radio(
-                              activeColor: Colors.greenAccent,
-                              value: 'val1',
-                              groupValue: widget.groupValueRadio,
-                              onChanged: (value) {
-                                setState(() {
-                                  widget.groupValueRadio = value.toString();
-                                }); //selected value
-                              })),
-                      ListTile(
-                          title: Text("2 elder / seniors"),
-                          leading: Radio(
-                              activeColor: Colors.greenAccent,
-                              value: 'val2',
-                              groupValue: widget.groupValueRadio,
-                              onChanged: (value) {
-                                setState(() {
-                                  widget.groupValueRadio = value.toString();
-                                }); //selected value
-                              })),
-                    ],
-                  ),
-                ),
-                Text(
-                  'Please specify the services',
-                  style: TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff000000)),
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Card(
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(color: Colors.black87)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.18,
-                            height: deviceSize.height * 0.07,
-                            child: Consumer<ElderlyCareProvider>(
-                              builder: (_, foo, __) => CheckboxListTile(
-                                activeColor: Colors.green,
-                                value: ElderlyCareProvider.basicCareCheckbox,
-                                onChanged: (val) {
-                                  foo.changeBasicCareCheckbox();
-                                },
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      child: Container(
+                          width: deviceSize.width * 0.4,
+                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          decoration: BoxDecoration(
+                              color: select1Elder
+                                  ? Color(0xff28306e)
+                                  : Colors.white,
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 3),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))
+                              //more than 50% of width makes circle
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.7,
-                            child: Text(
-                              'Basic care (Subcategory)',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xff000000)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(deviceSize.height * 0.02),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.companionship,
-                                      onChanged: (val) {
-                                        foo.changeCompanionshipCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Companionship',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.personalCare,
-                                      onChanged: (val) {
-                                        foo.changePersonalCareCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Personal care (e.g washing, dressing)',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value:
-                                          ElderlyCareProvider.mobilitySupport,
-                                      onChanged: (val) {
-                                        foo.changeMobilitySupportCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Mobility support',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value:
-                                          ElderlyCareProvider.mealPreparation,
-                                      onChanged: (val) {
-                                        foo.changeMealPreparationCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Meal preparation',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value:
-                                          ElderlyCareProvider.basicNursingCare,
-                                      onChanged: (val) {
-                                        foo.changeBasicNursingCareCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Basic nursing care',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.transportation,
-                                      onChanged: (val) {
-                                        foo.changeTransportationCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Transportation',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.shopping,
-                                      onChanged: (val) {
-                                        foo.changeShoppingCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Errands / Shopping',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.light,
-                                      onChanged: (val) {
-                                        foo.changeLightCheckbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Light housekeeping',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.18,
-                            height: deviceSize.height * 0.07,
-                            child: Consumer<ElderlyCareProvider>(
-                              builder: (_, foo, __) => CheckboxListTile(
-                                activeColor: Colors.green,
-                                value: ElderlyCareProvider.basicNursingCheckbox,
-                                onChanged: (val) {
-                                  foo.changeBasicNursingCheckbox();
-                                },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                Icons.man,
+                                size: deviceSize.width * 0.05,
+                                color: select1Elder
+                                    ? Colors.white
+                                    : Color(0xff28306e),
                               ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              Text(
+                                "1 elder / senior",
+                                style: TextStyle(
+                                    color: select1Elder
+                                        ? Colors.white
+                                        : Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                              ),
+                            ],
+                          )),
+                      onTap: () => {
+                        setState(() {
+                          select1Elder = true;
+                        })
+                      },
+                    ),
+                    InkWell(
+                      child: Container(
+                          width: deviceSize.width * 0.4,
+                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          decoration: BoxDecoration(
+                              color: !select1Elder
+                                  ? Color(0xff28306e)
+                                  : Colors.white,
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 3),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              )
+                              //more than 50% of width makes circle
+                              ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                Icons.person_add_alt_sharp,
+                                size: deviceSize.width * 0.05,
+                                color: !select1Elder
+                                    ? Colors.white
+                                    : Color(0xff28306e),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              Text(
+                                "2 elder / seniors",
+                                style: TextStyle(
+                                    color: !select1Elder
+                                        ? Colors.white
+                                        : Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                              ),
+                            ],
+                          )),
+                      onTap: () => {
+                        setState(() {
+                          select1Elder = false;
+                        })
+                      },
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Text(
+                  'Please specify the services',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica_Bold',
+                      fontSize: deviceSize.width * 0.045),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Text(
+                  'Basic Care',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.04),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.companionship,
+                              onChanged: (val) {
+                                foo.changeCompanionshipCheckbox();
+                              },
                             ),
                           ),
-                          SizedBox(
-                            width: deviceSize.width * 0.7,
-                            child: Text(
-                              'Basic nursing care (provide medication, monitor vital signs)',
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xff000000)),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Companionship',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.basicNursingCare,
+                              onChanged: (val) {
+                                foo.changeBasicNursingCareCheckbox();
+                              },
                             ),
                           ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(deviceSize.height * 0.02),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.service1,
-                                      onChanged: (val) {
-                                        foo.changeService1Checkbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Service 1',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: deviceSize.width * 0.18,
-                                  height: deviceSize.height * 0.07,
-                                  child: Consumer<ElderlyCareProvider>(
-                                    builder: (_, foo, __) => CheckboxListTile(
-                                      activeColor: Colors.green,
-                                      value: ElderlyCareProvider.service2,
-                                      onChanged: (val) {
-                                        foo.changeService2Checkbox();
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Text(
-                                    'Service 2',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff000000)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(deviceSize.height * 0.05),
-                  alignment: Alignment.bottomRight,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary:
-                            Colors.greenAccent //elevated btton background color
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Basic nursing care',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
                         ),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(AdditionalServices.routeName);
-                    },
-                    child: Text("Next"),
-                  ),
+                      ],
+                    ),
+                  ],
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.personalCare,
+                              onChanged: (val) {
+                                foo.changePersonalCareCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Personal care (e.g washing, dressing)',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.transportation,
+                              onChanged: (val) {
+                                foo.changeTransportationCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Transportation',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.mobilitySupport,
+                              onChanged: (val) {
+                                foo.changeMobilitySupportCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Mobility support',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.shopping,
+                              onChanged: (val) {
+                                foo.changeShoppingCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Errands / Shopping',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.mealPreparation,
+                              onChanged: (val) {
+                                foo.changeMealPreparationCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Meal preparation',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.light,
+                              onChanged: (val) {
+                                foo.changeLightCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Light housekeeping',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Divider(
+                  color: Color(0xff28306e),
+                  thickness: 1,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Text(
+                  'Nursing Care',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.04),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.companionship,
+                              onChanged: (val) {
+                                foo.changeCompanionshipCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Companionship',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.basicNursingCare,
+                              onChanged: (val) {
+                                foo.changeBasicNursingCareCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Basic nursing care',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.personalCare,
+                              onChanged: (val) {
+                                foo.changePersonalCareCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Personal care (e.g washing, dressing)',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.transportation,
+                              onChanged: (val) {
+                                foo.changeTransportationCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Transportation',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.mobilitySupport,
+                              onChanged: (val) {
+                                foo.changeMobilitySupportCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Mobility support',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.18,
+                          height: deviceSize.height * 0.07,
+                          child: Consumer<ElderlyCareProvider>(
+                            builder: (_, foo, __) => CheckboxListTile(
+                              activeColor: Colors.green,
+                              value: ElderlyCareProvider.shopping,
+                              onChanged: (val) {
+                                foo.changeShoppingCheckbox();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: deviceSize.width * 0.27,
+                          child: Text(
+                            'Errands / Shopping',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Consumer<BuildCategoriesProvider>(
+                  builder: (_, foo, __) => Container(
+                    margin: EdgeInsets.all(deviceSize.height * 0.05),
+                    alignment: Alignment.bottomRight,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .orangeAccent //elevated btton background color
+                              ),
+                          onPressed: () => {
+                            /*Navigator.of(context).pushNamed(
+                                CareCategory.routeName,
+                              ),*/
+                            Navigator.of(context).pop()
+                          },
+                          child: Text("Back"),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.2)),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .greenAccent //elevated btton background color
+                              ),
+                          onPressed: () => {
+                            /*Navigator.of(context).pushNamed(
+                                CareCategory.routeName,
+                              ),*/
+                            Navigator.of(context)
+                                .pushNamed(CaregiverPreferences.routeName),
+                          },
+                          child: Text("Next"),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           )),

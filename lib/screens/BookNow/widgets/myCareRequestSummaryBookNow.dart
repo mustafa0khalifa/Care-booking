@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../BookingsDashboard/bookingsDashboard.dart';
 import 'caregaverClientRequestBookNow.dart';
 
 class MyCareRequestSummaryBookNow extends StatefulWidget {
@@ -15,6 +16,33 @@ class _MyCareRequestSummaryBookNowState
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "My Care Request",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -30,7 +58,7 @@ class _MyCareRequestSummaryBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 20),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -47,7 +75,7 @@ class _MyCareRequestSummaryBookNowState
                           style: TextStyle(
                               color: Color(0xffcbcbcb),
                               fontFamily: 'Helvetica',
-                              fontSize: 16),
+                              fontSize: deviceSize.width * 0.035),
                         ),
                       )),
                 ),
@@ -58,7 +86,7 @@ class _MyCareRequestSummaryBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),

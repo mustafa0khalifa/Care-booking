@@ -3,6 +3,7 @@ import 'package:flutter_application_10000/screens/MyBookings/widgets/item.dart';
 
 import '../../models/testModel.dart';
 import '../../providers/myBookingProvider.dart';
+import '../BookingsDashboard/bookingsDashboard.dart';
 
 class MyBookings extends StatefulWidget {
   static const routeName = '/myBookings-screen';
@@ -19,20 +20,34 @@ class _MyBookingsdState extends State<MyBookings> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "${MyBookingProvider.stateMyBooking}",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: 20),
-          ),
+        centerTitle: true,
+        title: Text(
+          "${MyBookingProvider.stateMyBooking}",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: 20),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.height * 0.03),
           child: ListView.builder(
               itemCount: 6,

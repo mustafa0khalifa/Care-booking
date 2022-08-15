@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/automaticMatchingOption.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/caregiverPreferences.dart';
-import '../../BookingsDashboard/bookingsDashboard.dart';
-import 'NavBar.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/oneVisite.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
+import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:provider/provider.dart';
 
-class MyCareRequestSummary extends StatefulWidget {
-  static const routeName = '/myCareRequestSummary-screen';
+import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
+
+class BuildRequest extends StatefulWidget {
+  static const routeName = '/buildRequest-screen';
 
   @override
-  _MyCareRequestSummaryState createState() => _MyCareRequestSummaryState();
+  _BuildRequestState createState() => _BuildRequestState();
 }
 
-class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
+class _BuildRequestState extends State<BuildRequest> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -36,7 +40,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Requst Summary",
+          "Build your care request",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -46,11 +50,11 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -147,16 +151,16 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       ),
                     ),
                     Container(
-                      width: deviceSize.width * 0.07,
-                      height: deviceSize.width * 0.07,
+                      width: deviceSize.width * 0.1,
+                      height: deviceSize.width * 0.1,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Colors.grey,
+                          color: Color(0xff28306e),
                           borderRadius: BorderRadius.circular(100)),
                       child: Text(
                         '7',
                         style: TextStyle(
-                            color: Color(0xff28306e),
+                            color: Colors.white,
                             fontFamily: 'Helvetica',
                             fontSize: deviceSize.width * 0.04),
                       ),
@@ -177,16 +181,16 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       ),
                     ),
                     Container(
-                      width: deviceSize.width * 0.1,
-                      height: deviceSize.width * 0.1,
+                      width: deviceSize.width * 0.07,
+                      height: deviceSize.width * 0.07,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Color(0xff28306e),
+                          color: Colors.grey,
                           borderRadius: BorderRadius.circular(100)),
                       child: Text(
                         '9',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
                             fontSize: deviceSize.width * 0.04),
                       ),
@@ -196,106 +200,133 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
                 Text(
-                  'Our last questions :)',
+                  'Describe your schedule',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
-                Text(
-                  'Title',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
-                ),
-                Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(color: Colors.grey)),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
                       child: Container(
-                        margin: EdgeInsets.all(deviceSize.width * 0.03),
-                        child: Text(
-                          'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
-                        ),
-                      )),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Text(
-                  'Feel free to add any additional information about your care needs',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Container(
-                  child: SizedBox(
-                    width: deviceSize.width * 0.8,
-                    child: TextField(
-                      style:
-                          TextStyle(color: Colors.blue.shade900, fontSize: 11),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(color: Colors.grey)),
-                      ),
+                          width: deviceSize.width * 0.25,
+                          height: deviceSize.height * 0.17,
+                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 3),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))
+                              //more than 50% of width makes circle
+                              ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                Icons.refresh,
+                                size: deviceSize.width * 0.07,
+                                color: Color(0xff28306e),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              Text(
+                                "Regular",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                              ),
+                            ],
+                          )),
+                      onTap: () =>
+                          {Navigator.of(context).pushNamed(Schedule.routeName)},
                     ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Container(
-                  margin: EdgeInsets.all(deviceSize.height * 0.05),
-                  alignment: Alignment.bottomRight,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors
-                                .orangeAccent //elevated btton background color
-                            ),
-                        onPressed: () => {
-                          /*Navigator.of(context).pushNamed(
-                                CareCategory.routeName,
-                              ),*/
-                          Navigator.of(context).pop()
-                        },
-                        child: Text("Back"),
-                      ),
-                      Padding(
-                          padding:
-                              EdgeInsets.only(left: deviceSize.width * 0.2)),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors
-                                .greenAccent //elevated btton background color
-                            ),
-                        onPressed: () => {
-                          /*Navigator.of(context).pushNamed(
-                                CareCategory.routeName,
-                              ),*/
-                          Navigator.of(context)
-                              .pushNamed(AutomaticMatchingOption.routeName),
-                        },
-                        child: Text("Next"),
-                      ),
-                    ],
-                  ),
+                    InkWell(
+                      child: Container(
+                          width: deviceSize.width * 0.25,
+                          height: deviceSize.height * 0.17,
+                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 3),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              )
+                              //more than 50% of width makes circle
+                              ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                Icons.man,
+                                size: deviceSize.width * 0.07,
+                                color: Color(0xff28306e),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              Text(
+                                "One visit",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                              ),
+                            ],
+                          )),
+                      onTap: () => {
+                        Navigator.of(context).pushNamed(OneVisite.routeName)
+                      },
+                    ),
+                    InkWell(
+                      child: Container(
+                          width: deviceSize.width * 0.25,
+                          height: deviceSize.height * 0.17,
+                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 3),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              )
+                              //more than 50% of width makes circle
+                              ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                Icons.date_range,
+                                size: deviceSize.width * 0.07,
+                                color: Color(0xff28306e),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              Text(
+                                "Variable hours",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                              ),
+                            ],
+                          )),
+                      onTap: () =>
+                          {Navigator.of(context).pushNamed(Variable.routeName)},
+                    ),
+                  ],
                 ),
               ],
             ),

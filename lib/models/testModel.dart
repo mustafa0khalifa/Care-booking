@@ -7,7 +7,7 @@ class TestModel {
       imageUrl: 'assets/images/profile.jpg',
       firstName: 'mustafa saeed',
       age: 25,
-      qualifications: 'Physical therapist',
+      qualifications: 'baby sitter',
       nationality: 'Lebanese Arabic',
       rating: 3,
       distance: 20.0,
@@ -109,7 +109,7 @@ class TestModel {
     age: 25,
     nationality: 'Lebanese Arabic',
     clientReferences: 'Lebanon - Beirut',
-    qualifications: 'Physical therapist',
+    qualifications: 'baby sitter',
     caregiversBiography:
         'A physical therapist who specializes in helping children with special needs and holds a certificate of experience from an internationally recognized nursing home',
     providedHoursofcare: 6,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../CareRecipients/careRecipientsBookNow.dart';
 
 class AdditionalServicesBookNow extends StatefulWidget {
@@ -17,27 +19,52 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Additional Services",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Text(
-                    'What else do you require?',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: 20),
-                  ),
+                Text(
+                  'What else do you require?',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   height: deviceSize.height * 0.5,
                   child: Card(
@@ -45,7 +72,8 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
                         side: BorderSide(color: Colors.black87)),
-                    child: ListView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -72,7 +100,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -102,7 +130,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -132,7 +160,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -161,7 +189,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -191,7 +219,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -220,7 +248,7 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 16),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                           ],
@@ -238,11 +266,11 @@ class _AdditionalServicesBookNowState extends State<AdditionalServicesBookNow> {
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
-                        fontSize: 18),
+                        fontSize: deviceSize.width * 0.045),
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,

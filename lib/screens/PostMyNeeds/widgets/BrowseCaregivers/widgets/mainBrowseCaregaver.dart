@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../../../../../models/testModel.dart';
 import '../../../../FavoriteCaregivers/widgets/ItemFavoriteCaregivers.dart';
-import 'filter.dart';
 
 class MainBrowseCaregaver extends StatefulWidget {
   static const routeName = '/mainBrowseCaregaver-screen';
@@ -44,35 +43,18 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: SizedBox(
-                      width: deviceSize.width * 0.4,
-                      child: TextButton(
-                        child: Text('Filter setting'),
-                        style: TextButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Color.fromARGB(255, 71, 201, 188),
-                          onSurface: Colors.grey,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(
-                            Filter.routeName,
-                          );
-                        },
-                      ),
-                    ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
                   ),
                   SizedBox(
                     width: deviceSize.width * 0.8,
                     child: Text(
-                      maxLines: 2,
-                      "12 matched Caregivers",
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color.fromARGB(255, 0, 0, 0)),
-                    ),
+                        maxLines: 2,
+                        "12 matched Caregivers",
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04)),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
@@ -87,9 +69,10 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                           maxLines: 2,
                           "Price for",
                           style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
-                              color: Color.fromARGB(255, 0, 0, 0)),
+                            fontSize: deviceSize.width * 0.038,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff28306e),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -113,9 +96,10 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                           maxLines: 2,
                           "Sort By",
                           style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
-                              color: Color.fromARGB(255, 0, 0, 0)),
+                            fontSize: deviceSize.width * 0.038,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff28306e),
+                          ),
                         ),
                       ),
                       SizedBox(

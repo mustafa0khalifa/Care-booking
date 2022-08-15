@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/elderlyCareProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../pricingCalculatorBookNow.dart';
 
 class ElderlyCareBookNow extends StatefulWidget {
@@ -17,10 +18,37 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Elderly Care",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
@@ -31,62 +59,59 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                   'How many elderly need care? ',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 20),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
-                ),
-                Column(
-                  children: [
-                    ListTile(
-                        title: Text(
-                          "1 elder / senior",
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: 16),
-                        ),
-                        leading: Radio(
-                            activeColor: Colors.greenAccent,
-                            value: 'val1',
-                            groupValue: widget.groupValueRadio,
-                            onChanged: (value) {
-                              setState(() {
-                                widget.groupValueRadio = value.toString();
-                              }); //selected value
-                            })),
-                    ListTile(
-                        title: Text(
-                          "2 elder / seniors",
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: 16),
-                        ),
-                        leading: Radio(
-                            activeColor: Colors.greenAccent,
-                            value: 'val2',
-                            groupValue: widget.groupValueRadio,
-                            onChanged: (value) {
-                              setState(() {
-                                widget.groupValueRadio = value.toString();
-                              }); //selected value
-                            })),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.02),
+                  child: Column(
+                    children: [
+                      ListTile(
+                          title: Text(
+                            "1 elder / senior",
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                          leading: Radio(
+                              activeColor: Colors.greenAccent,
+                              value: 'val1',
+                              groupValue: widget.groupValueRadio,
+                              onChanged: (value) {
+                                setState(() {
+                                  widget.groupValueRadio = value.toString();
+                                }); //selected value
+                              })),
+                      ListTile(
+                          title: Text(
+                            "2 elder / seniors",
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                          leading: Radio(
+                              activeColor: Colors.greenAccent,
+                              value: 'val2',
+                              groupValue: widget.groupValueRadio,
+                              onChanged: (value) {
+                                setState(() {
+                                  widget.groupValueRadio = value.toString();
+                                }); //selected value
+                              })),
+                    ],
+                  ),
                 ),
                 Text(
                   'Please specify the services',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 20),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Card(
                   elevation: 5.0,
                   shape: RoundedRectangleBorder(
@@ -120,7 +145,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 18),
+                                  fontSize: deviceSize.width * 0.045),
                             ),
                           ),
                         ],
@@ -153,7 +178,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -182,7 +207,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -212,7 +237,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -242,7 +267,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -272,7 +297,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -301,7 +326,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -330,7 +355,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -359,7 +384,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -391,7 +416,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica',
-                                  fontSize: 18),
+                                  fontSize: deviceSize.width * 0.045),
                             ),
                           ),
                         ],
@@ -424,7 +449,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],
@@ -453,7 +478,7 @@ class _ElderlyCareBookNowState extends State<ElderlyCareBookNow> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 16),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                               ],

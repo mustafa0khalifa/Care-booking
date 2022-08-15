@@ -9,30 +9,6 @@ import '../FavoriteCaregivers/favoriteCaregivers.dart';
 import '../MyBookings/myBookings.dart';
 import '../PostMyNeeds/postMyNeeds.dart';
 
-class DemoPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var center = size / 2;
-    var paint = Paint()..color = Colors.yellow;
-    canvas.drawArc(
-      Rect.fromCenter(
-        center: Offset(center.width, center.height),
-        width: 50,
-        height: 10,
-      ),
-      0.4,
-      2 * 3.14 - 0.8,
-      true,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    throw UnimplementedError();
-  }
-}
-
 class BookingsDashboard extends StatefulWidget {
   static const routeName = '/bookingsDashboard-screen';
 
@@ -47,10 +23,20 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Bookings Dashboard",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
         margin: EdgeInsets.all(deviceSize.height * 0.03),
         child: SingleChildScrollView(
           child: Column(
@@ -63,7 +49,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica-Bold',
-                          fontSize: 24)),
+                          fontSize: deviceSize.width * 0.055)),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -80,7 +66,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             children: [
                               SizedBox(
                                 width: deviceSize.width * 0.28,
-                                height: deviceSize.height * 0.1,
                                 child: Center(
                                   child: Image.asset(
                                     color: BookDashboardProvide
@@ -96,21 +81,20 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                 children: [
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
                                     child: Center(
                                       child: Text('5',
                                           style: TextStyle(
                                               color: Color(0xff3ab284),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 24)),
+                                              fontSize:
+                                                  deviceSize.width * 0.055)),
                                     ),
                                   ),
                                   Padding(
                                       padding: EdgeInsets.only(
                                           top: deviceSize.height * 0.03)),
                                   SizedBox(
-                                    width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
+                                    width: deviceSize.width * 0.4,
                                     child: Center(
                                       child: Text('Previous Booking',
                                           style: TextStyle(
@@ -120,7 +104,8 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                       255, 255, 255, 255)
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 13)),
+                                              fontSize:
+                                                  deviceSize.width * 0.028)),
                                     ),
                                   )
                                 ],
@@ -147,7 +132,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             children: [
                               SizedBox(
                                 width: deviceSize.width * 0.28,
-                                height: deviceSize.height * 0.1,
                                 child: Center(
                                   child: Image.asset(
                                     color: BookDashboardProvide
@@ -163,13 +147,13 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                 children: [
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
                                     child: Center(
                                       child: Text('2',
                                           style: TextStyle(
                                               color: Color(0xff3ab284),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 24)),
+                                              fontSize:
+                                                  deviceSize.width * 0.055)),
                                     ),
                                   ),
                                   Padding(
@@ -177,7 +161,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                           top: deviceSize.height * 0.03)),
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
                                     child: Center(
                                       child: Text('Current Booking',
                                           style: TextStyle(
@@ -187,7 +170,8 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                       255, 255, 255, 255)
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 13)),
+                                              fontSize:
+                                                  deviceSize.width * 0.028)),
                                     ),
                                   )
                                 ],
@@ -213,7 +197,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             children: [
                               SizedBox(
                                 width: deviceSize.width * 0.28,
-                                height: deviceSize.height * 0.1,
                                 child: Center(
                                   child: Image.asset(
                                     color: BookDashboardProvide
@@ -229,13 +212,13 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                 children: [
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
                                     child: Center(
                                       child: Text('2',
                                           style: TextStyle(
                                               color: Color(0xff3ab284),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 24)),
+                                              fontSize:
+                                                  deviceSize.width * 0.055)),
                                     ),
                                   ),
                                   Padding(
@@ -243,7 +226,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                           top: deviceSize.height * 0.03)),
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
-                                    height: deviceSize.height * 0.03,
                                     child: Center(
                                       child: Text('Pending Booking',
                                           style: TextStyle(
@@ -253,7 +235,8 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                       255, 255, 255, 255)
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 13)),
+                                              fontSize:
+                                                  deviceSize.width * 0.028)),
                                     ),
                                   )
                                 ],
@@ -280,7 +263,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica-Bold',
-                          fontSize: 24)),
+                          fontSize: deviceSize.width * 0.055)),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -312,7 +295,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.042)),
                               ),
                             ),
                             SizedBox(
@@ -367,7 +350,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.042)),
                               ),
                             ),
                             SizedBox(
@@ -423,7 +406,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.042)),
                               ),
                             ),
                             SizedBox(
@@ -479,7 +462,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                             ? Color.fromARGB(255, 255, 255, 255)
                                             : Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: 20)),
+                                        fontSize: deviceSize.width * 0.042)),
                               ),
                             ),
                             SizedBox(
@@ -505,8 +488,6 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                     },
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.15)),
               ]),
         ),
       ),

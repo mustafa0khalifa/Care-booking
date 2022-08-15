@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/pcrServicesProvider.dart';
+import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../pricingCalculatorBookNow.dart';
-import 'additionalServicesBookNow.dart';
 
 class PcrServicesBookNow extends StatefulWidget {
   static const routeName = '/_pcrServicesStateBookNow-screen';
@@ -18,10 +18,37 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Pcr Services",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
@@ -32,13 +59,11 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                   'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 20),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.04),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
@@ -46,7 +71,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
-                          fontSize: 18),
+                          fontSize: deviceSize.width * 0.04),
                     ),
                     Padding(
                         padding:
@@ -56,9 +81,9 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                         builder: (_, foo, __) => Text(
                           '${PcrServicesProvider.numberOfPeopleTest}',
                           style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff000000)),
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.04),
                         ),
                       ),
                     ),
@@ -70,7 +95,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                             onPressed: () => {
                               foo.changeNumberOfPeopleTest(false),
                             },
-                            icon: Icon(Icons.arrow_upward_rounded),
+                            icon: Icon(Icons.minimize),
                           ),
                         ),
                         Consumer<PcrServicesProvider>(
@@ -78,21 +103,19 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                             onPressed: () => {
                               foo.changeNumberOfPeopleTest(true),
                             },
-                            icon: Icon(Icons.arrow_downward_rounded),
+                            icon: Icon(Icons.add),
                           ),
                         ),
                       ],
                     ))
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'What type of services do you need?',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.035),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -130,7 +153,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 18),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                             SizedBox(
@@ -140,7 +163,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                             ),
@@ -152,7 +175,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                     onPressed: () => {
                                       foo.changeNumberOfCovidTesting(false),
                                     },
-                                    icon: Icon(Icons.arrow_upward_rounded),
+                                    icon: Icon(Icons.minimize),
                                   ),
                                 ),
                                 Consumer<PcrServicesProvider>(
@@ -160,7 +183,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                     onPressed: () => {
                                       foo.changeNumberOfCovidTesting(true),
                                     },
-                                    icon: Icon(Icons.arrow_downward_rounded),
+                                    icon: Icon(Icons.add),
                                   ),
                                 ),
                               ],
@@ -196,7 +219,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -226,7 +249,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -256,7 +279,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -286,7 +309,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -317,7 +340,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -325,9 +348,6 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                             ],
                           ),
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.03)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -353,7 +373,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 18),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                             SizedBox(
@@ -363,7 +383,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                             ),
@@ -420,7 +440,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -428,9 +448,6 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                             ],
                           ),
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.03)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -455,7 +472,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: 18),
+                                    fontSize: deviceSize.width * 0.04),
                               ),
                             ),
                             SizedBox(
@@ -465,7 +482,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                             ),
@@ -522,7 +539,7 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 16),
+                                          fontSize: deviceSize.width * 0.04),
                                     ),
                                   ),
                                 ],
@@ -541,10 +558,10 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.035),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.03),
                   child: TextField(
                     style: TextStyle(color: Colors.blue.shade900, fontSize: 11),
                     decoration: InputDecoration(
@@ -554,24 +571,25 @@ class _PcrServicesBookNowState extends State<PcrServicesBookNow> {
                     ),
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'Prescrptions',
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                          fontSize: 20),
+                    SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: Text(
+                        'Prescrptions',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.04),
+                      ),
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(left: deviceSize.width * 0.5)),
                     IconButton(onPressed: null, icon: Icon(Icons.attach_file)),
                   ],
                 ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,

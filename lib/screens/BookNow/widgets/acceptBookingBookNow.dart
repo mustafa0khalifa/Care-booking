@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
 
 import '../../../providers/myBookingProvider.dart';
+import '../../BookingsDashboard/bookingsDashboard.dart';
 import 'completeYourRequestBookNow.dart';
 
 class AcceptBookingBookNow extends StatefulWidget {
@@ -18,10 +19,36 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
     final deviceSize = MediaQuery.of(context).size;
     AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Accept Booking",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
         margin: EdgeInsets.all(deviceSize.height * 0.03),
         child: SingleChildScrollView(
           child: Column(
@@ -40,7 +67,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -52,7 +79,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.04),
                 ),
               ),
               Padding(
@@ -66,7 +93,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
-                        fontSize: 16),
+                        fontSize: deviceSize.width * 0.035),
                   ),
                 ),
               ),
@@ -78,7 +105,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.04),
                 ),
               ),
               Padding(
@@ -97,7 +124,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.035),
                           ),
                           TextButton(
                             onPressed: null,
@@ -105,8 +132,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                               maxLines: 2,
                               "Uploaded",
                               style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: deviceSize.width * 0.035,
                                   color: Color.fromARGB(255, 41, 117, 11)),
                             ),
                           )
@@ -122,7 +148,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: deviceSize.width * 0.035),
                           ),
                           TextButton(
                             onPressed: null,
@@ -130,8 +156,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                               maxLines: 2,
                               "Approved",
                               style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: deviceSize.width * 0.035,
                                   color: Color.fromARGB(255, 41, 117, 11)),
                             ),
                           )
@@ -147,7 +172,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.04),
                 ),
               ),
               Padding(
@@ -170,9 +195,9 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                               maxLines: 2,
                               "Complete your request",
                               style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromARGB(255, 50, 149, 207)),
+                                  color: Color.fromARGB(255, 50, 149, 207),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.035),
                             ),
                           ),
                           TextButton(
@@ -181,8 +206,7 @@ class _AcceptBookingBookNowState extends State<AcceptBookingBookNow> {
                               maxLines: 2,
                               "Not Completed",
                               style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: deviceSize.width * 0.035,
                                   color: Color.fromARGB(255, 41, 117, 11)),
                             ),
                           )

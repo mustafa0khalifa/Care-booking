@@ -2,6 +2,7 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
+import 'package:flutter_application_10000/screens/BookingsDashboard/bookingsDashboard.dart';
 
 import '../../PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import '../../auth/mainAuth.dart';
@@ -22,8 +23,11 @@ class _ResetPasswordState extends State<ResetPassword> {
     if (_passwordController.text == _confirmPasswordController.text &&
         _passwordController.text == 'cloud.system') {
       forget.changeForgetSteta();
-      Navigator.of(context).pushNamed(
-        BrowseCaregivers.routeName,
+      Navigator.pushAndRemoveUntil<void>(
+        context,
+        MaterialPageRoute<void>(
+            builder: (BuildContext context) => BookingsDashboard()),
+        (Route<dynamic> route) => false,
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Reset Password Password ok ..."),
@@ -127,7 +131,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                       // ignore: avoid_print
                       print("Tap Cancel");
                       forget.cancelForgetSteta();
-                      Navigator.of(context).pushNamed(AuthScreen.routeName);
+                      Navigator.pushAndRemoveUntil<void>(
+                        context,
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) => AuthScreen()),
+                        (Route<dynamic> route) => false,
+                      );
                     },
                     child: Text("Cnacel"),
                   ),

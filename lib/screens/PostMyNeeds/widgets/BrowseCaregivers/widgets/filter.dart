@@ -51,21 +51,19 @@ class _FilterState extends State<Filter> {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "Filter Setting",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: 20),
-          ),
+        title: Text(
+          "Filter Setting",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
         ),
       ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
           margin: EdgeInsets.all(0.03 * deviceSize.height),
           child: SingleChildScrollView(
             child: Column(
@@ -84,22 +82,17 @@ class _FilterState extends State<Filter> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
+                          Column(
                             children: [
                               SizedBox(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Color(
-                                        0xff28306e), //elevated btton background color
-                                  ),
-                                  onPressed: () => {print('ok')},
-                                  child: Text('Gender',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          fontFamily: 'Helvetica',
-                                          fontSize: 16)),
-                                ),
+                                width: deviceSize.width * 0.8,
+                                child: Text(
+                                    maxLines: 2,
+                                    "Gender",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.05)),
                               ),
                               Row(
                                 children: [
@@ -117,11 +110,7 @@ class _FilterState extends State<Filter> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 14)),
-                                ],
-                              ),
-                              Row(
-                                children: [
+                                          fontSize: deviceSize.width * 0.04)),
                                   Consumer<BrowseCaregiversProvider>(
                                       builder: (_, foo, __) => Radio(
                                           activeColor: Colors.greenAccent,
@@ -135,11 +124,7 @@ class _FilterState extends State<Filter> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 14)),
-                                ],
-                              ),
-                              Row(
-                                children: [
+                                          fontSize: deviceSize.width * 0.04)),
                                   Consumer<BrowseCaregiversProvider>(
                                       builder: (_, foo, __) => Radio(
                                           activeColor: Colors.greenAccent,
@@ -153,9 +138,9 @@ class _FilterState extends State<Filter> {
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helvetica',
-                                          fontSize: 14)),
+                                          fontSize: deviceSize.width * 0.04)),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                           Padding(
@@ -182,48 +167,75 @@ class _FilterState extends State<Filter> {
                                 child: Text("Distance",
                                     style: TextStyle(
                                         color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 18)),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.05)),
                               ),
                             ],
                           ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Consumer<BrowseCaregiversProvider>(
-                              builder: (_, foo, __) => Slider(
-                                  value: BrowseCaregiversProvider.valueSlider,
-                                  min: 10.0,
-                                  max: 100.0,
-                                  divisions: 10,
-                                  activeColor: Color(0xff28306e),
-                                  inactiveColor: Color(0xffcbcbcb),
-                                  label:
-                                      '${BrowseCaregiversProvider.valueSlider}',
-                                  onChanged: (double newValue) {
-                                    foo.changeValueSlider(newValue);
-                                  },
-                                  semanticFormatterCallback: (double newValue) {
-                                    return '${newValue.round()} dollars';
-                                  }),
-                            ),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Center(
-                              child: Consumer<BrowseCaregiversProvider>(
-                                builder: (_, foo, __) => Text(
-                                  "${BrowseCaregiversProvider.valueSlider.toInt()}  areoun me",
-                                  style: TextStyle(
-                                      color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica',
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                          ),
+                          Consumer<BrowseCaregiversProvider>(
+                              builder: (_, foo, __) => BrowseCaregiversProvider
+                                      .distance
+                                  ? Column(
+                                      children: [
+                                        SizedBox(
+                                          width: deviceSize.width * 0.8,
+                                          child: Consumer<
+                                              BrowseCaregiversProvider>(
+                                            builder: (_, foo, __) => Slider(
+                                                value: BrowseCaregiversProvider
+                                                    .valueSlider,
+                                                min: 10.0,
+                                                max: 100.0,
+                                                divisions: 10,
+                                                activeColor: Color(0xff28306e),
+                                                inactiveColor:
+                                                    Color(0xffcbcbcb),
+                                                label:
+                                                    '${BrowseCaregiversProvider.valueSlider}',
+                                                onChanged: (double newValue) {
+                                                  foo.changeValueSlider(
+                                                      newValue);
+                                                },
+                                                semanticFormatterCallback:
+                                                    (double newValue) {
+                                                  return '${newValue.round()} dollars';
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: deviceSize.width * 0.8,
+                                          child: Center(
+                                            child: Consumer<
+                                                BrowseCaregiversProvider>(
+                                              builder: (_, foo, __) => Text(
+                                                "${BrowseCaregiversProvider.valueSlider.toInt()}  areoun me",
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: deviceSize.width *
+                                                        0.035),
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  : SizedBox()),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
+                          ),
+                          SizedBox(
+                            width: deviceSize.width * 0.8,
+                            child: Text("Care Required",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 0.01 * deviceSize.height),
                           ),
                           Card(
                               elevation: 5.0,
@@ -234,20 +246,6 @@ class _FilterState extends State<Filter> {
                                 padding:
                                     EdgeInsets.all(deviceSize.height * 0.01),
                                 child: Column(children: [
-                                  Center(
-                                    child: SizedBox(
-                                      width: deviceSize.width * 0.3,
-                                      child: Text("Care Required",
-                                          style: TextStyle(
-                                              color: Color(0xff28306e),
-                                              fontFamily: 'Helvetica',
-                                              fontSize: 18)),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 0.03 * deviceSize.height),
-                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -274,7 +272,9 @@ class _FilterState extends State<Filter> {
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily: 'Helvetica',
-                                                      fontSize: 14)),
+                                                      fontSize:
+                                                          deviceSize.width *
+                                                              0.035)),
                                             ),
                                           ],
                                         ),
@@ -305,7 +305,9 @@ class _FilterState extends State<Filter> {
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily: 'Helvetica',
-                                                      fontSize: 14)),
+                                                      fontSize:
+                                                          deviceSize.width *
+                                                              0.035)),
                                             ),
                                           ],
                                         ),
@@ -339,7 +341,9 @@ class _FilterState extends State<Filter> {
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily: 'Helvetica',
-                                                      fontSize: 14)),
+                                                      fontSize:
+                                                          deviceSize.width *
+                                                              0.035)),
                                             ),
                                           ],
                                         ),
@@ -366,7 +370,9 @@ class _FilterState extends State<Filter> {
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily: 'Helvetica',
-                                                      fontSize: 14)),
+                                                      fontSize:
+                                                          deviceSize.width *
+                                                              0.035)),
                                             ),
                                           ],
                                         ),
@@ -395,111 +401,151 @@ class _FilterState extends State<Filter> {
                                 ),
                               ),
                               SizedBox(
-                                width: deviceSize.width * 0.3,
+                                width: deviceSize.width * 0.7,
                                 child: Text("Payment Rate",
                                     style: TextStyle(
                                         color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 18)),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.05)),
                               ),
                             ],
                           ),
-                          Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  children: [
-                                    SizedBox(
-                                      child: Text('Hours / Day',
-                                          style: TextStyle(
-                                              color: Color(0xff28306e),
-                                              fontFamily: 'Helvetica',
-                                              fontSize: 14)),
-                                    ),
-                                    DropdownButton(
-                                        value: dropdownvalue,
-                                        icon: Icon(Icons.keyboard_arrow_down),
-                                        items: items.map((String items) {
-                                          return DropdownMenuItem(
-                                              value: items,
-                                              child: Text(items,
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize: 14)));
-                                        }).toList(),
-                                        onChanged: (val) {
-                                          setState(() {
-                                            dropdownvalue = val as String;
-                                          });
-                                        }),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Text('Currency',
-                                          style: TextStyle(
-                                              color: Color(0xff28306e),
-                                              fontFamily: 'Helvetica',
-                                              fontSize: 14)),
-                                    ),
-                                    DropdownButton(
-                                        value: dropdownvalue2,
-                                        icon: Icon(Icons.keyboard_arrow_down),
-                                        items: items2.map((String items) {
-                                          return DropdownMenuItem(
-                                              value: items,
-                                              child: Text(items,
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize: 14)));
-                                        }).toList(),
-                                        onChanged: (val) {
-                                          setState(() {
-                                            dropdownvalue2 = val as String;
-                                          });
-                                        }),
-                                  ],
-                                )
-                              ]),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Consumer<BrowseCaregiversProvider>(
-                              builder: (_, foo, __) => Slider(
-                                  value: BrowseCaregiversProvider.valueSlider2,
-                                  min: 10.0,
-                                  max: 100.0,
-                                  divisions: 10,
-                                  activeColor: Color(0xff28306e),
-                                  inactiveColor: Color(0xffcbcbcb),
-                                  label:
-                                      '${BrowseCaregiversProvider.valueSlider2}',
-                                  onChanged: (double newValue) {
-                                    foo.changeValueSlider2(newValue);
-                                  },
-                                  semanticFormatterCallback: (double newValue) {
-                                    return '${newValue.round()} dollars';
-                                  }),
-                            ),
-                          ),
-                          SizedBox(
-                            width: deviceSize.width * 0.8,
-                            child: Center(
-                              child: Consumer<BrowseCaregiversProvider>(
-                                builder: (_, foo, __) => Text(
-                                  "${BrowseCaregiversProvider.valueSlider2.toInt()}  \$",
-                                  style: TextStyle(
-                                      color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica',
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                          ),
+                          Consumer<BrowseCaregiversProvider>(
+                              builder: (_, foo, __) => BrowseCaregiversProvider
+                                      .paymentRate
+                                  ? Column(
+                                      children: [
+                                        Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  SizedBox(
+                                                    child: Text('Hours / Day',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff28306e),
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.035)),
+                                                  ),
+                                                  DropdownButton(
+                                                      value: dropdownvalue,
+                                                      icon: Icon(Icons
+                                                          .keyboard_arrow_down),
+                                                      items: items
+                                                          .map((String items) {
+                                                        return DropdownMenuItem(
+                                                            value: items,
+                                                            child: Text(items,
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xff28306e),
+                                                                    fontFamily:
+                                                                        'Helvetica',
+                                                                    fontSize: deviceSize
+                                                                            .width *
+                                                                        0.035)));
+                                                      }).toList(),
+                                                      onChanged: (val) {
+                                                        setState(() {
+                                                          dropdownvalue =
+                                                              val as String;
+                                                        });
+                                                      }),
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  SizedBox(
+                                                    child: Text('Currency',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff28306e),
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.035)),
+                                                  ),
+                                                  DropdownButton(
+                                                      value: dropdownvalue2,
+                                                      icon: Icon(Icons
+                                                          .keyboard_arrow_down),
+                                                      items: items2
+                                                          .map((String items) {
+                                                        return DropdownMenuItem(
+                                                            value: items,
+                                                            child: Text(items,
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xff28306e),
+                                                                    fontFamily:
+                                                                        'Helvetica',
+                                                                    fontSize: deviceSize
+                                                                            .width *
+                                                                        0.035)));
+                                                      }).toList(),
+                                                      onChanged: (val) {
+                                                        setState(() {
+                                                          dropdownvalue2 =
+                                                              val as String;
+                                                        });
+                                                      }),
+                                                ],
+                                              )
+                                            ]),
+                                        SizedBox(
+                                          width: deviceSize.width * 0.8,
+                                          child: Consumer<
+                                              BrowseCaregiversProvider>(
+                                            builder: (_, foo, __) => Slider(
+                                                value: BrowseCaregiversProvider
+                                                    .valueSlider2,
+                                                min: 10.0,
+                                                max: 100.0,
+                                                divisions: 10,
+                                                activeColor: Color(0xff28306e),
+                                                inactiveColor:
+                                                    Color(0xffcbcbcb),
+                                                label:
+                                                    '${BrowseCaregiversProvider.valueSlider2}',
+                                                onChanged: (double newValue) {
+                                                  foo.changeValueSlider2(
+                                                      newValue);
+                                                },
+                                                semanticFormatterCallback:
+                                                    (double newValue) {
+                                                  return '${newValue.round()} dollars';
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: deviceSize.width * 0.8,
+                                          child: Center(
+                                            child: Consumer<
+                                                BrowseCaregiversProvider>(
+                                              builder: (_, foo, __) => Text(
+                                                "${BrowseCaregiversProvider.valueSlider2.toInt()}  \$",
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: deviceSize.width *
+                                                        0.035),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox()),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
@@ -520,96 +566,118 @@ class _FilterState extends State<Filter> {
                                 ),
                               ),
                               SizedBox(
-                                width: deviceSize.width * 0.3,
+                                width: deviceSize.width * 0.7,
                                 child: Text("Age",
                                     style: TextStyle(
                                         color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 18)),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.05)),
                               ),
                             ],
                           ),
-                          Card(
-                            elevation: 5.0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                                side: BorderSide(color: Colors.black87)),
-                            child: Container(
-                              padding: EdgeInsets.all(deviceSize.height * 0.01),
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        SizedBox(
-                                          child: Text('Between',
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 14)),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownAge1,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items:
-                                                itemsAge1.map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items,
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xff28306e),
-                                                          fontFamily:
-                                                              'Helvetica',
-                                                          fontSize: 14)));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownvalue = val as String;
-                                              });
-                                            }),
-                                      ],
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          child: Text('And',
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 14)),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownAge2,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items:
-                                                itemsAge2.map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items,
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xff28306e),
-                                                          fontFamily:
-                                                              'Helvetica',
-                                                          fontSize: 14)));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownvalue2 = val as String;
-                                              });
-                                            }),
-                                      ],
+                          Consumer<BrowseCaregiversProvider>(
+                              builder: (_, foo, __) => BrowseCaregiversProvider
+                                      .age
+                                  ? Card(
+                                      elevation: 5.0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                          side: BorderSide(
+                                              color: Colors.black87)),
+                                      child: Container(
+                                        padding: EdgeInsets.all(
+                                            deviceSize.height * 0.01),
+                                        child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  SizedBox(
+                                                    child: Text('Between',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff28306e),
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.035)),
+                                                  ),
+                                                  DropdownButton(
+                                                      value: dropdownAge1,
+                                                      icon: Icon(Icons
+                                                          .keyboard_arrow_down),
+                                                      items: itemsAge1
+                                                          .map((String items) {
+                                                        return DropdownMenuItem(
+                                                            value: items,
+                                                            child: Text(items,
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xff28306e),
+                                                                    fontFamily:
+                                                                        'Helvetica',
+                                                                    fontSize: deviceSize
+                                                                            .width *
+                                                                        0.035)));
+                                                      }).toList(),
+                                                      onChanged: (val) {
+                                                        setState(() {
+                                                          dropdownvalue =
+                                                              val as String;
+                                                        });
+                                                      }),
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  SizedBox(
+                                                    child: Text('And',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff28306e),
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.035)),
+                                                  ),
+                                                  DropdownButton(
+                                                      value: dropdownAge2,
+                                                      icon: Icon(Icons
+                                                          .keyboard_arrow_down),
+                                                      items: itemsAge2
+                                                          .map((String items) {
+                                                        return DropdownMenuItem(
+                                                            value: items,
+                                                            child: Text(items,
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xff28306e),
+                                                                    fontFamily:
+                                                                        'Helvetica',
+                                                                    fontSize: deviceSize
+                                                                            .width *
+                                                                        0.035)));
+                                                      }).toList(),
+                                                      onChanged: (val) {
+                                                        setState(() {
+                                                          dropdownvalue2 =
+                                                              val as String;
+                                                        });
+                                                      }),
+                                                ],
+                                              )
+                                            ]),
+                                      ),
                                     )
-                                  ]),
-                            ),
-                          ),
+                                  : SizedBox()),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
@@ -621,8 +689,8 @@ class _FilterState extends State<Filter> {
                                 "Services Required",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
@@ -663,7 +731,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -703,7 +772,9 @@ class _FilterState extends State<Filter> {
                                                         color:
                                                             Color(0xff28306e),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: 14)),
+                                                        fontSize:
+                                                            deviceSize.width *
+                                                                0.035)),
                                               ),
                                             ],
                                           ),
@@ -734,7 +805,9 @@ class _FilterState extends State<Filter> {
                                                         color:
                                                             Color(0xff28306e),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: 14)),
+                                                        fontSize:
+                                                            deviceSize.width *
+                                                                0.035)),
                                               ),
                                             ],
                                           ),
@@ -763,7 +836,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -790,7 +864,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -817,7 +892,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -845,7 +921,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -864,104 +941,128 @@ class _FilterState extends State<Filter> {
                                 "Caregiver Type / Quallifications",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.01 * deviceSize.height),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: deviceSize.width * 0.9,
-                                child: Center(
-                                  child: DropdownButton(
-                                      value: dropdownvalue3,
-                                      icon: Icon(Icons.keyboard_arrow_down),
-                                      items: items3.map((String items) {
-                                        return DropdownMenuItem(
-                                            value: items,
-                                            child: Text(items,
-                                                style: TextStyle(
-                                                    color: Color(0xff28306e),
-                                                    fontFamily: 'Helvetica',
-                                                    fontSize: 14)));
-                                      }).toList(),
-                                      onChanged: (val) {
-                                        setState(() {
-                                          dropdownvalue3 = val as String;
-                                        });
-                                      }),
+                          Card(
+                              elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  side: BorderSide(color: Colors.black87)),
+                              child: Container(
+                                padding:
+                                    EdgeInsets.all(deviceSize.width * 0.01),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: deviceSize.width * 0.3,
+                                      child: Center(
+                                        child: DropdownButton(
+                                            value: dropdownvalue3,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items: items3.map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                dropdownvalue3 = val as String;
+                                              });
+                                            }),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: deviceSize.width * 0.5,
+                                        child: Center(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              SizedBox(
+                                                child: Consumer<
+                                                    BrowseCaregiversProvider>(
+                                                  builder: (_, foo, __) =>
+                                                      Checkbox(
+                                                    activeColor: Colors.green,
+                                                    value:
+                                                        BrowseCaregiversProvider
+                                                            .registeredNurseCheck,
+                                                    onChanged: (val) {
+                                                      foo.changeregisteredNurseCheck();
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                child: Text("Registered nurse",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xff28306e),
+                                                        fontFamily: 'Helvetica',
+                                                        fontSize:
+                                                            deviceSize.width *
+                                                                0.04)),
+                                              ),
+                                            ],
+                                          ),
+                                        )),
+                                    SizedBox(
+                                        width: deviceSize.width * 0.5,
+                                        child: Center(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              SizedBox(
+                                                child: Consumer<
+                                                    BrowseCaregiversProvider>(
+                                                  builder: (_, foo, __) =>
+                                                      Checkbox(
+                                                    activeColor: Colors.green,
+                                                    value:
+                                                        BrowseCaregiversProvider
+                                                            .practicalNurseCheck,
+                                                    onChanged: (val) {
+                                                      foo.changepracticalNurseCheck();
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                child: Text("Practical nurse",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xff28306e),
+                                                        fontFamily: 'Helvetica',
+                                                        fontSize:
+                                                            deviceSize.width *
+                                                                0.04)),
+                                              ),
+                                            ],
+                                          ),
+                                        ))
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Center(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          child: Consumer<
-                                              BrowseCaregiversProvider>(
-                                            builder: (_, foo, __) => Checkbox(
-                                              activeColor: Colors.green,
-                                              value: BrowseCaregiversProvider
-                                                  .registeredNurseCheck,
-                                              onChanged: (val) {
-                                                foo.changeregisteredNurseCheck();
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          child: Text("Registered nurse",
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 16)),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                              SizedBox(
-                                  width: deviceSize.width * 0.5,
-                                  child: Center(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          child: Consumer<
-                                              BrowseCaregiversProvider>(
-                                            builder: (_, foo, __) => Checkbox(
-                                              activeColor: Colors.green,
-                                              value: BrowseCaregiversProvider
-                                                  .practicalNurseCheck,
-                                              onChanged: (val) {
-                                                foo.changepracticalNurseCheck();
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          child: Text("Practical nurse",
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 16)),
-                                        ),
-                                      ],
-                                    ),
-                                  ))
-                            ],
-                          ),
+                              )),
                           Padding(
                             padding:
                                 EdgeInsets.only(top: 0.03 * deviceSize.height),
@@ -974,9 +1075,9 @@ class _FilterState extends State<Filter> {
                                 child: Consumer<BrowseCaregiversProvider>(
                                   builder: (_, foo, __) => Checkbox(
                                     activeColor: Colors.green,
-                                    value: BrowseCaregiversProvider.age,
+                                    value: BrowseCaregiversProvider.years,
                                     onChanged: (val) {
-                                      foo.changeAge();
+                                      foo.changeyears();
                                     },
                                   ),
                                 ),
@@ -985,90 +1086,114 @@ class _FilterState extends State<Filter> {
                                 child: Text("Years of Experience",
                                     style: TextStyle(
                                         color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 18)),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.05)),
                               ),
                             ],
                           ),
-                          Card(
-                            elevation: 5.0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                                side: BorderSide(color: Colors.black87)),
-                            child: Container(
-                              padding: EdgeInsets.all(deviceSize.height * 0.01),
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        SizedBox(
-                                          child: Text('More than',
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 14)),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownMorThan,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items: itemsMorThan
-                                                .map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items,
+                          Consumer<BrowseCaregiversProvider>(
+                            builder: (_, foo, __) => BrowseCaregiversProvider
+                                    .years
+                                ? Card(
+                                    elevation: 5.0,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                        side:
+                                            BorderSide(color: Colors.black87)),
+                                    child: Container(
+                                      padding: EdgeInsets.all(
+                                          deviceSize.height * 0.01),
+                                      child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Column(
+                                              children: [
+                                                SizedBox(
+                                                  child: Text('More than',
                                                       style: TextStyle(
                                                           color:
                                                               Color(0xff28306e),
                                                           fontFamily:
                                                               'Helvetica',
-                                                          fontSize: 14)));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownMorThan = val as String;
-                                              });
-                                            }),
-                                      ],
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035)),
+                                                ),
+                                                DropdownButton(
+                                                    value: dropdownMorThan,
+                                                    icon: Icon(Icons
+                                                        .keyboard_arrow_down),
+                                                    items: itemsMorThan
+                                                        .map((String items) {
+                                                      return DropdownMenuItem(
+                                                          value: items,
+                                                          child: Text(items,
+                                                              style: TextStyle(
+                                                                  color: Color(
+                                                                      0xff28306e),
+                                                                  fontFamily:
+                                                                      'Helvetica',
+                                                                  fontSize: deviceSize
+                                                                          .width *
+                                                                      0.035)));
+                                                    }).toList(),
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        dropdownMorThan =
+                                                            val as String;
+                                                      });
+                                                    }),
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  child: Text('in',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035)),
+                                                ),
+                                                DropdownButton(
+                                                    value: dropdownIn,
+                                                    icon: Icon(Icons
+                                                        .keyboard_arrow_down),
+                                                    items: itemsIn
+                                                        .map((String items) {
+                                                      return DropdownMenuItem(
+                                                          value: items,
+                                                          child: Text(items,
+                                                              style: TextStyle(
+                                                                  color: Color(
+                                                                      0xff28306e),
+                                                                  fontFamily:
+                                                                      'Helvetica',
+                                                                  fontSize: deviceSize
+                                                                          .width *
+                                                                      0.035)));
+                                                    }).toList(),
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        dropdownIn =
+                                                            val as String;
+                                                      });
+                                                    }),
+                                              ],
+                                            )
+                                          ]),
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          child: Text('in',
-                                              style: TextStyle(
-                                                  color: Color(0xff28306e),
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize: 14)),
-                                        ),
-                                        DropdownButton(
-                                            value: dropdownIn,
-                                            icon:
-                                                Icon(Icons.keyboard_arrow_down),
-                                            items: itemsIn.map((String items) {
-                                              return DropdownMenuItem(
-                                                  value: items,
-                                                  child: Text(items,
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xff28306e),
-                                                          fontFamily:
-                                                              'Helvetica',
-                                                          fontSize: 14)));
-                                            }).toList(),
-                                            onChanged: (val) {
-                                              setState(() {
-                                                dropdownIn = val as String;
-                                              });
-                                            }),
-                                      ],
-                                    )
-                                  ]),
-                            ),
+                                  )
+                                : SizedBox(),
                           ),
                           Padding(
                             padding:
@@ -1081,8 +1206,8 @@ class _FilterState extends State<Filter> {
                                 "Languages Spoken",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
@@ -1099,7 +1224,8 @@ class _FilterState extends State<Filter> {
                                           style: TextStyle(
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica',
-                                              fontSize: 14)));
+                                              fontSize:
+                                                  deviceSize.width * 0.035)));
                                 }).toList(),
                                 onChanged: (val) {
                                   setState(() {
@@ -1118,8 +1244,8 @@ class _FilterState extends State<Filter> {
                                 "Education / Degre",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
@@ -1160,7 +1286,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1187,7 +1314,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1215,7 +1343,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1242,7 +1371,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1269,7 +1399,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1288,8 +1419,8 @@ class _FilterState extends State<Filter> {
                                 "Additional Services",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
@@ -1330,7 +1461,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1357,7 +1489,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1385,7 +1518,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1412,7 +1546,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1439,7 +1574,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1458,8 +1594,8 @@ class _FilterState extends State<Filter> {
                                 "Other Preferences",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: 18)),
+                                    fontFamily: 'Helvetica_Bold',
+                                    fontSize: deviceSize.width * 0.05)),
                           ),
                           Padding(
                             padding:
@@ -1500,7 +1636,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1527,7 +1664,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1555,7 +1693,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1582,7 +1721,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1609,7 +1749,8 @@ class _FilterState extends State<Filter> {
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
-                                                fontSize: 16)),
+                                                fontSize:
+                                                    deviceSize.width * 0.04)),
                                       ),
                                     ],
                                   ),
@@ -1632,21 +1773,40 @@ class _FilterState extends State<Filter> {
                 Container(
                   alignment: Alignment.centerRight,
                   child: SizedBox(
-                    width: deviceSize.width * 0.4,
-                    child: TextButton(
-                      child: Text('Filter setting'),
-                      style: TextButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor: Color.fromARGB(255, 71, 201, 188),
-                        onSurface: Colors.grey,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(
-                          BrowseCaregivers.routeName,
-                        );
-                      },
-                    ),
-                  ),
+                      width: deviceSize.width * 0.6,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                            child: Text('Reset Filter'),
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor:
+                                  Color.fromARGB(255, 71, 201, 188),
+                              onSurface: Colors.grey,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(
+                                BrowseCaregivers.routeName,
+                              );
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Apply Filter'),
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Color(0xff28306e),
+                              onSurface: Colors.grey,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(
+                                BrowseCaregivers.routeName,
+                              );
+                            },
+                          ),
+                        ],
+                      )),
                 ),
               ],
             ),

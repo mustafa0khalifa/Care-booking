@@ -29,7 +29,7 @@ class ItemPending extends StatelessWidget {
           side: BorderSide(color: Colors.black87)),
       child: Container(
         margin: EdgeInsets.all(width * 0.01),
-        padding: EdgeInsets.all(width * 0.03),
+        padding: EdgeInsets.all(width * 0.06),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,21 +42,23 @@ class ItemPending extends StatelessWidget {
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica_Blod',
                       fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                      fontSize: width * 0.04),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: height * 0.03)),
+              Padding(padding: EdgeInsets.only(top: height * 0.05)),
               SizedBox(
                 child: Text(
                   "preferable caregiver details:",
                   style: TextStyle(
                       color: Color.fromARGB(255, 136, 135, 135),
                       fontFamily: 'Helvetica',
-                      fontSize: 16),
+                      fontWeight: FontWeight.bold,
+                      fontSize: width * 0.04),
                 ),
               ),
+              Padding(padding: EdgeInsets.only(top: height * 0.05)),
               Container(
-                padding: EdgeInsets.all(0.05 * height),
+                padding: EdgeInsets.all(0.2 * height),
                 color: Color.fromARGB(255, 241, 240, 240),
                 child: Column(
                   children: [
@@ -69,7 +71,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         Expanded(
@@ -78,12 +80,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Row(
                       children: [
                         SizedBox(
@@ -94,7 +96,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         Expanded(
@@ -104,12 +106,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Row(
                       children: [
                         SizedBox(
@@ -120,7 +122,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         Expanded(
@@ -130,12 +132,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Row(
                       children: [
                         SizedBox(
@@ -146,7 +148,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         Expanded(
@@ -156,12 +158,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Column(
                       children: [
                         SizedBox(
@@ -173,7 +175,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         SizedBox(
@@ -184,12 +186,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Column(
                       children: [
                         SizedBox(
@@ -201,7 +203,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         SizedBox(
@@ -212,12 +214,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Column(
                       children: [
                         SizedBox(
@@ -229,7 +231,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         SizedBox(
@@ -240,12 +242,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                     Row(
                       children: [
                         SizedBox(
@@ -256,7 +258,7 @@ class ItemPending extends StatelessWidget {
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: width * 0.04),
                           ),
                         ),
                         Expanded(
@@ -266,12 +268,12 @@ class ItemPending extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 136, 135, 135),
                                 fontFamily: 'Helvetica',
-                                fontSize: 16),
+                                fontSize: width * 0.03),
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.05)),
+                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
                   ],
                 ),
               ),

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/careCategory.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-
-import '../../../providers/careCategoryProvider.dart';
 import '../../../providers/careCategoryProviderBokNow.dart';
+import '../../BookingsDashboard/bookingsDashboard.dart';
 
 class WhereYouNeedBookNow extends StatefulWidget {
   static const routeName = '/whereYouNeed-screen';
@@ -16,13 +13,40 @@ class _WhereYouNeedStateBookNow extends State<WhereYouNeedBookNow> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Where You Need",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
         margin: EdgeInsets.all(
           deviceSize.width * 0.03,
         ),
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
+        padding: EdgeInsets.only(top: deviceSize.height * 0.03),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -34,8 +58,8 @@ class _WhereYouNeedStateBookNow extends State<WhereYouNeedBookNow> {
                   'Confirm the location where you need the care',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Bold',
-                      fontSize: 24),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -59,7 +83,7 @@ class _WhereYouNeedStateBookNow extends State<WhereYouNeedBookNow> {
                 style: TextStyle(
                     color: Color(0xff28306e),
                     fontFamily: 'Helvetica',
-                    fontSize: 16),
+                    fontSize: deviceSize.width * 0.035),
               ),
               Container(
                 margin: EdgeInsets.all(deviceSize.height * 0.05),

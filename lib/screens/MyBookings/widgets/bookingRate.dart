@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/MyBookings/widgets/item.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/testModel.dart';
 import '../../../providers/myBookingProvider.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -20,6 +18,17 @@ class _BookingRateState extends State<BookingRate> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Booking Rating",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: 20),
+        ),
+      ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
@@ -31,16 +40,17 @@ class _BookingRateState extends State<BookingRate> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Cleanliness/hygiene",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -58,16 +68,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Punctuality",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -85,16 +96,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Demonstrated knowledge",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -112,16 +124,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Kindness/caring",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -139,16 +152,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Calmness/discreteness",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -166,16 +180,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Politeness",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -193,16 +208,17 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.4,
                       child: Text(
                         "Professionalism",
                         style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff000000)),
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.035),
                       ),
                     ),
                     Consumer<MyBookingProvider>(
@@ -228,9 +244,10 @@ class _BookingRateState extends State<BookingRate> {
                     child: Text(
                       "Write your Review",
                       style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000)),
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.bold,
+                          fontSize: deviceSize.width * 0.04),
                     ),
                   ),
                 ),
@@ -238,6 +255,21 @@ class _BookingRateState extends State<BookingRate> {
                   padding: EdgeInsets.all(deviceSize.height * 0.02),
                   child: TextField(
                     decoration: InputDecoration(
+                      fillColor: Color.fromARGB(255, 255, 255, 255),
+                      filled: true,
+                      labelStyle: TextStyle(
+                          color: Color.fromARGB(255, 141, 139, 139),
+                          fontFamily: 'Helvetica',
+                          fontSize: 16),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xff28306e), width: 1.0),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255))),
                       hintText: "Write your Review",
                       labelText: "your Review",
                     ),

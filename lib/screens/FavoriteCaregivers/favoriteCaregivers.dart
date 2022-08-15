@@ -17,14 +17,13 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "Favorite care giver",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: 20),
-          ),
+        centerTitle: true,
+        title: Text(
+          "Favorite care givers",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
         ),
       ),
       body: Container(

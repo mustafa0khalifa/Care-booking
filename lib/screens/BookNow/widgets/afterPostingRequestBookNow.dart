@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/authProvider.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/NavBar.dart';
 
 import '../../../providers/myBookingProvider.dart';
+import '../../BookingsDashboard/bookingsDashboard.dart';
 import '../../MyBookings/myBookings.dart';
 import 'AfterBookingRequest/afterBookingRequest.dart';
 
@@ -22,7 +22,33 @@ class _AfterPostingRequestBookNowState
     final deviceSize = MediaQuery.of(context).size;
     AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
-      drawer: NavBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BookingsDashboard()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Posting Request",
+          style: TextStyle(
+              color: Color(0xff28306e),
+              fontFamily: 'Helvetica-Bold',
+              fontSize: deviceSize.width * 0.055),
+        ),
+      ),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
@@ -40,7 +66,7 @@ class _AfterPostingRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 20),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -51,7 +77,7 @@ class _AfterPostingRequestBookNowState
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 20),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.1)),
