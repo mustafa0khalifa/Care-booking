@@ -222,7 +222,8 @@ class _ScheduleState extends State<Schedule> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Color(0xff28306e),
                               border: Border.all(
@@ -232,7 +233,7 @@ class _ScheduleState extends State<Schedule> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -248,7 +249,7 @@ class _ScheduleState extends State<Schedule> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -259,7 +260,8 @@ class _ScheduleState extends State<Schedule> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -270,7 +272,7 @@ class _ScheduleState extends State<Schedule> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -286,7 +288,7 @@ class _ScheduleState extends State<Schedule> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -298,7 +300,8 @@ class _ScheduleState extends State<Schedule> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -309,7 +312,7 @@ class _ScheduleState extends State<Schedule> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -325,7 +328,7 @@ class _ScheduleState extends State<Schedule> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -417,7 +420,7 @@ class _ScheduleState extends State<Schedule> {
                               borderRadius: BorderRadius.circular(15.0),
                               side: BorderSide(color: Colors.black87)),
                           child: Container(
-                            padding: EdgeInsets.all(deviceSize.width * 0.03),
+                            padding: EdgeInsets.all(deviceSize.width * 0.02),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -439,24 +442,22 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[0]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 141, 150, 221),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color(0xff28306e),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Mo',
+                                                  'M',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[0]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color(0xff28306e),
+                                                      fontFamily:
+                                                          'Helvetica_Bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -474,24 +475,24 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[1]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 117, 126, 93),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color.fromARGB(
+                                                          255, 117, 126, 93),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Tu',
+                                                  'T',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[1]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color.fromARGB(
+                                                          255, 117, 126, 93),
+                                                      fontFamily:
+                                                          'Helvetica_Bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -509,24 +510,24 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[2]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 151, 44, 128),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color.fromARGB(
+                                                          255, 151, 44, 128),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'We',
+                                                  'W',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[2]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color.fromARGB(
+                                                          255, 151, 44, 128),
+                                                      fontFamily:
+                                                          'Helvetica_Bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -544,24 +545,24 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[3]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 160, 31, 106),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color.fromARGB(
+                                                          255, 160, 31, 106),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Th',
+                                                  'T',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[3]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color.fromARGB(
+                                                          255, 160, 31, 106),
+                                                      fontFamily:
+                                                          'Helvetica_Bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -579,24 +580,24 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[4]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 104, 40, 110),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color.fromARGB(
+                                                          255, 104, 40, 110),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Fr',
+                                                  'F',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[4]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color.fromARGB(
+                                                          255, 104, 40, 110),
+                                                      fontFamily:
+                                                          'Helvetica_Bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -614,24 +615,24 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[5]
                                                         ? Colors.grey
-                                                        : Color.fromARGB(
-                                                            255, 92, 7, 117),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color.fromARGB(
+                                                          255, 92, 7, 117),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Sa',
+                                                  'S',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[5]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color.fromARGB(
+                                                          255, 92, 7, 117),
+                                                      fontFamily:
+                                                          'Helvetica_bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -649,23 +650,22 @@ class _ScheduleState extends State<Schedule> {
                                                     color: ScheduleDateProvider
                                                             .clickDay[6]
                                                         ? Colors.grey
-                                                        : Color(0xff28306e),
+                                                        : Colors.white,
+                                                    border: Border.all(
+                                                      color: Color(0xff28306e),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
                                                 child: Text(
-                                                  'Su',
+                                                  'S',
                                                   style: TextStyle(
-                                                      color:
-                                                          ScheduleDateProvider
-                                                                  .clickDay[6]
-                                                              ? Color(
-                                                                  0xff28306e)
-                                                              : Colors.white,
-                                                      fontFamily: 'Helvetica',
+                                                      color: Color(0xff28306e),
+                                                      fontFamily:
+                                                          'Helvetica_bold',
                                                       fontSize:
                                                           deviceSize.width *
-                                                              0.03),
+                                                              0.035),
                                                 ),
                                               ),
                                               onTap: () =>
@@ -673,9 +673,15 @@ class _ScheduleState extends State<Schedule> {
                                             )),
                                   ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: deviceSize.height * 0.03),
+                                Consumer<ScheduleDateProvider>(
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay
+                                          .contains(true)
+                                      ? Padding(
+                                          padding: EdgeInsets.only(
+                                              top: deviceSize.height * 0.03),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
                                   builder: (_, foo, __) =>
@@ -685,63 +691,75 @@ class _ScheduleState extends State<Schedule> {
                                               height: deviceSize.height,
                                               width: deviceSize.width,
                                               index: 0,
+                                              color: Color.fromARGB(
+                                                  255, 141, 150, 221),
                                             )
                                           : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
-                                  builder: (_, foo, __) =>
-                                      ScheduleDateProvider.clickDay[1]
-                                          ? DaySh(
-                                              day: 'Tuesday',
-                                              height: deviceSize.height,
-                                              width: deviceSize.width,
-                                              index: 1,
-                                            )
-                                          : SizedBox(),
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay[1]
+                                      ? DaySh(
+                                          day: 'Tuesday',
+                                          height: deviceSize.height,
+                                          width: deviceSize.width,
+                                          index: 1,
+                                          color:
+                                              Color.fromARGB(255, 117, 126, 93),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
-                                  builder: (_, foo, __) =>
-                                      ScheduleDateProvider.clickDay[2]
-                                          ? DaySh(
-                                              day: 'Wednesday',
-                                              height: deviceSize.height,
-                                              width: deviceSize.width,
-                                              index: 2,
-                                            )
-                                          : SizedBox(),
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay[2]
+                                      ? DaySh(
+                                          day: 'Wednesday',
+                                          height: deviceSize.height,
+                                          width: deviceSize.width,
+                                          index: 2,
+                                          color:
+                                              Color.fromARGB(255, 151, 44, 128),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
-                                  builder: (_, foo, __) =>
-                                      ScheduleDateProvider.clickDay[3]
-                                          ? DaySh(
-                                              day: 'Thursday',
-                                              height: deviceSize.height,
-                                              width: deviceSize.width,
-                                              index: 3,
-                                            )
-                                          : SizedBox(),
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay[3]
+                                      ? DaySh(
+                                          day: 'Thursday',
+                                          height: deviceSize.height,
+                                          width: deviceSize.width,
+                                          index: 3,
+                                          color:
+                                              Color.fromARGB(255, 160, 31, 106),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
-                                  builder: (_, foo, __) =>
-                                      ScheduleDateProvider.clickDay[4]
-                                          ? DaySh(
-                                              day: 'Friday',
-                                              height: deviceSize.height,
-                                              width: deviceSize.width,
-                                              index: 4,
-                                            )
-                                          : SizedBox(),
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay[4]
+                                      ? DaySh(
+                                          day: 'Friday',
+                                          height: deviceSize.height,
+                                          width: deviceSize.width,
+                                          index: 4,
+                                          color:
+                                              Color.fromARGB(255, 104, 40, 110),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
-                                  builder: (_, foo, __) =>
-                                      ScheduleDateProvider.clickDay[5]
-                                          ? DaySh(
-                                              day: 'Saturday',
-                                              height: deviceSize.height,
-                                              width: deviceSize.width,
-                                              index: 5,
-                                            )
-                                          : SizedBox(),
+                                  builder: (_, foo, __) => ScheduleDateProvider
+                                          .clickDay[5]
+                                      ? DaySh(
+                                          day: 'Saturday',
+                                          height: deviceSize.height,
+                                          width: deviceSize.width,
+                                          index: 5,
+                                          color:
+                                              Color.fromARGB(255, 92, 7, 117),
+                                        )
+                                      : SizedBox(),
                                 ),
                                 Consumer<ScheduleDateProvider>(
                                   builder: (_, foo, __) =>
@@ -751,6 +769,7 @@ class _ScheduleState extends State<Schedule> {
                                               height: deviceSize.height,
                                               width: deviceSize.width,
                                               index: 6,
+                                              color: Color(0xff28306e),
                                             )
                                           : SizedBox(),
                                 ),
@@ -798,46 +817,74 @@ class _ScheduleState extends State<Schedule> {
                 Consumer<ScheduleProvider>(
                   builder: (_, foo, __) => ScheduleProvider.isEndSpecificDate
                       ? Container(
-                          child: SizedBox(
-                            child: Card(
-                              elevation: 5.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  side: BorderSide(color: Colors.black87)),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    child: Text('End Date',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: deviceSize.width * 0.03)),
-                                  ),
-                                  SizedBox(
-                                    width: deviceSize.width * 0.3,
-                                    child: TextField(
-                                      style: TextStyle(
-                                          color: Colors.blue.shade900,
-                                          fontSize: 11),
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              borderSide: BorderSide(
-                                                  color: Colors.grey)),
-                                          hintText: '/ / /',
-                                          hintStyle: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 11)),
-                                    ),
-                                  ),
-                                  Icon(Icons.date_range_sharp)
-                                ],
+                          margin: EdgeInsets.all(deviceSize.width * 0.01),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                child: Text('End Date',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica_Bold',
+                                        fontSize: deviceSize.width * 0.035)),
                               ),
-                            ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.005)),
+                              SizedBox(
+                                height: deviceSize.height * 0.05,
+                                width: deviceSize.width * 0.8,
+                                child: TextFormField(
+                                  keyboardType: TextInputType.number,
+                                  controller: null,
+                                  style: TextStyle(
+                                    fontSize: deviceSize.width * 0.035,
+                                    color: Color.fromARGB(255, 102, 101, 101),
+                                    fontFamily: 'Helvetica',
+                                  ),
+                                  decoration: InputDecoration(
+                                    suffixIcon: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color.fromARGB(
+                                              255, 209, 206, 206),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5),
+                                              bottomRight: Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Icon(
+                                        color: Colors.black,
+                                        Icons.date_range_outlined,
+                                        size: deviceSize.width * 0.07,
+                                      ),
+                                    ),
+                                    hintText: '08 / 17 / 2022',
+                                    fillColor:
+                                        Color.fromARGB(255, 255, 255, 255),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255))),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         )
                       : Padding(
@@ -945,1044 +992,3 @@ class _ScheduleState extends State<Schedule> {
     );
   }
 }
-
-/*
-
-
- Container(
-                          child: SizedBox(
-                            height: deviceSize.height * 0.4,
-                            child: Card(
-                              elevation: 5.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  side: BorderSide(color: Colors.black87)),
-                              child: ListView(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .mondayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changemondayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text(
-                                                  'Monday',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .tuesdayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changetuesdayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Tuesday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .wednesdayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changewednesdayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Wednesday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .thursdayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changethursdayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Thursday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .fridayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changefridayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Friday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .saturdayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changesaturdayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Saturday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.18,
-                                                height:
-                                                    deviceSize.height * 0.07,
-                                                child:
-                                                    Consumer<ScheduleProvider>(
-                                                  builder: (_, foo, __) =>
-                                                      CheckboxListTile(
-                                                    activeColor: Colors.green,
-                                                    value: ScheduleProvider
-                                                        .sundayChecbox,
-                                                    onChanged: (val) {
-                                                      foo.changesundayChecbox();
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: Text('Sunday',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff28306e),
-                                                        fontFamily: 'Helvetica',
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.03)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: deviceSize.width * 0.03),
-                                            child: SizedBox(
-                                              width: deviceSize.width * 0.35,
-                                              child: EasyRichText(
-                                                "Click here to add more shifts in a day",
-                                                patternList: [
-                                                  EasyRichTextPattern(
-                                                    targetString:
-                                                        'Click here to add more shifts in a day',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Colors.blue),
-                                                    recognizer:
-                                                        TapGestureRecognizer()
-                                                          ..onTap = () {
-                                                            // ignore: avoid_print
-                                                            print(
-                                                                "Tap Sign up");
-                                                          },
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text('From',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('To',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily: 'Helvetica',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.03)),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.2,
-                                                child: TextField(
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.blue.shade900,
-                                                      fontSize: 11),
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.grey)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.all(
-                                        deviceSize.height * 0.01),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                        child: Text('Start Date',
-                                            style: TextStyle(
-                                                color: Color(0xff28306e),
-                                                fontFamily: 'Helvetica',
-                                                fontSize:
-                                                    deviceSize.width * 0.03)),
-                                      ),
-                                      SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: TextField(
-                                          style: TextStyle(
-                                              color: Colors.blue.shade900,
-                                              fontSize: 11),
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey)),
-                                              hintText: '/ / /',
-                                              hintStyle: TextStyle(
-                                                  color: Colors.grey,
-                                                  fontSize: 11)),
-                                        ),
-                                      ),
-                                      Icon(Icons.date_range_sharp)
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: deviceSize.width * 0.18,
-                                        height: deviceSize.height * 0.07,
-                                        child: Consumer<ScheduleProvider>(
-                                          builder: (_, foo, __) =>
-                                              CheckboxListTile(
-                                            activeColor: Colors.green,
-                                            value: ScheduleProvider
-                                                .flexibleToStartChecbox,
-                                            onChanged: (val) {
-                                              foo.changeflexibleToStartChecboxChecbox();
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        child: Text(
-                                            'Are you flexible to start on this date?',
-                                            style: TextStyle(
-                                                color: Color(0xff28306e),
-                                                fontFamily: 'Helvetica',
-                                                fontSize:
-                                                    deviceSize.width * 0.03)),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                     
-                     */

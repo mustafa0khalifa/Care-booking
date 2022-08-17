@@ -156,29 +156,31 @@ class _SigninState extends State<Signin> {
                     width: deviceSize.width * 0.8,
                     child: TextFormField(
                       style: TextStyle(
-                        fontSize: deviceSize.width * 0.04,
-                        color: Colors.blue,
+                        fontSize: deviceSize.width * 0.035,
+                        color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
                       ),
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        fillColor: Color(0xffe9ecef),
                         filled: true,
                         labelStyle: TextStyle(
-                            backgroundColor: Colors.white,
-                            color: Color.fromARGB(255, 141, 139, 139),
+                            color: Color(0xff495057),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
+                            fontSize: deviceSize.width * 0.035),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 254, 255, 255),
-                              width: 1.0),
-                          borderRadius: BorderRadius.circular(10.0),
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 255, 255, 255))),
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
                       ),
                       //autofocus: ,
                       keyboardType: TextInputType.emailAddress,
@@ -201,29 +203,31 @@ class _SigninState extends State<Signin> {
                     width: deviceSize.width * 0.8,
                     child: TextFormField(
                       style: TextStyle(
-                        fontSize: deviceSize.width * 0.04,
-                        color: Colors.blue,
+                        fontSize: deviceSize.width * 0.035,
+                        color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
                       ),
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        fillColor: Color(0xffe9ecef),
                         filled: true,
                         labelStyle: TextStyle(
-                            backgroundColor: Colors.white,
-                            color: Color.fromARGB(255, 141, 139, 139),
+                            color: Color(0xff495057),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
+                            fontSize: deviceSize.width * 0.035),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 254, 255, 255),
-                              width: 1.0),
-                          borderRadius: BorderRadius.circular(10.0),
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 255, 255, 255))),
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
                       ),
                       obscureText: true,
                       controller: _passwordController,
@@ -239,62 +243,29 @@ class _SigninState extends State<Signin> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    width: deviceSize.width * 0.9,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Theme(
-                          data: ThemeData(
-                            unselectedWidgetColor: Color(0xffcbcbcb),
-                          ),
-                          child: SizedBox(
-                            width: deviceSize.width * 0.1913,
-                            child: Consumer<AuthProvidere>(
-                              builder: (_, foo, __) => CheckboxListTile(
-                                activeColor: Colors.green,
-                                value: AuthProvidere.valueCheckbox,
-                                onChanged: (val) {
-                                  foo.changeCheckboxState();
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: EasyRichText(
-                            "I agree to FAN Terms and Services and Privacy Policies",
-                            patternList: [
-                              EasyRichTextPattern(
-                                targetString: 'I agree to FAN',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 99, 97, 97),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                              EasyRichTextPattern(
-                                targetString: 'and',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 99, 97, 97),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                              EasyRichTextPattern(
-                                targetString: 'Terms and Services',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                              EasyRichTextPattern(
-                                targetString: 'Privacy Policies',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                            ],
-                          ),
-                        ),
+                  Center(
+                    child: EasyRichText(
+                      "I Forget My Password",
+                      patternList: [
+                        EasyRichTextPattern(
+                            targetString: 'I Forget My Password',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.04),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                // ignore: avoid_print
+                                print("Tap Sign up");
+                                auth.changeAuthSteta();
+                                Navigator.pushAndRemoveUntil<void>(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          ForgetPassword()),
+                                  (Route<dynamic> route) => false,
+                                );
+                              }),
                       ],
                     ),
                   ),
@@ -321,32 +292,6 @@ class _SigninState extends State<Signin> {
                           (Route<dynamic> route) => false,
                         );
                       },
-                    ),
-                  ),
-                  Center(
-                    child: EasyRichText(
-                      "Forget Password",
-                      patternList: [
-                        EasyRichTextPattern(
-                            targetString: 'Forget Password',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.04),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // ignore: avoid_print
-                                print("Tap Sign up");
-                                auth.changeAuthSteta();
-                                Navigator.pushAndRemoveUntil<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          ForgetPassword()),
-                                  (Route<dynamic> route) => false,
-                                );
-                              }),
-                      ],
                     ),
                   ),
                   Center(

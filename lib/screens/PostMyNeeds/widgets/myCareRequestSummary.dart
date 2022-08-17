@@ -203,7 +203,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Title',
                   style: TextStyle(
@@ -212,7 +212,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
                 SizedBox(
                   child: Card(
                       elevation: 5.0,
@@ -231,7 +231,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       )),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'Feel free to add any additional information about your care needs',
                   style: TextStyle(
@@ -240,19 +240,32 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Container(
-                  child: SizedBox(
-                    width: deviceSize.width * 0.8,
-                    child: TextField(
-                      style:
-                          TextStyle(color: Colors.blue.shade900, fontSize: 11),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(color: Colors.grey)),
-                      ),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
+                SizedBox(
+                  height: deviceSize.height * 0.05,
+                  width: deviceSize.width * 0.8,
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: deviceSize.width * 0.03,
+                      color: Colors.blue,
+                      fontFamily: 'Helvetica',
                     ),
+                    decoration: InputDecoration(
+                      hintText: '',
+                      fillColor: Color.fromARGB(255, 255, 255, 255),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xff28306e), width: 1.0),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255))),
+                    ),
+                    //autofocus: ,
+                    keyboardType: TextInputType.emailAddress,
                   ),
                 ),
                 Padding(

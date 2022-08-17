@@ -48,7 +48,7 @@ class _GenderState extends State<Gender> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.all(0.03 * deviceSize.height),
+          padding: EdgeInsets.all(0.03 * deviceSize.width),
           child: Scaffold(
             body: SingleChildScrollView(
               child: Column(
@@ -199,17 +199,17 @@ class _GenderState extends State<Gender> {
                   Padding(
                       padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
                   Card(
-                    elevation: 5.0,
+                    elevation: 10.0,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: Color(0xffD3CFC8))),
                     child: ListTile(
                       title: Text(
                         "I prefer a male care provider",
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.045),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                       leading: Icon(
                         Icons.man,
@@ -225,17 +225,17 @@ class _GenderState extends State<Gender> {
                   Padding(
                       padding: EdgeInsets.only(top: 0.03 * deviceSize.height)),
                   Card(
-                    elevation: 5.0,
+                    elevation: 10.0,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: Color(0xffD3CFC8))),
                     child: ListTile(
                       title: Text(
                         "I prefer a female care provider",
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.045),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                       leading: Icon(
                         Icons.woman,
@@ -251,17 +251,17 @@ class _GenderState extends State<Gender> {
                   Padding(
                       padding: EdgeInsets.only(top: 0.03 * deviceSize.height)),
                   Card(
-                    elevation: 5.0,
+                    elevation: 10.0,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: Color(0xffD3CFC8))),
                     child: ListTile(
                       title: Text(
                         "It doesn’t matter",
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.045),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                       leading: Icon(
                         Icons.fiber_manual_record_outlined,

@@ -148,21 +148,6 @@ class _LocationState extends State<Locations> {
       key: scaffoldKey,
       drawer: Drow(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Color(0xff28306e),
-          ),
-          onPressed: () {
-            if (scaffoldKey.currentState!.isDrawerOpen) {
-              scaffoldKey.currentState!.closeDrawer();
-              //close drawer, if drawer is open
-            } else {
-              scaffoldKey.currentState!.openDrawer();
-              //open drawer, if drawer is closed
-            }
-          },
-        ),
         actions: [
           IconButton(
             icon: Icon(
@@ -192,7 +177,7 @@ class _LocationState extends State<Locations> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(
+          padding: EdgeInsets.all(
             deviceSize.width * 0.03,
           ),
           child: Scaffold(
@@ -357,7 +342,15 @@ class _LocationState extends State<Locations> {
                               fontSize: deviceSize.width * 0.04),
                         ),
                       ),
-                      FlutterSwitch(
+                      Switch.adaptive(
+                          value: isSwitched,
+                          activeColor: Colors.green,
+                          onChanged: (newValue) {
+                            setState(() {
+                              isSwitched = newValue;
+                            });
+                          })
+                      /*FlutterSwitch(
                         width: deviceSize.width * 0.11,
                         height: deviceSize.height * 0.025,
                         value: isSwitched,
@@ -369,62 +362,85 @@ class _LocationState extends State<Locations> {
                             isSwitched = val;
                           });
                         },
-                      ),
+                      ),*/
                     ],
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            if (scaffoldKey.currentState!.isDrawerOpen) {
+                              scaffoldKey.currentState!.closeDrawer();
+                              //close drawer, if drawer is open
+                            } else {
+                              scaffoldKey.currentState!.openDrawer();
+                              //open drawer, if drawer is closed
+                            }
+                          },
+                          icon: Icon(
+                            Icons.filter_alt_outlined,
+                            size: deviceSize.width * 0.08,
+                            color: Color(0xff28306e),
+                          )),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(left: deviceSize.width * 0.06)),
+                      SizedBox(
+                        height: deviceSize.height * 0.05,
+                        width: deviceSize.width * 0.4,
+                        child: TextField(
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.03,
+                            color: Color.fromARGB(255, 102, 101, 101),
+                            fontFamily: 'Helvetica',
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Search',
+                            fillColor: Color.fromARGB(255, 255, 255, 255),
+                            filled: true,
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 1.0),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.grey, width: 1.0),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 255, 255, 255))),
+                          ),
+                          //autofocus: ,
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xff28306e), width: 5),
-                    ),
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height / 2,
-                          width: MediaQuery.of(context).size.width,
-                          child: GoogleMap(
-                            onMapCreated: _onMapCreated,
-                            initialCameraPosition: CameraPosition(
-                              target: _center,
-                              zoom: 11.0,
-                            ),
-                          ),
+                        border: Border.all(
+                          width: 2,
+                          color: Color(0xffD3CFC8),
                         ),
-                        SizedBox(
-                          width: deviceSize.width * 0.6,
-                          height: deviceSize.height * 0.05,
-                          child: TextFormField(
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.04,
-                              color: Colors.blue,
-                              fontFamily: 'Helvetica',
-                            ),
-                            decoration: InputDecoration(
-                              labelText: 'Search',
-                              fillColor: Color.fromARGB(255, 255, 255, 255),
-                              filled: true,
-                              labelStyle: TextStyle(
-                                  backgroundColor: Colors.white,
-                                  color: Color.fromARGB(255, 141, 139, 139),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: deviceSize.width * 0.04),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Color(0xff28306e), width: 1.0),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                  borderSide: BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
-                            //autofocus: ,
-                            keyboardType: TextInputType.emailAddress,
-                          ),
+                        color: Color(0xffD3CFC8),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                      ],
+                    height: MediaQuery.of(context).size.height / 2.5,
+                    width: MediaQuery.of(context).size.width,
+                    child: GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      initialCameraPosition: CameraPosition(
+                        target: _center,
+                        zoom: 11.0,
+                      ),
                     ),
                   ),
                   Padding(

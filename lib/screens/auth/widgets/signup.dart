@@ -144,23 +144,30 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
-                          color: Colors.blue,
+                          color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
                           labelText: 'Email',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
                           labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 99, 97, 97),
+                              color: Color(0xff495057),
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.035),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: Color(0xff28306e))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
                         //autofocus: ,
                         keyboardType: TextInputType.emailAddress,
@@ -183,25 +190,31 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
-                          color: Colors.blue,
+                          color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                           labelText: 'Mobile',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
                           labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 99, 97, 97),
+                              color: Color(0xff495057),
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.035),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: Color(0xff28306e))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
-                        //autofocus: ,
                         keyboardType: TextInputType.number,
                         onFieldSubmitted: (_) {
                           FocusScope.of(context).requestFocus(_passFocusNode);
@@ -223,23 +236,30 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
-                          color: Colors.blue,
+                          color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                           labelText: 'Password',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
                           labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 99, 97, 97),
+                              color: Color(0xff495057),
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.035),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: Color(0xff28306e))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
                         obscureText: true,
                         controller: _passwordController,
@@ -264,23 +284,30 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
-                          color: Colors.blue,
+                          color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                           labelText: 'Confirm Password',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
                           labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 99, 97, 97),
+                              color: Color(0xff495057),
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.035),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: Color(0xff28306e))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
                         obscureText: true,
                         focusNode: _confPassFocusNode,
@@ -300,16 +327,17 @@ class _SignupState extends State<Signup> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.1913,
-                            child: Consumer<AuthProvidere>(
-                              builder: (_, foo, __) => CheckboxListTile(
-                                activeColor: Colors.green,
-                                value: AuthProvidere.valueCheckbox,
-                                onChanged: (val) {
-                                  foo.changeCheckboxState();
-                                },
-                              ),
+                          Consumer<AuthProvidere>(
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: AuthProvidere.valueCheckbox,
+                              onChanged: (val) {
+                                foo.changeCheckboxState();
+                              },
                             ),
                           ),
                           Expanded(
@@ -490,3 +518,52 @@ class _SignupState extends State<Signup> {
     );
   }
 }
+
+
+
+/*
+
+
+  SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: TextFormField(
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.035,
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Mobile',
+                          labelStyle: TextStyle(
+                              color: Color.fromARGB(255, 99, 97, 97),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.035),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(color: Color(0xff28306e))),
+                        ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.number,
+                        onFieldSubmitted: (_) {
+                          FocusScope.of(context).requestFocus(_passFocusNode);
+                        },
+                        focusNode: _mobileFocusNode,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Invalid number!';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _authData['mobileNumber'] = value!;
+                        },
+                      ),
+                    ),
+                  
+
+                  */

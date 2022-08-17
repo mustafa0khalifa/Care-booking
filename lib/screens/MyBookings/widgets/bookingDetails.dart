@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/MyBookings/widgets/item.dart';
+import 'package:flutter_application_10000/screens/MyBookings/widgets/itemDetiel.dart';
 
 import '../../../models/testModel.dart';
 import '../../../providers/myBookingProvider.dart';
@@ -23,14 +24,17 @@ class _BookingDetailsState extends State<BookingDetails> {
     Widget itemShift(String date, String hours, String inTime, String outTime,
         String price, bool activeOne) {
       return Container(
-        padding: EdgeInsets.all(0.01 * deviceSize.height),
-        color: Color(0xff28306e),
+        padding: EdgeInsets.all(0.03 * deviceSize.width),
+        decoration: BoxDecoration(
+            color: Color(0xff28306e),
+            borderRadius: BorderRadius.all(Radius.circular(5))
+            //more than 50% of width makes circle
+            ),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: deviceSize.height * 0.04,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,12 +42,10 @@ class _BookingDetailsState extends State<BookingDetails> {
                     SizedBox(
                       child: Text(
                         'Shift1',
-                        maxLines: 2,
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Helvetica',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
+                            fontSize: deviceSize.width * 0.045),
                       ),
                     ),
                     IconButton(
@@ -58,21 +60,26 @@ class _BookingDetailsState extends State<BookingDetails> {
                             },
                         icon: active1 && activeOne || !activeOne && active2
                             ? Icon(
-                                Icons.remove,
+                                Icons.keyboard_arrow_up_sharp,
                                 color: Colors.white,
+                                size: deviceSize.width * 0.06,
                               )
                             : Icon(
-                                Icons.add,
+                                Icons.keyboard_arrow_down_sharp,
                                 color: Colors.white,
+                                size: deviceSize.width * 0.06,
                               )),
                   ],
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               active1 && activeOne || !activeOne && active2
                   ? Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.all(0.01 * deviceSize.height),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(5))
+                          //more than 50% of width makes circle
+                          ),
+                      padding: EdgeInsets.all(0.03 * deviceSize.width),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,17 +92,16 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${date}',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 136, 135, 135),
+                                      color: Color(0xff495057),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.035),
                                 ),
                               ),
                             ],
@@ -111,17 +117,16 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${hours} Hours',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 136, 135, 135),
+                                      color: Color(0xff495057),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.035),
                                 ),
                               ),
                             ],
@@ -137,17 +142,16 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${inTime}',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 136, 135, 135),
+                                      color: Color(0xff495057),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.035),
                                 ),
                               ),
                             ],
@@ -163,17 +167,16 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${outTime}',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 136, 135, 135),
+                                      color: Color(0xff495057),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.035),
                                 ),
                               ),
                             ],
@@ -189,24 +192,20 @@ class _BookingDetailsState extends State<BookingDetails> {
                                   style: TextStyle(
                                       color: Color(0xff28306e),
                                       fontFamily: 'Helvetica',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: deviceSize.width * 0.04),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${price}\$',
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 136, 135, 135),
+                                      color: Color(0xff495057),
                                       fontFamily: 'Helvetica',
-                                      fontSize: 16),
+                                      fontSize: deviceSize.width * 0.035),
                                 ),
                               ),
                             ],
                           ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
                         ],
                       ),
                     )
@@ -224,21 +223,21 @@ class _BookingDetailsState extends State<BookingDetails> {
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
-              fontSize: 20),
+              fontSize: deviceSize.width * 0.055),
         ),
       ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.01),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemPending(
-                  careModel: TestModel.testPending,
-                  height: deviceSize.height * 0.18,
+                  careModel: TestModel.testPending2,
+                  height: deviceSize.height,
                   width: deviceSize.width,
                   isPending: true,
                   isDatiel: true,
@@ -252,12 +251,12 @@ class _BookingDetailsState extends State<BookingDetails> {
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica_Bold',
                       fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Container(
-                    width: deviceSize.width * 0.9,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
                     child: ListView(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),

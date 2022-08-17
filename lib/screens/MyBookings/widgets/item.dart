@@ -1,4 +1,6 @@
+import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/screens/CaregiverProfile/caregiverProfile.dart';
 
 import '../../../models/pendingBookingsModel.dart';
 import 'bookingDetails.dart';
@@ -23,328 +25,246 @@ class ItemPending extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5.0,
+      elevation: 10.0,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          side: BorderSide(color: Colors.black87)),
+          borderRadius: BorderRadius.circular(5.0),
+          side: BorderSide(color: Color(0xffD3CFC8))),
       child: Container(
-        margin: EdgeInsets.all(width * 0.01),
-        padding: EdgeInsets.all(width * 0.06),
+        margin: EdgeInsets.all(width * 0.03),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
-                child: Text(
-                  '${careModel.CareType}',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica_Blod',
-                      fontWeight: FontWeight.bold,
-                      fontSize: width * 0.04),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: width * 0.6,
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: Color(0xffe9ecef),
+                            radius: width * 0.03,
+                            child: Icon(
+                              Icons.person,
+                              size: width * 0.06,
+                              color: Color(0xff495057),
+                            )), //CircleAva
+                        Padding(padding: EdgeInsets.only(left: width * 0.03)),
+                        Text(
+                          "${careModel.agePreferences}",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: width * 0.04),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: width * 0.06)),
+                        Text(
+                          "|",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: width * 0.04),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: width * 0.06)),
+                        Text(
+                          "${careModel.CareType}",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: width * 0.04),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    child: Container(
+                      width: width * 0.3,
+                      padding: EdgeInsets.all(width * 0.02),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(
+                            color: Color(0xff28306e),
+                          )
+                          //more than 50% of width makes circle
+                          ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "View Profile",
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: width * 0.04),
+                      ),
+                    ),
+                    onTap: () => {
+                      Navigator.of(context).pushNamed(
+                        CaregiverProfile.routeName,
+                      )
+                    },
+                  ),
+                ],
               ),
-              Padding(padding: EdgeInsets.only(top: height * 0.05)),
-              SizedBox(
-                child: Text(
-                  "preferable caregiver details:",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 136, 135, 135),
-                      fontFamily: 'Helvetica',
-                      fontWeight: FontWeight.bold,
-                      fontSize: width * 0.04),
-                ),
+              Padding(padding: EdgeInsets.only(top: height * 0.01)),
+              Text(
+                "${careModel.schedule_Shift}",
+                style: TextStyle(
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helveticas',
+                    fontSize: width * 0.035),
               ),
-              Padding(padding: EdgeInsets.only(top: height * 0.05)),
-              Container(
-                padding: EdgeInsets.all(0.2 * height),
-                color: Color.fromARGB(255, 241, 240, 240),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          child: Text(
-                            'Age: ',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
+              Padding(padding: EdgeInsets.only(top: height * 0.01)),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () => {null},
+                    icon: Icon(
+                      Icons.date_range_outlined,
+                      size: width * 0.07,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.75,
+                    child: EasyRichText(
+                      "${careModel.additionalServices} ${careModel.careRecipientsCount} ${careModel.careRecipientsDetails}",
+                      patternList: [
+                        EasyRichTextPattern(
+                          targetString: '${careModel.additionalServices}',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helveticas',
+                              fontSize: width * 0.03),
                         ),
-                        Expanded(
-                          child: Text(
-                            '${careModel.agePreferences}',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
+                        EasyRichTextPattern(
+                          targetString: '${careModel.careRecipientsCount}',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helveticas_Bold',
+                              fontSize: width * 0.035),
+                        ),
+                        EasyRichTextPattern(
+                          targetString: '${careModel.careRecipientsDetails}',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helveticas',
+                              fontSize: width * 0.03),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Row(
-                      children: [
-                        SizedBox(
-                          child: Text(
-                            'Maximum distance: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            '${careModel.caregiverWeight}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Row(
-                      children: [
-                        SizedBox(
-                          child: Text(
-                            'Gender: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            '${careModel.genderPreferences}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Row(
-                      children: [
-                        SizedBox(
-                          child: Text(
-                            'Gender: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            '${careModel.languagesPreferences}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            'Sub categries & Services & Count: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            '${careModel.categoriesDetails}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            'Additional Services: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            '${careModel.careRecipientsDetails}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            'Schedule: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.9,
-                          child: Text(
-                            '${careModel.schedule_Shift}',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                    Row(
-                      children: [
-                        SizedBox(
-                          child: Text(
-                            'Budget: ',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            '${careModel.price}\$ per hour',
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 136, 135, 135),
-                                fontFamily: 'Helvetica',
-                                fontSize: width * 0.03),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(top: height * 0.1)),
-                  ],
-                ),
+                  ),
+                ],
               ),
+              Padding(padding: EdgeInsets.only(top: height * 0.01)),
               isRequest || isDatiel
                   ? Padding(padding: EdgeInsets.only(top: height * 0.01))
-                  : SizedBox(
-                      width: width * 0.5,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            !isPending
-                                ? IconButton(
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                          SizedBox(
+                            child: InkWell(
+                              child: Row(
+                                children: [
+                                  IconButton(
+                                    iconSize: width * 0.05,
                                     onPressed: () => {
                                       Navigator.of(context).pushNamed(
-                                        BookingRate.routeName,
+                                        BookingDetails.routeName,
                                       )
                                     },
                                     icon: Icon(
-                                      Icons.star,
-                                      size: 25,
+                                      Icons.arrow_forward_rounded,
+                                      size: width * 0.07,
+                                      color: Colors.grey,
                                     ),
-                                  )
-                                : SizedBox(
-                                    width: 0,
                                   ),
-                            !isPending
-                                ? Padding(
-                                    padding:
-                                        EdgeInsets.only(left: width * 0.04))
-                                : SizedBox(
-                                    width: 0,
+                                  Text(
+                                    "BOOKING DETAILS",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica-Bold',
+                                        fontSize: width * 0.03),
                                   ),
-                            IconButton(
-                              onPressed: () => {
+                                ],
+                              ),
+                              onTap: () => {
                                 Navigator.of(context).pushNamed(
                                   BookingDetails.routeName,
                                 )
                               },
-                              icon: Icon(
-                                Icons.info,
-                                size: 25,
-                              ),
                             ),
-                            Padding(
-                                padding: EdgeInsets.only(left: width * 0.04)),
-                            !isPending
-                                ? IconButton(
+                          ),
+                          SizedBox(
+                            child: InkWell(
+                              child: Row(
+                                children: [
+                                  IconButton(
+                                    iconSize: width * 0.05,
                                     onPressed: () => {
                                       Navigator.of(context).pushNamed(
-                                        BookingDetails.routeName,
+                                        CaregiverProfile.routeName,
                                       )
                                     },
                                     icon: Icon(
-                                      Icons.repeat,
-                                      size: 25,
-                                    ),
-                                  )
-                                : IconButton(
-                                    onPressed: () => {
-                                      Navigator.of(context).pushNamed(
-                                        BookingDetails.routeName,
-                                      )
-                                    },
-                                    icon: Icon(
-                                      Icons.edit_road,
-                                      size: 25,
+                                      Icons.play_circle_outline_sharp,
+                                      size: width * 0.07,
+                                      color: Colors.grey,
                                     ),
                                   ),
-                          ]),
+                                  Text(
+                                    "CONTINUE PROCESS",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica-Bold',
+                                        fontSize: width * 0.03),
+                                  ),
+                                ],
+                              ),
+                              onTap: () => {
+                                Navigator.of(context).pushNamed(
+                                  CaregiverProfile.routeName,
+                                )
+                              },
+                            ),
+                          )
+                        ]),
+              !isPending
+                  ? SizedBox(
+                      child: InkWell(
+                        child: Row(
+                          children: [
+                            IconButton(
+                              iconSize: width * 0.05,
+                              onPressed: () => {
+                                Navigator.of(context).pushNamed(
+                                  BookingRate.routeName,
+                                )
+                              },
+                              icon: Icon(
+                                Icons.star_rate_rounded,
+                                size: width * 0.07,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              " RATEING BOOKING",
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: width * 0.03),
+                            ),
+                          ],
+                        ),
+                        onTap: () => {
+                          Navigator.of(context).pushNamed(
+                            BookingRate.routeName,
+                          )
+                        },
+                      ),
                     )
+                  : SizedBox()
             ],
           ),
         ),

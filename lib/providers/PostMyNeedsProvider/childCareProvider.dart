@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ChildCareProvider extends ChangeNotifier {
+  static bool showNewborn = true;
+
+  void changeshowNewborn() {
+    showNewborn = !showNewborn;
+    notifyListeners();
+  }
+
   static bool newbornCheckbox = true;
   static int numberOfChildrenNewborn = 0;
 

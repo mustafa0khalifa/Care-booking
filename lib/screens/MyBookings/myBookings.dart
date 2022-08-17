@@ -26,7 +26,7 @@ class _MyBookingsdState extends State<MyBookings> {
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
-              fontSize: 20),
+              fontSize: deviceSize.width * 0.055),
         ),
         actions: [
           IconButton(
@@ -48,14 +48,14 @@ class _MyBookingsdState extends State<MyBookings> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.01),
           child: ListView.builder(
               itemCount: 6,
               itemBuilder: (context, count) {
                 return ItemPending(
-                  careModel: TestModel.testPending,
-                  height: deviceSize.height * 0.18,
-                  width: deviceSize.width * 0.9,
+                  careModel: TestModel.testPending2,
+                  height: deviceSize.height,
+                  width: deviceSize.width,
                   isPending: _isState,
                   isDatiel: false,
                   isRequest: false,

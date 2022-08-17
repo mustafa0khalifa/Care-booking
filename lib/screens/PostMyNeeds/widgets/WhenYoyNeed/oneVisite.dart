@@ -218,7 +218,8 @@ class _oneVisiteState extends State<OneVisite> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -228,7 +229,7 @@ class _oneVisiteState extends State<OneVisite> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -244,7 +245,7 @@ class _oneVisiteState extends State<OneVisite> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -255,7 +256,8 @@ class _oneVisiteState extends State<OneVisite> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Color(0xff28306e),
                               border: Border.all(color: Colors.white, width: 3),
@@ -265,7 +267,7 @@ class _oneVisiteState extends State<OneVisite> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(Icons.man,
@@ -279,7 +281,7 @@ class _oneVisiteState extends State<OneVisite> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -291,7 +293,8 @@ class _oneVisiteState extends State<OneVisite> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -302,7 +305,7 @@ class _oneVisiteState extends State<OneVisite> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -318,7 +321,7 @@ class _oneVisiteState extends State<OneVisite> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -347,11 +350,23 @@ class _oneVisiteState extends State<OneVisite> {
                     height: deviceSize.height * 0.05,
                     child: TextField(
                       minLines: 1,
-                      style:
-                          TextStyle(color: Colors.blue.shade900, fontSize: 11),
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.03,
+                        color: Colors.blue,
+                        fontFamily: 'Helvetica',
+                      ),
                       decoration: InputDecoration(
                           suffixIcon: Container(
-                              color: Colors.grey,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 192, 190, 190),
+                                  border: Border.all(
+                                    color: Color(0xff28306e),
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10))
+                                  //more than 50% of width makes circle
+                                  ),
                               child: IconButton(
                                 onPressed: () => {},
                                 icon: Icon(
@@ -359,9 +374,17 @@ class _oneVisiteState extends State<OneVisite> {
                                   size: deviceSize.width * 0.07,
                                 ),
                               )),
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Colors.grey)),
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
                           hintText: '08 / 15 / 2022',
                           hintStyle:
                               TextStyle(color: Colors.grey, fontSize: 11)),
@@ -391,18 +414,39 @@ class _oneVisiteState extends State<OneVisite> {
                             width: deviceSize.width * 0.35,
                             child: TextField(
                               style: TextStyle(
-                                  color: Colors.blue.shade900, fontSize: 11),
+                                fontSize: deviceSize.width * 0.03,
+                                color: Colors.blue,
+                                fontFamily: 'Helvetica',
+                              ),
                               decoration: InputDecoration(
                                 suffixIcon: Container(
-                                  color: Colors.grey,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 192, 190, 190),
+                                      border: Border.all(
+                                        color: Color(0xff28306e),
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10))
+                                      //more than 50% of width makes circle
+                                      ),
                                   child: Icon(
                                     Icons.more_time_sharp,
                                     size: deviceSize.width * 0.07,
                                   ),
                                 ),
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                filled: true,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff28306e), width: 1.0),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
                               ),
                             ),
                           ),
@@ -427,18 +471,39 @@ class _oneVisiteState extends State<OneVisite> {
                             width: deviceSize.width * 0.35,
                             child: TextField(
                               style: TextStyle(
-                                  color: Colors.blue.shade900, fontSize: 11),
+                                fontSize: deviceSize.width * 0.03,
+                                color: Colors.blue,
+                                fontFamily: 'Helvetica',
+                              ),
                               decoration: InputDecoration(
                                 suffixIcon: Container(
-                                  color: Colors.grey,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 192, 190, 190),
+                                      border: Border.all(
+                                        color: Color(0xff28306e),
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10))
+                                      //more than 50% of width makes circle
+                                      ),
                                   child: Icon(
                                     Icons.more_time_sharp,
                                     size: deviceSize.width * 0.07,
                                   ),
                                 ),
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                filled: true,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff28306e), width: 1.0),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
                               ),
                             ),
                           ),

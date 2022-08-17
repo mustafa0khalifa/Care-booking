@@ -102,6 +102,21 @@ class TestModel {
       languagesPreferences: "Arabic",
       price: 25);
 
+  static PendingBookingsModel testPending2 = new PendingBookingsModel(
+      CareType: "Child Care",
+      agePreferences: "Jane",
+      schedule_Shift: "Requested on 22 July 2022",
+      additionalServices: "this booking will expire on",
+      careRecipientsCount: "30 July 2022",
+      careRecipientsDetails:
+          "if you don't book a caregiver before this data. the booking will be canceled",
+      categoriesDetails: "2 Infant (2 months - 3 months) ",
+      caregiverWeight: "50 KM  - 20 minutes",
+      certificationsPreferences: "Certifications Preferences: None",
+      genderPreferences: "Male",
+      languagesPreferences: "Arabic",
+      price: 25);
+
   static FavoriteCaregiversModel testFavoriteCaregivers =
       new FavoriteCaregiversModel(
     imageUrl: 'assets/images/profile.jpg',

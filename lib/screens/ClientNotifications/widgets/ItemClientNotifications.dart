@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -20,18 +21,20 @@ class itemClientNotifications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        elevation: 5.0,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            side: BorderSide(color: Colors.black87)),
+            borderRadius: BorderRadius.circular(5.0),
+            side: BorderSide(color: Color(0xffD3CFC8))),
         child: ListTile(
+          leading: Icon(
+            Icons.car_crash_outlined,
+            size: width * 0.06,
+          ),
           title: Text(
             '${this.subject}',
             style: TextStyle(
                 color: Color(0xff28306e),
                 fontFamily: 'Helvetica_Bold',
-                fontWeight: FontWeight.bold,
-                fontSize: width * 0.045),
+                fontSize: width * 0.04),
           ),
           contentPadding: EdgeInsets.all(5),
           subtitle: Padding(
@@ -41,22 +44,22 @@ class itemClientNotifications extends StatelessWidget {
               style: TextStyle(
                   color: Color(0xff28306e),
                   fontFamily: 'Helvetica',
-                  fontSize: width * 0.04),
+                  fontSize: width * 0.035),
             ),
           ),
           trailing: Container(
             decoration: BoxDecoration(
                 color: Color(0xff28306e),
-                borderRadius: BorderRadius.all(Radius.circular(10))
+                borderRadius: BorderRadius.all(Radius.circular(5))
                 //more than 50% of width makes circle
                 ),
-            padding: EdgeInsets.all(0.01 * height),
+            padding: EdgeInsets.all(0.02 * width),
             child: Text(
               '${this.date}',
               style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Helvetica',
-                  fontSize: width * 0.04),
+                  fontSize: width * 0.035),
             ),
           ),
         ));

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
 import 'package:flutter_application_10000/screens/BookingsDashboard/bookingsDashboard.dart';
 
-import '../../PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import '../../auth/mainAuth.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -53,18 +52,37 @@ class _ResetPasswordState extends State<ResetPassword> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Password",
-                style: TextStyle(
-                    color: Color(0xff28306e),
-                    fontFamily: 'Helvetica',
-                    fontSize: 16),
-              ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               SizedBox(
                 width: deviceSize.width * 0.8,
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: 'Password'),
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.035,
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    labelStyle: TextStyle(
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.035),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ),
                   obscureText: true,
                   controller: _passwordController,
                   onFieldSubmitted: (_) {
@@ -79,18 +97,36 @@ class _ResetPasswordState extends State<ResetPassword> {
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-              Text(
-                "Confirm Password",
-                style: TextStyle(
-                    color: Color(0xff28306e),
-                    fontFamily: 'Helvetica',
-                    fontSize: 16),
-              ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               SizedBox(
                 width: deviceSize.width * 0.8,
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: 'Confirm Password'),
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.035,
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    labelText: 'Confirm Password',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    labelStyle: TextStyle(
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.035),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ),
                   obscureText: true,
                   focusNode: _confPassFocusNode,
                   controller: _confirmPasswordController,

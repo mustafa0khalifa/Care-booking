@@ -488,16 +488,30 @@ class _BudgetState extends State<Budget> {
                           fontSize: deviceSize.width * 0.045),
                     ),
                     SizedBox(
-                      width: deviceSize.width * 0.6,
                       height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.6,
                       child: TextField(
                         style: TextStyle(
-                            color: Colors.blue.shade900, fontSize: 11),
+                          fontSize: deviceSize.width * 0.03,
+                          color: Colors.blue,
+                          fontFamily: 'Helvetica',
+                        ),
                         decoration: InputDecoration(
+                          hintText: '',
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.grey)),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
                         ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                     Text(

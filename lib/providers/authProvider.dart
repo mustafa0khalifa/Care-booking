@@ -7,7 +7,7 @@ class AuthProvidere extends ChangeNotifier {
   static bool isLog = false;
 
   static String authMode = 'Signup';
-  static bool valueCheckbox = false;
+  static bool valueCheckbox = true;
   static bool fromPostMyNeeds = false;
 
   void login() async {

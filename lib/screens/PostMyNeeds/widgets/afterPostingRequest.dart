@@ -36,9 +36,9 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                 child: Text(
                   "Your request has been submitted successfully.",
                   style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000)),
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica_Bold',
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -47,9 +47,9 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                 child: Text(
                   "You can check your request’s progress from “My Care request” page",
                   style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000)),
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica_Bold',
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.1)),
@@ -63,7 +63,7 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                     onSurface: Colors.grey,
                   ),
                   onPressed: () {
-                    widget.myBook.changeStateMyBooking('isPending');
+                    widget.myBook.changeStateMyBooking('My Pending Bookings');
                     Navigator.of(context).pushNamed(
                       MyBookings.routeName,
                     );

@@ -216,7 +216,8 @@ class _BuildRequestState extends State<BuildRequest> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -226,7 +227,7 @@ class _BuildRequestState extends State<BuildRequest> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -242,7 +243,7 @@ class _BuildRequestState extends State<BuildRequest> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -253,7 +254,8 @@ class _BuildRequestState extends State<BuildRequest> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -264,7 +266,7 @@ class _BuildRequestState extends State<BuildRequest> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -280,7 +282,7 @@ class _BuildRequestState extends State<BuildRequest> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),
@@ -292,7 +294,8 @@ class _BuildRequestState extends State<BuildRequest> {
                       child: Container(
                           width: deviceSize.width * 0.25,
                           height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -303,7 +306,7 @@ class _BuildRequestState extends State<BuildRequest> {
                               //more than 50% of width makes circle
                               ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
@@ -319,7 +322,7 @@ class _BuildRequestState extends State<BuildRequest> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035),
+                                    fontSize: deviceSize.width * 0.03),
                               ),
                             ],
                           )),

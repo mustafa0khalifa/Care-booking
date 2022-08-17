@@ -259,22 +259,35 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
                             width: deviceSize.width * 0.6,
                             child: TextField(
                               style: TextStyle(
-                                  color: Colors.blue.shade900, fontSize: 11),
+                                fontSize: deviceSize.width * 0.03,
+                                color: Colors.blue,
+                                fontFamily: 'Helvetica',
+                              ),
                               decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide:
-                                          BorderSide(color: Colors.grey)),
-                                  hintText: ' / /  /',
-                                  hintStyle: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.grey,
-                                      fontSize: 11)),
+                                hintText: '',
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                filled: true,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff28306e), width: 1.0),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
+                              ),
+                              //autofocus: ,
+                              keyboardType: TextInputType.emailAddress,
                             ),
                           ),
                           IconButton(
                               onPressed: null,
-                              icon: Icon(Icons.date_range_outlined))
+                              icon: Icon(
+                                Icons.date_range_outlined,
+                                size: deviceSize.width * 0.07,
+                              ))
                         ],
                       ),
                       Padding(

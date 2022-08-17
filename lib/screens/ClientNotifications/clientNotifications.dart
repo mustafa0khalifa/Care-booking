@@ -29,19 +29,80 @@ class _ClientNotificationsState extends State<ClientNotifications> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.01 * deviceSize.height),
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
-          child: ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return itemClientNotifications(
-                height: deviceSize.height,
-                width: deviceSize.width,
-                date: '12 : 05',
-                subject: 'completes profile ',
-                content: 'caregiver completes your profile ',
-              );
-            },
+          padding: EdgeInsets.all(0.03 * deviceSize.width),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    child: Container(
+                      width: deviceSize.width * 0.2,
+                      padding: EdgeInsets.all(deviceSize.width * 0.02),
+                      decoration: BoxDecoration(
+                          color: Color(0xff28306e),
+                          borderRadius: BorderRadius.circular(15)),
+                      alignment: Alignment.center,
+                      child: Text('All',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.04)),
+                    ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(left: deviceSize.width * 0.06)),
+                  SizedBox(
+                    child: Container(
+                      width: deviceSize.width * 0.2,
+                      padding: EdgeInsets.all(deviceSize.width * 0.02),
+                      decoration: BoxDecoration(
+                          color: Color(0xffD3CFC8),
+                          borderRadius: BorderRadius.circular(15)),
+                      alignment: Alignment.center,
+                      child: Text('Unread',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.04)),
+                    ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(left: deviceSize.width * 0.06)),
+                  SizedBox(
+                    child: Container(
+                      width: deviceSize.width * 0.2,
+                      padding: EdgeInsets.all(deviceSize.width * 0.02),
+                      decoration: BoxDecoration(
+                          color: Color(0xffD3CFC8),
+                          borderRadius: BorderRadius.circular(15)),
+                      alignment: Alignment.center,
+                      child: Text('Read',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.04)),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+              SizedBox(
+                height: deviceSize.height * 0.77,
+                child: ListView.builder(
+                  itemCount: 20,
+                  itemBuilder: (context, index) {
+                    return itemClientNotifications(
+                      height: deviceSize.height,
+                      width: deviceSize.width,
+                      date: '12 : 05',
+                      subject: 'completes profile ',
+                      content: 'caregiver completes your profile ',
+                    );
+                  },
+                ),
+              ),
+            ],
           )),
     );
   }

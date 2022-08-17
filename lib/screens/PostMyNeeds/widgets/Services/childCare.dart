@@ -17,9 +17,14 @@ class ChildCare extends StatefulWidget {
 }
 
 class _ChildCareState extends State<ChildCare> {
+  bool childCare = true;
+  bool elderlyCare = false;
+  bool advancedCare = false;
+  bool labCare = false;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -213,22 +218,68 @@ class _ChildCareState extends State<ChildCare> {
                   children: [
                     SizedBox(
                       width: deviceSize.width * 0.6,
-                      child: EasyRichText(
-                        "Newborn\n\nAge 0 to 3 month",
-                        patternList: [
-                          EasyRichTextPattern(
-                            targetString: 'Newborn',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica_Bold',
-                                fontSize: deviceSize.width * 0.045),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                child: EasyRichText(
+                                  "Newborn",
+                                  patternList: [
+                                    EasyRichTextPattern(
+                                      targetString: 'Newborn',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.045),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: deviceSize.width * 0.03)),
+                              Consumer<ChildCareProvider>(
+                                builder: (_, foo, __) => ChildCareProvider
+                                            .numberOfChildrenNewborn >
+                                        0
+                                    ? IconButton(
+                                        onPressed: () => {
+                                          foo.changeshowNewborn(),
+                                        },
+                                        icon: Icon(
+                                          ChildCareProvider.showNewborn
+                                              ? Icons.keyboard_arrow_up_sharp
+                                              : Icons.keyboard_arrow_down_sharp,
+                                          size: deviceSize.width * 0.07,
+                                        ),
+                                      )
+                                    : SizedBox(),
+                              ),
+                            ],
                           ),
-                          EasyRichTextPattern(
-                            targetString: 'Age 0 to 3 month',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.035),
+                          Consumer<ChildCareProvider>(
+                            builder: (_, foo, __) =>
+                                ChildCareProvider.numberOfChildrenNewborn == 0
+                                    ? SizedBox(
+                                        height: deviceSize.height * 0.01,
+                                      )
+                                    : SizedBox(),
+                          ),
+                          SizedBox(
+                            child: EasyRichText(
+                              "Age 0 to 3 month",
+                              patternList: [
+                                EasyRichTextPattern(
+                                  targetString: 'Age 0 to 3 month',
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -238,6 +289,9 @@ class _ChildCareState extends State<ChildCare> {
                         Consumer<ChildCareProvider>(
                           builder: (_, foo, __) => IconButton(
                             onPressed: () => {
+                              if (ChildCareProvider.numberOfChildrenNewborn ==
+                                  0)
+                                ChildCareProvider.showNewborn = false,
                               foo.changeNumberOfChildrenNewborn(false),
                               foo.calculateNumberOfChildren(),
                             },
@@ -274,134 +328,228 @@ class _ChildCareState extends State<ChildCare> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Consumer<ChildCareProvider>(
+                    builder: (_, foo, __) => ChildCareProvider
+                                    .numberOfChildrenNewborn >
+                                0 &&
+                            ChildCareProvider.showNewborn
+                        ? Container(
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: deviceSize.height * 0.1,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: childCare
+                                            ? Color(0xff28306e)
+                                            : Color(0xffD3CFC8),
+                                      ),
+                                      color: childCare
+                                          ? Color(0xff28306e)
+                                          : Color(0xffe9ecef),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  child: ListTile(
+                                    title: Text(
+                                      "Child Care",
+                                      style: TextStyle(
+                                          color: !childCare
+                                              ? Color(0xff28306e)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
+                                    subtitle: Text(
+                                      '(Newborn, toddler, preschooler, etc.)',
+                                      style: TextStyle(
+                                          color: !childCare
+                                              ? Color(0xff495057)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.03),
+                                    ),
+                                    leading: Icon(
+                                      Icons.man,
+                                      size: deviceSize.width * 0.1,
+                                      color: !childCare
+                                          ? Color(0xff495057)
+                                          : Colors.white,
+                                    ),
+                                    onTap: () => {
+                                      setState(() {
+                                        childCare = !childCare;
+                                      })
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.005)),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: elderlyCare
+                                            ? Color(0xff28306e)
+                                            : Color(0xffD3CFC8),
+                                      ),
+                                      color: elderlyCare
+                                          ? Color(0xff28306e)
+                                          : Color(0xffe9ecef),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  height: deviceSize.height * 0.1,
+                                  child: ListTile(
+                                    title: Text(
+                                      "Elderly Care ",
+                                      style: TextStyle(
+                                          color: !elderlyCare
+                                              ? Color(0xff28306e)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
+                                    subtitle: Text(
+                                      '(Companionship, personal care, meal prep)',
+                                      style: TextStyle(
+                                          color: !elderlyCare
+                                              ? Color(0xff495057)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.03),
+                                    ),
+                                    leading: Icon(
+                                      Icons.man,
+                                      size: deviceSize.width * 0.1,
+                                      color: !elderlyCare
+                                          ? Color(0xff495057)
+                                          : Colors.white,
+                                    ),
+                                    onTap: () => {
+                                      setState(() {
+                                        elderlyCare = !elderlyCare;
+                                      })
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.005)),
+                                Container(
+                                  height: deviceSize.height * 0.1,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: advancedCare
+                                            ? Color(0xff28306e)
+                                            : Color(0xffD3CFC8),
+                                      ),
+                                      color: advancedCare
+                                          ? Color(0xff28306e)
+                                          : Color(0xffe9ecef),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  child: ListTile(
+                                    title: Text(
+                                      "Advanced Nursing Care ",
+                                      style: TextStyle(
+                                          color: !advancedCare
+                                              ? Color(0xff28306e)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
+                                    subtitle: Text(
+                                      '(by registered nurses: Injections, wound care, etc.)',
+                                      style: TextStyle(
+                                          color: !advancedCare
+                                              ? Color(0xff495057)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.03),
+                                    ),
+                                    leading: Icon(
+                                      Icons.manage_accounts_outlined,
+                                      size: deviceSize.width * 0.1,
+                                      color: !advancedCare
+                                          ? Color(0xff495057)
+                                          : Colors.white,
+                                    ),
+                                    onTap: () => {
+                                      setState(() {
+                                        advancedCare = !advancedCare;
+                                      })
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.005)),
+                                Container(
+                                  height: deviceSize.height * 0.1,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: labCare
+                                            ? Color(0xff28306e)
+                                            : Color(0xffD3CFC8),
+                                      ),
+                                      color: labCare
+                                          ? Color(0xff28306e)
+                                          : Color(0xffe9ecef),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  child: ListTile(
+                                    title: Text(
+                                      "Laboratory Services",
+                                      style: TextStyle(
+                                          color: !labCare
+                                              ? Color(0xff28306e)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
+                                    subtitle: Text(
+                                      '(PCR, blood analysis, etc.)',
+                                      style: TextStyle(
+                                          color: !labCare
+                                              ? Color(0xff495057)
+                                              : Colors.white,
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.03),
+                                    ),
+                                    leading: Icon(
+                                      Icons.thermostat,
+                                      size: deviceSize.width * 0.1,
+                                      color: !labCare
+                                          ? Color(0xff495057)
+                                          : Colors.white,
+                                    ),
+                                    onTap: () => {
+                                      setState(() {
+                                        labCare = !labCare;
+                                      })
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : SizedBox()),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                  height: deviceSize.height * 0.1,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
-                    child: ListTile(
-                      title: Text(
-                        "Basic Newborn Care",
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                      subtitle: Text(
-                        'Feed, sleep train, bathe, and interact with the baby',
-                        style: TextStyle(
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
-                      ),
-                      leading: Icon(
-                        Icons.man,
-                        size: deviceSize.width * 0.1,
-                      ),
-                      onTap: () => {},
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                  height: deviceSize.height * 0.1,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
-                    child: ListTile(
-                      title: Text(
-                        "Premature Newborn Care",
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                      subtitle: Text(
-                        'Feed, bathe, change diapers, thermal measurement',
-                        style: TextStyle(
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
-                      ),
-                      leading: Icon(
-                        Icons.add_box_outlined,
-                        size: deviceSize.width * 0.1,
-                      ),
-                      onTap: () => {},
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                  height: deviceSize.height * 0.1,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
-                    child: ListTile(
-                      title: Text(
-                        "Sleep training ",
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                      subtitle: Text(
-                        'Bedtime routine, sing, be patient',
-                        style: TextStyle(
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
-                      ),
-                      leading: Icon(
-                        Icons.self_improvement_sharp,
-                        size: deviceSize.width * 0.1,
-                      ),
-                      onTap: () => {},
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                  height: deviceSize.height * 0.1,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
-                    child: ListTile(
-                      title: Text(
-                        "Specialized care for congenital conditions",
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                      leading: Icon(
-                        Icons.thermostat,
-                        size: deviceSize.width * 0.1,
-                      ),
-                      onTap: () => {},
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Divider(
-                  thickness: 1,
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   children: [
                     SizedBox(
@@ -676,68 +824,73 @@ class _ChildCareState extends State<ChildCare> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Card(
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      side: BorderSide(color: Colors.black87)),
-                  child: Container(
-                    padding: EdgeInsets.all(deviceSize.height * 0.03),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Total number of children to be cared for',
+                Container(
+                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: Color(0xffD3CFC8),
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Total number of children to be cared for',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.035),
+                      ),
+                      Consumer<ChildCareProvider>(
+                        builder: (_, foo, __) => Text(
+                          '${ChildCareProvider.numberOfChildren}',
                           style: TextStyle(
                               color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.04),
                         ),
-                        Consumer<ChildCareProvider>(
-                          builder: (_, foo, __) => Text(
-                            '${ChildCareProvider.numberOfChildren}',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica_Bold',
-                                fontSize: deviceSize.width * 0.045),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Card(
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      side: BorderSide(color: Colors.black87)),
-                  child: Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.03),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Note',
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.045,
-                              fontFamily: 'Helvetica_Bold',
-                              color: Color(0xff28306e),
-                            ),
-                          ),
-                          Text(
-                            'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.03,
-                              fontFamily: 'Helvetica',
-                              color: Color(0xff28306e),
-                            ),
-                          ),
-                        ],
-                      )),
+                Container(
+                  padding: EdgeInsets.all(deviceSize.width * 0.03),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: Color(0xffD3CFC8),
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Note',
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.045,
+                          fontFamily: 'Helvetica_Bold',
+                          color: Color(0xff28306e),
+                        ),
+                      ),
+                      Text(
+                        'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          fontFamily: 'Helvetica',
+                          color: Color(0xff28306e),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Consumer<BuildCategoriesProvider>(
                   builder: (_, foo, __) => Container(

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/scheduleDateProvider.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../../providers/PostMyNeedsProvider/scheduleProvider.dart';
+import 'package:intl/intl.dart';
+import 'package:date_format/date_format.dart';
 
 class DaySh extends StatefulWidget {
   var width;
   var height;
   var day;
   var index;
+  var color;
   DaySh({
     required this.width,
     required this.height,
     required this.day,
     required this.index,
+    required this.color,
   });
 
   @override
@@ -23,113 +25,123 @@ class DaySh extends StatefulWidget {
 }
 
 class DayState extends State<DaySh> {
+  final _fromController = TextEditingController();
+  final _toController = TextEditingController();
+  late String _setTime, _setDate;
+
+  late String _hour, _minute, _time;
+
+  late String dateTime;
+
+  DateTime selectedDate = DateTime.now();
+
+  TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (picked != null)
+      setState(() {
+        selectedDate = picked;
+        _fromController.text = DateFormat.yMd().format(selectedDate);
+      });
+  }
+
+  Future<Null> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+        _fromController.text = _time;
+        _fromController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  @override
+  void initState() {
+    _fromController.text = DateFormat.yMd().format(DateTime.now());
+
+    _fromController.text = formatDate(
+        DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
+        [hh, ':', nn, " ", am]).toString();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget _addRemoveButton(int index) {
+    dateTime = DateFormat.yMd().format(DateTime.now());
+
+    Widget _addRemoveButton(int ind) {
       return Consumer<ScheduleDateProvider>(
-          builder: (_, foo, __) => IconButton(
-              iconSize: widget.width * 0.1,
-              onPressed: () => {
-                    foo.removeShInDay(widget.index),
-                  },
-              icon: Icon(
-                Icons.remove_circle_outline,
-                color: Colors.red,
-                size: widget.width * 0.07,
-              )));
+          builder: (_, foo, __) => SizedBox(
+                height: widget.height * 0.05,
+                child: IconButton(
+                    iconSize: widget.width * 0.05,
+                    onPressed: () => {
+                          //foo.removeShInDay(widget.index),
+                          foo.removeShInDayList(widget.index, ind * 2)
+                        },
+                    icon: Icon(
+                      Icons.delete_forever_rounded,
+                      color: Colors.red,
+                      size: widget.width * 0.05,
+                    )),
+              ));
     }
 
     List<Widget> _getFriends() {
       List<Widget> friendsTextFieldsList = [];
-      for (int i = 0; i < ScheduleDateProvider.numShInDay[widget.index]; i++) {
+      print(ScheduleDateProvider.DateDay[widget.index]);
+      for (int i = 0;
+          i < ScheduleDateProvider.DateDay[widget.index].length / 2;
+          i++) {
         friendsTextFieldsList.add(Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: widget.width * 0.8,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: widget.width * 0.3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('From',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: widget.width * 0.035)),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: widget.height * 0.01)),
-                        SizedBox(
-                          height: widget.height * 0.05,
-                          width: widget.width * 0.3,
-                          child: TextField(
-                            style: TextStyle(
-                                color: Colors.blue.shade900, fontSize: 11),
-                            decoration: InputDecoration(
-                              suffixIcon: Container(
-                                color: Colors.grey,
-                                child: Icon(
-                                  Icons.more_time_sharp,
-                                  size: widget.width * 0.07,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  borderSide: BorderSide(color: Colors.grey)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(left: widget.width * 0.05)),
-                  SizedBox(
-                    width: widget.width * 0.3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('To',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: widget.width * 0.035)),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: widget.height * 0.01)),
-                        SizedBox(
-                          height: widget.height * 0.05,
-                          width: widget.width * 0.3,
-                          child: TextField(
-                            style: TextStyle(
-                                color: Colors.blue.shade900, fontSize: 11),
-                            decoration: InputDecoration(
-                              suffixIcon: Container(
-                                color: Colors.grey,
-                                child: Icon(
-                                  Icons.more_time_sharp,
-                                  size: widget.width * 0.07,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  borderSide: BorderSide(color: Colors.grey)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(top: widget.width * 0.05),
-                      child: _addRemoveButton(i))
-                ],
-              ),
+            Text('Shift ${i + 2}',
+                style: TextStyle(
+                    color: Color(0xff28306e),
+                    fontFamily: 'Helvetica_Bold',
+                    fontSize: widget.width * 0.035)),
+            Row(
+              children: [
+                SizedBox(
+                  width: widget.width * 0.33,
+                  child: Text(
+                      'From : ${ScheduleDateProvider.DateDay[widget.index][i * 2]}',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica_Bold',
+                          fontSize: widget.width * 0.035)),
+                ),
+                Padding(padding: EdgeInsets.only(left: widget.width * 0.05)),
+                SizedBox(
+                  width: widget.width * 0.33,
+                  child: Text(
+                      'To : ${ScheduleDateProvider.DateDay[widget.index][(i * 2) + 1]}',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica_Bold',
+                          fontSize: widget.width * 0.035)),
+                ),
+                _addRemoveButton(i)
+              ],
             ),
-            Padding(padding: EdgeInsets.only(top: widget.height * 0.01)),
+            Divider(
+              thickness: 1,
+            ),
           ],
         ));
       }
@@ -142,7 +154,7 @@ class DayState extends State<DaySh> {
           borderRadius: BorderRadius.circular(15.0),
           side: BorderSide(color: Colors.black87)),
       child: Container(
-        margin: EdgeInsets.only(left: widget.width * 0.03),
+        margin: EdgeInsets.only(left: widget.width * 0.02),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -152,15 +164,29 @@ class DayState extends State<DaySh> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
+                  width: widget.width * 0.2,
                   child: Text(
                     '${widget.day}',
                     maxLines: 2,
                     style: TextStyle(
-                        color: Color(0xff28306e),
+                        color: widget.color,
                         fontFamily: 'Helvetica',
                         fontWeight: FontWeight.bold,
                         fontSize: widget.width * 0.035),
                   ),
+                ),
+                Consumer<ScheduleDateProvider>(
+                  builder: (_, foo, __) => IconButton(
+                      onPressed: () => {
+                            // foo.removeAllShInDay(widget.index),
+                            foo.changeclickDayNo(widget.index),
+                            foo.removeAllShInDayList(widget.index)
+                          },
+                      icon: Icon(
+                        Icons.delete_forever_rounded,
+                        color: Colors.red,
+                        size: widget.width * 0.05,
+                      )),
                 ),
                 Consumer<ScheduleDateProvider>(
                   builder: (_, foo, __) => IconButton(
@@ -169,10 +195,12 @@ class DayState extends State<DaySh> {
                           ? Icon(
                               Icons.arrow_downward,
                               color: Color(0xff28306e),
+                              size: widget.width * 0.05,
                             )
                           : Icon(
                               Icons.arrow_upward,
                               color: Color(0xff28306e),
+                              size: widget.width * 0.05,
                             )),
                 )
               ],
@@ -181,137 +209,147 @@ class DayState extends State<DaySh> {
                 builder: (_, foo, __) => ScheduleDateProvider
                         .clickSh[widget.index]
                     ? Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text('Shift 1',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: widget.width * 0.035)),
                           Padding(
                               padding:
-                                  EdgeInsets.only(top: widget.height * 0.01)),
-                          SizedBox(
-                            width: widget.width * 0.8,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('From',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: widget.width * 0.035)),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: widget.height * 0.01)),
-                                    SizedBox(
-                                      height: widget.height * 0.05,
-                                      width: widget.width * 0.35,
-                                      child: TextField(
-                                        style: TextStyle(
-                                            color: Colors.blue.shade900,
-                                            fontSize: 11),
-                                        decoration: InputDecoration(
-                                          suffixIcon: Container(
+                                  EdgeInsets.only(top: widget.height * 0.005)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: widget.height * 0.05,
+                                width: widget.width * 0.33,
+                                child: TextFormField(
+                                  keyboardType: TextInputType.number,
+                                  controller: _fromController,
+                                  style: TextStyle(
+                                    fontSize: widget.width * 0.03,
+                                    color: Color.fromARGB(255, 102, 101, 101),
+                                    fontFamily: 'Helvetica',
+                                  ),
+                                  decoration: InputDecoration(
+                                    suffixIcon: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color.fromARGB(
+                                              255, 209, 206, 206),
+                                          border: Border.all(
                                             color: Colors.grey,
-                                            child: Icon(
-                                              Icons.more_time_sharp,
-                                              size: widget.width * 0.07,
-                                            ),
                                           ),
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              borderSide: BorderSide(
-                                                  color: Colors.grey)),
-                                        ),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5),
+                                              bottomRight: Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Icon(
+                                        color: Colors.black,
+                                        Icons.more_time_sharp,
+                                        size: widget.width * 0.07,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left: widget.width * 0.1)),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('To',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica',
-                                            fontSize: widget.width * 0.035)),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: widget.height * 0.01)),
-                                    SizedBox(
-                                      height: widget.height * 0.05,
-                                      width: widget.width * 0.35,
-                                      child: TextField(
-                                        style: TextStyle(
-                                            color: Colors.blue.shade900,
-                                            fontSize: 11),
-                                        decoration: InputDecoration(
-                                          suffixIcon: Container(
-                                            color: Colors.grey,
-                                            child: Icon(
-                                              Icons.more_time_sharp,
-                                              size: widget.width * 0.07,
-                                            ),
-                                          ),
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              borderSide: BorderSide(
-                                                  color: Colors.grey)),
-                                        ),
-                                      ),
+                                    hintText: 'From',
+                                    fillColor:
+                                        Color.fromARGB(255, 255, 255, 255),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                              padding:
-                                  EdgeInsets.only(top: widget.height * 0.01)),
-                          ..._getFriends(),
-                          Container(
-                            alignment: Alignment.bottomRight,
-                            padding: EdgeInsets.only(
-                                left: widget.width * 0.03,
-                                right: widget.width * 0.03),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      primary: Colors
-                                          .red //elevated btton background color
-                                      ),
-                                  onPressed: () => {
-                                    foo.removeAllShInDay(widget.index),
-                                    foo.changeclickDayNo(widget.index)
-                                  },
-                                  child: Text(
-                                    "Remove Shifts",
-                                    style: TextStyle(
-                                        fontFamily: 'Helvetica',
-                                        fontSize: widget.width * 0.025),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255))),
                                   ),
                                 ),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left: widget.width * 0.2)),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      primary: Colors
-                                          .greenAccent //elevated btton background color
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: widget.width * 0.05)),
+                              SizedBox(
+                                height: widget.height * 0.05,
+                                width: widget.width * 0.33,
+                                child: TextFormField(
+                                  keyboardType: TextInputType.number,
+                                  controller: _toController,
+                                  style: TextStyle(
+                                    fontSize: widget.width * 0.03,
+                                    color: Color.fromARGB(255, 102, 101, 101),
+                                    fontFamily: 'Helvetica',
+                                  ),
+                                  decoration: InputDecoration(
+                                    suffixIcon: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color.fromARGB(
+                                              255, 209, 206, 206),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5),
+                                              bottomRight: Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Icon(
+                                        color: Colors.black,
+                                        Icons.more_time_sharp,
+                                        size: widget.width * 0.07,
                                       ),
-                                  onPressed: () =>
-                                      {foo.addShInDay(widget.index)},
-                                  child: Text("Add Shift"),
+                                    ),
+                                    hintText: 'To',
+                                    fillColor:
+                                        Color.fromARGB(255, 255, 255, 255),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255))),
+                                  ),
                                 ),
-                              ],
-                            ),
+                              ),
+                              Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => IconButton(
+                                    onPressed: () => {
+                                          foo.addSh(_fromController.text,
+                                              _toController.text, widget.index),
+                                          //   foo.addShInDay(widget.index)
+                                        },
+                                    icon: Icon(
+                                      Icons.add_box_rounded,
+                                      color: Colors.green,
+                                      size: widget.width * 0.05,
+                                    )),
+                              ),
+                            ],
                           ),
+                          Divider(
+                            thickness: 1,
+                          ),
+                          ..._getFriends(),
                         ],
                       )
                     : SizedBox()),

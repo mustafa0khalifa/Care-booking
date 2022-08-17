@@ -22,13 +22,11 @@ class ItemFavoriteCaregivers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: height * 0.4,
       child: InkWell(
         child: Card(
-          elevation: 5.0,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              side: BorderSide(color: Colors.black87)),
+              borderRadius: BorderRadius.circular(5.0),
+              side: BorderSide(color: Color(0xffD3CFC8))),
           child: Container(
               margin: EdgeInsets.all(height * 0.03),
               child: Column(
@@ -131,30 +129,40 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: width * 0.4,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(
-                                0xff28306e), //elevated btton background color
-                          ),
-                          onPressed: () => {print('ok')},
+                        child: Container(
+                          padding: EdgeInsets.all(width * 0.02),
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(15)),
+                          alignment: Alignment.center,
                           child: Text(
                               '${favoriteCaregiversModel.qualifications}',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: width * 0.035)),
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: width * 0.04)),
                         ),
                       ),
+                      Padding(padding: EdgeInsets.only(left: width * 0.06)),
                       SizedBox(
-                        width: width * 0.35,
-                        child: Center(
-                          child: Text(
-                              'Can Provide ${favoriteCaregiversModel.providedHoursofcare}h',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: width * 0.035)),
+                        child: EasyRichText(
+                          "Can Provide ${favoriteCaregiversModel.providedHoursofcare}h",
+                          patternList: [
+                            EasyRichTextPattern(
+                                targetString: 'Can Provide',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: width * 0.035)),
+                            EasyRichTextPattern(
+                                targetString:
+                                    '${favoriteCaregiversModel.providedHoursofcare}h',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: width * 0.035)),
+                          ],
                         ),
                       ),
                     ],

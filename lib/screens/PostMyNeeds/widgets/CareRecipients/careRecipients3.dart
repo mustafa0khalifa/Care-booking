@@ -209,7 +209,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 SizedBox(
                   width: deviceSize.width * 0.8,
@@ -222,7 +222,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -233,20 +233,31 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: deviceSize.width * 0.5,
                           height: deviceSize.height * 0.05,
+                          width: deviceSize.width * 0.5,
                           child: TextField(
                             style: TextStyle(
-                                color: Colors.blue.shade900, fontSize: 11),
+                              fontSize: deviceSize.width * 0.03,
+                              color: Colors.blue,
+                              fontFamily: 'Helvetica',
+                            ),
                             decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(color: Colors.grey)),
-                                hintText: '',
-                                hintStyle: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.grey,
-                                    fontSize: 11)),
+                              hintText: '',
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xff28306e), width: 1.0),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255))),
+                            ),
+                            //autofocus: ,
+                            keyboardType: TextInputType.emailAddress,
                           ),
                         ),
                         SizedBox(
@@ -264,7 +275,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 SizedBox(
                   width: deviceSize.width * 0.8,
@@ -277,27 +288,37 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.4,
                       height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.4,
                       child: TextField(
                         style: TextStyle(
-                            color: Colors.blue.shade900, fontSize: 11),
+                          fontSize: deviceSize.width * 0.03,
+                          color: Colors.blue,
+                          fontFamily: 'Helvetica',
+                        ),
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(color: Colors.grey)),
-                            hintText: ' / / /',
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey,
-                                fontSize: 11)),
+                          hintText: '',
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
+                        ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                     Icon(
@@ -317,7 +338,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 SizedBox(
                   width: deviceSize.width * 0.8,
@@ -330,7 +351,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -387,7 +408,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 SizedBox(
                   width: deviceSize.width * 0.8,
@@ -400,27 +421,37 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.4,
                       height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.4,
                       child: TextField(
                         style: TextStyle(
-                            color: Colors.blue.shade900, fontSize: 11),
+                          fontSize: deviceSize.width * 0.03,
+                          color: Colors.blue,
+                          fontFamily: 'Helvetica',
+                        ),
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(color: Colors.grey)),
-                            hintText: ' / / /',
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey,
-                                fontSize: 11)),
+                          hintText: '',
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
+                        ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                     SizedBox(
@@ -446,7 +477,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -481,7 +512,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.03),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -514,26 +545,36 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
-                      width: deviceSize.width * 0.8,
                       height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.8,
                       child: TextField(
                         style: TextStyle(
-                            color: Colors.blue.shade900, fontSize: 11),
+                          fontSize: deviceSize.width * 0.03,
+                          color: Colors.blue,
+                          fontFamily: 'Helvetica',
+                        ),
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(color: Colors.grey)),
-                            hintText: '',
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey,
-                                fontSize: 11)),
+                          hintText: '',
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
+                        ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.02),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -566,20 +607,30 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       padding: EdgeInsets.all(deviceSize.height * 0.005),
                     ),
                     SizedBox(
-                      width: deviceSize.width * 0.8,
                       height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.8,
                       child: TextField(
                         style: TextStyle(
-                            color: Colors.blue.shade900, fontSize: 11),
+                          fontSize: deviceSize.width * 0.03,
+                          color: Colors.blue,
+                          fontFamily: 'Helvetica',
+                        ),
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(color: Colors.grey)),
-                            hintText: '+ 961',
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey,
-                                fontSize: 11)),
+                          hintText: '+ 961',
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          filled: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xff28306e), width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
+                        ),
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                   ],

@@ -53,21 +53,41 @@ class _EnterCodeState extends State<EnterCode> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: 20),
+                      fontSize: deviceSize.width * 0.045),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               TextFormField(
                 controller: _codeController,
                 keyboardType: TextInputType.number,
-                style: TextStyle(color: Colors.blue.shade900, fontSize: 20),
+                style: TextStyle(
+                  fontSize: deviceSize.width * 0.035,
+                  color: Color(0xff28306e),
+                  fontFamily: 'Helvetica',
+                ),
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: BorderSide(color: Colors.grey)),
-                    prefixIcon: Icon(Icons.phone_locked_outlined),
-                    hintText: 'Enter Code',
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15)),
+                  prefixIcon: Icon(Icons.phone_locked_outlined),
+                  hintText: 'Enter Code',
+                  fillColor: Color(0xffe9ecef),
+                  filled: true,
+                  labelStyle: TextStyle(
+                      color: Color(0xff495057),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.035),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Color(0xffced4da), width: 1.0),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Color(0xffced4da), width: 1.0),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: BorderSide(color: Color(0xffced4da))),
+                ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(
@@ -80,8 +100,9 @@ class _EnterCodeState extends State<EnterCode> {
                           patternList: [
                             EasyRichTextPattern(
                               targetString: 'italic',
-                              style:
-                                  const TextStyle(fontStyle: FontStyle.italic),
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: deviceSize.width * 0.045),
                             ),
                             EasyRichTextPattern(
                               targetString: 'Resend',
