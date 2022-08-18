@@ -344,29 +344,13 @@ class _LocationState extends State<Locations> {
                       ),
                       Switch.adaptive(
                           value: isSwitched,
-                          activeColor: Colors.green,
                           onChanged: (newValue) {
                             setState(() {
                               isSwitched = newValue;
                             });
                           })
-                      /*FlutterSwitch(
-                        width: deviceSize.width * 0.11,
-                        height: deviceSize.height * 0.025,
-                        value: isSwitched,
-                        activeColor: Colors.green,
-                        borderRadius: 30.0,
-                        showOnOff: false,
-                        onToggle: (val) {
-                          setState(() {
-                            isSwitched = val;
-                          });
-                        },
-                      ),*/
                     ],
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                   Row(
                     children: [
                       IconButton(
@@ -393,29 +377,28 @@ class _LocationState extends State<Locations> {
                         child: TextField(
                           style: TextStyle(
                             fontSize: deviceSize.width * 0.03,
-                            color: Color.fromARGB(255, 102, 101, 101),
+                            color: Color(0xff495057),
                             fontFamily: 'Helvetica',
                           ),
                           decoration: InputDecoration(
                             hintText: 'Search',
-                            fillColor: Color.fromARGB(255, 255, 255, 255),
+                            fillColor: Color(0xffe9ecef),
                             filled: true,
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: Colors.grey, width: 1.0),
+                                  color: Color(0xffced4da), width: 1.0),
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: Colors.grey, width: 1.0),
+                                  color: Color(0xffced4da), width: 1.0),
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(
-                                    color: Color.fromARGB(255, 255, 255, 255))),
-                          ),
-                          //autofocus: ,
+                                borderSide:
+                                    BorderSide(color: Color(0xffced4da))),
+                          ), //autofocus: ,
                           keyboardType: TextInputType.emailAddress,
                         ),
                       ),

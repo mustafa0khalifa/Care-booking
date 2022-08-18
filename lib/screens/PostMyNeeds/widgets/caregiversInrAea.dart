@@ -49,7 +49,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.all(0.03 * deviceSize.height),
+          padding: EdgeInsets.all(0.03 * deviceSize.width),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +195,6 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                   ),
                 ],
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
               SizedBox(
                 height: deviceSize.height * 0.5,
                 child: ListView.builder(

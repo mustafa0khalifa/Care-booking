@@ -20,54 +20,53 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
     final deviceSize = MediaQuery.of(context).size;
     AuthProvidere.fromPostMyNeeds = false;
     return Scaffold(
-      drawer: NavBar(),
       body: Container(
         height: deviceSize.height,
         width: deviceSize.width,
-        padding: EdgeInsets.only(top: 0.10 * deviceSize.height),
-        margin: EdgeInsets.all(deviceSize.height * 0.03),
+        margin: EdgeInsets.all(deviceSize.width * 0.03),
+        padding: EdgeInsets.only(top: deviceSize.height * 0.1),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               SizedBox(
-                width: deviceSize.width * 0.6,
                 child: Text(
                   "Your request has been submitted successfully.",
                   style: TextStyle(
-                      color: Color(0xff28306e),
+                      color: Color(0xffD3CFC8),
                       fontFamily: 'Helvetica_Bold',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.035),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
               SizedBox(
-                width: deviceSize.width * 0.6,
                 child: Text(
                   "You can check your request’s progress from “My Care request” page",
                   style: TextStyle(
-                      color: Color(0xff28306e),
+                      color: Color(0xffD3CFC8),
                       fontFamily: 'Helvetica_Bold',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.035),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.1)),
-              SizedBox(
-                width: deviceSize.width * 0.6,
-                child: TextButton(
-                  child: Text('My Pending Bookings'),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Colors.teal,
-                    onSurface: Colors.grey,
+              Center(
+                child: SizedBox(
+                  width: deviceSize.width * 0.6,
+                  child: TextButton(
+                    child: Text('My Pending Bookings'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Colors.teal,
+                      onSurface: Colors.grey,
+                    ),
+                    onPressed: () {
+                      widget.myBook.changeStateMyBooking('My Pending Bookings');
+                      Navigator.of(context).pushNamed(
+                        MyBookings.routeName,
+                      );
+                    },
                   ),
-                  onPressed: () {
-                    widget.myBook.changeStateMyBooking('My Pending Bookings');
-                    Navigator.of(context).pushNamed(
-                      MyBookings.routeName,
-                    );
-                  },
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.2)),
@@ -80,9 +79,9 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                           Colors.greenAccent //elevated btton background color
                       ),
                   onPressed: () => {
-                    Navigator.of(context).pushNamed(
+                    /*Navigator.of(context).pushNamed(
                       AfterBookingRequest.routeName,
-                    )
+                    )*/
                   },
                   child: Text("My Care Request"),
                 ),

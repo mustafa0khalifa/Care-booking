@@ -15,6 +15,7 @@ class AutomaticMatchingOption extends StatefulWidget {
 }
 
 class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
+  bool isSelected = true;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -49,7 +50,7 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -60,104 +61,162 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Card(
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(color: Colors.grey)),
+                InkWell(
                   child: Container(
-                    margin: EdgeInsets.all(deviceSize.width * 0.03),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "I want to browse profiles all interested candidates and select my preferred caregiver",
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.04),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          Text(
-                            'This option is ideal when you are not in a hurry to find the caregiver (example: I am pregnant and need a nanny in 2 months) and when cases of long-term care where the personality match is very important. This option gives you full control to decide on the caregiver you want to work with. You are in the driver\'s seat!',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                        ]),
+                    padding: EdgeInsets.all(deviceSize.width * 0.03),
+                    decoration: BoxDecoration(
+                        color: isSelected ? Color(0xff28306e) : Colors.white,
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
+                        ),
+                    child: Text(
+                      "I want to browse profiles all interested candidates and select my preferred caregiver",
+                      style: TextStyle(
+                          color: !isSelected ? Color(0xff28306e) : Colors.white,
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.04),
+                    ),
+                  ),
+                  onTap: () => {
+                    setState(
+                      () => {isSelected = !isSelected},
+                    )
+                  },
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.orange[100],
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff28306e),
+                      ),
+                    ),
+                    subtitle: Text(
+                      'This option is ideal when you are not in a hurry to find the caregiver (example: I am pregnant and need a nanny in 2 months) and when cases of long-term care where the personality match is very important. This option gives you full control to decide on the caregiver you want to work with. You are in the driver\'s seat!',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.03),
+                    ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Color(0xff28306e),
+                    ),
+                    onTap: () => {},
                   ),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Card(
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(color: Colors.grey)),
+                InkWell(
                   child: Container(
-                    margin: EdgeInsets.all(deviceSize.width * 0.03),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "I want to be automatically matched with one or more caregivers based on who applies first to my request",
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.04),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          Text(
-                            'This process has been optimized for quick matching. In this case, we will match you with the first caregiver who applies to your care request.',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          Text(
-                            'This can be ideal when: ',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          Text(
-                            '1. The speed of finding available caregiver(s) is more important than selecting the most preferred caregiver among a pool of interested candidates. ',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          Text(
-                            '2. It might be tough to find a single caregiver to cover the entire booking schedule This might be important when the schedule is too long and exhausting to be filled by one caregiver (example: 24-hour shift schedule) or when the schedule is too irregular that no single caregiver might be able to commit to filling (multiple visits needed per the same day).',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                        ]),
+                    padding: EdgeInsets.all(deviceSize.width * 0.03),
+                    decoration: BoxDecoration(
+                        color: !isSelected ? Color(0xff28306e) : Colors.white,
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
+                        ),
+                    child: Text(
+                      "I want to be automatically matched with one or more caregivers based on who applies first to my request",
+                      style: TextStyle(
+                          color: isSelected ? Color(0xff28306e) : Colors.white,
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.04),
+                    ),
                   ),
+                  onTap: () => {
+                    setState(
+                      () => {isSelected = !isSelected},
+                    )
+                  },
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.orange[100],
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff28306e),
+                      ),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'This process has been optimized for quick matching. In this case, we will match you with the first caregiver who applies to your care request.',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.01)),
+                        Text(
+                          'This can be ideal when: ',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.01)),
+                        Text(
+                          '1. The speed of finding available caregiver(s) is more important than selecting the most preferred caregiver among a pool of interested candidates. ',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.01)),
+                        Text(
+                          '2. It might be tough to find a single caregiver to cover the entire booking schedule This might be important when the schedule is too long and exhausting to be filled by one caregiver (example: 24-hour shift schedule) or when the schedule is too irregular that no single caregiver might be able to commit to filling (multiple visits needed per the same day).',
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                      ],
+                    ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Color(0xff28306e),
+                    ),
+                    onTap: () => {},
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,

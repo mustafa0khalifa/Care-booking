@@ -18,49 +18,6 @@ class BrowseCaregivers extends StatelessWidget {
     return Scaffold(
         key: scaffoldKey,
         // resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Color(0xff28306e),
-            ),
-            onPressed: () {
-              if (scaffoldKey.currentState!.isDrawerOpen) {
-                scaffoldKey.currentState!.closeDrawer();
-                //close drawer, if drawer is open
-              } else {
-                scaffoldKey.currentState!.openDrawer();
-                //open drawer, if drawer is closed
-              }
-            },
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                color: Color(0xff28306e),
-              ),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                      builder: (BuildContext context) => BookingsDashboard()),
-                  (Route<dynamic> route) => false,
-                );
-              },
-            ),
-          ],
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Text(
-            "Browse Caregaver",
-            style: TextStyle(
-                color: Color(0xff28306e),
-                fontFamily: 'Helvetica-Bold',
-                fontSize: deviceSize.width * 0.055),
-          ),
-        ),
-        drawer: Filter(),
         body: Container(
           height: deviceSize.height,
           width: deviceSize.width,

@@ -32,6 +32,7 @@ import 'providers/careCategoryProvider.dart';
 import 'providers/careCategoryProviderBokNow.dart';
 import 'providers/itemFavoriteCareProvider.dart';
 import 'providers/myBookingProvider.dart';
+import 'providers/profileProvider.dart';
 import 'screens/BookNow/widgets/AfterBookingRequest/afterBookingRequest.dart';
 import 'screens/BookNow/widgets/CareRecipients/careRecipients2BookNow.dart';
 import 'screens/BookNow/widgets/CareRecipients/careRecipients3BookNow.dart';
@@ -173,6 +174,9 @@ class _MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ScheduleDateProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => ProfileProvider(),
+        ),
       ], child: MyApp()),
     );
   }
@@ -207,7 +211,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : AuthScreen(),
+        home: isLoged ? BookingsDashboard() : BookingsDashboard(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),

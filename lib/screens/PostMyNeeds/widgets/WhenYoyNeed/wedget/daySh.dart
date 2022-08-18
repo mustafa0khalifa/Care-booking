@@ -72,8 +72,13 @@ class DayState extends State<DaySh> {
   @override
   void initState() {
     _fromController.text = DateFormat.yMd().format(DateTime.now());
+    _toController.text = DateFormat.yMd().format(DateTime.now());
 
     _fromController.text = formatDate(
+        DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
+        [hh, ':', nn, " ", am]).toString();
+
+    _toController.text = formatDate(
         DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
         [hh, ':', nn, " ", am]).toString();
     super.initState();
@@ -94,7 +99,7 @@ class DayState extends State<DaySh> {
                           foo.removeShInDayList(widget.index, ind * 2)
                         },
                     icon: Icon(
-                      Icons.delete_forever_rounded,
+                      Icons.remove_circle_outline_rounded,
                       color: Colors.red,
                       size: widget.width * 0.05,
                     )),
@@ -110,10 +115,11 @@ class DayState extends State<DaySh> {
         friendsTextFieldsList.add(Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Shift ${i + 2}',
+            Text('Shift ${i + 1}',
                 style: TextStyle(
                     color: Color(0xff28306e),
                     fontFamily: 'Helvetica_Bold',
+                    fontWeight: FontWeight.bold,
                     fontSize: widget.width * 0.035)),
             Row(
               children: [
@@ -124,7 +130,7 @@ class DayState extends State<DaySh> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica_Bold',
-                          fontSize: widget.width * 0.035)),
+                          fontSize: widget.width * 0.03)),
                 ),
                 Padding(padding: EdgeInsets.only(left: widget.width * 0.05)),
                 SizedBox(
@@ -134,7 +140,7 @@ class DayState extends State<DaySh> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica_Bold',
-                          fontSize: widget.width * 0.035)),
+                          fontSize: widget.width * 0.03)),
                 ),
                 _addRemoveButton(i)
               ],
@@ -149,10 +155,10 @@ class DayState extends State<DaySh> {
     }
 
     return Card(
-      elevation: 5.0,
+      elevation: 10.0,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          side: BorderSide(color: Colors.black87)),
+          borderRadius: BorderRadius.circular(5.0),
+          side: BorderSide(color: Color(0xffD3CFC8))),
       child: Container(
         margin: EdgeInsets.only(left: widget.width * 0.02),
         child: Column(
@@ -172,7 +178,7 @@ class DayState extends State<DaySh> {
                         color: widget.color,
                         fontFamily: 'Helvetica',
                         fontWeight: FontWeight.bold,
-                        fontSize: widget.width * 0.035),
+                        fontSize: widget.width * 0.04),
                   ),
                 ),
                 Consumer<ScheduleDateProvider>(
@@ -183,7 +189,7 @@ class DayState extends State<DaySh> {
                             foo.removeAllShInDayList(widget.index)
                           },
                       icon: Icon(
-                        Icons.delete_forever_rounded,
+                        Icons.remove_circle_outline_rounded,
                         color: Colors.red,
                         size: widget.width * 0.05,
                       )),
@@ -193,12 +199,12 @@ class DayState extends State<DaySh> {
                       onPressed: () => {foo.changeclickShDay(widget.index)},
                       icon: !ScheduleDateProvider.clickSh[widget.index]
                           ? Icon(
-                              Icons.arrow_downward,
+                              Icons.keyboard_arrow_down_outlined,
                               color: Color(0xff28306e),
                               size: widget.width * 0.05,
                             )
                           : Icon(
-                              Icons.arrow_upward,
+                              Icons.keyboard_arrow_up_outlined,
                               color: Color(0xff28306e),
                               size: widget.width * 0.05,
                             )),
@@ -212,7 +218,7 @@ class DayState extends State<DaySh> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Shift 1',
+                          Text('Add Shift',
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica_Bold',
@@ -232,16 +238,32 @@ class DayState extends State<DaySh> {
                                   controller: _fromController,
                                   style: TextStyle(
                                     fontSize: widget.width * 0.03,
-                                    color: Color.fromARGB(255, 102, 101, 101),
+                                    color: Color(0xff495057),
                                     fontFamily: 'Helvetica',
                                   ),
                                   decoration: InputDecoration(
+                                    hintText: 'From',
+                                    fillColor: Color(0xffe9ecef),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffced4da))),
                                     suffixIcon: Container(
                                       decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 209, 206, 206),
+                                          color: Color(0xffe9ecef),
                                           border: Border.all(
-                                            color: Colors.grey,
+                                            color: Color(0xffced4da),
                                           ),
                                           borderRadius: BorderRadius.only(
                                               topRight: Radius.circular(5),
@@ -249,30 +271,11 @@ class DayState extends State<DaySh> {
                                           //more than 50% of width makes circle
                                           ),
                                       child: Icon(
-                                        color: Colors.black,
+                                        color: Color(0xff495057),
                                         Icons.more_time_sharp,
                                         size: widget.width * 0.07,
                                       ),
                                     ),
-                                    hintText: 'From',
-                                    fillColor:
-                                        Color.fromARGB(255, 255, 255, 255),
-                                    filled: true,
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Colors.grey, width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Colors.grey, width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color.fromARGB(
-                                                255, 255, 255, 255))),
                                   ),
                                 ),
                               ),
@@ -287,16 +290,32 @@ class DayState extends State<DaySh> {
                                   controller: _toController,
                                   style: TextStyle(
                                     fontSize: widget.width * 0.03,
-                                    color: Color.fromARGB(255, 102, 101, 101),
+                                    color: Color(0xff495057),
                                     fontFamily: 'Helvetica',
                                   ),
                                   decoration: InputDecoration(
+                                    hintText: 'To',
+                                    fillColor: Color(0xffe9ecef),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffced4da))),
                                     suffixIcon: Container(
                                       decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 209, 206, 206),
+                                          color: Color(0xffe9ecef),
                                           border: Border.all(
-                                            color: Colors.grey,
+                                            color: Color(0xffced4da),
                                           ),
                                           borderRadius: BorderRadius.only(
                                               topRight: Radius.circular(5),
@@ -304,30 +323,11 @@ class DayState extends State<DaySh> {
                                           //more than 50% of width makes circle
                                           ),
                                       child: Icon(
-                                        color: Colors.black,
+                                        color: Color(0xff495057),
                                         Icons.more_time_sharp,
                                         size: widget.width * 0.07,
                                       ),
                                     ),
-                                    hintText: 'To',
-                                    fillColor:
-                                        Color.fromARGB(255, 255, 255, 255),
-                                    filled: true,
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Colors.grey, width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Colors.grey, width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color.fromARGB(
-                                                255, 255, 255, 255))),
                                   ),
                                 ),
                               ),
@@ -339,7 +339,7 @@ class DayState extends State<DaySh> {
                                           //   foo.addShInDay(widget.index)
                                         },
                                     icon: Icon(
-                                      Icons.add_box_rounded,
+                                      Icons.add_circle_outline,
                                       color: Colors.green,
                                       size: widget.width * 0.05,
                                     )),

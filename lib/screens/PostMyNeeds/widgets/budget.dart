@@ -29,6 +29,7 @@ class _BudgetState extends State<Budget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
+            width: deviceSize.width * 0.35,
             child: Text(
               '${val1}',
               style: TextStyle(
@@ -247,16 +248,16 @@ class _BudgetState extends State<Budget> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
                       child: Card(
-                        elevation: 5.0,
+                        elevation: 10.0,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            side: BorderSide(color: Colors.black87)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(color: Color(0xffD3CFC8))),
                         child: Container(
                           width: deviceSize.width * 0.27,
                           padding: EdgeInsets.all(deviceSize.height * 0.01),
@@ -279,7 +280,7 @@ class _BudgetState extends State<Budget> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
                             ],
                           ),
@@ -288,10 +289,10 @@ class _BudgetState extends State<Budget> {
                     ),
                     SizedBox(
                       child: Card(
-                        elevation: 5.0,
+                        elevation: 10.0,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            side: BorderSide(color: Colors.black87)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(color: Color(0xffD3CFC8))),
                         child: Container(
                           width: deviceSize.width * 0.27,
                           padding: EdgeInsets.all(deviceSize.height * 0.01),
@@ -314,7 +315,7 @@ class _BudgetState extends State<Budget> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
                             ],
                           ),
@@ -323,10 +324,10 @@ class _BudgetState extends State<Budget> {
                     ),
                     SizedBox(
                       child: Card(
-                        elevation: 5.0,
+                        elevation: 10.0,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            side: BorderSide(color: Colors.black87)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(color: Color(0xffD3CFC8))),
                         child: Container(
                           width: deviceSize.width * 0.27,
                           padding: EdgeInsets.all(deviceSize.height * 0.01),
@@ -349,7 +350,7 @@ class _BudgetState extends State<Budget> {
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
                             ],
                           ),
@@ -361,7 +362,7 @@ class _BudgetState extends State<Budget> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
@@ -374,7 +375,7 @@ class _BudgetState extends State<Budget> {
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.04),
+                                fontSize: deviceSize.width * 0.045),
                           ),
                           EasyRichTextPattern(
                             targetString:
@@ -389,28 +390,21 @@ class _BudgetState extends State<Budget> {
                       ),
                     ),
                     Consumer<BudgetProvider>(
-                      builder: (_, foo, __) => FlutterSwitch(
-                        width: deviceSize.width * 0.11,
-                        height: deviceSize.height * 0.025,
-                        value: BudgetProvider.specificBudget,
-                        activeColor: Colors.green,
-                        borderRadius: 30.0,
-                        showOnOff: false,
-                        onToggle: (val) {
-                          foo.changeSpecificBudget();
-                        },
-                      ),
-                    ),
+                        builder: (_, foo, __) => Switch.adaptive(
+                            value: BudgetProvider.specificBudget,
+                            onChanged: (newValue) {
+                              foo.changeSpecificBudget();
+                            })),
                   ],
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.7,
+                      width: deviceSize.width * 0.2,
                       child: Text(
                         'Currency',
                         style: TextStyle(
@@ -419,6 +413,8 @@ class _BudgetState extends State<Budget> {
                             fontSize: deviceSize.width * 0.045),
                       ),
                     ),
+                    Padding(
+                        padding: EdgeInsets.only(left: deviceSize.width * 0.1)),
                     DropdownButton(
                         value: dropdownvalue,
                         icon: Icon(Icons.keyboard_arrow_down),
@@ -429,29 +425,50 @@ class _BudgetState extends State<Budget> {
                         onChanged: (val) {}),
                   ],
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: deviceSize.height * 0.01,
-                      left: deviceSize.width * 0.05),
-                  child: SizedBox(
-                    width: deviceSize.width * 0.5,
-                    child: Text(
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
+                    ),
+                    subtitle: Text(
                       'You cannot change currency to LL since the start date is more than 2 months from now.',
                       style: TextStyle(
-                          fontSize: deviceSize.width * 0.025,
-                          fontWeight: FontWeight.w300,
-                          color: Color.fromARGB(255, 148, 14, 14)),
+                        fontSize: deviceSize.width * 0.025,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.red,
+                      ),
                     ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Colors.red,
+                    ),
+                    onTap: () => {},
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 159, 201, 235),
-                      borderRadius: BorderRadius.circular(15)),
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
                   child: Container(
                       padding: EdgeInsets.all(deviceSize.width * 0.02),
+                      color: Color.fromARGB(255, 159, 201, 235),
                       child: EasyRichText(
                         '\$ Caregivers in your area charge an average between 52,250 LBP and 820,000 LBP for this booking.',
                         patternList: [
@@ -493,22 +510,26 @@ class _BudgetState extends State<Budget> {
                       child: TextField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
-                          color: Colors.blue,
+                          color: Color(0xff495057),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
                           hintText: '',
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          fillColor: Color(0xffe9ecef),
                           filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
                         //autofocus: ,
                         keyboardType: TextInputType.emailAddress,
@@ -519,7 +540,7 @@ class _BudgetState extends State<Budget> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
-                          fontSize: deviceSize.width * 0.04),
+                          fontSize: deviceSize.width * 0.045),
                     ),
                   ],
                 ),
@@ -565,8 +586,10 @@ class _BudgetState extends State<Budget> {
                     ),
                     Container(
                       decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Color(0xffD3CFC8), width: 1),
                           color: Color.fromARGB(255, 159, 201, 235),
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(5)),
                       child: Container(
                           padding: EdgeInsets.all(deviceSize.width * 0.02),
                           child: Row(
@@ -614,23 +637,31 @@ class _BudgetState extends State<Budget> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
-                  height: deviceSize.height * 0.3,
-                  child: Card(
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
+                  child: Container(
+                    padding: EdgeInsets.all(deviceSize.width * 0.02),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        BookingDate(context, 'Monday 11/04/2022', '1:00 PM',
+                        BookingDate(context, 'Monday   11/04/2022', '1:00 PM',
                             '2:00 PM', '21 USD'),
-                        BookingDate(context, 'TuesDay 12/04/2022', '1:00 PM',
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.02)),
+                        BookingDate(context, 'TuesDay  12/04/2022', '1:00 PM',
                             '2:00 PM', '21 USD'),
-                        BookingDate(context, 'Monday 18/04/2022', '1:00 PM',
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.02)),
+                        BookingDate(context, 'Monday   18/04/2022', '1:00 PM',
                             '2:00 PM', '21 USD'),
-                        BookingDate(context, 'TuesDay 19/04/2022', '1:00 PM',
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.02)),
+                        BookingDate(context, 'TuesDay  19/04/2022', '1:00 PM',
                             '2:00 PM', '21 USD'),
                       ],
                     ),

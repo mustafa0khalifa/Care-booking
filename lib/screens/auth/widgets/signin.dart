@@ -165,6 +165,7 @@ class _SigninState extends State<Signin> {
                         fillColor: Color(0xffe9ecef),
                         filled: true,
                         labelStyle: TextStyle(
+                            backgroundColor: Color(0xffe9ecef),
                             color: Color(0xff495057),
                             fontFamily: 'Helvetica',
                             fontSize: deviceSize.width * 0.035),
@@ -203,6 +204,7 @@ class _SigninState extends State<Signin> {
                     width: deviceSize.width * 0.8,
                     child: TextFormField(
                       style: TextStyle(
+                        backgroundColor: Color(0xffe9ecef),
                         fontSize: deviceSize.width * 0.035,
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
@@ -245,10 +247,10 @@ class _SigninState extends State<Signin> {
                   ),
                   Center(
                     child: EasyRichText(
-                      "I Forget My Password",
+                      "I Forgot My Password",
                       patternList: [
                         EasyRichTextPattern(
-                            targetString: 'I Forget My Password',
+                            targetString: 'I Forgot My Password',
                             style: TextStyle(
                                 color: Colors.blue,
                                 fontFamily: 'Helvetica',

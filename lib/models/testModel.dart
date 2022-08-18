@@ -7,21 +7,23 @@ class TestModel {
       imageUrl: 'assets/images/profile.jpg',
       firstName: 'mustafa saeed',
       age: 25,
-      qualifications: 'baby sitter',
       nationality: 'Lebanese Arabic',
       rating: 3,
       distance: 20.0,
-      providedHoursOfCare: '6 houres',
-      clientRef: 'NB Client References  ',
+      providedHoursOfCare: '6',
+      clientRef: 'Client References',
+      qualifications: 'baby sitter',
       badgesIcons: ['Badges - ICONS (up to 5)'],
-      aboutMe: 'Biography',
+      aboutMe: 'Beirut',
       location: 'Town',
       providedServices: [
         'Child Care',
         'Can Care for more than 4 children',
-        '     Newborn Care',
-        '     Infant Care',
-        '     Newborn Care',
+      ],
+      supProvidedServices: [
+        'Newborn Care',
+        'Infant Care',
+        'Newborn Care',
       ],
       additionalServices: [
         'Light housekeeping',
@@ -35,10 +37,12 @@ class TestModel {
         'References List (More Link)'
       ],
       experience: [
-        'I have [HH] hours of care to [XX] families via Find a Nurse since I joined in [YYYY].',
-        '     Sub Category 1: N years of experience',
-        '     Sub Category 2: N years of experience',
-        '     Sub Category 3: N years of experience,'
+        'I have HH hours of care to XX families via Find a Nurse since I joined in YYYY',
+      ],
+      supExperience: [
+        'Sub Category 1: N years of experience',
+        'Sub Category 2: N years of experience',
+        'Sub Category 3: N years of experience,'
       ],
       qualificationsEducation: [
         'Member of Syndicate',
@@ -49,16 +53,16 @@ class TestModel {
         'Skills List'
       ],
       fees: [
-        '- Child Care - 8 hours shift - 17 USD  [Calculate]',
-        '- Elderly Care - 8 hours shift - 17 USD [Calculate]',
+        '- Child Care - 8 hours shift - 17 USD  Calculate',
+        '- Elderly Care - 8 hours shift - 17 USD Calculate',
         '- Advanced Nursing Care ',
-        'You will be billed per hour according to the below pricing table',
+        '- Laboratory',
+      ],
+      supFees: [
         '1 hour shift - 20 USD',
         '2 hours shift - 20 USD	',
         '3 hours shift - 20 USD',
         '4 hours shift - 20 USD',
-        '- Laboratory',
-        'The lab test fee does NOT include the lab fee and only covers the technician fee Sub Category 1 - 20 USD'
       ],
       avallabillty: [''],
       generalAvallabillty: [

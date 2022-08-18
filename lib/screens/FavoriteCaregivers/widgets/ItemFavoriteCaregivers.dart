@@ -132,7 +132,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.all(width * 0.02),
                           decoration: BoxDecoration(
-                              color: Colors.green,
+                              color: Color(0xff495057),
                               borderRadius: BorderRadius.circular(15)),
                           alignment: Alignment.center,
                           child: Text(

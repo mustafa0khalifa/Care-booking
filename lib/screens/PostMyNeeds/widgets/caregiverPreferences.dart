@@ -200,7 +200,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Are you looking for a caregiver from a specific age range? (select that applies)',
                   style: TextStyle(
@@ -212,83 +212,113 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   child: Card(
-                    elevation: 5.0,
+                    elevation: 10.0,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.black87)),
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: Color(0xffD3CFC8))),
                     child: Column(
                       children: [
-                        Consumer<CaregiverPreferencesProvider>(
-                          builder: (_, foo, __) => ListTile(
-                              title: Text(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Consumer<CaregiverPreferencesProvider>(
+                              builder: (_, foo, __) => Checkbox(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                activeColor: Colors.blue,
+                                side: BorderSide(
+                                    width: 1, color: Color(0xffD3CFC8)),
+                                value: CaregiverPreferencesProvider.up24Check,
+                                onChanged: (val) {
+                                  foo.changeup24Check();
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: deviceSize.width * 0.33,
+                              child: Text(
                                 "Up to 24",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
-                              leading: Radio(
-                                  activeColor: Colors.greenAccent,
-                                  value: 'Up to 24',
-                                  groupValue:
-                                      CaregiverPreferencesProvider.ageRange,
-                                  onChanged: (value) {
-                                    foo.changeAgeRange(value.toString());
-                                  })),
-                        ),
-                        Consumer<CaregiverPreferencesProvider>(
-                          builder: (_, foo, __) => ListTile(
-                              title: Text(
+                            ),
+                            Consumer<CaregiverPreferencesProvider>(
+                              builder: (_, foo, __) => Checkbox(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                activeColor: Colors.blue,
+                                side: BorderSide(
+                                    width: 1, color: Color(0xffD3CFC8)),
+                                value: CaregiverPreferencesProvider.Check24,
+                                onChanged: (val) {
+                                  foo.changeCheck24();
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: deviceSize.width * 0.33,
+                              child: Text(
                                 "24 - 35",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
-                              leading: Radio(
-                                  activeColor: Colors.greenAccent,
-                                  value: '24 - 35',
-                                  groupValue:
-                                      CaregiverPreferencesProvider.ageRange,
-                                  onChanged: (value) {
-                                    foo.changeAgeRange(value.toString());
-                                  })),
+                            ),
+                          ],
                         ),
-                        Consumer<CaregiverPreferencesProvider>(
-                          builder: (_, foo, __) => ListTile(
-                              title: Text(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Consumer<CaregiverPreferencesProvider>(
+                              builder: (_, foo, __) => Checkbox(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                activeColor: Colors.blue,
+                                side: BorderSide(
+                                    width: 1, color: Color(0xffD3CFC8)),
+                                value: CaregiverPreferencesProvider.Check35,
+                                onChanged: (val) {
+                                  foo.changeCheck35();
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: deviceSize.width * 0.33,
+                              child: Text(
                                 "35 - 50",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
-                              leading: Radio(
-                                  activeColor: Colors.greenAccent,
-                                  value: '35 - 50',
-                                  groupValue:
-                                      CaregiverPreferencesProvider.ageRange,
-                                  onChanged: (value) {
-                                    foo.changeAgeRange(value.toString());
-                                  })),
-                        ),
-                        Consumer<CaregiverPreferencesProvider>(
-                          builder: (_, foo, __) => ListTile(
-                              title: Text(
+                            ),
+                            Consumer<CaregiverPreferencesProvider>(
+                              builder: (_, foo, __) => Checkbox(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                activeColor: Colors.blue,
+                                side: BorderSide(
+                                    width: 1, color: Color(0xffD3CFC8)),
+                                value: CaregiverPreferencesProvider.up50Check,
+                                onChanged: (val) {
+                                  foo.changeup50Check();
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: deviceSize.width * 0.33,
+                              child: Text(
                                 "50 and above",
                                 style: TextStyle(
                                     color: Color(0xff28306e),
                                     fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.04),
+                                    fontSize: deviceSize.width * 0.035),
                               ),
-                              leading: Radio(
-                                  activeColor: Colors.greenAccent,
-                                  value: '50 and above',
-                                  groupValue:
-                                      CaregiverPreferencesProvider.ageRange,
-                                  onChanged: (value) {
-                                    foo.changeAgeRange(value.toString());
-                                  })),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -303,8 +333,6 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.045),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 DropdownButton(
                     value: dropdownvalue,
                     icon: Icon(Icons.keyboard_arrow_down),
@@ -321,7 +349,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                     }).toList(),
                     onChanged: (val) {}),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'Are you looking for a caregiver who speaks a specific language? (Optional)',
                   style: TextStyle(
@@ -329,8 +357,6 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.045),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 DropdownButton(
                     value: dropdownvalue,
                     icon: Icon(Icons.keyboard_arrow_down),
@@ -346,11 +372,9 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                           ));
                     }).toList(),
                     onChanged: (val) {}),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Consumer<CategoriesProvider>(
                   builder: (_, foo, __) => Container(
-                    margin: EdgeInsets.all(deviceSize.height * 0.05),
+                    margin: EdgeInsets.all(deviceSize.height * 0.03),
                     alignment: Alignment.bottomRight,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -381,8 +405,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                             /*Navigator.of(context).pushNamed(
                                 CareCategory.routeName,
                               ),*/
-                            Navigator.of(context)
-                                .pushNamed(BuildRequest.routeName),
+                            Navigator.of(context).pushNamed(Schedule.routeName),
                           },
                           child: Text("Next"),
                         ),

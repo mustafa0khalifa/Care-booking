@@ -19,19 +19,7 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    var consumer = Consumer<CareRecipientsProvider>(
-      builder: (_, foo, __) => FlutterSwitch(
-        width: deviceSize.width * 0.11,
-        height: deviceSize.height * 0.025,
-        value: CareRecipientsProvider.isPregant,
-        activeColor: Colors.green,
-        borderRadius: 30.0,
-        showOnOff: false,
-        onToggle: (val) {
-          foo.changePregant();
-        },
-      ),
-    );
+    bool isSwitched = true;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -208,12 +196,12 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
                   ),
                 ],
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Card(
-                elevation: 5.0,
+                elevation: 10.0,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    side: BorderSide(color: Colors.black87)),
+                    borderRadius: BorderRadius.circular(5.0),
+                    side: BorderSide(color: Color(0xffD3CFC8))),
                 child: Container(
                   margin: EdgeInsets.all(deviceSize.width * 0.03),
                   child: Column(
@@ -225,7 +213,7 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
                               EdgeInsets.only(top: deviceSize.height * 0.03)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             'I am Pregnant',
@@ -234,7 +222,13 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
                                 fontFamily: 'Helvetica',
                                 fontSize: deviceSize.width * 0.045),
                           ),
-                          consumer,
+                          Switch.adaptive(
+                              value: isSwitched,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  isSwitched = newValue;
+                                });
+                              }),
                         ],
                       ),
                       Padding(
@@ -250,45 +244,54 @@ class _CareRecipientsAeaState extends State<CareRecipients2> {
                       Padding(
                           padding:
                               EdgeInsets.only(top: deviceSize.height * 0.03)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.6,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                hintText: '',
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff28306e), width: 1.0),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                              ),
-                              //autofocus: ,
-                              keyboardType: TextInputType.emailAddress,
-                            ),
+                      SizedBox(
+                        height: deviceSize.height * 0.05,
+                        width: deviceSize.width * 0.8,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          controller: null,
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.03,
+                            color: Color(0xff495057),
+                            fontFamily: 'Helvetica',
                           ),
-                          IconButton(
-                              onPressed: null,
-                              icon: Icon(
+                          decoration: InputDecoration(
+                            hintText: '08 / 17 / 2022',
+                            fillColor: Color(0xffe9ecef),
+                            filled: true,
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffced4da), width: 1.0),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffced4da), width: 1.0),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide:
+                                    BorderSide(color: Color(0xffced4da))),
+                            suffixIcon: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xffe9ecef),
+                                  border: Border.all(
+                                    color: Color(0xffced4da),
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(5),
+                                      bottomRight: Radius.circular(5))
+                                  //more than 50% of width makes circle
+                                  ),
+                              child: Icon(
+                                color: Color(0xff495057),
                                 Icons.date_range_outlined,
                                 size: deviceSize.width * 0.07,
-                              ))
-                        ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       Padding(
                           padding:

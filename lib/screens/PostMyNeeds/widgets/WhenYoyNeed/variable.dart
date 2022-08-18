@@ -215,15 +215,16 @@ class _VariableState extends State<Variable> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))
+                                  color: Color(0xffD3CFC8), width: 1),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(5),
+                              )
                               //more than 50% of width makes circle
                               ),
                           child: Column(
@@ -253,15 +254,15 @@ class _VariableState extends State<Variable> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
+                                  color: Color(0xffD3CFC8), width: 1),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                                Radius.circular(5),
                               )
                               //more than 50% of width makes circle
                               ),
@@ -291,15 +292,14 @@ class _VariableState extends State<Variable> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Color(0xff28306e),
-                              border: Border.all(color: Colors.white, width: 3),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                              )
+                              border: Border.all(
+                                  color: Color(0xff28306e), width: 1),
+                              borderRadius: BorderRadius.all(Radius.circular(5))
                               //more than 50% of width makes circle
                               ),
                           child: Column(
@@ -328,43 +328,201 @@ class _VariableState extends State<Variable> {
                     ),
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        color: Colors.blue,
-                        width: deviceSize.width * 0.35,
-                        height: deviceSize.height * 0.05,
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.add,
-                              size: deviceSize.width * 0.07,
-                              color: Colors.white,
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      color: Colors.blue,
+                      width: deviceSize.width * 0.35,
+                      height: deviceSize.height * 0.04,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.add,
+                            size: deviceSize.width * 0.07,
+                            color: Colors.white,
+                          ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: Colors
+                                    .blue //elevated btton background color
+                                ),
+                            onPressed: () => {
+                              /*Navigator.of(context).pushNamed(
+                            CareGaverPreference.routeName,
+                          ),*/
+                            },
+                            child: Text("add a shift"),
+                          ),
+                        ],
+                      ),
+                    )),
+                SizedBox(
+                  child: Text('Date',
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica_Bold',
+                          fontSize: deviceSize.width * 0.045)),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
+                SizedBox(
+                  height: deviceSize.height * 0.05,
+                  width: deviceSize.width * 0.8,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    controller: null,
+                    style: TextStyle(
+                      fontSize: deviceSize.width * 0.03,
+                      color: Color(0xff495057),
+                      fontFamily: 'Helvetica',
+                    ),
+                    decoration: InputDecoration(
+                      hintText: '08 / 17 / 2022',
+                      fillColor: Color(0xffe9ecef),
+                      filled: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(color: Color(0xffced4da))),
+                      suffixIcon: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xffe9ecef),
+                            border: Border.all(
+                              color: Color(0xffced4da),
                             ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors
-                                      .blue //elevated btton background color
-                                  ),
-                              onPressed: () => {
-                                /*Navigator.of(context).pushNamed(
-                              CareGaverPreference.routeName,
-                            ),*/
-                              },
-                              child: Text("add a shift"),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5))
+                            //more than 50% of width makes circle
                             ),
-                          ],
+                        child: Icon(
+                          color: Color(0xff495057),
+                          Icons.date_range_outlined,
+                          size: deviceSize.width * 0.07,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.33,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: null,
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          color: Color(0xff495057),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'From',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                          suffixIcon: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffe9ecef),
+                                border: Border.all(
+                                  color: Color(0xffced4da),
+                                ),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    bottomRight: Radius.circular(5))
+                                //more than 50% of width makes circle
+                                ),
+                            child: Icon(
+                              color: Color(0xff495057),
+                              Icons.more_time_sharp,
+                              size: deviceSize.width * 0.07,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.05)),
+                    SizedBox(
+                      height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.33,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: null,
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          color: Color(0xff495057),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'To',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                          suffixIcon: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffe9ecef),
+                                border: Border.all(
+                                  color: Color(0xffced4da),
+                                ),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    bottomRight: Radius.circular(5))
+                                //more than 50% of width makes circle
+                                ),
+                            child: Icon(
+                              color: Color(0xff495057),
+                              Icons.more_time_sharp,
+                              size: deviceSize.width * 0.07,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -373,352 +531,164 @@ class _VariableState extends State<Variable> {
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica_Bold',
-                          fontSize: deviceSize.width * 0.05)),
+                          fontSize: deviceSize.width * 0.045)),
                 ),
-                Container(
-                  child: SizedBox(
-                    width: deviceSize.width * 0.8,
-                    height: deviceSize.height * 0.05,
-                    child: TextField(
-                      minLines: 1,
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.03,
-                        color: Colors.blue,
-                        fontFamily: 'Helvetica',
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
+                SizedBox(
+                  height: deviceSize.height * 0.05,
+                  width: deviceSize.width * 0.8,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    controller: null,
+                    style: TextStyle(
+                      fontSize: deviceSize.width * 0.03,
+                      color: Color(0xff495057),
+                      fontFamily: 'Helvetica',
+                    ),
+                    decoration: InputDecoration(
+                      hintText: '08 / 17 / 2022',
+                      fillColor: Color(0xffe9ecef),
+                      filled: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                      decoration: InputDecoration(
-                          suffixIcon: Container(
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 192, 190, 190),
-                                  border: Border.all(
-                                    color: Color(0xff28306e),
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(10),
-                                      bottomRight: Radius.circular(10))
-                                  //more than 50% of width makes circle
-                                  ),
-                              child: IconButton(
-                                onPressed: () => {},
-                                icon: Icon(
-                                  Icons.date_range_outlined,
-                                  size: deviceSize.width * 0.07,
-                                ),
-                              )),
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                          hintText: '08 / 15 / 2022',
-                          hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 11)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(color: Color(0xffced4da))),
+                      suffixIcon: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xffe9ecef),
+                            border: Border.all(
+                              color: Color(0xffced4da),
+                            ),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        child: Icon(
+                          color: Color(0xff495057),
+                          Icons.date_range_outlined,
+                          size: deviceSize.width * 0.07,
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('From',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: deviceSize.width * 0.035)),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.35,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                suffixIcon: Container(
-                                  decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 192, 190, 190),
-                                      border: Border.all(
-                                        color: Color(0xff28306e),
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10))
-                                      //more than 50% of width makes circle
-                                      ),
-                                  child: Icon(
-                                    Icons.more_time_sharp,
-                                    size: deviceSize.width * 0.07,
-                                  ),
-                                ),
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff28306e), width: 1.0),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                          padding:
-                              EdgeInsets.only(left: deviceSize.width * 0.1)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('To',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: deviceSize.width * 0.035)),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.35,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                suffixIcon: Container(
-                                  decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 192, 190, 190),
-                                      border: Border.all(
-                                        color: Color(0xff28306e),
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10))
-                                      //more than 50% of width makes circle
-                                      ),
-                                  child: Icon(
-                                    Icons.more_time_sharp,
-                                    size: deviceSize.width * 0.07,
-                                  ),
-                                ),
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff28306e), width: 1.0),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  child: Text('Date',
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica_Bold',
-                          fontSize: deviceSize.width * 0.05)),
-                ),
-                Container(
-                  child: SizedBox(
-                    width: deviceSize.width * 0.8,
-                    height: deviceSize.height * 0.05,
-                    child: TextField(
-                      minLines: 1,
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.03,
-                        color: Colors.blue,
-                        fontFamily: 'Helvetica',
-                      ),
-                      decoration: InputDecoration(
-                          suffixIcon: Container(
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 192, 190, 190),
-                                  border: Border.all(
-                                    color: Color(0xff28306e),
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(10),
-                                      bottomRight: Radius.circular(10))
-                                  //more than 50% of width makes circle
-                                  ),
-                              child: IconButton(
-                                onPressed: () => {},
-                                icon: Icon(
-                                  Icons.date_range_outlined,
-                                  size: deviceSize.width * 0.07,
-                                ),
-                              )),
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.33,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: null,
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          color: Color(0xff495057),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'From',
+                          fillColor: Color(0xffe9ecef),
                           filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                          hintText: '08 / 15 / 2022',
-                          hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 11)),
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('From',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: deviceSize.width * 0.035)),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.35,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                suffixIcon: Container(
-                                  decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 192, 190, 190),
-                                      border: Border.all(
-                                        color: Color(0xff28306e),
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10))
-                                      //more than 50% of width makes circle
-                                      ),
-                                  child: Icon(
-                                    Icons.more_time_sharp,
-                                    size: deviceSize.width * 0.07,
-                                  ),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                          suffixIcon: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffe9ecef),
+                                border: Border.all(
+                                  color: Color(0xffced4da),
                                 ),
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff28306e), width: 1.0),
-                                  borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    bottomRight: Radius.circular(5))
+                                //more than 50% of width makes circle
                                 ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                              ),
+                            child: Icon(
+                              color: Color(0xff495057),
+                              Icons.more_time_sharp,
+                              size: deviceSize.width * 0.07,
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                      Padding(
-                          padding:
-                              EdgeInsets.only(left: deviceSize.width * 0.1)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('To',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: deviceSize.width * 0.035)),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: deviceSize.height * 0.01)),
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.35,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                suffixIcon: Container(
-                                  decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 192, 190, 190),
-                                      border: Border.all(
-                                        color: Color(0xff28306e),
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10))
-                                      //more than 50% of width makes circle
-                                      ),
-                                  child: Icon(
-                                    Icons.more_time_sharp,
-                                    size: deviceSize.width * 0.07,
-                                  ),
+                    ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.05)),
+                    SizedBox(
+                      height: deviceSize.height * 0.05,
+                      width: deviceSize.width * 0.33,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: null,
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          color: Color(0xff495057),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'To',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                          suffixIcon: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffe9ecef),
+                                border: Border.all(
+                                  color: Color(0xffced4da),
                                 ),
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff28306e), width: 1.0),
-                                  borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    bottomRight: Radius.circular(5))
+                                //more than 50% of width makes circle
                                 ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                              ),
+                            child: Icon(
+                              color: Color(0xff495057),
+                              Icons.more_time_sharp,
+                              size: deviceSize.width * 0.07,
                             ),
                           ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),

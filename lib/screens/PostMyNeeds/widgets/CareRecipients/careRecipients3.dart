@@ -200,12 +200,13 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Tell us more about the care recipients',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
@@ -238,24 +239,28 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                           child: TextField(
                             style: TextStyle(
                               fontSize: deviceSize.width * 0.03,
-                              color: Colors.blue,
+                              color: Color(0xff495057),
                               fontFamily: 'Helvetica',
                             ),
                             decoration: InputDecoration(
                               hintText: '',
-                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              fillColor: Color(0xffe9ecef),
                               filled: true,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffced4da), width: 1.0),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                    color: Color(0xff28306e), width: 1.0),
-                                borderRadius: BorderRadius.circular(10.0),
+                                    color: Color(0xffced4da), width: 1.0),
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide:
+                                      BorderSide(color: Color(0xffced4da))),
+                            ), //autofocus: ,
                             //autofocus: ,
                             keyboardType: TextInputType.emailAddress,
                           ),
@@ -296,34 +301,51 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   children: [
                     SizedBox(
                       height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.4,
+                      width: deviceSize.width * 0.5,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: null,
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
-                          color: Colors.blue,
+                          color: Color(0xff495057),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
-                          hintText: '',
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          hintText: '08 / 17 / 2022',
+                          fillColor: Color(0xffe9ecef),
                           filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                          suffixIcon: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffe9ecef),
+                                border: Border.all(
+                                  color: Color(0xffced4da),
+                                ),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    bottomRight: Radius.circular(5))
+                                //more than 50% of width makes circle
+                                ),
+                            child: Icon(
+                              color: Color(0xff495057),
+                              Icons.date_range_outlined,
+                              size: deviceSize.width * 0.07,
+                            ),
+                          ),
                         ),
-                        //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
                       ),
-                    ),
-                    Icon(
-                      Icons.date_range_outlined,
-                      size: deviceSize.width * 0.07,
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.4,
@@ -353,14 +375,23 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Consumer<CareRecipientsProvider>(
+                          builder: (_, foo, __) => Radio(
+                              activeColor: Colors.greenAccent,
+                              value: 'Male',
+                              groupValue: CareRecipientsProvider.genderGroub,
+                              onChanged: (value) {
+                                foo.changeGenderGroub(value as String);
+                              }),
+                        ),
                         Text(
                           "Male",
                           style: TextStyle(
@@ -368,10 +399,14 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.03),
                         ),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: deviceSize.width * 0.1),
+                        ),
                         Consumer<CareRecipientsProvider>(
                           builder: (_, foo, __) => Radio(
                               activeColor: Colors.greenAccent,
-                              value: 'Male',
+                              value: 'Female',
                               groupValue: CareRecipientsProvider.genderGroub,
                               onChanged: (value) {
                                 foo.changeGenderGroub(value as String);
@@ -384,26 +419,17 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                               fontFamily: 'Helvetica',
                               fontSize: deviceSize.width * 0.03),
                         ),
-                        Consumer<CareRecipientsProvider>(
-                          builder: (_, foo, __) => Radio(
-                              activeColor: Colors.greenAccent,
-                              value: 'Female',
-                              groupValue: CareRecipientsProvider.genderGroub,
-                              onChanged: (value) {
-                                foo.changeGenderGroub(value as String);
-                              }),
-                        ),
-                        SizedBox(
-                          width: deviceSize.width * 0.4,
-                          child: Text(
-                            'Why do we ask this for?',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.03),
-                          ),
-                        ),
                       ],
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.4,
+                      child: Text(
+                        'Why do we ask this for?',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.03),
+                      ),
                     ),
                   ],
                 ),
@@ -433,23 +459,27 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       child: TextField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
-                          color: Colors.blue,
+                          color: Color(0xff495057),
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
                           hintText: '',
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          fillColor: Color(0xffe9ecef),
                           filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                        ),
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                        ), //autofocus: ,
                         //autofocus: ,
                         keyboardType: TextInputType.emailAddress,
                       ),
@@ -479,161 +509,171 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Relationship to Client',
+                Text(
+                  'Relationship to Client',
+                  style: TextStyle(
+                      color: Color(0xff28306e),
+                      fontFamily: 'Helvetica',
+                      fontSize: deviceSize.width * 0.04),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      DropdownButton(
+                          value: dropdownvalue,
+                          icon: Icon(Icons.keyboard_arrow_down),
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                                value: items,
+                                child: Text(
+                                  items,
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.035),
+                                ));
+                          }).toList(),
+                          onChanged: (val) {
+                            setState(() {
+                              dropdownvalue = val as String;
+                            });
+                          }),
+                      SizedBox(
+                        width: deviceSize.width * 0.4,
+                        child: Text(
+                          'Why do we ask this for?',
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.orange[100],
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
                       style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                          fontSize: deviceSize.width * 0.04),
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff28306e),
+                      ),
                     ),
-                    DropdownButton(
-                        value: dropdownvalue,
-                        icon: Icon(Icons.keyboard_arrow_down),
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                              value: items,
-                              child: Text(
-                                items,
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.04),
-                              ));
-                        }).toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            dropdownvalue = val as String;
-                          });
-                        }),
-                  ],
+                    subtitle: Text(
+                      'Does the care recipient suffer from any medical conditions? Please share with us any relevant information to help us learn more about your needs',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.025,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff28306e),
+                      ),
+                    ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Color(0xff28306e),
+                    ),
+                    onTap: () => {},
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.015),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.8,
-                      child: Text(
-                        'Does the care recipient suffer from any medical conditions? Please share with us any relevant information to help us learn more about your needs',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
+                SizedBox(
+                  height: deviceSize.height * 0.05,
+                  width: deviceSize.width * 0.8,
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: deviceSize.width * 0.03,
+                      color: Color(0xff495057),
+                      fontFamily: 'Helvetica',
+                    ),
+                    decoration: InputDecoration(
+                      hintText: '+ 961',
+                      fillColor: Color(0xffe9ecef),
+                      filled: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.005),
-                    ),
-                    SizedBox(
-                      width: deviceSize.width * 0.4,
-                      child: Text(
-                        'Why do we ask this for?',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.03),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xffced4da), width: 1.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.005),
-                    ),
-                    SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.8,
-                      child: TextField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
-                          color: Colors.blue,
-                          fontFamily: 'Helvetica',
-                        ),
-                        decoration: InputDecoration(
-                          hintText: '',
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                        ),
-                        //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                    ),
-                  ],
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(color: Color(0xffced4da))),
+                    ), //autofocus: ,
+                    //autofocus: ,
+                    keyboardType: TextInputType.emailAddress,
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.8,
-                      child: Text(
-                        'Does the care recipient have an accessible phone. What\'s the phone number?',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.005),
-                    ),
-                    SizedBox(
-                      width: deviceSize.width * 0.4,
-                      child: Text(
-                        'Why do we ask this for?',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.03),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(deviceSize.height * 0.005),
-                    ),
-                    SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.8,
-                      child: TextField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: SizedBox(
+                    width: deviceSize.width * 0.4,
+                    child: Text(
+                      'Why do we ask this for?',
+                      style: TextStyle(
                           color: Colors.blue,
                           fontFamily: 'Helvetica',
-                        ),
-                        decoration: InputDecoration(
-                          hintText: '+ 961',
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                        ),
-                        //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
+                          fontSize: deviceSize.width * 0.03),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.orange[100],
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff28306e),
                       ),
                     ),
-                  ],
+                    subtitle: Text(
+                      'Does the care recipient have an accessible phone. What\'s the phone number?',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.025,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff28306e),
+                      ),
+                    ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Color(0xff28306e),
+                    ),
+                    onTap: () => {},
+                  ),
                 ),
                 Consumer<CategoriesProvider>(
                   builder: (_, foo, __) => Container(

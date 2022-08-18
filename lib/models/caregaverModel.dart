@@ -12,11 +12,14 @@ class CaregaverModel {
   String aboutMe;
   String location;
   List<String> providedServices;
+  List<String> supProvidedServices;
   List<String> additionalServices;
   List<String> ratingReviewsAndReferences;
   List<String> experience;
+  List<String> supExperience;
   List<String> qualificationsEducation;
   List<String> fees;
+  List<String> supFees;
   List<String> avallabillty;
   List<String> generalAvallabillty;
   List<String> specialRemarks;
@@ -36,11 +39,14 @@ class CaregaverModel {
     required this.aboutMe,
     required this.location,
     required this.providedServices,
+    required this.supProvidedServices,
     required this.additionalServices,
     required this.ratingReviewsAndReferences,
     required this.experience,
+    required this.supExperience,
     required this.qualificationsEducation,
     required this.fees,
+    required this.supFees,
     required this.avallabillty,
     required this.generalAvallabillty,
     required this.specialRemarks,

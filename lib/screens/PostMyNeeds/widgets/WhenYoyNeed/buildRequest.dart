@@ -215,15 +215,14 @@ class _BuildRequestState extends State<BuildRequest> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))
+                                  color: Color(0xffD3CFC8), width: 1),
+                              borderRadius: BorderRadius.all(Radius.circular(5))
                               //more than 50% of width makes circle
                               ),
                           child: Column(
@@ -253,15 +252,15 @@ class _BuildRequestState extends State<BuildRequest> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
+                                  color: Color(0xffD3CFC8), width: 1),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                                Radius.circular(5),
                               )
                               //more than 50% of width makes circle
                               ),
@@ -293,15 +292,15 @@ class _BuildRequestState extends State<BuildRequest> {
                     InkWell(
                       child: Container(
                           width: deviceSize.width * 0.25,
-                          height: deviceSize.height * 0.17,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
+                          height: deviceSize.height * 0.1,
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
+                                  color: Color(0xffD3CFC8), width: 1),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                                Radius.circular(5),
                               )
                               //more than 50% of width makes circle
                               ),

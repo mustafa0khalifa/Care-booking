@@ -20,6 +20,9 @@ class MainRecipients extends StatefulWidget {
 }
 
 class _MainRecipientsState extends State<MainRecipients> {
+  bool liste1 = false;
+  bool liste2 = false;
+  bool liste3 = false;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -202,7 +205,7 @@ class _MainRecipientsState extends State<MainRecipients> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Select the 2 care recipients for this booking',
                   style: TextStyle(
@@ -211,109 +214,170 @@ class _MainRecipientsState extends State<MainRecipients> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.18,
-                      height: deviceSize.height * 0.07,
-                      child: Consumer<AdditionalServicesProvider>(
-                        builder: (_, foo, __) => CheckboxListTile(
-                          activeColor: Colors.green,
-                          value: AdditionalServicesProvider.pickUp,
-                          onChanged: (val) {
-                            foo.changepickUpCheckbox();
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: deviceSize.height * 0.1,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: liste1
+                                  ? Color(0xff28306e)
+                                  : Color(0xffD3CFC8),
+                            ),
+                            color:
+                                liste1 ? Color(0xff28306e) : Color(0xffe9ecef),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        child: ListTile(
+                          title: Text(
+                            "Hadi",
+                            style: TextStyle(
+                                color:
+                                    !liste1 ? Color(0xff28306e) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                          subtitle: Text(
+                            '3 years',
+                            style: TextStyle(
+                                color:
+                                    !liste1 ? Color(0xff495057) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.025),
+                          ),
+                          leading: Icon(
+                            Icons.person,
+                            size: deviceSize.width * 0.1,
+                            color: !liste1 ? Color(0xff495057) : Colors.white,
+                          ),
+                          onTap: () => {
+                            setState(() {
+                              liste1 = !liste1;
+                            })
                           },
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: deviceSize.width * 0.7,
-                      child: Text(
-                        'Hadi, 3 years',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.18,
-                      height: deviceSize.height * 0.07,
-                      child: Consumer<AdditionalServicesProvider>(
-                        builder: (_, foo, __) => CheckboxListTile(
-                          activeColor: Colors.green,
-                          value: AdditionalServicesProvider.cookingForElderly,
-                          onChanged: (val) {
-                            foo.changecookingForElderlyCheckbox();
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.005)),
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: liste2
+                                  ? Color(0xff28306e)
+                                  : Color(0xffD3CFC8),
+                            ),
+                            color:
+                                liste2 ? Color(0xff28306e) : Color(0xffe9ecef),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        height: deviceSize.height * 0.1,
+                        child: ListTile(
+                          title: Text(
+                            "Hadi",
+                            style: TextStyle(
+                                color:
+                                    !liste2 ? Color(0xff28306e) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                          subtitle: Text(
+                            '5 years',
+                            style: TextStyle(
+                                color:
+                                    !liste2 ? Color(0xff495057) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.025),
+                          ),
+                          leading: Icon(
+                            Icons.person,
+                            size: deviceSize.width * 0.1,
+                            color: !liste2 ? Color(0xff495057) : Colors.white,
+                          ),
+                          onTap: () => {
+                            setState(() {
+                              liste2 = !liste2;
+                            })
                           },
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: deviceSize.width * 0.7,
-                      child: Text(
-                        'Hadia, 5 years',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.18,
-                      height: deviceSize.height * 0.07,
-                      child: Consumer<AdditionalServicesProvider>(
-                        builder: (_, foo, __) => CheckboxListTile(
-                          activeColor: Colors.green,
-                          value: AdditionalServicesProvider.haveACar,
-                          onChanged: (val) {
-                            foo.changehaveACarCheckbox();
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.005)),
+                      Container(
+                        height: deviceSize.height * 0.1,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: liste3
+                                  ? Color(0xff28306e)
+                                  : Color(0xffD3CFC8),
+                            ),
+                            color:
+                                liste3 ? Color(0xff28306e) : Color(0xffe9ecef),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        child: ListTile(
+                          title: Text(
+                            "Um Ayman",
+                            style: TextStyle(
+                                color:
+                                    !liste3 ? Color(0xff28306e) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                          subtitle: Text(
+                            '66 years',
+                            style: TextStyle(
+                                color:
+                                    !liste3 ? Color(0xff495057) : Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.025),
+                          ),
+                          leading: Icon(
+                            Icons.person,
+                            size: deviceSize.width * 0.1,
+                            color: !liste3 ? Color(0xff495057) : Colors.white,
+                          ),
+                          onTap: () => {
+                            setState(() {
+                              liste3 = !liste3;
+                            })
                           },
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: deviceSize.width * 0.7,
-                      child: Text(
-                        'Um Ayman, 66 years',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.04),
-                      ),
-                    ),
-                  ],
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.005)),
+                    ],
+                  ),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    'Add new care recipient',
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.03),
+                  child: SizedBox(
+                    width: deviceSize.width * 0.4,
+                    child: Container(
+                      padding: EdgeInsets.all(deviceSize.width * 0.02),
+                      decoration: BoxDecoration(
+                          color: Color(0xff007bff),
+                          borderRadius: BorderRadius.circular(5)),
+                      alignment: Alignment.center,
+                      child: Text('Add new care recipient',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.035)),
+                    ),
                   ),
                 ),
                 Container(

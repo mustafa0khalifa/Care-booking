@@ -3,6 +3,34 @@ import 'package:flutter/material.dart';
 class ChildCareProvider extends ChangeNotifier {
   static bool showNewborn = true;
 
+  static bool showinfant = true;
+
+  static bool showtoddler = true;
+
+  static bool showpresch = true;
+
+  static bool showprimsch = true;
+
+  void changeshowprimsch() {
+    showprimsch = !showprimsch;
+    notifyListeners();
+  }
+
+  void changeshowpresch() {
+    showpresch = !showpresch;
+    notifyListeners();
+  }
+
+  void changeshowtoddler() {
+    showtoddler = !showtoddler;
+    notifyListeners();
+  }
+
+  void changeshowinfant() {
+    showinfant = !showinfant;
+    notifyListeners();
+  }
+
   void changeshowNewborn() {
     showNewborn = !showNewborn;
     notifyListeners();

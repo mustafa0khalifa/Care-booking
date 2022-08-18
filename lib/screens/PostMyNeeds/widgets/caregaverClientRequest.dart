@@ -5,6 +5,7 @@ import '../../../models/testModel.dart';
 import '../../BookingsDashboard/bookingsDashboard.dart';
 import '../../MyBookings/widgets/item.dart';
 import 'NavBar.dart';
+import 'afterPostingRequest.dart';
 
 class CaregaverClientRequest extends StatefulWidget {
   static const routeName = '/caregaverClientRequest-screen';
@@ -59,13 +60,14 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
                       fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 SizedBox(
                   child: ItemPending(
-                    careModel: TestModel.testPending,
+                    careModel: TestModel.testPending2,
                     height: deviceSize.height * 0.18,
                     width: deviceSize.width * 0.9,
                     isPending: false,
@@ -117,7 +119,7 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                                 CareCategory.routeName,
                               ),*/
                           Navigator.of(context)
-                              .pushNamed(EnterAfterPost.routeName),
+                              .pushNamed(AfterPostingRequest.routeName),
                         },
                         child: Text("Next"),
                       ),

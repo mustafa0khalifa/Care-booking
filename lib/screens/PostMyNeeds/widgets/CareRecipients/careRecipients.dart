@@ -47,7 +47,7 @@ class _CareRecipientsAeaState extends State<CareRecipients> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.05 * deviceSize.height),
+          padding: EdgeInsets.all(0.03 * deviceSize.width),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,

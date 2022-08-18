@@ -80,22 +80,22 @@ class ItemPending extends StatelessWidget {
                   ),
                   InkWell(
                     child: Container(
-                      width: width * 0.3,
-                      padding: EdgeInsets.all(width * 0.02),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          border: Border.all(
-                            color: Color(0xff28306e),
-                          )
-                          //more than 50% of width makes circle
-                          ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "View Profile",
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: width * 0.04),
+                      padding: EdgeInsets.all(height * 0.01),
+                      alignment: Alignment.centerRight,
+                      child: SizedBox(
+                        width: width * 0.25,
+                        child: Container(
+                          padding: EdgeInsets.all(width * 0.02),
+                          decoration: BoxDecoration(
+                              color: Color(0xff007bff),
+                              borderRadius: BorderRadius.circular(5)),
+                          alignment: Alignment.center,
+                          child: Text('View Profiles',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: width * 0.035)),
+                        ),
                       ),
                     ),
                     onTap: () => {
@@ -177,13 +177,13 @@ class ItemPending extends StatelessWidget {
                                     icon: Icon(
                                       Icons.arrow_forward_rounded,
                                       size: width * 0.07,
-                                      color: Colors.grey,
+                                      color: Color(0xff28a745),
                                     ),
                                   ),
                                   Text(
                                     "BOOKING DETAILS",
                                     style: TextStyle(
-                                        color: Color(0xff28306e),
+                                        color: Color(0xff28a745),
                                         fontFamily: 'Helvetica-Bold',
                                         fontSize: width * 0.03),
                                   ),
@@ -210,13 +210,13 @@ class ItemPending extends StatelessWidget {
                                     icon: Icon(
                                       Icons.play_circle_outline_sharp,
                                       size: width * 0.07,
-                                      color: Colors.grey,
+                                      color: Color(0xff28a745),
                                     ),
                                   ),
                                   Text(
                                     "CONTINUE PROCESS",
                                     style: TextStyle(
-                                        color: Color(0xff28306e),
+                                        color: Color(0xff28a745),
                                         fontFamily: 'Helvetica-Bold',
                                         fontSize: width * 0.03),
                                   ),
@@ -245,13 +245,13 @@ class ItemPending extends StatelessWidget {
                               icon: Icon(
                                 Icons.star_rate_rounded,
                                 size: width * 0.07,
-                                color: Colors.grey,
+                                color: Color(0xff28a745),
                               ),
                             ),
                             Text(
                               " RATEING BOOKING",
                               style: TextStyle(
-                                  color: Color(0xff28306e),
+                                  color: Color(0xff28a745),
                                   fontFamily: 'Helvetica-Bold',
                                   fontSize: width * 0.03),
                             ),

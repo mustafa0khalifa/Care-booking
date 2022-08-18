@@ -46,7 +46,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.height * 0.03),
+          margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,12 +194,13 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Our last questions :)',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.bold,
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
@@ -209,27 +210,25 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
-                SizedBox(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(color: Colors.grey)),
-                      child: Container(
-                        margin: EdgeInsets.all(deviceSize.width * 0.03),
-                        child: Text(
-                          'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
-                        ),
-                      )),
-                ),
+                Card(
+                    elevation: 10.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: Color(0xffD3CFC8))),
+                    child: Container(
+                      margin: EdgeInsets.all(deviceSize.width * 0.03),
+                      child: Text(
+                        'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.035),
+                      ),
+                    )),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
@@ -237,35 +236,42 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
-                SizedBox(
-                  height: deviceSize.height * 0.05,
-                  width: deviceSize.width * 0.8,
-                  child: TextField(
-                    style: TextStyle(
-                      fontSize: deviceSize.width * 0.03,
-                      color: Colors.blue,
-                      fontFamily: 'Helvetica',
-                    ),
-                    decoration: InputDecoration(
-                      hintText: '',
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xff28306e), width: 1.0),
-                        borderRadius: BorderRadius.circular(10.0),
+                Padding(
+                  padding: EdgeInsets.only(left: deviceSize.width * 0.01),
+                  child: SizedBox(
+                    height: deviceSize.height * 0.05,
+                    width: deviceSize.width * 0.8,
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.03,
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
                       ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 255, 255, 255))),
+                      decoration: InputDecoration(
+                        hintText: '',
+                        fillColor: Color(0xffe9ecef),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
+                      ), //autofocus: ,
+                      //autofocus: ,
+                      keyboardType: TextInputType.emailAddress,
                     ),
-                    //autofocus: ,
-                    keyboardType: TextInputType.emailAddress,
                   ),
                 ),
                 Padding(
