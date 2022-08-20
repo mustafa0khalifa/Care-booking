@@ -1,15 +1,6 @@
-//
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/oneVisite.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
-import 'careRecipients2.dart';
 import 'careRecipients3.dart';
 
 class MainRecipients extends StatefulWidget {
@@ -362,7 +353,6 @@ class _MainRecipientsState extends State<MainRecipients> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
                   alignment: Alignment.centerRight,
                   child: SizedBox(
                     width: deviceSize.width * 0.4,

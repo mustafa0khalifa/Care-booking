@@ -22,7 +22,7 @@ class _BookingDetailsState extends State<BookingDetails> {
     final deviceSize = MediaQuery.of(context).size;
 
     Widget itemShift(String date, String hours, String inTime, String outTime,
-        String price, bool activeOne) {
+        String price, bool activeOne, int numShift) {
       return Container(
         padding: EdgeInsets.all(0.03 * deviceSize.width),
         decoration: BoxDecoration(
@@ -41,7 +41,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                   children: [
                     SizedBox(
                       child: Text(
-                        'Shift1',
+                        'Shift${numShift}',
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Helvetica',
@@ -261,13 +261,13 @@ class _BookingDetailsState extends State<BookingDetails> {
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       children: [
-                        itemShift(
-                            '8/8/2022', '3', '5:00 PM', '8:00 PM', '25', true),
+                        itemShift('8/8/2022', '3', '5:00 PM', '8:00 PM', '25',
+                            true, 1),
                         Padding(
                             padding:
                                 EdgeInsets.only(top: deviceSize.height * 0.03)),
-                        itemShift(
-                            '8/8/2022', '3', '5:00 PM', '8:00 PM', '25', false)
+                        itemShift('8/8/2022', '3', '5:00 PM', '8:00 PM', '25',
+                            false, 2)
                       ],
                     )),
               ],

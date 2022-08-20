@@ -199,7 +199,7 @@ class _ElderlyCareState extends State<ElderlyCare> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'How many elderly need care? ',
                   style: TextStyle(
@@ -215,25 +215,24 @@ class _ElderlyCareState extends State<ElderlyCare> {
                   children: [
                     InkWell(
                       child: Container(
-                          width: deviceSize.width * 0.4,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          width: deviceSize.width * 0.35,
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
                           decoration: BoxDecoration(
                               color: select1Elder
                                   ? Color(0xff28306e)
                                   : Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))
+                                  color: Color(0xff28306e), width: 1),
+                              borderRadius: BorderRadius.all(Radius.circular(5))
                               //more than 50% of width makes circle
                               ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Icon(
                                 Icons.man,
-                                size: deviceSize.width * 0.05,
+                                size: deviceSize.width * 0.08,
                                 color: select1Elder
                                     ? Colors.white
                                     : Color(0xff28306e),
@@ -260,26 +259,26 @@ class _ElderlyCareState extends State<ElderlyCare> {
                     ),
                     InkWell(
                       child: Container(
-                          width: deviceSize.width * 0.4,
-                          padding: EdgeInsets.all(deviceSize.height * 0.03),
+                          width: deviceSize.width * 0.35,
+                          padding: EdgeInsets.all(deviceSize.height * 0.01),
                           decoration: BoxDecoration(
                               color: !select1Elder
                                   ? Color(0xff28306e)
                                   : Colors.white,
                               border: Border.all(
-                                  color: Color(0xff28306e), width: 3),
+                                  color: Color(0xff28306e), width: 1),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(20),
+                                Radius.circular(5),
                               )
                               //more than 50% of width makes circle
                               ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Icon(
                                 Icons.person_add_alt_sharp,
-                                size: deviceSize.width * 0.05,
+                                size: deviceSize.width * 0.08,
                                 color: !select1Elder
                                     ? Colors.white
                                     : Color(0xff28306e),
@@ -316,7 +315,7 @@ class _ElderlyCareState extends State<ElderlyCare> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'Basic Care',
                   style: TextStyle(
@@ -324,8 +323,6 @@ class _ElderlyCareState extends State<ElderlyCare> {
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.04),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -336,8 +333,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.companionship,
                               onChanged: (val) {
                                 foo.changeCompanionshipCheckbox();
@@ -363,8 +364,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.basicNursingCare,
                               onChanged: (val) {
                                 foo.changeBasicNursingCareCheckbox();
@@ -396,8 +401,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.personalCare,
                               onChanged: (val) {
                                 foo.changePersonalCareCheckbox();
@@ -423,8 +432,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.transportation,
                               onChanged: (val) {
                                 foo.changeTransportationCheckbox();
@@ -456,8 +469,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.mobilitySupport,
                               onChanged: (val) {
                                 foo.changeMobilitySupportCheckbox();
@@ -483,8 +500,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.shopping,
                               onChanged: (val) {
                                 foo.changeShoppingCheckbox();
@@ -516,8 +537,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.mealPreparation,
                               onChanged: (val) {
                                 foo.changeMealPreparationCheckbox();
@@ -543,8 +568,12 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: ElderlyCareProvider.light,
                               onChanged: (val) {
                                 foo.changeLightCheckbox();
@@ -567,13 +596,13 @@ class _ElderlyCareState extends State<ElderlyCare> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
                 Divider(
                   color: Color(0xff28306e),
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'Nursing Care',
                   style: TextStyle(
@@ -581,8 +610,6 @@ class _ElderlyCareState extends State<ElderlyCare> {
                       fontFamily: 'Helvetica',
                       fontSize: deviceSize.width * 0.04),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -593,11 +620,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.companionship,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.companionship2,
                               onChanged: (val) {
-                                foo.changeCompanionshipCheckbox();
+                                foo.changeCompanionshipCheckbox2();
                               },
                             ),
                           ),
@@ -620,11 +651,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.basicNursingCare,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.basicNursingCare2,
                               onChanged: (val) {
-                                foo.changeBasicNursingCareCheckbox();
+                                foo.changeBasicNursingCareCheckbox2();
                               },
                             ),
                           ),
@@ -653,11 +688,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.personalCare,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.personalCare2,
                               onChanged: (val) {
-                                foo.changePersonalCareCheckbox();
+                                foo.changePersonalCareCheckbox2();
                               },
                             ),
                           ),
@@ -680,11 +719,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.transportation,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.transportation2,
                               onChanged: (val) {
-                                foo.changeTransportationCheckbox();
+                                foo.changeTransportationCheckbox2();
                               },
                             ),
                           ),
@@ -713,11 +756,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.mobilitySupport,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.mobilitySupport2,
                               onChanged: (val) {
-                                foo.changeMobilitySupportCheckbox();
+                                foo.changeMobilitySupportCheckbox2();
                               },
                             ),
                           ),
@@ -740,11 +787,15 @@ class _ElderlyCareState extends State<ElderlyCare> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<ElderlyCareProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
-                              value: ElderlyCareProvider.shopping,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
+                              value: ElderlyCareProvider.shopping2,
                               onChanged: (val) {
-                                foo.changeShoppingCheckbox();
+                                foo.changeShoppingCheckbox2();
                               },
                             ),
                           ),

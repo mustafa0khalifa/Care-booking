@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class BrowseCaregiversProvider extends ChangeNotifier {
+  static bool okFilter = false;
   static String browseCaregiversMode = "filter";
   static String groubVal = '';
   static String groubVal2 = "";

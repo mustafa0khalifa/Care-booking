@@ -170,7 +170,7 @@ class DayState extends State<DaySh> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: widget.width * 0.2,
+                  width: widget.width * 0.22,
                   child: Text(
                     '${widget.day}',
                     maxLines: 2,

@@ -199,28 +199,46 @@ class _PcrServicesState extends State<PcrServices> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.orange[100],
-                      border: Border.all(color: Colors.orange),
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.all(deviceSize.width * 0.03),
-                  child: Text(
-                    'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
-                    style: TextStyle(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  child: ListTile(
+                    title: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.035,
+                        fontWeight: FontWeight.bold,
                         color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
+                      ),
+                    ),
+                    subtitle: Text(
+                      'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.025,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff28306e),
+                      ),
+                    ),
+                    leading: Icon(
+                      Icons.note,
+                      size: deviceSize.width * 0.07,
+                      color: Color(0xff28306e),
+                    ),
+                    onTap: () => {},
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.6,
+                      width: deviceSize.width * 0.63,
                       child: EasyRichText(
                         "How many people will get the test?",
                         patternList: [
@@ -269,13 +287,11 @@ class _PcrServicesState extends State<PcrServices> {
                     )
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'What type of services do you need?',
                   style: TextStyle(
@@ -284,7 +300,7 @@ class _PcrServicesState extends State<PcrServices> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'COVID-19 testing',
                   style: TextStyle(
@@ -293,7 +309,7 @@ class _PcrServicesState extends State<PcrServices> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Padding(
                   padding: EdgeInsets.only(left: deviceSize.width * 0.03),
                   child: Row(
@@ -356,13 +372,11 @@ class _PcrServicesState extends State<PcrServices> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Padding(
                   padding: EdgeInsets.only(left: deviceSize.width * 0.03),
                   child: Row(
@@ -425,13 +439,11 @@ class _PcrServicesState extends State<PcrServices> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Padding(
                   padding: EdgeInsets.only(left: deviceSize.width * 0.03),
                   child: Row(
@@ -494,13 +506,11 @@ class _PcrServicesState extends State<PcrServices> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Padding(
                   padding: EdgeInsets.only(left: deviceSize.width * 0.03),
                   child: Row(
@@ -556,17 +566,13 @@ class _PcrServicesState extends State<PcrServices> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.6,
+                      width: deviceSize.width * 0.63,
                       child: EasyRichText(
                         "Blood testing",
                         patternList: [
@@ -615,17 +621,13 @@ class _PcrServicesState extends State<PcrServices> {
                     )
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.6,
+                      width: deviceSize.width * 0.63,
                       child: EasyRichText(
                         "Other Lab Work Ups",
                         patternList: [
@@ -674,35 +676,45 @@ class _PcrServicesState extends State<PcrServices> {
                     )
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 TextField(
                   style: TextStyle(
-                      color: Colors.blue.shade900,
-                      fontSize: deviceSize.width * 0.035),
-                  decoration: InputDecoration(
-                    label: Text(
-                        'Indicate here if any equipment or special instructions are needed'),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey)),
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
                   ),
+                  decoration: InputDecoration(
+                    hintText:
+                        'Indicate here if any equipment or special instructions are needed',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.8,
+                      width: deviceSize.width * 0.3,
                       child: Text(
                         'Prescrptions',
                         style: TextStyle(

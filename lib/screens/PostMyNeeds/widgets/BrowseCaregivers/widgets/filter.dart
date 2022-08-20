@@ -661,6 +661,9 @@ class _FilterState extends State<Filter> {
                                         ),
                                     child: Column(
                                       children: [
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.02)),
                                         Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
@@ -903,6 +906,10 @@ class _FilterState extends State<Filter> {
                                           children: [
                                             Column(
                                               children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: deviceSize.height *
+                                                            0.02)),
                                                 SizedBox(
                                                   child: Text('Between',
                                                       style: TextStyle(
@@ -1461,35 +1468,31 @@ class _FilterState extends State<Filter> {
                             child: BrowseCaregiversProvider.clickCaregiverType
                                 ? Column(
                                     children: [
-                                      SizedBox(
-                                        width: deviceSize.width * 0.3,
-                                        child: Center(
-                                          child: DropdownButton(
-                                              value: dropdownvalue3,
-                                              icon: Icon(
-                                                  Icons.keyboard_arrow_down),
-                                              items: items3.map((String items) {
-                                                return DropdownMenuItem(
-                                                    value: items,
-                                                    child: Text(items,
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                0xff28306e),
-                                                            fontFamily:
-                                                                'Helvetica',
-                                                            fontSize: deviceSize
-                                                                    .width *
-                                                                0.035)));
-                                              }).toList(),
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  foo.changesetCaregiverType(
-                                                      true);
-                                                  dropdownvalue3 =
-                                                      val as String;
-                                                });
-                                              }),
-                                        ),
+                                      Center(
+                                        child: DropdownButton(
+                                            value: dropdownvalue3,
+                                            icon:
+                                                Icon(Icons.keyboard_arrow_down),
+                                            items: items3.map((String items) {
+                                              return DropdownMenuItem(
+                                                  value: items,
+                                                  child: Text(items,
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035)));
+                                            }).toList(),
+                                            onChanged: (val) {
+                                              setState(() {
+                                                foo.changesetCaregiverType(
+                                                    true);
+                                                dropdownvalue3 = val as String;
+                                              });
+                                            }),
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -1663,6 +1666,9 @@ class _FilterState extends State<Filter> {
                             child: BrowseCaregiversProvider.clickYears
                                 ? Column(
                                     children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: deviceSize.height * 0.02)),
                                       Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -2811,7 +2817,12 @@ class _FilterState extends State<Filter> {
                                 onSurface: Colors.grey,
                               ),
                               onPressed: () {
+                                BrowseCaregiversProvider.okFilter = false;
+
                                 foo.resetFilter();
+                                Navigator.of(context).pushNamed(
+                                  BrowseCaregivers.routeName,
+                                );
                               },
                             ),
                           ),
@@ -2823,6 +2834,7 @@ class _FilterState extends State<Filter> {
                               onSurface: Colors.grey,
                             ),
                             onPressed: () {
+                              BrowseCaregiversProvider.okFilter = true;
                               Navigator.of(context).pushNamed(
                                 BrowseCaregivers.routeName,
                               );

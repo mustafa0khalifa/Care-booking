@@ -197,27 +197,43 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'What type of services do you need?',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
+                      fontSize: deviceSize.width * 0.045),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 TextField(
-                  style: TextStyle(color: Colors.blue.shade900, fontSize: 11),
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
+                  ),
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(color: Colors.grey)),
-                      hintText: 'Keyword search',
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 11)),
+                    hintText: 'Search',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   width: deviceSize.width * 0.9,
                   child: Text(
@@ -225,11 +241,11 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
+                        fontSize: deviceSize.width * 0.045),
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -238,8 +254,11 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                       width: deviceSize.width * 0.18,
                       height: deviceSize.height * 0.07,
                       child: Consumer<AdvancedNursingProvider>(
-                        builder: (_, foo, __) => CheckboxListTile(
-                          activeColor: Colors.green,
+                        builder: (_, foo, __) => Checkbox(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          activeColor: Colors.blue,
+                          side: BorderSide(width: 1, color: Color(0xffD3CFC8)),
                           value: AdvancedNursingProvider.insertion,
                           onChanged: (val) {
                             foo.changeInsertionCheckbox();
@@ -267,8 +286,11 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                       width: deviceSize.width * 0.18,
                       height: deviceSize.height * 0.07,
                       child: Consumer<AdvancedNursingProvider>(
-                        builder: (_, foo, __) => CheckboxListTile(
-                          activeColor: Colors.green,
+                        builder: (_, foo, __) => Checkbox(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          activeColor: Colors.blue,
+                          side: BorderSide(width: 1, color: Color(0xffD3CFC8)),
                           value: AdvancedNursingProvider.antibiotic,
                           onChanged: (val) {
                             foo.changeAntibioticCheckbox();
@@ -288,13 +310,11 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                     ),
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Divider(
                   thickness: 1,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   width: deviceSize.width * 0.9,
                   child: Text(
@@ -317,8 +337,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: AdvancedNursingProvider.woundCare,
                               onChanged: (val) {
                                 foo.changeWoundCareCheckbox();
@@ -346,8 +370,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value:
                                   AdvancedNursingProvider.foleyInsertionFemale,
                               onChanged: (val) {
@@ -380,8 +408,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: AdvancedNursingProvider.sutureRemoval,
                               onChanged: (val) {
                                 foo.changeSutureRemovalCheckbox();
@@ -409,8 +441,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: AdvancedNursingProvider.hemovacRemoval,
                               onChanged: (val) {
                                 foo.changeHemovacRemovalCheckbox();
@@ -442,8 +478,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: AdvancedNursingProvider.diabetic,
                               onChanged: (val) {
                                 foo.changeDiabeticCheckbox();
@@ -471,8 +511,12 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                           width: deviceSize.width * 0.18,
                           height: deviceSize.height * 0.07,
                           child: Consumer<AdvancedNursingProvider>(
-                            builder: (_, foo, __) => CheckboxListTile(
-                              activeColor: Colors.green,
+                            builder: (_, foo, __) => Checkbox(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              activeColor: Colors.blue,
+                              side: BorderSide(
+                                  width: 1, color: Color(0xffD3CFC8)),
                               value: AdvancedNursingProvider.CVA,
                               onChanged: (val) {
                                 foo.changeCVACheckbox();
@@ -496,28 +540,40 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 TextField(
                   style: TextStyle(
-                      color: Colors.blue.shade900,
-                      fontSize: deviceSize.width * 0.035),
-                  decoration: InputDecoration(
-                    label: Text(
-                        'Indicate here if any equipment or special instructions are needed'),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey)),
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
                   ),
+                  decoration: InputDecoration(
+                    hintText:
+                        'Indicate here if any equipment or special instructions are needed',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.8,
+                      width: deviceSize.width * 0.3,
                       child: Text(
                         'Prescrptions',
                         style: TextStyle(

@@ -18,7 +18,6 @@ class _CAfterBookingRequestState extends State<AfterBookingRequest> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: NavBar(),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
