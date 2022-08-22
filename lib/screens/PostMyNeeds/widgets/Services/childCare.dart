@@ -224,7 +224,7 @@ class _ChildCareState extends State<ChildCare> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Specify age groups and your specifc needs',
                   style: TextStyle(
@@ -570,6 +570,9 @@ class _ChildCareState extends State<ChildCare> {
                                             },
                                           ),
                                         ),
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.01)),
                                       ],
                                     ),
                                   )
@@ -903,6 +906,9 @@ class _ChildCareState extends State<ChildCare> {
                                             },
                                           ),
                                         ),
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.01)),
                                       ],
                                     ),
                                   )
@@ -1235,6 +1241,9 @@ class _ChildCareState extends State<ChildCare> {
                                             },
                                           ),
                                         ),
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.01)),
                                       ],
                                     ),
                                   )
@@ -1569,6 +1578,9 @@ class _ChildCareState extends State<ChildCare> {
                                             },
                                           ),
                                         ),
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.01)),
                                       ],
                                     ),
                                   )
@@ -1903,6 +1915,9 @@ class _ChildCareState extends State<ChildCare> {
                                             },
                                           ),
                                         ),
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: deviceSize.height * 0.01)),
                                       ],
                                     ),
                                   )

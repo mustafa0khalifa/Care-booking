@@ -91,14 +91,20 @@ class _ClientNotificationsState extends State<ClientNotifications> {
                 child: ListView.builder(
                   itemCount: 20,
                   itemBuilder: (context, index) {
-                    return itemClientNotifications(
-                      index: index,
-                      height: deviceSize.height,
-                      width: deviceSize.width,
-                      date: 'sint 10 mins ago',
-                      subject: 'Sumaya is on her way',
-                      content:
-                          'she will arrive at 11:30 AM\nView booking details',
+                    return Column(
+                      children: [
+                        itemClientNotifications(
+                          index: index,
+                          height: deviceSize.height,
+                          width: deviceSize.width,
+                          date: 'sint 10 mins ago',
+                          subject: 'Sumaya is on her way',
+                          content: 'she will arrive at 11:30 AM',
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      ],
                     );
                   },
                 ),

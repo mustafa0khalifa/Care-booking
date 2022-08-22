@@ -53,7 +53,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
           margin: EdgeInsets.all(deviceSize.width * 0.03),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -210,7 +210,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
-                SizedBox(
+                /* SizedBox(
                   width: deviceSize.width * 0.8,
                   child: Text(
                     'Full Name',
@@ -223,62 +223,56 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+               */
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: deviceSize.height * 0.05,
-                          width: deviceSize.width * 0.5,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.03,
-                              color: Color(0xff495057),
-                              fontFamily: 'Helvetica',
-                            ),
-                            decoration: InputDecoration(
-                              hintText: '',
-                              fillColor: Color(0xffe9ecef),
-                              filled: true,
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Color(0xffced4da), width: 1.0),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Color(0xffced4da), width: 1.0),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  borderSide:
-                                      BorderSide(color: Color(0xffced4da))),
-                            ), //autofocus: ,
-                            //autofocus: ,
-                            keyboardType: TextInputType.emailAddress,
-                          ),
+                    SizedBox(
+                      height: deviceSize.height * 0.06,
+                      width: deviceSize.width * 0.8,
+                      child: TextField(
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.03,
+                          color: Color(0xff495057),
+                          fontFamily: 'Helvetica',
                         ),
-                        IconButton(
-                          onPressed: null,
-                          icon: Icon(
-                            Icons.info_outline,
-                            size: deviceSize.width * 0.06,
-                            color: Color(0xff007bff),
+                        decoration: InputDecoration(
+                          hintText: 'Full Name',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
-                        ),
-                      ],
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                        ), //autofocus: ,
+                        //autofocus: ,
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: null,
+                      icon: Icon(
+                        Icons.info_outline,
+                        size: deviceSize.width * 0.06,
+                        color: Color(0xff007bff),
+                      ),
                     ),
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
-                SizedBox(
+                /* SizedBox(
                   width: deviceSize.width * 0.8,
                   child: Text(
                     'Date of Birth',
@@ -290,14 +284,14 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 ),
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),
+                ),*/
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.5,
+                      height: deviceSize.height * 0.06,
+                      width: deviceSize.width * 0.8,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         controller: null,
@@ -307,7 +301,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
-                          hintText: '08 / 17 / 2022',
+                          hintText: 'Date of Birth',
                           fillColor: Color(0xffe9ecef),
                           filled: true,
                           focusedBorder: OutlineInputBorder(
@@ -354,66 +348,75 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
-                ),
-                SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Text(
-                    'Gender',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Consumer<CareRecipientsProvider>(
-                          builder: (_, foo, __) => Radio(
-                              activeColor: Colors.greenAccent,
-                              value: 'Male',
-                              groupValue: CareRecipientsProvider.genderGroub,
-                              onChanged: (value) {
-                                foo.changeGenderGroub(value as String);
-                              }),
-                        ),
-                        Text(
-                          "Male",
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: deviceSize.width * 0.1),
-                        ),
-                        Consumer<CareRecipientsProvider>(
-                          builder: (_, foo, __) => Radio(
-                              activeColor: Colors.greenAccent,
-                              value: 'Female',
-                              groupValue: CareRecipientsProvider.genderGroub,
-                              onChanged: (value) {
-                                foo.changeGenderGroub(value as String);
-                              }),
-                        ),
-                        Text(
-                          "Female",
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                      ],
+                    SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            child: Text(
+                              'Gender',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: deviceSize.width * 0.04),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Consumer<CareRecipientsProvider>(
+                                builder: (_, foo, __) => Radio(
+                                    activeColor: Colors.greenAccent,
+                                    value: 'Male',
+                                    groupValue:
+                                        CareRecipientsProvider.genderGroub,
+                                    onChanged: (value) {
+                                      foo.changeGenderGroub(value as String);
+                                    }),
+                              ),
+                              Text(
+                                "Male",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.03),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.1),
+                              ),
+                              Consumer<CareRecipientsProvider>(
+                                builder: (_, foo, __) => Radio(
+                                    activeColor: Colors.greenAccent,
+                                    value: 'Female',
+                                    groupValue:
+                                        CareRecipientsProvider.genderGroub,
+                                    onChanged: (value) {
+                                      foo.changeGenderGroub(value as String);
+                                    }),
+                              ),
+                              Text(
+                                "Female",
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.03),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     IconButton(
                       onPressed: null,
@@ -426,9 +429,9 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
-                SizedBox(
+                /* SizedBox(
                   width: deviceSize.width * 0.8,
                   child: Text(
                     'Weight',
@@ -440,53 +443,61 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 ),
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),
+                ),*/
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.4,
-                      child: TextField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
-                          color: Color(0xff495057),
-                          fontFamily: 'Helvetica',
-                        ),
-                        decoration: InputDecoration(
-                          hintText: '',
-                          fillColor: Color(0xffe9ecef),
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
+                      width: deviceSize.width * 0.8,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            height: deviceSize.height * 0.05,
+                            width: deviceSize.width * 0.65,
+                            child: TextField(
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.03,
+                                color: Color(0xff495057),
+                                fontFamily: 'Helvetica',
+                              ),
+                              decoration: InputDecoration(
+                                hintText: 'Weight',
+                                fillColor: Color(0xffe9ecef),
+                                filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffced4da), width: 1.0),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffced4da), width: 1.0),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide:
+                                        BorderSide(color: Color(0xffced4da))),
+                              ), //autofocus: ,
+                              //autofocus: ,
+                              keyboardType: TextInputType.emailAddress,
+                            ),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.01)),
+                          SizedBox(
+                            width: deviceSize.width * 0.1,
+                            child: Text(
+                              'kgs',
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.03),
+                            ),
                           ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Color(0xffced4da))),
-                        ), //autofocus: ,
-                        //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                    ),
-                    Padding(
-                        padding:
-                            EdgeInsets.only(left: deviceSize.width * 0.01)),
-                    SizedBox(
-                      width: deviceSize.width * 0.1,
-                      child: Text(
-                        'kgs',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.03),
+                        ],
                       ),
                     ),
                     IconButton(
@@ -500,52 +511,57 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.01),
-                ),
-                Text(
-                  'Relationship to Client',
-                  style: TextStyle(
-                      color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.04),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: deviceSize.width * 0.03),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      DropdownButton(
-                          value: dropdownvalue,
-                          icon: Icon(Icons.keyboard_arrow_down),
-                          items: items.map((String items) {
-                            return DropdownMenuItem(
-                                value: items,
-                                child: Text(
-                                  items,
-                                  style: TextStyle(
-                                      color: Color(0xff28306e),
-                                      fontFamily: 'Helvetica',
-                                      fontSize: deviceSize.width * 0.035),
-                                ));
-                          }).toList(),
-                          onChanged: (val) {
-                            setState(() {
-                              dropdownvalue = val as String;
-                            });
-                          }),
-                      IconButton(
-                        onPressed: null,
-                        icon: Icon(
-                          Icons.info_outline,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff007bff),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.8,
+                      child: Row(
+                        children: [
+                          Text(
+                            'Relationship to Client',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.bold,
+                                fontSize: deviceSize.width * 0.04),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.05)),
+                          DropdownButton(
+                              value: dropdownvalue,
+                              icon: Icon(Icons.keyboard_arrow_down),
+                              items: items.map((String items) {
+                                return DropdownMenuItem(
+                                    value: items,
+                                    child: Text(
+                                      items,
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.035),
+                                    ));
+                              }).toList(),
+                              onChanged: (val) {
+                                setState(() {
+                                  dropdownvalue = val as String;
+                                });
+                              }),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: null,
+                      icon: Icon(
+                        Icons.info_outline,
+                        size: deviceSize.width * 0.06,
+                        color: Color(0xff007bff),
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -589,7 +605,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.015),
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -635,9 +651,6 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       ),
                     ),
                   ],
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
                 Container(
                   alignment: Alignment.center,

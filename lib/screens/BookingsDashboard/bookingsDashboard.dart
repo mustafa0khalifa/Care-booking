@@ -65,9 +65,10 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             alignment: Alignment.topCenter,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.28,
                                 child: Center(
                                   child: Image.asset(
+                                    width: deviceSize.width * 0.28,
+                                    height: deviceSize.width * 0.17,
                                     color: BookDashboardProvide
                                             .clicedPreviousBooking
                                         ? Color(0xff28306e)
@@ -92,7 +93,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   ),
                                   Padding(
                                       padding: EdgeInsets.only(
-                                          top: deviceSize.height * 0.03)),
+                                          top: deviceSize.width * 0.03)),
                                   SizedBox(
                                     width: deviceSize.width * 0.4,
                                     child: Center(
@@ -105,7 +106,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
                                               fontSize:
-                                                  deviceSize.width * 0.028)),
+                                                  deviceSize.width * 0.025)),
                                     ),
                                   )
                                 ],
@@ -131,9 +132,10 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             alignment: Alignment.topCenter,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.28,
                                 child: Center(
                                   child: Image.asset(
+                                    width: deviceSize.width * 0.28,
+                                    height: deviceSize.width * 0.17,
                                     color: BookDashboardProvide
                                             .clicedCurrentBooking
                                         ? Color(0xff28306e)
@@ -158,7 +160,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   ),
                                   Padding(
                                       padding: EdgeInsets.only(
-                                          top: deviceSize.height * 0.03)),
+                                          top: deviceSize.width * 0.03)),
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
@@ -171,7 +173,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
                                               fontSize:
-                                                  deviceSize.width * 0.028)),
+                                                  deviceSize.width * 0.025)),
                                     ),
                                   )
                                 ],
@@ -196,9 +198,10 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                             alignment: Alignment.topCenter,
                             children: [
                               SizedBox(
-                                width: deviceSize.width * 0.28,
                                 child: Center(
                                   child: Image.asset(
+                                    width: deviceSize.width * 0.28,
+                                    height: deviceSize.width * 0.17,
                                     color: BookDashboardProvide
                                             .clicedPendingBooking
                                         ? Color(0xff28306e)
@@ -223,7 +226,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   ),
                                   Padding(
                                       padding: EdgeInsets.only(
-                                          top: deviceSize.height * 0.03)),
+                                          top: deviceSize.width * 0.03)),
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
@@ -236,7 +239,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                                   : Color(0xff28306e),
                                               fontFamily: 'Helvetica',
                                               fontSize:
-                                                  deviceSize.width * 0.028)),
+                                                  deviceSize.width * 0.025)),
                                     ),
                                   )
                                 ],

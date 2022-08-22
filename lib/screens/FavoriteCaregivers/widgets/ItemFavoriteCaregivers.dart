@@ -132,13 +132,13 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.all(width * 0.02),
                           decoration: BoxDecoration(
-                              color: Color(0xff495057),
+                              color: Color(0xffD3CFC8),
                               borderRadius: BorderRadius.circular(15)),
                           alignment: Alignment.center,
                           child: Text(
                               '${favoriteCaregiversModel.qualifications}',
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color(0xff28306e),
                                   fontFamily: 'Helvetica_Bold',
                                   fontSize: width * 0.04)),
                         ),

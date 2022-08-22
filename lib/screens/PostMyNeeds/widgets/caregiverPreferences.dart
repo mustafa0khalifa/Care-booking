@@ -16,8 +16,11 @@ class CaregiverPreferences extends StatefulWidget {
 }
 
 class _CaregiverPreferencesState extends State<CaregiverPreferences> {
-  String dropdownvalue = '-- Multi Selection --';
-  var items = ['-- Multi Selection --'];
+  String dropdownvalue = 'service1';
+  var items = ['service1', 'service2', 'service3'];
+
+  String dropdownvalue2 = 'service2';
+  var items2 = ['service1', 'service2', 'service3'];
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -347,7 +350,11 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                                 fontSize: deviceSize.width * 0.04),
                           ));
                     }).toList(),
-                    onChanged: (val) {}),
+                    onChanged: (val) {
+                      setState(() {
+                        dropdownvalue = val as String;
+                      });
+                    }),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
@@ -358,9 +365,9 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                       fontSize: deviceSize.width * 0.045),
                 ),
                 DropdownButton(
-                    value: dropdownvalue,
+                    value: dropdownvalue2,
                     icon: Icon(Icons.keyboard_arrow_down),
-                    items: items.map((String items) {
+                    items: items2.map((String items) {
                       return DropdownMenuItem(
                           value: items,
                           child: Text(
@@ -371,7 +378,11 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                                 fontSize: deviceSize.width * 0.04),
                           ));
                     }).toList(),
-                    onChanged: (val) {}),
+                    onChanged: (val) {
+                      setState(() {
+                        dropdownvalue2 = val as String;
+                      });
+                    }),
                 Consumer<CategoriesProvider>(
                   builder: (_, foo, __) => Container(
                     margin: EdgeInsets.all(deviceSize.height * 0.03),

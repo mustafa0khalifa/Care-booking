@@ -261,17 +261,17 @@ class ItemPending extends StatelessWidget {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica-Bold',
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(left: width * 0.06)),
+                                          EdgeInsets.only(top: width * 0.02)),
                                   Text(
                                     "${careModel.CareType}",
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                 ],
                               )
@@ -328,7 +328,7 @@ class ItemPending extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "${careModel.schedule_Shift}",
+                              " ${careModel.schedule_Shift}",
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helveticas',
@@ -661,26 +661,21 @@ class ItemPending extends StatelessWidget {
                               )
                             ])
                       : Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
                               child: InkWell(
                                 child: Row(
                                   children: [
-                                    IconButton(
-                                      iconSize: width * 0.05,
-                                      onPressed: () => {
-                                        Navigator.of(context).pushNamed(
-                                          BookingDetails.routeName,
-                                        )
-                                      },
-                                      icon: Icon(
-                                        Icons.arrow_forward_rounded,
-                                        size: width * 0.07,
-                                        color: Color(0xff28a745),
-                                      ),
+                                    Icon(
+                                      Icons.arrow_forward_rounded,
+                                      size: width * 0.07,
+                                      color: Color(0xff28a745),
                                     ),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: width * 0.005)),
                                     Text(
                                       "DETAILS",
                                       style: TextStyle(
@@ -697,23 +692,20 @@ class ItemPending extends StatelessWidget {
                                 },
                               ),
                             ),
+                            Padding(
+                                padding: EdgeInsets.only(left: width * 0.1)),
                             SizedBox(
                               child: InkWell(
                                 child: Row(
                                   children: [
-                                    IconButton(
-                                      iconSize: width * 0.05,
-                                      onPressed: () => {
-                                        Navigator.of(context).pushNamed(
-                                          BookingRate.routeName,
-                                        )
-                                      },
-                                      icon: Icon(
-                                        Icons.star_rate_rounded,
-                                        size: width * 0.07,
-                                        color: Color(0xff28a745),
-                                      ),
+                                    Icon(
+                                      Icons.star_border_rounded,
+                                      size: width * 0.07,
+                                      color: Color(0xff28a745),
                                     ),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: width * 0.005)),
                                     Text(
                                       " RATEING",
                                       style: TextStyle(
@@ -730,23 +722,20 @@ class ItemPending extends StatelessWidget {
                                 },
                               ),
                             ),
+                            Padding(
+                                padding: EdgeInsets.only(left: width * 0.1)),
                             SizedBox(
                               child: InkWell(
                                 child: Row(
                                   children: [
-                                    IconButton(
-                                      iconSize: width * 0.05,
-                                      onPressed: () => {
-                                        Navigator.of(context).pushNamed(
-                                          CaregiverProfile.routeName,
-                                        )
-                                      },
-                                      icon: Icon(
-                                        Icons.refresh_rounded,
-                                        size: width * 0.07,
-                                        color: Color(0xff28a745),
-                                      ),
+                                    Icon(
+                                      Icons.refresh_rounded,
+                                      size: width * 0.07,
+                                      color: Color(0xff28a745),
                                     ),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: width * 0.005)),
                                     Text(
                                       "RENEW",
                                       style: TextStyle(

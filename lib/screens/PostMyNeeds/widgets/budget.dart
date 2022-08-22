@@ -250,133 +250,153 @@ class _BudgetState extends State<Budget> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      child: Card(
-                        elevation: 10.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(color: Color(0xffD3CFC8))),
-                        child: Container(
-                          width: deviceSize.width * 0.27,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Total number of days of booking',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.03),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(
-                                      top: deviceSize.height * 0.02)),
-                              Text(
-                                '8 days',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                            ],
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Color(0xffD3CFC8), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(5))
+                          //more than 50% of width makes circle
                           ),
-                        ),
+                      width: deviceSize.width * 0.27,
+                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Total number of days of booking',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  top: deviceSize.height * 0.02)),
+                          Text(
+                            '8 days',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      child: Card(
-                        elevation: 10.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(color: Color(0xffD3CFC8))),
-                        child: Container(
-                          width: deviceSize.width * 0.27,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Total number of shifts',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.03),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(
-                                      top: deviceSize.height * 0.02)),
-                              Text(
-                                '12 shifts',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                            ],
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.065)),
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Color(0xffD3CFC8), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(5))
+                          //more than 50% of width makes circle
                           ),
-                        ),
+                      width: deviceSize.width * 0.27,
+                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Total number of shifts',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  top: deviceSize.height * 0.02)),
+                          Text(
+                            '12 shifts',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      child: Card(
-                        elevation: 10.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(color: Color(0xffD3CFC8))),
-                        child: Container(
-                          width: deviceSize.width * 0.27,
-                          padding: EdgeInsets.all(deviceSize.height * 0.01),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Total number of hours requested',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.03),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(
-                                      top: deviceSize.height * 0.02)),
-                              Text(
-                                '24 hours',
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica_Bold',
-                                    fontSize: deviceSize.width * 0.035),
-                              ),
-                            ],
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.065)),
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Color(0xffD3CFC8), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(5))
+                          //more than 50% of width makes circle
                           ),
-                        ),
+                      width: deviceSize.width * 0.27,
+                      padding: EdgeInsets.all(deviceSize.height * 0.01),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Total number of hours requested',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                                fontSize: deviceSize.width * 0.03),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  top: deviceSize.height * 0.02)),
+                          Text(
+                            '24 hours',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: deviceSize.width * 0.7,
-                      child: EasyRichText(
-                        'I dont have a specific budget\n\nCaregivers who respond will indicate their proposed budgets',
-                        patternList: [
-                          EasyRichTextPattern(
-                            targetString: 'I dont have a specific budget',
-                            style: TextStyle(
-                                color: Color(0xff28306e),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.045),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: deviceSize.width * 0.75,
+                          child: EasyRichText(
+                            'I dont have a specific budget',
+                            patternList: [
+                              EasyRichTextPattern(
+                                targetString: 'I dont have a specific budget',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.045),
+                              ),
+                            ],
                           ),
+                        ),
+                        Consumer<BudgetProvider>(
+                            builder: (_, foo, __) => Switch.adaptive(
+                                value: BudgetProvider.specificBudget,
+                                onChanged: (newValue) {
+                                  foo.changeSpecificBudget();
+                                })),
+                      ],
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.9,
+                      child: EasyRichText(
+                        'Caregivers who respond will indicate their proposed budgets',
+                        patternList: [
                           EasyRichTextPattern(
                             targetString:
                                 'Caregivers who respond will indicate their proposed budgets',
@@ -389,12 +409,6 @@ class _BudgetState extends State<Budget> {
                         ],
                       ),
                     ),
-                    Consumer<BudgetProvider>(
-                        builder: (_, foo, __) => Switch.adaptive(
-                            value: BudgetProvider.specificBudget,
-                            onChanged: (newValue) {
-                              foo.changeSpecificBudget();
-                            })),
                   ],
                 ),
                 Padding(
@@ -500,7 +514,7 @@ class _BudgetState extends State<Budget> {
                       )),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -543,7 +557,7 @@ class _BudgetState extends State<Budget> {
                               borderSide: BorderSide(color: Color(0xffced4da))),
                         ),
                         //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.number,
                       ),
                     ),
                     Padding(
@@ -561,11 +575,11 @@ class _BudgetState extends State<Budget> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
@@ -640,7 +654,7 @@ class _BudgetState extends State<Budget> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Text(
                   'Detailed Booking Summary with prices',
                   style: TextStyle(
@@ -652,7 +666,7 @@ class _BudgetState extends State<Budget> {
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 SizedBox(
                   child: Container(
-                    padding: EdgeInsets.all(deviceSize.width * 0.02),
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
                     decoration: BoxDecoration(
                         border: Border.all(color: Color(0xffD3CFC8), width: 1),
                         borderRadius: BorderRadius.circular(5)),

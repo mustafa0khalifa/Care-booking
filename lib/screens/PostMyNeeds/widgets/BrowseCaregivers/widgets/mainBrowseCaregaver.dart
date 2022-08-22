@@ -72,7 +72,6 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    color: Colors.green,
                     margin: EdgeInsets.only(
                         top: deviceSize.width * 0.01,
                         bottom: deviceSize.width * 0.01),
@@ -83,48 +82,50 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                       children: [
                         Column(
                           children: [
-                            Container(
-                              height: deviceSize.width * 0.1,
-                              margin: EdgeInsets.only(
-                                  right: deviceSize.width * 0.01,
-                                  top: deviceSize.width * 0.01,
-                                  bottom: deviceSize.width * 0.01),
-                              decoration: BoxDecoration(
-                                  color: BrowseCaregiversProvider.okFilter
-                                      ? Color(0xff28306e)
-                                      : Colors.white,
-                                  border: Border.all(
-                                      color: Color(0xff28306e), width: 1),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))
-                                  //more than 50% of width makes circle
-                                  ),
-                              alignment: Alignment.topLeft,
-                              child: IconButton(
-                                  onPressed: () {
-                                    if (scaffoldKey
-                                        .currentState!.isDrawerOpen) {
-                                      scaffoldKey.currentState!.closeDrawer();
-                                      //close drawer, if drawer is open
-                                    } else {
-                                      BrowseCaregiversProvider.okFilter =
-                                          !BrowseCaregiversProvider.okFilter;
-
-                                      scaffoldKey.currentState!.openDrawer();
-                                      //open drawer, if drawer is closed
-                                    }
-                                  },
-                                  icon: Icon(
+                            InkWell(
+                              child: Container(
+                                  height: deviceSize.width * 0.07,
+                                  margin: EdgeInsets.only(
+                                      right: deviceSize.width * 0.01,
+                                      top: deviceSize.width * 0.01,
+                                      bottom: deviceSize.width * 0.01),
+                                  decoration: BoxDecoration(
+                                      color: BrowseCaregiversProvider.okFilter
+                                          ? Color(0xff28306e)
+                                          : Colors.white,
+                                      border: Border.all(
+                                          color: Color(0xff28306e), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  alignment: Alignment.topLeft,
+                                  child: Icon(
                                     Icons.filter_alt_outlined,
                                     size: deviceSize.width * 0.07,
                                     color: !BrowseCaregiversProvider.okFilter
                                         ? Color(0xff28306e)
                                         : Colors.white,
                                   )),
+                              onTap: () => {
+                                if (scaffoldKey.currentState!.isDrawerOpen)
+                                  {
+                                    scaffoldKey.currentState!.closeDrawer(),
+                                    //close drawer, if drawer is open
+                                  }
+                                else
+                                  {
+                                    BrowseCaregiversProvider.okFilter =
+                                        !BrowseCaregiversProvider.okFilter,
+
+                                    scaffoldKey.currentState!.openDrawer(),
+                                    //open drawer, if drawer is closed
+                                  }
+                              },
                             ),
                             Padding(
                                 padding: EdgeInsets.only(
-                                    top: deviceSize.width * 0.07)),
+                                    top: deviceSize.width * 0.1)),
                           ],
                         ),
                         Padding(
