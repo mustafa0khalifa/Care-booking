@@ -16,6 +16,8 @@ class AutomaticMatchingOption extends StatefulWidget {
 
 class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
   bool isSelected = true;
+  bool clickNote1 = true;
+  bool clickNote2 = false;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -85,7 +87,11 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                   ),
                   onTap: () => {
                     setState(
-                      () => {isSelected = !isSelected},
+                      () => {
+                        isSelected = !isSelected,
+                        clickNote1 = true,
+                        clickNote2 = false,
+                      },
                     )
                   },
                 ),
@@ -99,28 +105,67 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.topRight,
+                        height: deviceSize.width * 0.07,
+                        child: IconButton(
+                            onPressed: () => {
+                                  setState(
+                                    () => {clickNote1 = !clickNote1},
+                                  )
+                                },
+                            icon: !clickNote1
+                                ? Icon(
+                                    Icons.keyboard_arrow_down_outlined,
+                                    color: Color(0xff17a2b8),
+                                    size: deviceSize.width * 0.05,
+                                  )
+                                : Icon(
+                                    Icons.keyboard_arrow_up_outlined,
+                                    color: Color(0xff17a2b8),
+                                    size: deviceSize.width * 0.05,
+                                  )),
                       ),
-                    ),
-                    subtitle: Text(
-                      'This option is ideal when you are not in a hurry to find the caregiver (example: I am pregnant and need a nanny in 2 months) and when cases of long-term care where the personality match is very important. This option gives you full control to decide on the caregiver you want to work with. You are in the driver\'s seat!',
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                          fontSize: deviceSize.width * 0.03),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
-                    ),
-                    onTap: () => {},
+                      clickNote1
+                          ? ListTile(
+                              title: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.note,
+                                    size: deviceSize.width * 0.06,
+                                    color: Color(0xff28306e),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          left: deviceSize.width * 0.01)),
+                                  Text(
+                                    'Note',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              subtitle: Text(
+                                'This option is ideal when you are not in a hurry to find the caregiver (example: I am pregnant and need a nanny in 2 months) and when cases of long-term care where the personality match is very important. This option gives you full control to decide on the caregiver you want to work with. You are in the driver\'s seat!',
+                                style: TextStyle(
+                                    color: Color(0xff28306e),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.03),
+                              ),
+                              onTap: () => {
+                                setState(
+                                  () => {clickNote1 = !clickNote1},
+                                )
+                              },
+                            )
+                          : SizedBox()
+                    ],
                   ),
                 ),
                 Padding(
@@ -144,7 +189,11 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                   ),
                   onTap: () => {
                     setState(
-                      () => {isSelected = !isSelected},
+                      () => {
+                        isSelected = !isSelected,
+                        clickNote1 = false,
+                        clickNote2 = true,
+                      },
                     )
                   },
                 ),
@@ -158,63 +207,102 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.topRight,
+                        height: deviceSize.width * 0.07,
+                        child: IconButton(
+                            onPressed: () => {
+                                  setState(
+                                    () => {clickNote2 = !clickNote2},
+                                  )
+                                },
+                            icon: !clickNote2
+                                ? Icon(
+                                    Icons.keyboard_arrow_down_outlined,
+                                    color: Color(0xff17a2b8),
+                                    size: deviceSize.width * 0.05,
+                                  )
+                                : Icon(
+                                    Icons.keyboard_arrow_up_outlined,
+                                    color: Color(0xff17a2b8),
+                                    size: deviceSize.width * 0.05,
+                                  )),
                       ),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'This process has been optimized for quick matching. In this case, we will match you with the first caregiver who applies to your care request.',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.01)),
-                        Text(
-                          'This can be ideal when: ',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.01)),
-                        Text(
-                          '1. The speed of finding available caregiver(s) is more important than selecting the most preferred caregiver among a pool of interested candidates. ',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.01)),
-                        Text(
-                          '2. It might be tough to find a single caregiver to cover the entire booking schedule This might be important when the schedule is too long and exhausting to be filled by one caregiver (example: 24-hour shift schedule) or when the schedule is too irregular that no single caregiver might be able to commit to filling (multiple visits needed per the same day).',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.03),
-                        ),
-                      ],
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
-                    ),
-                    onTap: () => {},
+                      clickNote2
+                          ? ListTile(
+                              title: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.note,
+                                    size: deviceSize.width * 0.06,
+                                    color: Color(0xff28306e),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          left: deviceSize.width * 0.01)),
+                                  Text(
+                                    'Note',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'This process has been optimized for quick matching. In this case, we will match you with the first caregiver who applies to your care request.',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          top: deviceSize.height * 0.01)),
+                                  Text(
+                                    'This can be ideal when: ',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          top: deviceSize.height * 0.01)),
+                                  Text(
+                                    '1. The speed of finding available caregiver(s) is more important than selecting the most preferred caregiver among a pool of interested candidates. ',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          top: deviceSize.height * 0.01)),
+                                  Text(
+                                    '2. It might be tough to find a single caregiver to cover the entire booking schedule This might be important when the schedule is too long and exhausting to be filled by one caregiver (example: 24-hour shift schedule) or when the schedule is too irregular that no single caregiver might be able to commit to filling (multiple visits needed per the same day).',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ],
+                              ),
+                              onTap: () => {
+                                setState(
+                                  () => {clickNote2 = !clickNote2},
+                                )
+                              },
+                            )
+                          : SizedBox(),
+                    ],
                   ),
                 ),
                 Container(

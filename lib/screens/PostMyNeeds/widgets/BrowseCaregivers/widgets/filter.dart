@@ -77,7 +77,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setGender
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -103,7 +105,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Gender",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setGender
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -116,13 +121,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setGender
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setGender
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -249,7 +260,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setDistance
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -274,7 +287,10 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text("Distance",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setDistance
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -287,13 +303,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setDistance
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setDistance
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -390,7 +412,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setCareRequired
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -415,7 +439,10 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text("Care Required",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setCareRequired
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -428,13 +455,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setCareRequired
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setCareRequired
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -588,7 +621,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setPayment
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -613,7 +648,10 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text("Payment Rate",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setPayment
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -626,13 +664,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setPayment
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setPayment
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -838,7 +882,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setAge
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -863,7 +909,10 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text("Age",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setAge
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -874,13 +923,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setAge
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setAge
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -1328,7 +1383,10 @@ class _FilterState extends State<Filter> {
                           : SizedBox();
                       return Container(
                         decoration: BoxDecoration(
-                            color: Color(0xff17a2b8),
+                            color:
+                                !BrowseCaregiversProvider.setServicesRequirede
+                                    ? Color(0xffe9ecef)
+                                    : Color(0xff17a2b8),
                             border:
                                 Border.all(color: Color(0xffD3CFC8), width: 1),
                             borderRadius: BorderRadius.all(Radius.circular(5))
@@ -1356,7 +1414,10 @@ class _FilterState extends State<Filter> {
                                             maxLines: 2,
                                             "Services Required",
                                             style: TextStyle(
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setServicesRequirede
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 fontFamily: 'Helvetica_Bold',
                                                 fontSize:
                                                     deviceSize.width * 0.045)),
@@ -1370,13 +1431,19 @@ class _FilterState extends State<Filter> {
                                               ? Icon(
                                                   Icons
                                                       .keyboard_arrow_down_outlined,
-                                                  color: Colors.white,
+                                                  color: BrowseCaregiversProvider
+                                                          .setServicesRequirede
+                                                      ? Color(0xffe9ecef)
+                                                      : Color(0xff17a2b8),
                                                   size: deviceSize.width * 0.05,
                                                 )
                                               : Icon(
                                                   Icons
                                                       .keyboard_arrow_up_outlined,
-                                                  color: Colors.white,
+                                                  color: BrowseCaregiversProvider
+                                                          .setServicesRequirede
+                                                      ? Color(0xffe9ecef)
+                                                      : Color(0xff17a2b8),
                                                   size: deviceSize.width * 0.05,
                                                 )),
                                     ],
@@ -1402,7 +1469,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setCaregiverType
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -1429,7 +1498,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Caregiver Type / Quallifications",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setCaregiverType
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -1442,13 +1514,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setCaregiverType
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setCaregiverType
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -1602,7 +1680,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setYears
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -1627,7 +1707,10 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text("Years of Experience",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setYears
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -1640,13 +1723,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setYears
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setYears
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -1798,7 +1887,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setLanguage
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -1825,7 +1916,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Languages Spoken",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setLanguage
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -1838,13 +1932,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setLanguage
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setLanguage
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -1930,7 +2030,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setEducation
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -1957,7 +2059,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Education / Degre",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setEducation
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -1970,13 +2075,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setEducation
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setEducation
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -2221,7 +2332,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setAdditional
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -2248,7 +2361,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Additional Services",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setAdditional
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -2261,13 +2377,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setAdditional
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setAdditional
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],
@@ -2512,7 +2634,9 @@ class _FilterState extends State<Filter> {
                   child: Consumer<BrowseCaregiversProvider>(
                     builder: (_, foo, __) => Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff17a2b8),
+                          color: !BrowseCaregiversProvider.setOther
+                              ? Color(0xffe9ecef)
+                              : Color(0xff17a2b8),
                           border:
                               Border.all(color: Color(0xffD3CFC8), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(5))
@@ -2539,7 +2663,10 @@ class _FilterState extends State<Filter> {
                                           maxLines: 2,
                                           "Other Preferences",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: BrowseCaregiversProvider
+                                                      .setOther
+                                                  ? Color(0xffe9ecef)
+                                                  : Color(0xff17a2b8),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
                                                   deviceSize.width * 0.045)),
@@ -2552,13 +2679,19 @@ class _FilterState extends State<Filter> {
                                             ? Icon(
                                                 Icons
                                                     .keyboard_arrow_down_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setOther
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )
                                             : Icon(
                                                 Icons
                                                     .keyboard_arrow_up_outlined,
-                                                color: Colors.white,
+                                                color: BrowseCaregiversProvider
+                                                        .setOther
+                                                    ? Color(0xffe9ecef)
+                                                    : Color(0xff17a2b8),
                                                 size: deviceSize.width * 0.05,
                                               )),
                                   ],

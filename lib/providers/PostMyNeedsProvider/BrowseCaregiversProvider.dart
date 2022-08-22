@@ -97,8 +97,27 @@ class BrowseCaregiversProvider extends ChangeNotifier {
     changesetOther(false);
   }
 
+  void changeAllClickFalse() {
+    clickGender = false;
+    clickDistance = false;
+    clickCareRequired = false;
+    clickPayment = false;
+    clickAge = false;
+    clickServicesRequirede = false;
+    clickCaregiverType = false;
+    clickYears = false;
+    clickLanguage = false;
+    clickEducation = false;
+    clickAdditional = false;
+    clickOther = false;
+  }
+
   void changeclickOther() {
+    if (!clickOther) {
+      changeAllClickFalse();
+    }
     clickOther = !clickOther;
+
     notifyListeners();
   }
 
@@ -116,6 +135,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickAdditional() {
+    if (!clickAdditional) {
+      changeAllClickFalse();
+    }
     clickAdditional = !clickAdditional;
     notifyListeners();
   }
@@ -134,6 +156,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickEducation() {
+    if (!clickEducation) {
+      changeAllClickFalse();
+    }
     clickEducation = !clickEducation;
     notifyListeners();
   }
@@ -155,6 +180,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickLanguage() {
+    if (!clickLanguage) {
+      changeAllClickFalse();
+    }
     clickLanguage = !clickLanguage;
     notifyListeners();
   }
@@ -166,6 +194,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickYears() {
+    if (!clickYears) {
+      changeAllClickFalse();
+    }
     clickYears = !clickYears;
     notifyListeners();
   }
@@ -180,6 +211,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   static bool setCaregiverType = false;
 
   void changeclickCaregiverType() {
+    if (!clickCaregiverType) {
+      changeAllClickFalse();
+    }
     clickCaregiverType = !clickCaregiverType;
     notifyListeners();
   }
@@ -195,6 +229,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickServicesRequirede() {
+    if (!clickServicesRequirede) {
+      changeAllClickFalse();
+    }
     clickServicesRequirede = !clickServicesRequirede;
     notifyListeners();
   }
@@ -215,6 +252,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickAge() {
+    if (!clickAge) {
+      changeAllClickFalse();
+    }
     clickAge = !clickAge;
     notifyListeners();
   }
@@ -226,6 +266,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickPayment() {
+    if (!clickPayment) {
+      changeAllClickFalse();
+    }
     clickPayment = !clickPayment;
     notifyListeners();
   }
@@ -239,6 +282,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickCareRequired() {
+    if (!clickCareRequired) {
+      changeAllClickFalse();
+    }
     clickCareRequired = !clickCareRequired;
     notifyListeners();
   }
@@ -252,6 +298,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickDistance() {
+    if (!clickDistance) {
+      changeAllClickFalse();
+    }
     clickDistance = !clickDistance;
     notifyListeners();
   }
@@ -265,6 +314,9 @@ class BrowseCaregiversProvider extends ChangeNotifier {
   }
 
   void changeclickGender() {
+    if (!clickGender) {
+      changeAllClickFalse();
+    }
     clickGender = !clickGender;
     notifyListeners();
   }

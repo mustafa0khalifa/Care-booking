@@ -104,12 +104,15 @@ class ItemPending extends StatelessWidget {
                                   child: Container(
                                     padding: EdgeInsets.all(width * 0.02),
                                     decoration: BoxDecoration(
-                                        color: Color(0xff007bff),
+                                        color: Colors.white,
+                                        border: Border.all(
+                                          color: Color(0xff007bff),
+                                        ),
                                         borderRadius: BorderRadius.circular(5)),
                                     alignment: Alignment.center,
                                     child: Text('View Profiles',
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Color(0xff007bff),
                                             fontFamily: 'Helvetica_Bold',
                                             fontSize: width * 0.035)),
                                   ),
@@ -204,12 +207,15 @@ class ItemPending extends StatelessWidget {
                                   child: Container(
                                     padding: EdgeInsets.all(width * 0.02),
                                     decoration: BoxDecoration(
-                                        color: Color(0xff007bff),
+                                        color: Colors.white,
+                                        border: Border.all(
+                                          color: Color(0xff007bff),
+                                        ),
                                         borderRadius: BorderRadius.circular(5)),
                                     alignment: Alignment.center,
                                     child: Text('View Profiles',
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Color(0xff007bff),
                                             fontFamily: 'Helvetica_Bold',
                                             fontSize: width * 0.03)),
                                   ),
@@ -332,10 +338,11 @@ class ItemPending extends StatelessWidget {
                                 padding: EdgeInsets.only(top: height * 0.01)),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Icon(
                                   Icons.date_range_outlined,
-                                  size: width * 0.07,
+                                  size: width * 0.05,
                                   color: Colors.grey,
                                 ),
                                 Padding(
@@ -585,138 +592,175 @@ class ItemPending extends StatelessWidget {
               Padding(padding: EdgeInsets.only(top: height * 0.01)),
               isRequest || isDatiel
                   ? Padding(padding: EdgeInsets.only(top: height * 0.01))
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                          SizedBox(
-                            child: InkWell(
-                              child: Row(
-                                children: [
-                                  IconButton(
-                                    iconSize: width * 0.05,
-                                    onPressed: () => {
-                                      Navigator.of(context).pushNamed(
-                                        BookingDetails.routeName,
-                                      )
-                                    },
-                                    icon: Icon(
-                                      Icons.arrow_forward_rounded,
-                                      size: width * 0.07,
-                                      color: Color(0xff28a745),
-                                    ),
-                                  ),
-                                  Text(
-                                    "BOOKING DETAILS",
-                                    style: TextStyle(
-                                        color: Color(0xff28a745),
-                                        fontFamily: 'Helvetica-Bold',
-                                        fontSize: width * 0.03),
-                                  ),
-                                ],
-                              ),
-                              onTap: () => {
-                                Navigator.of(context).pushNamed(
-                                  BookingDetails.routeName,
-                                )
-                              },
-                            ),
-                          ),
-                          isPending
-                              ? SizedBox(
-                                  child: InkWell(
-                                    child: Row(
-                                      children: [
-                                        IconButton(
-                                          iconSize: width * 0.05,
-                                          onPressed: () => {
-                                            Navigator.of(context).pushNamed(
-                                              CaregiverProfile.routeName,
-                                            )
-                                          },
-                                          icon: Icon(
-                                            Icons.play_circle_outline_sharp,
-                                            size: width * 0.07,
-                                            color: Color(0xff28a745),
-                                          ),
-                                        ),
-                                        Text(
-                                          "CONTINUE PROCESS",
-                                          style: TextStyle(
-                                              color: Color(0xff28a745),
-                                              fontFamily: 'Helvetica-Bold',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ],
-                                    ),
-                                    onTap: () => {},
-                                  ),
-                                )
-                              : SizedBox(
-                                  child: InkWell(
-                                    child: Row(
-                                      children: [
-                                        IconButton(
-                                          iconSize: width * 0.05,
-                                          onPressed: () => {
-                                            Navigator.of(context).pushNamed(
-                                              CaregiverProfile.routeName,
-                                            )
-                                          },
-                                          icon: Icon(
-                                            Icons.refresh_rounded,
-                                            size: width * 0.07,
-                                            color: Color(0xff28a745),
-                                          ),
-                                        ),
-                                        Text(
-                                          "RENEW BOOKING",
-                                          style: TextStyle(
-                                              color: Color(0xff28a745),
-                                              fontFamily: 'Helvetica-Bold',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ],
-                                    ),
-                                    onTap: () => {},
-                                  ),
-                                )
-                        ]),
-              !isPending
-                  ? SizedBox(
-                      child: InkWell(
-                        child: Row(
+                  : isPending
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            IconButton(
-                              iconSize: width * 0.05,
-                              onPressed: () => {
-                                Navigator.of(context).pushNamed(
-                                  BookingRate.routeName,
-                                )
-                              },
-                              icon: Icon(
-                                Icons.star_rate_rounded,
-                                size: width * 0.07,
-                                color: Color(0xff28a745),
+                              SizedBox(
+                                child: InkWell(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: width * 0.05,
+                                        onPressed: () => {
+                                          Navigator.of(context).pushNamed(
+                                            BookingDetails.routeName,
+                                          )
+                                        },
+                                        icon: Icon(
+                                          Icons.arrow_forward_rounded,
+                                          size: width * 0.07,
+                                          color: Color(0xff28a745),
+                                        ),
+                                      ),
+                                      Text(
+                                        "BOOKING DETAILS",
+                                        style: TextStyle(
+                                            color: Color(0xff28a745),
+                                            fontFamily: 'Helvetica-Bold',
+                                            fontSize: width * 0.03),
+                                      ),
+                                    ],
+                                  ),
+                                  onTap: () => {
+                                    Navigator.of(context).pushNamed(
+                                      BookingDetails.routeName,
+                                    )
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                child: InkWell(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: width * 0.05,
+                                        onPressed: () => {
+                                          Navigator.of(context).pushNamed(
+                                            CaregiverProfile.routeName,
+                                          )
+                                        },
+                                        icon: Icon(
+                                          Icons.play_circle_outline_sharp,
+                                          size: width * 0.07,
+                                          color: Color(0xff28a745),
+                                        ),
+                                      ),
+                                      Text(
+                                        "CONTINUE PROCESS",
+                                        style: TextStyle(
+                                            color: Color(0xff28a745),
+                                            fontFamily: 'Helvetica-Bold',
+                                            fontSize: width * 0.03),
+                                      ),
+                                    ],
+                                  ),
+                                  onTap: () => {},
+                                ),
+                              )
+                            ])
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              child: InkWell(
+                                child: Row(
+                                  children: [
+                                    IconButton(
+                                      iconSize: width * 0.05,
+                                      onPressed: () => {
+                                        Navigator.of(context).pushNamed(
+                                          BookingDetails.routeName,
+                                        )
+                                      },
+                                      icon: Icon(
+                                        Icons.arrow_forward_rounded,
+                                        size: width * 0.07,
+                                        color: Color(0xff28a745),
+                                      ),
+                                    ),
+                                    Text(
+                                      "DETAILS",
+                                      style: TextStyle(
+                                          color: Color(0xff28a745),
+                                          fontFamily: 'Helvetica-Bold',
+                                          fontSize: width * 0.03),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () => {
+                                  Navigator.of(context).pushNamed(
+                                    BookingDetails.routeName,
+                                  )
+                                },
                               ),
                             ),
-                            Text(
-                              " RATEING BOOKING",
-                              style: TextStyle(
-                                  color: Color(0xff28a745),
-                                  fontFamily: 'Helvetica-Bold',
-                                  fontSize: width * 0.03),
+                            SizedBox(
+                              child: InkWell(
+                                child: Row(
+                                  children: [
+                                    IconButton(
+                                      iconSize: width * 0.05,
+                                      onPressed: () => {
+                                        Navigator.of(context).pushNamed(
+                                          BookingRate.routeName,
+                                        )
+                                      },
+                                      icon: Icon(
+                                        Icons.star_rate_rounded,
+                                        size: width * 0.07,
+                                        color: Color(0xff28a745),
+                                      ),
+                                    ),
+                                    Text(
+                                      " RATEING",
+                                      style: TextStyle(
+                                          color: Color(0xff28a745),
+                                          fontFamily: 'Helvetica-Bold',
+                                          fontSize: width * 0.03),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () => {
+                                  Navigator.of(context).pushNamed(
+                                    BookingRate.routeName,
+                                  )
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              child: InkWell(
+                                child: Row(
+                                  children: [
+                                    IconButton(
+                                      iconSize: width * 0.05,
+                                      onPressed: () => {
+                                        Navigator.of(context).pushNamed(
+                                          CaregiverProfile.routeName,
+                                        )
+                                      },
+                                      icon: Icon(
+                                        Icons.refresh_rounded,
+                                        size: width * 0.07,
+                                        color: Color(0xff28a745),
+                                      ),
+                                    ),
+                                    Text(
+                                      "RENEW",
+                                      style: TextStyle(
+                                          color: Color(0xff28a745),
+                                          fontFamily: 'Helvetica-Bold',
+                                          fontSize: width * 0.03),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () => {},
+                              ),
                             ),
                           ],
-                        ),
-                        onTap: () => {
-                          Navigator.of(context).pushNamed(
-                            BookingRate.routeName,
-                          )
-                        },
-                      ),
-                    )
-                  : SizedBox()
+                        )
             ],
           ),
         ),

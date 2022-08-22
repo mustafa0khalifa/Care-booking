@@ -26,20 +26,22 @@ class _BookingRateState extends State<BookingRate> {
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
-              fontSize: 20),
+              fontSize: deviceSize.width * 0.055),
         ),
       ),
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          padding: EdgeInsets.only(top: 0.1 * deviceSize.height),
+          padding: EdgeInsets.all(
+            deviceSize.width * 0.03,
+          ),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -67,7 +69,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -95,7 +97,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -123,7 +125,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -151,7 +153,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -179,7 +181,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -207,7 +209,7 @@ class _BookingRateState extends State<BookingRate> {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
@@ -237,61 +239,60 @@ class _BookingRateState extends State<BookingRate> {
                 Padding(
                   padding: EdgeInsets.only(top: deviceSize.height * 0.1),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.02),
-                  child: SizedBox(
-                    width: deviceSize.width * 0.4,
-                    child: Text(
-                      "Write your Review",
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                          fontWeight: FontWeight.bold,
-                          fontSize: deviceSize.width * 0.04),
-                    ),
+                SizedBox(
+                  child: Text(
+                    "Write your Review",
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontWeight: FontWeight.bold,
+                        fontSize: deviceSize.width * 0.04),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.02),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
-                      filled: true,
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 141, 139, 139),
-                          fontFamily: 'Helvetica',
-                          fontSize: 16),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xff28306e), width: 1.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 255, 255, 255))),
-                      hintText: "Write your Review",
-                      labelText: "your Review",
-                    ),
-                  ),
+                  padding: EdgeInsets.only(top: deviceSize.height * 0.03),
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: deviceSize.width * 0.7),
+                TextField(
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Your Rivew',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors
-                              .greenAccent //elevated btton background color
-                          ),
-                      onPressed: () {
-                        // ignore: avoid_print
-                        print("Tap Post");
-                      },
-                      child: Text("Post"),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
-                  ],
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: deviceSize.height * 0.03),
+                ),
+                Container(
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary:
+                            Colors.greenAccent //elevated btton background color
+                        ),
+                    onPressed: () {
+                      // ignore: avoid_print
+                      print("Tap Post");
+                    },
+                    child: Text("Post"),
+                  ),
                 )
               ],
             ),

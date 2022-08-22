@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/models/testModel.dart';
 
 import 'widgets/ItemClientNotifications.dart';
 
@@ -93,11 +92,13 @@ class _ClientNotificationsState extends State<ClientNotifications> {
                   itemCount: 20,
                   itemBuilder: (context, index) {
                     return itemClientNotifications(
+                      index: index,
                       height: deviceSize.height,
                       width: deviceSize.width,
-                      date: '12 : 05',
-                      subject: 'completes profile ',
-                      content: 'caregiver completes your profile ',
+                      date: 'sint 10 mins ago',
+                      subject: 'Sumaya is on her way',
+                      content:
+                          'she will arrive at 11:30 AM\nView booking details',
                     );
                   },
                 ),

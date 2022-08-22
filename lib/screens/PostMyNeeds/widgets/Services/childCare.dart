@@ -1975,13 +1975,26 @@ class _ChildCareState extends State<ChildCare> {
                       //more than 50% of width makes circle
                       ),
                   child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.note,
+                          size: deviceSize.width * 0.06,
+                          color: Color(0xff28306e),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                        Text(
+                          'Note',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ],
                     ),
                     subtitle: Text(
                       'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
@@ -1990,11 +2003,6 @@ class _ChildCareState extends State<ChildCare> {
                         fontWeight: FontWeight.w400,
                         color: Color(0xff28306e),
                       ),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
                     ),
                     onTap: () => {},
                   ),

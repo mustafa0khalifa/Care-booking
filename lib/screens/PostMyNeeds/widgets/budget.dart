@@ -404,7 +404,6 @@ class _BudgetState extends State<Budget> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: deviceSize.width * 0.2,
                       child: Text(
                         'Currency',
                         style: TextStyle(
@@ -414,7 +413,8 @@ class _BudgetState extends State<Budget> {
                       ),
                     ),
                     Padding(
-                        padding: EdgeInsets.only(left: deviceSize.width * 0.1)),
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.03)),
                     DropdownButton(
                         value: dropdownvalue,
                         icon: Icon(Icons.keyboard_arrow_down),
@@ -434,13 +434,26 @@ class _BudgetState extends State<Budget> {
                       //more than 50% of width makes circle
                       ),
                   child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.note,
+                          size: deviceSize.width * 0.06,
+                          color: Colors.red,
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                        Text(
+                          'Note',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
                     ),
                     subtitle: Text(
                       'You cannot change currency to LL since the start date is more than 2 months from now.',
@@ -449,11 +462,6 @@ class _BudgetState extends State<Budget> {
                         fontWeight: FontWeight.w400,
                         color: Colors.red,
                       ),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Colors.red,
                     ),
                     onTap: () => {},
                   ),
@@ -494,7 +502,7 @@ class _BudgetState extends State<Budget> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
@@ -504,9 +512,12 @@ class _BudgetState extends State<Budget> {
                           fontFamily: 'Helvetica',
                           fontSize: deviceSize.width * 0.045),
                     ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.03)),
                     SizedBox(
                       height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.6,
+                      width: deviceSize.width * 0.3,
                       child: TextField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
@@ -535,6 +546,9 @@ class _BudgetState extends State<Budget> {
                         keyboardType: TextInputType.emailAddress,
                       ),
                     ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.03)),
                     Text(
                       'USD',
                       style: TextStyle(

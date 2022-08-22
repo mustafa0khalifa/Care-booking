@@ -375,6 +375,8 @@ class _LocationState extends State<Locations> {
                         height: deviceSize.height * 0.05,
                         width: deviceSize.width * 0.4,
                         child: TextField(
+                          textAlign: TextAlign.start,
+
                           style: TextStyle(
                             fontSize: deviceSize.width * 0.03,
                             color: Color(0xff495057),

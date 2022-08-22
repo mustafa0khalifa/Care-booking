@@ -200,7 +200,7 @@ class _oneVisiteState extends State<OneVisite> {
                   ],
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.06)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
                   'Describe your schedule',
                   style: TextStyle(

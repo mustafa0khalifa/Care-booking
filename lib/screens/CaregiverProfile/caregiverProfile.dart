@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
@@ -16,6 +17,7 @@ class CaregiverProfile extends StatefulWidget {
 
 class _CaregiverProfileState extends State<CaregiverProfile> {
   late GoogleMapController mapController;
+  bool isFavorite = false;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
@@ -204,6 +206,27 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                           ),
                         ),
                       ),
+                      Container(
+                          height: deviceSize.height * 0.31,
+                          alignment: Alignment.topRight,
+                          child: IconButton(
+                            onPressed: () => {
+                              setState(
+                                () => {
+                                  isFavorite = !isFavorite,
+                                },
+                              )
+                            },
+                            icon: Icon(
+                              !isFavorite
+                                  ? Icons.favorite_border
+                                  : Icons.favorite,
+                              color: !isFavorite
+                                  ? Colors.white
+                                  : Color(0xff007bff),
+                              size: deviceSize.width * 0.07,
+                            ),
+                          )),
                     ],
                   )),
               Divider(thickness: 1),

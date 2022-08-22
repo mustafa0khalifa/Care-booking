@@ -209,13 +209,26 @@ class _PcrServicesState extends State<PcrServices> {
                       //more than 50% of width makes circle
                       ),
                   child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.note,
+                          size: deviceSize.width * 0.06,
+                          color: Color(0xff28306e),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                        Text(
+                          'Note',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ],
                     ),
                     subtitle: Text(
                       'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
@@ -224,11 +237,6 @@ class _PcrServicesState extends State<PcrServices> {
                         fontWeight: FontWeight.w400,
                         color: Color(0xff28306e),
                       ),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
                     ),
                     onTap: () => {},
                   ),

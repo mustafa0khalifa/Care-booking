@@ -72,173 +72,252 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: deviceSize.width * 0.45,
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Color(0xffD3CFC8), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(5))
-                          //more than 50% of width makes circle
-                          ),
-                      height: deviceSize.height * 0.05,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              alignment: Alignment.center,
-                              color: Color(0xff28306e),
-                              width: deviceSize.width * 0.1,
-                              height: deviceSize.height * 0.1,
-                              child: Text(
-                                  maxLines: 2,
-                                  "12",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Helvetica_Bold',
-                                      fontSize: deviceSize.width * 0.045))),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  left: deviceSize.width * 0.01)),
-                          SizedBox(
-                            width: deviceSize.width * 0.32,
-                            child: Text(
-                                maxLines: 2,
-                                "Matched caregavers",
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helvetica',
-                                    fontSize: deviceSize.width * 0.035)),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
                     color: Colors.green,
                     margin: EdgeInsets.only(
                         top: deviceSize.width * 0.01,
                         bottom: deviceSize.width * 0.01),
+                    padding: EdgeInsets.only(
+                        top: deviceSize.width * 0.01,
+                        bottom: deviceSize.width * 0.01),
                     child: Row(
                       children: [
-                        Container(
-                          height: deviceSize.width * 0.1,
-                          margin: EdgeInsets.only(
-                              right: deviceSize.width * 0.01,
-                              top: deviceSize.width * 0.01,
-                              bottom: deviceSize.width * 0.01),
-                          decoration: BoxDecoration(
-                              color: BrowseCaregiversProvider.okFilter
-                                  ? Color(0xff28306e)
-                                  : Colors.white,
-                              border: Border.all(
-                                  color: Color(0xff28306e), width: 1),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                              //more than 50% of width makes circle
-                              ),
-                          alignment: Alignment.center,
-                          child: IconButton(
-                              onPressed: () {
-                                if (scaffoldKey.currentState!.isDrawerOpen) {
-                                  scaffoldKey.currentState!.closeDrawer();
-                                  //close drawer, if drawer is open
-                                } else {
-                                  BrowseCaregiversProvider.okFilter =
-                                      !BrowseCaregiversProvider.okFilter;
+                        Column(
+                          children: [
+                            Container(
+                              height: deviceSize.width * 0.1,
+                              margin: EdgeInsets.only(
+                                  right: deviceSize.width * 0.01,
+                                  top: deviceSize.width * 0.01,
+                                  bottom: deviceSize.width * 0.01),
+                              decoration: BoxDecoration(
+                                  color: BrowseCaregiversProvider.okFilter
+                                      ? Color(0xff28306e)
+                                      : Colors.white,
+                                  border: Border.all(
+                                      color: Color(0xff28306e), width: 1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))
+                                  //more than 50% of width makes circle
+                                  ),
+                              alignment: Alignment.topLeft,
+                              child: IconButton(
+                                  onPressed: () {
+                                    if (scaffoldKey
+                                        .currentState!.isDrawerOpen) {
+                                      scaffoldKey.currentState!.closeDrawer();
+                                      //close drawer, if drawer is open
+                                    } else {
+                                      BrowseCaregiversProvider.okFilter =
+                                          !BrowseCaregiversProvider.okFilter;
 
-                                  scaffoldKey.currentState!.openDrawer();
-                                  //open drawer, if drawer is closed
-                                }
-                              },
-                              icon: Icon(
-                                Icons.filter_alt_outlined,
-                                size: deviceSize.width * 0.07,
-                                color: !BrowseCaregiversProvider.okFilter
-                                    ? Color(0xff28306e)
-                                    : Colors.white,
-                              )),
-                        ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.03)),
-                        SizedBox(
-                          child: Text(
-                            maxLines: 2,
-                            "Price for",
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.035,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff28306e),
+                                      scaffoldKey.currentState!.openDrawer();
+                                      //open drawer, if drawer is closed
+                                    }
+                                  },
+                                  icon: Icon(
+                                    Icons.filter_alt_outlined,
+                                    size: deviceSize.width * 0.07,
+                                    color: !BrowseCaregiversProvider.okFilter
+                                        ? Color(0xff28306e)
+                                        : Colors.white,
+                                  )),
                             ),
-                          ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    top: deviceSize.width * 0.07)),
+                          ],
                         ),
                         Padding(
                             padding:
                                 EdgeInsets.only(left: deviceSize.width * 0.03)),
-                        SizedBox(
-                          child: DropdownButton(
-                              value: dropdownvalue,
-                              icon: Icon(Icons.keyboard_arrow_down),
-                              items: items.map((String items) {
-                                return DropdownMenuItem(
-                                    value: items,
-                                    child: Text(
-                                      items,
-                                      style: TextStyle(
-                                        fontSize: deviceSize.width * 0.03,
-                                        fontWeight: FontWeight.w400,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                height: deviceSize.width * 0.07,
+                                width: deviceSize.width * 0.38,
+                                padding:
+                                    EdgeInsets.all(deviceSize.width * 0.01),
+                                decoration: BoxDecoration(
+                                    color: Color(0xff28306e),
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))
+                                    //more than 50% of width makes circle
+                                    ),
+                                alignment: Alignment.center,
+                                child: Text('Child care (25)',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03))),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    top: deviceSize.width * 0.03)),
+                            Container(
+                                width: deviceSize.width * 0.38,
+                                height: deviceSize.width * 0.07,
+                                padding:
+                                    EdgeInsets.all(deviceSize.width * 0.01),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))
+                                    //more than 50% of width makes circle
+                                    ),
+                                alignment: Alignment.center,
+                                child: Text('Advance nursing care (10)',
+                                    style: TextStyle(
                                         color: Color(0xff28306e),
-                                      ),
-                                    ));
-                              }).toList(),
-                              onChanged: (val) {
-                                setState(() {
-                                  dropdownvalue = val as String;
-                                });
-                              }),
-                        ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.1)),
-                        SizedBox(
-                          child: Text(
-                            maxLines: 2,
-                            "Sort By",
-                            style: TextStyle(
-                              fontSize: deviceSize.width * 0.035,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff28306e),
-                            ),
-                          ),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03))),
+                          ],
                         ),
                         Padding(
                             padding:
                                 EdgeInsets.only(left: deviceSize.width * 0.03)),
-                        SizedBox(
-                          child: DropdownButton(
-                              value: dropdownvalue2,
-                              icon: Icon(Icons.keyboard_arrow_down),
-                              items: items2.map((String items) {
-                                return DropdownMenuItem(
-                                    value: items,
-                                    child: Text(
-                                      items,
-                                      style: TextStyle(
-                                        fontSize: deviceSize.width * 0.03,
-                                        fontWeight: FontWeight.w400,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                height: deviceSize.width * 0.07,
+                                width: deviceSize.width * 0.38,
+                                padding:
+                                    EdgeInsets.all(deviceSize.width * 0.01),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))
+                                    //more than 50% of width makes circle
+                                    ),
+                                alignment: Alignment.center,
+                                child: Text('Elderly care (34)',
+                                    style: TextStyle(
                                         color: Color(0xff28306e),
-                                      ),
-                                    ));
-                              }).toList(),
-                              onChanged: (val) {
-                                setState(() {
-                                  dropdownvalue2 = val as String;
-                                });
-                              }),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03))),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    top: deviceSize.width * 0.03)),
+                            Container(
+                                height: deviceSize.width * 0.07,
+                                width: deviceSize.width * 0.38,
+                                padding:
+                                    EdgeInsets.all(deviceSize.width * 0.01),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5))
+                                    //more than 50% of width makes circle
+                                    ),
+                                alignment: Alignment.center,
+                                child: Text('Laboratory Services (5)',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03))),
+                          ],
                         ),
                       ],
                     ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                  Row(
+                    children: [
+                      Container(
+                        width: deviceSize.width * 0.45,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(top: deviceSize.height * 0.01),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color(0xffD3CFC8), width: 1),
+                              borderRadius: BorderRadius.all(Radius.circular(5))
+                              //more than 50% of width makes circle
+                              ),
+                          height: deviceSize.height * 0.05,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  alignment: Alignment.center,
+                                  color: Color(0xff28306e),
+                                  width: deviceSize.width * 0.1,
+                                  height: deviceSize.height * 0.1,
+                                  child: Text(
+                                      maxLines: 2,
+                                      "12",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: deviceSize.width * 0.045))),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: deviceSize.width * 0.01)),
+                              SizedBox(
+                                width: deviceSize.width * 0.32,
+                                child: Text(
+                                    maxLines: 2,
+                                    "Matched caregavers",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.035)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(left: deviceSize.width * 0.05)),
+                      SizedBox(
+                        child: Text(
+                          maxLines: 2,
+                          "Sort By",
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(left: deviceSize.width * 0.03)),
+                      SizedBox(
+                        child: DropdownButton(
+                            value: dropdownvalue2,
+                            icon: Icon(Icons.keyboard_arrow_down),
+                            items: items2.map((String items) {
+                              return DropdownMenuItem(
+                                  value: items,
+                                  child: Text(
+                                    items,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.03,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ));
+                            }).toList(),
+                            onChanged: (val) {
+                              setState(() {
+                                dropdownvalue2 = val as String;
+                              });
+                            }),
+                      ),
+                    ],
                   ),
                 ],
               ),

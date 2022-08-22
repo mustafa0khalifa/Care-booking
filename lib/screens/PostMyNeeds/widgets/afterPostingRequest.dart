@@ -42,32 +42,20 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                   child: Text(
                     "Your submitted successfully",
                     style: TextStyle(
-                        color: Color(0xffD3CFC8),
+                        color: Color(0xff28306e),
                         fontFamily: 'Helvetica_Bold',
                         fontWeight: FontWeight.bold,
                         fontSize: deviceSize.width * 0.045),
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-              Center(
-                child: Container(
-                  height: deviceSize.height * 0.05,
-                  width: deviceSize.width * 0.3,
-                  padding: EdgeInsets.all(deviceSize.width * 0.02),
-                  alignment: Alignment.center,
-                  child: Text('Done',
-                      style: TextStyle(
-                          color: Color(0xff28a745),
-                          fontFamily: 'Helvetica_Bold',
-                          fontSize: deviceSize.width * 0.04)),
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.1)),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.02)),
               Center(
                 child: SizedBox(
+                  width: deviceSize.width * 0.55,
                   child: Text(
                     "You can check your request’s progress from “My Care request” page",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color(0xffD3CFC8),
                         fontFamily: 'Helvetica_Bold',
@@ -77,44 +65,65 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-              Center(
-                child: SizedBox(
-                  width: deviceSize.width * 0.4,
-                  child: TextButton(
-                    child: Text('My Pending Bookings'),
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Color(0xff28306e),
-                      onSurface: Colors.grey,
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        width: deviceSize.width * 0.4,
+                        child: TextButton(
+                          child: Text(
+                            'My Pending Bookings',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica_Bold',
+                                fontWeight: FontWeight.bold,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Color(0xff28306e),
+                            onSurface: Colors.grey,
+                          ),
+                          onPressed: () {
+                            widget.myBook
+                                .changeStateMyBooking('My Pending Bookings');
+                            Navigator.of(context).pushNamed(
+                              MyBookings.routeName,
+                            );
+                          },
+                        ),
+                      ),
                     ),
-                    onPressed: () {
-                      widget.myBook.changeStateMyBooking('My Pending Bookings');
-                      Navigator.of(context).pushNamed(
-                        MyBookings.routeName,
-                      );
-                    },
-                  ),
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-              Center(
-                child: SizedBox(
-                  width: deviceSize.width * 0.4,
-                  child: TextButton(
-                    child: Text('My Care Request'),
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Color(0xff007bff),
-                      onSurface: Colors.grey,
+                    Center(
+                      child: SizedBox(
+                        width: deviceSize.width * 0.4,
+                        child: TextButton(
+                          child: Text(
+                            'My Care Request',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica_Bold',
+                                fontWeight: FontWeight.bold,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Color(0xff3ab284),
+                            onSurface: Colors.grey,
+                          ),
+                          onPressed: () {
+                            /*Navigator.of(context).pushNamed(
+                          AfterBookingRequest.routeName,
+                        )*/
+                          },
+                        ),
+                      ),
                     ),
-                    onPressed: () {
-                      /*Navigator.of(context).pushNamed(
-                        AfterBookingRequest.routeName,
-                      )*/
-                    },
-                  ),
+                  ],
                 ),
-              ),
+              )
             ],
           ),
         ),

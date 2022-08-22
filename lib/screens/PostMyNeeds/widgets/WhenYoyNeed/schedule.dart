@@ -369,13 +369,26 @@ class _ScheduleState extends State<Schedule> {
                       //more than 50% of width makes circle
                       ),
                   child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.note,
+                          size: deviceSize.width * 0.06,
+                          color: Color(0xff28306e),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                        Text(
+                          'Note',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ],
                     ),
                     subtitle: Text(
                       'Live-in care means having a fully trained caregiver living with you in your own home.\nYour live-in caregiver will support you with your specific needs to keep you comfortable and independent at home.',
@@ -384,11 +397,6 @@ class _ScheduleState extends State<Schedule> {
                         fontWeight: FontWeight.w400,
                         color: Color(0xff28306e),
                       ),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
                     ),
                     onTap: () => {},
                   ),
@@ -910,13 +918,26 @@ class _ScheduleState extends State<Schedule> {
                       //more than 50% of width makes circle
                       ),
                   child: ListTile(
-                    title: Text(
-                      'Note',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.035,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff28306e),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.note,
+                          size: deviceSize.width * 0.06,
+                          color: Color(0xff28306e),
+                        ),
+                        Padding(
+                            padding:
+                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                        Text(
+                          'Note',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ],
                     ),
                     subtitle: Text(
                       'when booking for longer periods, you get a discount on company fees, and you will be able to get more offers from interested caregivers.',
@@ -925,11 +946,6 @@ class _ScheduleState extends State<Schedule> {
                         fontWeight: FontWeight.w400,
                         color: Color(0xff28306e),
                       ),
-                    ),
-                    leading: Icon(
-                      Icons.note,
-                      size: deviceSize.width * 0.07,
-                      color: Color(0xff28306e),
                     ),
                     onTap: () => {},
                   ),
