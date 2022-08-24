@@ -504,85 +504,179 @@ class ItemPending extends StatelessWidget {
                         )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           height: height * 0.1,
                           padding: EdgeInsets.all(width * 0.03),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black, width: 1),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                              //more than 50% of width makes circle
-                              ),
-                          child: Text(
-                            "95\$ remaining",
-                            style: TextStyle(
-                                color: Color(0xff28a745),
-                                fontFamily: 'Helveticas',
-                                fontSize: width * 0.025),
-                          ),
-                        ),
-                        Container(
-                          height: height * 0.1,
-                          padding: EdgeInsets.all(width * 0.025),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black, width: 1),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                              //more than 50% of width makes circle
-                              ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "4 remaining shifts",
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontFamily: 'Helveticas',
-                                    fontSize: width * 0.025),
+                              Icon(
+                                Icons.money_off_outlined,
+                                size: width * 0.04,
                               ),
                               Padding(
-                                  padding: EdgeInsets.only(top: height * 0.01)),
-                              Text(
-                                "out of 10",
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helveticas',
-                                    fontSize: width * 0.025),
+                                  padding: EdgeInsets.only(left: width * 0.01)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.005)),
+                                  Text(
+                                    "Balance",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Helveticas',
+                                        fontSize: width * 0.025),
+                                  ),
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.01)),
+                                  EasyRichText(
+                                    "\$95 remaining",
+                                    patternList: [
+                                      EasyRichTextPattern(
+                                        targetString: '95 remaining',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.025),
+                                      ),
+                                    ],
+                                    defaultStyle: TextStyle(
+                                        fontFamily: 'Helveticas',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: width * 0.025),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
                         Container(
                           height: height * 0.1,
-                          padding: EdgeInsets.all(width * 0.025),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black, width: 1),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                              //more than 50% of width makes circle
-                              ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          padding: EdgeInsets.all(width * 0.03),
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Booking schedule",
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontFamily: 'Helveticas',
-                                    fontSize: width * 0.025),
+                              Icon(
+                                Icons.date_range_outlined,
+                                size: width * 0.04,
                               ),
                               Padding(
-                                  padding: EdgeInsets.only(top: height * 0.01)),
-                              Text(
-                                "01 July - 01 Sep, 2022",
-                                style: TextStyle(
-                                    color: Color(0xff28306e),
-                                    fontFamily: 'Helveticas',
-                                    fontSize: width * 0.025),
+                                  padding: EdgeInsets.only(left: width * 0.01)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.005)),
+                                  Text(
+                                    "Schedule",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Helveticas',
+                                        fontSize: width * 0.025),
+                                  ),
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.01)),
+                                  EasyRichText(
+                                    "01 Jul - 01 Sep '22",
+                                    defaultStyle: TextStyle(
+                                        fontFamily: 'Helveticas',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: width * 0.025),
+                                    patternList: [
+                                      EasyRichTextPattern(
+                                        targetString: '01 Jul - 01 Sep',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.025),
+                                      ),
+                                      EasyRichTextPattern(
+                                        targetString: '22',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.025),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: height * 0.1,
+                          padding: EdgeInsets.all(width * 0.03),
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.luggage,
+                                size: width * 0.04,
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.01)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.005)),
+                                  Text(
+                                    "Balance",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Helveticas',
+                                        fontSize: width * 0.025),
+                                  ),
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: width * 0.01)),
+                                  EasyRichText(
+                                    "4 out of 10 Shifts",
+                                    defaultStyle: TextStyle(
+                                        fontFamily: 'Helveticas',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: width * 0.025),
+                                    patternList: [
+                                      EasyRichTextPattern(
+                                        targetString: '4',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.025),
+                                      ),
+                                      EasyRichTextPattern(
+                                        targetString: '10',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.025),
+                                      ),
+                                      EasyRichTextPattern(
+                                        targetString: 'out of',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.025),
+                                      ),
+                                      EasyRichTextPattern(
+                                        targetString: 'Shifts',
+                                        style: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.025),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ],
                           ),

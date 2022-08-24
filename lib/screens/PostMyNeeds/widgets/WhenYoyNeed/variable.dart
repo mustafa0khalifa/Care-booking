@@ -18,28 +18,83 @@ class _VariableState extends State<Variable> {
   List<String> listDate = [];
   List<String> listDateShift = [];
 
-  final _date = TextEditingController();
-  final _formController = TextEditingController();
+  final _fromController = TextEditingController();
   final _toController = TextEditingController();
+  final _dateController = TextEditingController();
 
   DateTime selectedDate = DateTime.now();
 
+  late String _setTime, _setDate;
+
+  late String _hour, _minute, _time;
+
+  late String dateTime;
+
   TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (picked != null)
+      setState(() {
+        selectedDate = picked;
+        _dateController.text = DateFormat.yMd().format(selectedDate);
+      });
+  }
+
+  Future<Null> _selectTimeFrom(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+        _fromController.text = _time;
+        _fromController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  Future<Null> _selectTimeTo(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+
+        _toController.text = _time;
+        _toController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
 
   @override
   void initState() {
-    _formController.text = DateFormat.yMd().format(DateTime.now());
+    _fromController.text = DateFormat.yMd().format(DateTime.now());
     _toController.text = DateFormat.yMd().format(DateTime.now());
 
-    _formController.text = formatDate(
+    _fromController.text = formatDate(
         DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
         [hh, ':', nn, " ", am]).toString();
 
     _toController.text = formatDate(
         DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
         [hh, ':', nn, " ", am]).toString();
-
-    _date.text = '08 / 17 /2022';
     super.initState();
   }
 
@@ -455,8 +510,8 @@ class _VariableState extends State<Variable> {
                   onTap: () => {
                     setState(
                       () => {
-                        listDate.add(_date.text),
-                        listDateShift.add(_formController.text),
+                        listDate.add(_dateController.text),
+                        listDateShift.add(_fromController.text),
                         listDateShift.add(_toController.text),
                       },
                     )
@@ -476,7 +531,9 @@ class _VariableState extends State<Variable> {
                   width: deviceSize.width * 0.8,
                   child: TextField(
                     keyboardType: TextInputType.number,
-                    controller: _date,
+                    controller: _dateController,
+                    readOnly: true,
+                    onTap: () => {_selectDate(context)},
                     style: TextStyle(
                       fontSize: deviceSize.width * 0.03,
                       color: Color(0xff495057),
@@ -530,7 +587,9 @@ class _VariableState extends State<Variable> {
                       width: deviceSize.width * 0.33,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
-                        controller: _formController,
+                        controller: _fromController,
+                        readOnly: true,
+                        onTap: () => {_selectTimeFrom(context)},
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
                           color: Color(0xff495057),
@@ -581,6 +640,8 @@ class _VariableState extends State<Variable> {
                       width: deviceSize.width * 0.33,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
+                        readOnly: true,
+                        onTap: () => {_selectTimeTo(context)},
                         controller: _toController,
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,

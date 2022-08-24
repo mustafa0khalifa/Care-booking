@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../providers/PostMyNeedsProvider/additionalServicesProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../budget.dart';
+import 'package:date_format/date_format.dart';
+
+import 'package:intl/intl.dart';
+import 'package:date_format/date_format.dart';
 
 class OneVisite extends StatefulWidget {
   static const routeName = '/oneVisite-screen';
@@ -18,6 +18,71 @@ class OneVisite extends StatefulWidget {
 }
 
 class _oneVisiteState extends State<OneVisite> {
+  final _fromController = TextEditingController();
+  final _toController = TextEditingController();
+  final _dateController = TextEditingController();
+
+  DateTime selectedDate = DateTime.now();
+
+  late String _setTime, _setDate;
+
+  late String _hour, _minute, _time;
+
+  late String dateTime;
+
+  TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (picked != null)
+      setState(() {
+        selectedDate = picked;
+        _dateController.text = DateFormat.yMd().format(selectedDate);
+      });
+  }
+
+  Future<Null> _selectTimeFrom(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+        _fromController.text = _time;
+        _fromController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  Future<Null> _selectTimeTo(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+
+        _toController.text = _time;
+        _toController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -347,7 +412,9 @@ class _oneVisiteState extends State<OneVisite> {
                   width: deviceSize.width * 0.8,
                   child: TextField(
                     keyboardType: TextInputType.number,
-                    controller: null,
+                    controller: _dateController,
+                    readOnly: true,
+                    onTap: () => {_selectDate(context)},
                     style: TextStyle(
                       fontSize: deviceSize.width * 0.03,
                       color: Color(0xff495057),
@@ -401,7 +468,9 @@ class _oneVisiteState extends State<OneVisite> {
                       width: deviceSize.width * 0.33,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
-                        controller: null,
+                        readOnly: true,
+                        onTap: () => {_selectTimeFrom(context)},
+                        controller: _fromController,
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
                           color: Color(0xff495057),
@@ -452,7 +521,9 @@ class _oneVisiteState extends State<OneVisite> {
                       width: deviceSize.width * 0.33,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
-                        controller: null,
+                        readOnly: true,
+                        onTap: () => {_selectTimeTo(context)},
+                        controller: _toController,
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
                           color: Color(0xff495057),

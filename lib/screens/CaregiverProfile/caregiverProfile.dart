@@ -519,7 +519,7 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             padding: EdgeInsets.all(
                                                 deviceSize.width * 0.02),
                                             decoration: BoxDecoration(
-                                                color: Color(0xff495057),
+                                                color: Color(0xffD3CFC8),
                                                 borderRadius:
                                                     BorderRadius.circular(15)),
                                             child: Text(

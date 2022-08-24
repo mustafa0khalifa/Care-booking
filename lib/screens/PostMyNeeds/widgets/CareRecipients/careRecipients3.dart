@@ -6,6 +6,9 @@ import '../../../../providers/PostMyNeedsProvider/careRecipientsProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
 import 'careRecipients2.dart';
 
+import 'package:intl/intl.dart';
+import 'package:date_format/date_format.dart';
+
 class CareRecipients3 extends StatefulWidget {
   static const routeName = '/careRecipients3-screen';
 
@@ -14,6 +17,86 @@ class CareRecipients3 extends StatefulWidget {
 }
 
 class _CareRecipientsAeaState extends State<CareRecipients3> {
+  final _fromController = TextEditingController();
+  final _toController = TextEditingController();
+  final _dateController = TextEditingController();
+
+  DateTime selectedDate = DateTime.now();
+
+  late String _setTime, _setDate;
+
+  late String _hour, _minute, _time;
+
+  late String dateTime;
+
+  TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (picked != null)
+      setState(() {
+        selectedDate = picked;
+        _dateController.text = DateFormat.yMd().format(selectedDate);
+      });
+  }
+
+  Future<Null> _selectTimeFrom(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+        _fromController.text = _time;
+        _fromController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  Future<Null> _selectTimeTo(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+
+        _toController.text = _time;
+        _toController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  @override
+  void initState() {
+    _fromController.text = DateFormat.yMd().format(DateTime.now());
+    _toController.text = DateFormat.yMd().format(DateTime.now());
+
+    _fromController.text = formatDate(
+        DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
+        [hh, ':', nn, " ", am]).toString();
+
+    _toController.text = formatDate(
+        DateTime(2019, 08, 1, DateTime.now().hour, DateTime.now().minute),
+        [hh, ':', nn, " ", am]).toString();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -294,7 +377,9 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       width: deviceSize.width * 0.8,
                       child: TextField(
                         keyboardType: TextInputType.number,
-                        controller: null,
+                        readOnly: true,
+                        onTap: () => {_selectDate(context)},
+                        controller: _dateController,
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.03,
                           color: Color(0xff495057),

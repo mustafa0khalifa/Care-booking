@@ -1,10 +1,10 @@
-import 'package:easy_rich_text/easy_rich_text.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/scheduleProvider.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/variable.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/budget.dart';
-import 'package:flutter_switch/flutter_switch.dart';
+
+import 'package:intl/intl.dart';
+import 'package:date_format/date_format.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/CategoriesProvider.dart';
@@ -22,6 +22,38 @@ class Schedule extends StatefulWidget {
 }
 
 class _ScheduleState extends State<Schedule> {
+  final _dateController = TextEditingController();
+  late String _setTime, _setDate;
+
+  late String _hour, _minute, _time;
+
+  late String dateTime;
+
+  DateTime selectedDate = DateTime.now();
+
+  TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (picked != null)
+      setState(() {
+        selectedDate = picked;
+        _dateController.text = DateFormat.yMd().format(selectedDate);
+      });
+  }
+
+  @override
+  void initState() {
+    _dateController.text = DateFormat.yMd().format(DateTime.now());
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -835,7 +867,9 @@ class _ScheduleState extends State<Schedule> {
                                   width: deviceSize.width * 0.8,
                                   child: TextField(
                                     keyboardType: TextInputType.number,
-                                    controller: null,
+                                    controller: _dateController,
+                                    readOnly: true,
+                                    onTap: () => {_selectDate(context)},
                                     style: TextStyle(
                                       fontSize: deviceSize.width * 0.03,
                                       color: Color(0xff495057),

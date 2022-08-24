@@ -27,13 +27,15 @@ class DaySh extends StatefulWidget {
 class DayState extends State<DaySh> {
   final _fromController = TextEditingController();
   final _toController = TextEditingController();
+  final _dateController = TextEditingController();
+
+  DateTime selectedDate = DateTime.now();
+
   late String _setTime, _setDate;
 
   late String _hour, _minute, _time;
 
   late String dateTime;
-
-  DateTime selectedDate = DateTime.now();
 
   TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
 
@@ -47,11 +49,11 @@ class DayState extends State<DaySh> {
     if (picked != null)
       setState(() {
         selectedDate = picked;
-        _fromController.text = DateFormat.yMd().format(selectedDate);
+        _dateController.text = DateFormat.yMd().format(selectedDate);
       });
   }
 
-  Future<Null> _selectTime(BuildContext context) async {
+  Future<Null> _selectTimeFrom(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: selectedTime,
@@ -64,6 +66,25 @@ class DayState extends State<DaySh> {
         _time = _hour + ' : ' + _minute;
         _fromController.text = _time;
         _fromController.text = formatDate(
+            DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+            [hh, ':', nn, " ", am]).toString();
+      });
+  }
+
+  Future<Null> _selectTimeTo(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null)
+      setState(() {
+        selectedTime = picked;
+        _hour = selectedTime.hour.toString();
+        _minute = selectedTime.minute.toString();
+        _time = _hour + ' : ' + _minute;
+
+        _toController.text = _time;
+        _toController.text = formatDate(
             DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
             [hh, ':', nn, " ", am]).toString();
       });
@@ -235,6 +256,8 @@ class DayState extends State<DaySh> {
                                 width: widget.width * 0.33,
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
+                                  readOnly: true,
+                                  onTap: () => {_selectTimeFrom(context)},
                                   controller: _fromController,
                                   style: TextStyle(
                                     fontSize: widget.width * 0.03,
@@ -270,10 +293,13 @@ class DayState extends State<DaySh> {
                                               bottomRight: Radius.circular(5))
                                           //more than 50% of width makes circle
                                           ),
-                                      child: Icon(
-                                        color: Color(0xff495057),
-                                        Icons.more_time_sharp,
-                                        size: widget.width * 0.07,
+                                      child: InkWell(
+                                        child: Icon(
+                                          color: Color(0xff495057),
+                                          Icons.more_time_sharp,
+                                          size: widget.width * 0.07,
+                                        ),
+                                        onTap: () => {_selectTimeFrom(context)},
                                       ),
                                     ),
                                   ),
@@ -287,6 +313,8 @@ class DayState extends State<DaySh> {
                                 width: widget.width * 0.33,
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
+                                  onTap: () => {_selectTimeTo(context)},
+                                  readOnly: true,
                                   controller: _toController,
                                   style: TextStyle(
                                     fontSize: widget.width * 0.03,
@@ -322,10 +350,13 @@ class DayState extends State<DaySh> {
                                               bottomRight: Radius.circular(5))
                                           //more than 50% of width makes circle
                                           ),
-                                      child: Icon(
-                                        color: Color(0xff495057),
-                                        Icons.more_time_sharp,
-                                        size: widget.width * 0.07,
+                                      child: InkWell(
+                                        child: Icon(
+                                          color: Color(0xff495057),
+                                          Icons.more_time_sharp,
+                                          size: widget.width * 0.07,
+                                        ),
+                                        onTap: () => {_selectTimeTo(context)},
                                       ),
                                     ),
                                   ),
