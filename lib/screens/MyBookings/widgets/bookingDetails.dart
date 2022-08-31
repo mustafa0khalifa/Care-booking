@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/MyBookings/widgets/item.dart';
-import 'package:flutter_application_10000/screens/MyBookings/widgets/itemDetiel.dart';
 
 import '../../../models/testModel.dart';
 import '../../../providers/myBookingProvider.dart';
@@ -229,47 +228,800 @@ class _BookingDetailsState extends State<BookingDetails> {
       body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
-          margin: EdgeInsets.all(deviceSize.width * 0.01),
+          margin: EdgeInsets.all(deviceSize.width * 0.02),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ItemPending(
-                  careModel: TestModel.testPending2,
-                  height: deviceSize.height,
-                  width: deviceSize.width,
-                  isPending: true,
-                  isDatiel: true,
-                  isRequest: false,
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffD3CFC8),
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.01),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.4,
+                        child: Row(
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xffe9ecef),
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(100))
+                                    //more than 50% of width makes circle
+                                    ),
+                                child: Icon(
+                                  Icons.person,
+                                  size: deviceSize.width * 0.1,
+                                  color: Color(0xff495057),
+                                )), //CircleAva
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.05)),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Jane, 31",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica-Bold',
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.width * 0.02)),
+                                Text(
+                                  "Child Care",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(deviceSize.height * 0.01),
+                        alignment: Alignment.centerRight,
+                        child: SizedBox(
+                            child: Row(
+                          children: [
+                            Icon(
+                              Icons.whatsapp,
+                              color: Color(0xff3ab284),
+                              size: deviceSize.width * 0.07,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  border: Border.all(
+                                      color: Color(0xff28306e), width: 1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))
+                                  //more than 50% of width makes circle
+                                  ),
+                              child: Icon(
+                                Icons.call,
+                                color: Colors.white,
+                                size: deviceSize.width * 0.06,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03),
+                            ),
+                            Icon(
+                              Icons.warning_rounded,
+                              color: Colors.red,
+                              size: deviceSize.width * 0.08,
+                            ),
+                          ],
+                        )),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.02),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: deviceSize.width * 0.4,
+                            child: Text(
+                              "Booking Schedule",
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03)),
+                          SizedBox(
+                            child: Text(
+                              "Booking Request",
+                              style: TextStyle(
+                                  color: Color(0xff007bff),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.02)),
+                      SizedBox(
+                        width: deviceSize.width * 0.9,
+                        child: Text(
+                          "From 01 July, 2022 to 01 Sep, 2022",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: deviceSize.width * 0.035),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.02),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: deviceSize.width * 0.4,
+                            child: Text(
+                              "Remaining Balance",
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03)),
+                          SizedBox(
+                            child: Text(
+                              "My Balance",
+                              style: TextStyle(
+                                  color: Color(0xff007bff),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.02)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: deviceSize.width * 0.3,
+                            child: Text(
+                              "95\$ remaining ",
+                              style: TextStyle(
+                                  color: Color(0xff3ab284),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03)),
+                          SizedBox(
+                            child: Text(
+                              "out of 500\$",
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.02),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: deviceSize.width * 0.3,
+                            child: Text(
+                              "Care Recipient ",
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.03)),
+                          SizedBox(
+                            child: Text(
+                              "Amir Sultan, Amira Sultan",
+                              style: TextStyle(
+                                  color: Color(0xff007bff),
+                                  fontFamily: 'Helvetica-Bold',
+                                  fontSize: deviceSize.width * 0.035),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.02),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.9,
+                        child: Text(
+                          "Services Request",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: deviceSize.width * 0.035),
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.02)),
+                      SizedBox(
+                        width: deviceSize.width * 0.9,
+                        child: Text(
+                          "Child care, 2 children",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica-Bold',
+                              fontSize: deviceSize.width * 0.035),
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      SizedBox(
+                        width: deviceSize.width * 0.9,
+                        child: Text(
+                          "Basic Newborn Care, Maternity Care, Cooking for kids",
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.03),
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    ],
+                  ),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
-                  'Executed Shifts',
+                  'Shifts',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica_Bold',
                       fontWeight: FontWeight.bold,
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                    padding: EdgeInsets.all(deviceSize.width * 0.01),
-                    child: ListView(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      children: [
-                        itemShift('8/8/2022', '3', '5:00 PM', '8:00 PM', '25',
-                            true, 1),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(top: deviceSize.height * 0.03)),
-                        itemShift('8/8/2022', '3', '5:00 PM', '8:00 PM', '25',
-                            false, 2)
-                      ],
-                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: deviceSize.width * 0.4,
+                      child: Text(
+                        "4 remaining shifts",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.035),
+                      ),
+                    ),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(left: deviceSize.width * 0.03)),
+                    SizedBox(
+                      child: Text(
+                        "4 remaining shifts",
+                        style: TextStyle(
+                            color: Color(0xff28306e),
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.035),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                SizedBox(
+                  height: deviceSize.height * 0.3,
+                  child: ListView(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 240, 202, 145),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, July 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              child: Text(
+                                "Dispute",
+                                style: TextStyle(
+                                    color: Color(0xff007bff),
+                                    fontFamily: 'Helvetica-Bold',
+                                    fontSize: deviceSize.width * 0.03),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 240, 202, 145),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, July 26, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              child: Text(
+                                "Dispute",
+                                style: TextStyle(
+                                    color: Color(0xff007bff),
+                                    fontFamily: 'Helvetica-Bold',
+                                    fontSize: deviceSize.width * 0.03),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 149, 197, 236),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 9, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 149, 197, 236),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 9, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 209, 241, 210),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 209, 241, 210),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 209, 241, 210),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 209, 241, 210),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(top: deviceSize.height * 0.01)),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 209, 241, 210),
+                            border:
+                                Border.all(color: Color(0xffD3CFC8), width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: deviceSize.width * 0.4,
+                                  child: Text(
+                                    "Wednesday, August 23, 2022",
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: deviceSize.width * 0.03),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: deviceSize.width * 0.06)),
+                                Text(
+                                  "5:00 PM - 8:00 PM",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.03),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               ],
             ),
           )),

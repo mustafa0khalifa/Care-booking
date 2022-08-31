@@ -251,56 +251,57 @@ class DayState extends State<DaySh> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                height: widget.height * 0.05,
-                                width: widget.width * 0.33,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  readOnly: true,
-                                  onTap: () => {_selectTimeFrom(context)},
-                                  controller: _fromController,
-                                  style: TextStyle(
-                                    fontSize: widget.width * 0.03,
-                                    color: Color(0xff495057),
-                                    fontFamily: 'Helvetica',
+                              TextFormField(
+                                keyboardType: TextInputType.number,
+                                readOnly: true,
+                                onTap: () => {_selectTimeFrom(context)},
+                                controller: _fromController,
+                                style: TextStyle(
+                                  fontSize: widget.width * 0.03,
+                                  color: Color(0xff495057),
+                                  fontFamily: 'Helvetica',
+                                ),
+                                decoration: InputDecoration(
+                                  hintText: 'From',
+                                  constraints: BoxConstraints(
+                                      maxWidth: widget.width * 0.33,
+                                      maxHeight: widget.height * 0.05),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 2),
+                                  fillColor: Color(0xffe9ecef),
+                                  filled: true,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Color(0xffced4da), width: 1.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
-                                  decoration: InputDecoration(
-                                    hintText: 'From',
-                                    fillColor: Color(0xffe9ecef),
-                                    filled: true,
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Color(0xffced4da), width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Color(0xffced4da), width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xffced4da))),
-                                    suffixIcon: Container(
-                                      decoration: BoxDecoration(
-                                          color: Color(0xffe9ecef),
-                                          border: Border.all(
-                                            color: Color(0xffced4da),
-                                          ),
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(5),
-                                              bottomRight: Radius.circular(5))
-                                          //more than 50% of width makes circle
-                                          ),
-                                      child: InkWell(
-                                        child: Icon(
-                                          color: Color(0xff495057),
-                                          Icons.more_time_sharp,
-                                          size: widget.width * 0.07,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Color(0xffced4da), width: 1.0),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                          BorderSide(color: Color(0xffced4da))),
+                                  suffixIcon: Container(
+                                    decoration: BoxDecoration(
+                                        color: Color(0xffe9ecef),
+                                        border: Border.all(
+                                          color: Color(0xffced4da),
                                         ),
-                                        onTap: () => {_selectTimeFrom(context)},
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(5),
+                                            bottomRight: Radius.circular(5))
+                                        //more than 50% of width makes circle
+                                        ),
+                                    child: InkWell(
+                                      child: Icon(
+                                        color: Color(0xff495057),
+                                        Icons.more_time_sharp,
+                                        size: widget.width * 0.07,
                                       ),
+                                      onTap: () => {_selectTimeFrom(context)},
                                     ),
                                   ),
                                 ),
@@ -308,56 +309,57 @@ class DayState extends State<DaySh> {
                               Padding(
                                   padding: EdgeInsets.only(
                                       left: widget.width * 0.05)),
-                              SizedBox(
-                                height: widget.height * 0.05,
-                                width: widget.width * 0.33,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  onTap: () => {_selectTimeTo(context)},
-                                  readOnly: true,
-                                  controller: _toController,
-                                  style: TextStyle(
-                                    fontSize: widget.width * 0.03,
-                                    color: Color(0xff495057),
-                                    fontFamily: 'Helvetica',
+                              TextFormField(
+                                keyboardType: TextInputType.number,
+                                onTap: () => {_selectTimeTo(context)},
+                                readOnly: true,
+                                controller: _toController,
+                                style: TextStyle(
+                                  fontSize: widget.width * 0.03,
+                                  color: Color(0xff495057),
+                                  fontFamily: 'Helvetica',
+                                ),
+                                decoration: InputDecoration(
+                                  hintText: 'To',
+                                  fillColor: Color(0xffe9ecef),
+                                  filled: true,
+                                  constraints: BoxConstraints(
+                                      maxWidth: widget.width * 0.33,
+                                      maxHeight: widget.height * 0.05),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 2),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Color(0xffced4da), width: 1.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
-                                  decoration: InputDecoration(
-                                    hintText: 'To',
-                                    fillColor: Color(0xffe9ecef),
-                                    filled: true,
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Color(0xffced4da), width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: Color(0xffced4da), width: 1.0),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xffced4da))),
-                                    suffixIcon: Container(
-                                      decoration: BoxDecoration(
-                                          color: Color(0xffe9ecef),
-                                          border: Border.all(
-                                            color: Color(0xffced4da),
-                                          ),
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(5),
-                                              bottomRight: Radius.circular(5))
-                                          //more than 50% of width makes circle
-                                          ),
-                                      child: InkWell(
-                                        child: Icon(
-                                          color: Color(0xff495057),
-                                          Icons.more_time_sharp,
-                                          size: widget.width * 0.07,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        color: Color(0xffced4da), width: 1.0),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                          BorderSide(color: Color(0xffced4da))),
+                                  suffixIcon: Container(
+                                    decoration: BoxDecoration(
+                                        color: Color(0xffe9ecef),
+                                        border: Border.all(
+                                          color: Color(0xffced4da),
                                         ),
-                                        onTap: () => {_selectTimeTo(context)},
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(5),
+                                            bottomRight: Radius.circular(5))
+                                        //more than 50% of width makes circle
+                                        ),
+                                    child: InkWell(
+                                      child: Icon(
+                                        color: Color(0xff495057),
+                                        Icons.more_time_sharp,
+                                        size: widget.width * 0.07,
                                       ),
+                                      onTap: () => {_selectTimeTo(context)},
                                     ),
                                   ),
                                 ),

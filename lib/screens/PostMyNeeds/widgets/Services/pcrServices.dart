@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/PostMyNeedsProvider/pcrServicesProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
-import '../Categories/widgets/buildCaterorie.dart';
 import '../caregiverPreferences.dart';
 
 class PcrServices extends StatefulWidget {
@@ -208,37 +207,48 @@ class _PcrServicesState extends State<PcrServices> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'The lab test fee does NOT cover the lab fee and only covers the technician fee ',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
                 Padding(
@@ -304,17 +314,18 @@ class _PcrServicesState extends State<PcrServices> {
                   'What type of services do you need?',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontFamily: 'Helvetica_Bold',
+                      fontWeight: FontWeight.bold,
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.02)),
                 Text(
                   'COVID-19 testing',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
@@ -728,7 +739,7 @@ class _PcrServicesState extends State<PcrServices> {
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.045),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                     ),
                     IconButton(onPressed: null, icon: Icon(Icons.attach_file)),

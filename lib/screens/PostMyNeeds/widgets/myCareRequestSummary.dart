@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/automaticMatchingOption.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/caregiverPreferences.dart';
 import '../../BookingsDashboard/bookingsDashboard.dart';
-import 'NavBar.dart';
 
 class MyCareRequestSummary extends StatefulWidget {
   static const routeName = '/myCareRequestSummary-screen';
@@ -201,7 +199,7 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
                       fontWeight: FontWeight.bold,
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -210,69 +208,68 @@ class _MyCareRequestSummaryState extends State<MyCareRequestSummary> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
-                Card(
-                    elevation: 10.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Color(0xffD3CFC8))),
-                    child: Container(
-                      margin: EdgeInsets.all(deviceSize.width * 0.03),
-                      child: Text(
-                        'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
-                        style: TextStyle(
-                            color: Color(0xff28306e),
-                            fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.035),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
                       ),
-                    )),
+                  padding: EdgeInsets.all(deviceSize.width * 0.03),
+                  child: Text(
+                    'Needed a {gender/null} {a caregiver/Qualification/Qualification 1 or a Qualification 2..} to provide {Care Category} for {age}-year-old {gender} and {age}-year-old {gender} in {location} {starting/on} {xx/xx/xxxx} at {xx:xx AM/PM}',
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.035),
+                  ),
+                ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.02)),
                 Text(
                   'Feel free to add any additional information about your care needs',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
-                Padding(
-                  padding: EdgeInsets.only(left: deviceSize.width * 0.01),
-                  child: SizedBox(
-                    height: deviceSize.height * 0.05,
-                    width: deviceSize.width * 0.8,
-                    child: TextField(
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.03,
-                        color: Color(0xff495057),
-                        fontFamily: 'Helvetica',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: '',
-                        fillColor: Color(0xffe9ecef),
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Color(0xffced4da), width: 1.0),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Color(0xffced4da), width: 1.0),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(color: Color(0xffced4da))),
-                      ), //autofocus: ,
-                      //autofocus: ,
-                      keyboardType: TextInputType.emailAddress,
-                    ),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                TextField(
+                  textAlign: TextAlign.start,
+                  expands: false,
+                  maxLines: 10,
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
                   ),
+                  decoration: InputDecoration(
+                    hintText: '',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width,
+                        maxHeight: MediaQuery.of(context).size.height),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),

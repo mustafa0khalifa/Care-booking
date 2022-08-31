@@ -52,20 +52,46 @@ class _ClientNotificationsState extends State<ClientNotifications> {
                   Padding(
                       padding: EdgeInsets.only(left: deviceSize.width * 0.06)),
                   SizedBox(
-                    child: Container(
-                      width: deviceSize.width * 0.2,
-                      padding: EdgeInsets.all(deviceSize.width * 0.02),
-                      decoration: BoxDecoration(
-                          color: Color(0xffD3CFC8),
-                          borderRadius: BorderRadius.circular(15)),
-                      alignment: Alignment.center,
-                      child: Text('Unread',
-                          style: TextStyle(
-                              color: Color(0xff28306e),
-                              fontFamily: 'Helvetica_Bold',
-                              fontSize: deviceSize.width * 0.04)),
-                    ),
-                  ),
+                      child: Stack(
+                    children: [
+                      Container(
+                        width: deviceSize.width * 0.25,
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        decoration: BoxDecoration(
+                            color: Color(0xffD3CFC8),
+                            borderRadius: BorderRadius.circular(15)),
+                        alignment: Alignment.center,
+                        child: Text('Unread',
+                            style: TextStyle(
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica_Bold',
+                                fontSize: deviceSize.width * 0.04)),
+                      ),
+                      Container(
+                        width: deviceSize.width * 0.25,
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          height: deviceSize.width * 0.05,
+                          width: deviceSize.width * 0.05,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              border: Border.all(
+                                  color: Color(0xffD3CFC8), width: 1),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(100))
+                              //more than 50% of width makes circle
+                              ),
+                          alignment: Alignment.center,
+                          child: Text('1',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: deviceSize.width * 0.03)),
+                        ),
+                      )
+                    ],
+                  )),
                   Padding(
                       padding: EdgeInsets.only(left: deviceSize.width * 0.06)),
                   SizedBox(
@@ -97,7 +123,7 @@ class _ClientNotificationsState extends State<ClientNotifications> {
                           index: index,
                           height: deviceSize.height,
                           width: deviceSize.width,
-                          date: 'sint 10 mins ago',
+                          date: 'sent 10 mins ago',
                           subject: 'Sumaya is on her way',
                           content: 'she will arrive at 11:30 AM',
                         ),

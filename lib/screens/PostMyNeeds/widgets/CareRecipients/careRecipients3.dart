@@ -4,10 +4,12 @@ import 'package:provider/provider.dart';
 import '../../../../providers/PostMyNeedsProvider/CategoriesProvider.dart';
 import '../../../../providers/PostMyNeedsProvider/careRecipientsProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
+import '../myCareRequestSummary.dart';
 import 'careRecipients2.dart';
 
 import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
+import 'package:country_picker/country_picker.dart';
 
 class CareRecipients3 extends StatefulWidget {
   static const routeName = '/careRecipients3-screen';
@@ -28,6 +30,8 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
   late String _hour, _minute, _time;
 
   late String dateTime;
+  late String contryCode = '961';
+  bool isSwitched = false;
 
   TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
 
@@ -288,25 +292,11 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
                       fontWeight: FontWeight.bold,
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
-                /* SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Text(
-                    'Full Name',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),
-               */
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -321,6 +311,12 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
+                          constraints: BoxConstraints(
+                            maxWidth: deviceSize.width * 0.8,
+                            maxHeight: deviceSize.height * 0.05,
+                          ),
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                           hintText: 'Full Name',
                           fillColor: Color(0xffe9ecef),
                           filled: true,
@@ -343,7 +339,51 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       ),
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () => {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Icon(
+                              Icons.person,
+                              size: deviceSize.width * 0.06,
+                            ),
+                            content: Text(
+                              textAlign: TextAlign.center,
+                              'We will not share this information with caregivers until after the booking is confrmed',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      border: Border.all(
+                                          color: Color(0xffD3CFC8), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  padding: const EdgeInsets.all(14),
+                                  child: Text(
+                                    "okay",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
                       icon: Icon(
                         Icons.info_outline,
                         size: deviceSize.width * 0.06,
@@ -355,19 +395,6 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.01),
                 ),
-                /* SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Text(
-                    'Date of Birth',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),*/
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -386,6 +413,12 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                           fontFamily: 'Helvetica',
                         ),
                         decoration: InputDecoration(
+                          constraints: BoxConstraints(
+                            maxWidth: deviceSize.width * 0.8,
+                            maxHeight: deviceSize.height * 0.05,
+                          ),
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                           hintText: 'Date of Birth',
                           fillColor: Color(0xffe9ecef),
                           filled: true,
@@ -423,7 +456,51 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       ),
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () => {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Icon(
+                              Icons.date_range,
+                              size: deviceSize.width * 0.06,
+                            ),
+                            content: Text(
+                              textAlign: TextAlign.center,
+                              'It will be used to give the caregivers an idea about the @care_recipient\'s age.',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      border: Border.all(
+                                          color: Color(0xffD3CFC8), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  padding: const EdgeInsets.all(14),
+                                  child: Text(
+                                    "okay",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
                       icon: Icon(
                         Icons.info_outline,
                         size: deviceSize.width * 0.06,
@@ -504,7 +581,51 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       ),
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () => {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Icon(
+                              Icons.male,
+                              size: deviceSize.width * 0.06,
+                            ),
+                            content: Text(
+                              textAlign: TextAlign.center,
+                              'The gender of your care recipient will be included in the care request to help caregivers',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      border: Border.all(
+                                          color: Color(0xffD3CFC8), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  padding: const EdgeInsets.all(14),
+                                  child: Text(
+                                    "okay",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
                       icon: Icon(
                         Icons.info_outline,
                         size: deviceSize.width * 0.06,
@@ -516,19 +637,6 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
-                /* SizedBox(
-                  width: deviceSize.width * 0.8,
-                  child: Text(
-                    'Weight',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.04),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),*/
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -537,37 +645,39 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       width: deviceSize.width * 0.8,
                       child: Row(
                         children: [
-                          SizedBox(
-                            height: deviceSize.height * 0.05,
-                            width: deviceSize.width * 0.65,
-                            child: TextField(
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.03,
-                                color: Color(0xff495057),
-                                fontFamily: 'Helvetica',
-                              ),
-                              decoration: InputDecoration(
-                                hintText: 'Weight',
-                                fillColor: Color(0xffe9ecef),
-                                filled: true,
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xffced4da), width: 1.0),
-                                  borderRadius: BorderRadius.circular(5.0),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Color(0xffced4da), width: 1.0),
-                                  borderRadius: BorderRadius.circular(5.0),
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide:
-                                        BorderSide(color: Color(0xffced4da))),
-                              ), //autofocus: ,
-                              //autofocus: ,
-                              keyboardType: TextInputType.emailAddress,
+                          TextField(
+                            style: TextStyle(
+                              fontSize: deviceSize.width * 0.03,
+                              color: Color(0xff495057),
+                              fontFamily: 'Helvetica',
                             ),
+                            decoration: InputDecoration(
+                              constraints: BoxConstraints(
+                                maxWidth: deviceSize.width * 0.65,
+                                maxHeight: deviceSize.height * 0.05,
+                              ),
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 5, vertical: 5),
+                              hintText: 'Weight',
+                              fillColor: Color(0xffe9ecef),
+                              filled: true,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffced4da), width: 1.0),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Color(0xffced4da), width: 1.0),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide:
+                                      BorderSide(color: Color(0xffced4da))),
+                            ), //autofocus: ,
+                            //autofocus: ,
+                            keyboardType: TextInputType.emailAddress,
                           ),
                           Padding(
                               padding: EdgeInsets.only(
@@ -586,7 +696,51 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       ),
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () => {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Icon(
+                              Icons.line_weight,
+                              size: deviceSize.width * 0.06,
+                            ),
+                            content: Text(
+                              textAlign: TextAlign.center,
+                              'This will help the caregiver to estimate the level of physical efort needed while caring for @care_recipient\'s.',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      border: Border.all(
+                                          color: Color(0xffD3CFC8), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  padding: const EdgeInsets.all(14),
+                                  child: Text(
+                                    "okay",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
                       icon: Icon(
                         Icons.info_outline,
                         size: deviceSize.width * 0.06,
@@ -656,37 +810,48 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'Does the care recipient suffer from any medical conditions? Please share with us any relevant information to help us learn more about your needs',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'Does the care recipient suffer from any medical conditions? Please share with us any relevant information to help us learn more about your needs',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
                 Padding(
@@ -696,39 +861,135 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.8,
-                      child: TextField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
-                          color: Color(0xff495057),
-                          fontFamily: 'Helvetica',
+                    InkWell(
+                      child: Container(
+                        width: deviceSize.width * 0.1,
+                        height: deviceSize.height * 0.05,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Color(0xffe9ecef),
+                            border:
+                                Border.all(color: Color(0xffced4da), width: 1),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                bottomLeft: Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        child: Text(
+                          '+ ${contryCode}',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
                         ),
-                        decoration: InputDecoration(
-                          hintText: '+ 961',
-                          fillColor: Color(0xffe9ecef),
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Color(0xffced4da))),
-                        ), //autofocus: ,
-                        //autofocus: ,
-                        keyboardType: TextInputType.emailAddress,
                       ),
+                      onTap: () => {
+                        showCountryPicker(
+                          context: context,
+                          showPhoneCode:
+                              true, // optional. Shows phone code before the country name.
+                          onSelect: (Country country) {
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('Select country: ${country.phoneCode} ');
+                            contryCode = country.phoneCode;
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('dddddddd');
+                          },
+                        )
+                      },
+                    ),
+                    TextField(
+                      textAlign: TextAlign.start,
+                      expands: false,
+
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.03,
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
+                      ),
+                      decoration: InputDecoration(
+                        constraints: BoxConstraints(
+                          maxWidth: deviceSize.width * 0.7,
+                          maxHeight: deviceSize.height * 0.05,
+                        ),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        hintText: 'Phone Number',
+                        fillColor: Color(0xffe9ecef),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(5),
+                              bottomRight: Radius.circular(5)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(5),
+                              bottomRight: Radius.circular(5)),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5)),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
+                      ), //autofocus: ,
+                      //autofocus: ,
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () => {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Icon(
+                              Icons.phone,
+                              size: deviceSize.width * 0.06,
+                            ),
+                            content: Text(
+                              textAlign: TextAlign.center,
+                              "We will not share this information with caregivers until after the booking is confrmed",
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      border: Border.all(
+                                          color: Color(0xffD3CFC8), width: 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))
+                                      //more than 50% of width makes circle
+                                      ),
+                                  padding: const EdgeInsets.all(14),
+                                  child: Text(
+                                    "okay",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Color(0xff28306e),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
                       icon: Icon(
                         Icons.info_outline,
                         size: deviceSize.width * 0.06,
@@ -745,39 +1006,163 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'Does the care recipient have an accessible phone. What\'s the phone number?',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'Does the care recipient have an accessible phone. What\'s the phone number?',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Consumer<CareRecipientsProvider>(
+                    builder: (_, foo, __) => CareRecipientsProvider
+                                .genderGroub ==
+                            'Female'
+                        ? Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Color(0xffD3CFC8), width: 1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))
+                                //more than 50% of width makes circle
+                                ),
+                            padding: EdgeInsets.all(deviceSize.width * 0.02),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'I am Pregnant',
+                                      style: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: deviceSize.width * 0.04),
+                                    ),
+                                    Switch.adaptive(
+                                        value: isSwitched,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            isSwitched = newValue;
+                                          });
+                                        }),
+                                  ],
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.01)),
+                                Text(
+                                  'Would you like to share with us your due date?',
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.04),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.01)),
+                                TextField(
+                                  keyboardType: TextInputType.number,
+                                  readOnly: true,
+                                  onTap: () => {_selectDate(context)},
+                                  controller: _dateController,
+                                  style: TextStyle(
+                                    fontSize: deviceSize.width * 0.03,
+                                    color: Color(0xff495057),
+                                    fontFamily: 'Helvetica',
+                                  ),
+                                  decoration: InputDecoration(
+                                    constraints: BoxConstraints(
+                                      maxWidth: deviceSize.width * 0.8,
+                                      maxHeight: deviceSize.height * 0.05,
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 5, vertical: 5),
+                                    hintText: '08 / 17 / 2022',
+                                    fillColor: Color(0xffe9ecef),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffced4da))),
+                                    suffixIcon: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffe9ecef),
+                                          border: Border.all(
+                                            color: Color(0xffced4da),
+                                          ),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5),
+                                              bottomRight: Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Icon(
+                                        color: Color(0xff495057),
+                                        Icons.date_range_outlined,
+                                        size: deviceSize.width * 0.07,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.height * 0.005)),
+                              ],
+                            ),
+                          )
+                        : SizedBox()),
                 Consumer<CategoriesProvider>(
                   builder: (_, foo, __) => Container(
                     margin: EdgeInsets.all(deviceSize.height * 0.05),
@@ -812,7 +1197,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                                 CareCategory.routeName,
                               ),*/
                             Navigator.of(context)
-                                .pushNamed(CareRecipients2.routeName),
+                                .pushNamed(MyCareRequestSummary.routeName),
                           },
                           child: Text("Next"),
                         ),

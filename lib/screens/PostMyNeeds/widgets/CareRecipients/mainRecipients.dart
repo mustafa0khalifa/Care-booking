@@ -202,7 +202,7 @@ class _MainRecipientsState extends State<MainRecipients> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
@@ -355,19 +355,18 @@ class _MainRecipientsState extends State<MainRecipients> {
                 Container(
                   alignment: Alignment.centerRight,
                   child: SizedBox(
-                    width: deviceSize.width * 0.4,
+                    width: deviceSize.width * 0.1,
                     child: Container(
-                      padding: EdgeInsets.all(deviceSize.width * 0.02),
-                      decoration: BoxDecoration(
-                          color: Color(0xff007bff),
-                          borderRadius: BorderRadius.circular(5)),
-                      alignment: Alignment.center,
-                      child: Text('Add new care recipient',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Helvetica_Bold',
-                              fontSize: deviceSize.width * 0.035)),
-                    ),
+                        padding: EdgeInsets.all(deviceSize.width * 0.02),
+                        decoration: BoxDecoration(
+                            color: Color(0xff3ab284),
+                            borderRadius: BorderRadius.circular(5)),
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.add,
+                          size: deviceSize.width * 0.06,
+                          color: Colors.white,
+                        )),
                   ),
                 ),
                 Container(

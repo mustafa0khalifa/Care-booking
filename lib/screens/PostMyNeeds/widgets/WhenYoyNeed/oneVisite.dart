@@ -407,52 +407,52 @@ class _oneVisiteState extends State<OneVisite> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.005)),
-                SizedBox(
-                  height: deviceSize.height * 0.05,
-                  width: deviceSize.width * 0.8,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    controller: _dateController,
-                    readOnly: true,
-                    onTap: () => {_selectDate(context)},
-                    style: TextStyle(
-                      fontSize: deviceSize.width * 0.03,
-                      color: Color(0xff495057),
-                      fontFamily: 'Helvetica',
+                TextField(
+                  keyboardType: TextInputType.number,
+                  controller: _dateController,
+                  readOnly: true,
+                  onTap: () => {_selectDate(context)},
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    constraints: BoxConstraints(
+                        maxWidth: deviceSize.width * 0.8,
+                        maxHeight: deviceSize.height * 0.05),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 2),
+                    hintText: '08 / 17 / 2022',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
-                    decoration: InputDecoration(
-                      hintText: '08 / 17 / 2022',
-                      fillColor: Color(0xffe9ecef),
-                      filled: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xffced4da), width: 1.0),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color(0xffced4da), width: 1.0),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                          borderSide: BorderSide(color: Color(0xffced4da))),
-                      suffixIcon: Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xffe9ecef),
-                            border: Border.all(
-                              color: Color(0xffced4da),
-                            ),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(5),
-                                bottomRight: Radius.circular(5))
-                            //more than 50% of width makes circle
-                            ),
-                        child: Icon(
-                          color: Color(0xff495057),
-                          Icons.date_range_outlined,
-                          size: deviceSize.width * 0.07,
-                        ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                    suffixIcon: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xffe9ecef),
+                          border: Border.all(
+                            color: Color(0xffced4da),
+                          ),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(5),
+                              bottomRight: Radius.circular(5))
+                          //more than 50% of width makes circle
+                          ),
+                      child: Icon(
+                        color: Color(0xff495057),
+                        Icons.date_range_outlined,
+                        size: deviceSize.width * 0.07,
                       ),
                     ),
                   ),
@@ -463,52 +463,52 @@ class _oneVisiteState extends State<OneVisite> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.33,
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        readOnly: true,
-                        onTap: () => {_selectTimeFrom(context)},
-                        controller: _fromController,
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
-                          color: Color(0xff495057),
-                          fontFamily: 'Helvetica',
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      readOnly: true,
+                      onTap: () => {_selectTimeFrom(context)},
+                      controller: _fromController,
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.03,
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: 'From',
+                        fillColor: Color(0xffe9ecef),
+                        filled: true,
+                        constraints: BoxConstraints(
+                            maxWidth: deviceSize.width * 0.33,
+                            maxHeight: deviceSize.height * 0.05),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 2),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
-                        decoration: InputDecoration(
-                          hintText: 'From',
-                          fillColor: Color(0xffe9ecef),
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Color(0xffced4da))),
-                          suffixIcon: Container(
-                            decoration: BoxDecoration(
-                                color: Color(0xffe9ecef),
-                                border: Border.all(
-                                  color: Color(0xffced4da),
-                                ),
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(5),
-                                    bottomRight: Radius.circular(5))
-                                //more than 50% of width makes circle
-                                ),
-                            child: Icon(
-                              color: Color(0xff495057),
-                              Icons.more_time_sharp,
-                              size: deviceSize.width * 0.07,
-                            ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
+                        suffixIcon: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xffe9ecef),
+                              border: Border.all(
+                                color: Color(0xffced4da),
+                              ),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(5),
+                                  bottomRight: Radius.circular(5))
+                              //more than 50% of width makes circle
+                              ),
+                          child: Icon(
+                            color: Color(0xff495057),
+                            Icons.more_time_sharp,
+                            size: deviceSize.width * 0.07,
                           ),
                         ),
                       ),
@@ -516,52 +516,52 @@ class _oneVisiteState extends State<OneVisite> {
                     Padding(
                         padding:
                             EdgeInsets.only(left: deviceSize.width * 0.05)),
-                    SizedBox(
-                      height: deviceSize.height * 0.05,
-                      width: deviceSize.width * 0.33,
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        readOnly: true,
-                        onTap: () => {_selectTimeTo(context)},
-                        controller: _toController,
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.03,
-                          color: Color(0xff495057),
-                          fontFamily: 'Helvetica',
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      readOnly: true,
+                      onTap: () => {_selectTimeTo(context)},
+                      controller: _toController,
+                      style: TextStyle(
+                        fontSize: deviceSize.width * 0.03,
+                        color: Color(0xff495057),
+                        fontFamily: 'Helvetica',
+                      ),
+                      decoration: InputDecoration(
+                        constraints: BoxConstraints(
+                            maxWidth: deviceSize.width * 0.33,
+                            maxHeight: deviceSize.height * 0.05),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 2),
+                        hintText: 'To',
+                        fillColor: Color(0xffe9ecef),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
-                        decoration: InputDecoration(
-                          hintText: 'To',
-                          fillColor: Color(0xffe9ecef),
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Color(0xffced4da))),
-                          suffixIcon: Container(
-                            decoration: BoxDecoration(
-                                color: Color(0xffe9ecef),
-                                border: Border.all(
-                                  color: Color(0xffced4da),
-                                ),
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(5),
-                                    bottomRight: Radius.circular(5))
-                                //more than 50% of width makes circle
-                                ),
-                            child: Icon(
-                              color: Color(0xff495057),
-                              Icons.more_time_sharp,
-                              size: deviceSize.width * 0.07,
-                            ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xffced4da), width: 1.0),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(color: Color(0xffced4da))),
+                        suffixIcon: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xffe9ecef),
+                              border: Border.all(
+                                color: Color(0xffced4da),
+                              ),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(5),
+                                  bottomRight: Radius.circular(5))
+                              //more than 50% of width makes circle
+                              ),
+                          child: Icon(
+                            color: Color(0xff495057),
+                            Icons.more_time_sharp,
+                            size: deviceSize.width * 0.07,
                           ),
                         ),
                       ),

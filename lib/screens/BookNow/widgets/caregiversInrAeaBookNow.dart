@@ -45,6 +45,7 @@ class _CaregiversInrAeaBookNowState extends State<CaregiversInrAeaBookNow> {
                       width: deviceSize.width,
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                       isSelectedPage: false,
+                      isInArea: false,
                     );
                   },
                 ),

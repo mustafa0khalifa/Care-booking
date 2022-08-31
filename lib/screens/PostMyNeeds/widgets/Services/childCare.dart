@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../../../../providers/PostMyNeedsProvider/childCareProvider.dart';
 import '../../../BookingsDashboard/bookingsDashboard.dart';
 import '../../../../providers/PostMyNeedsProvider/buildCategoriesProvider.dart';
-import '../Categories/widgets/buildCaterorie.dart';
 import '../caregiverPreferences.dart';
 
 class ChildCare extends StatefulWidget {
@@ -231,7 +230,7 @@ class _ChildCareState extends State<ChildCare> {
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica_Bold',
                       fontWeight: FontWeight.bold,
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -261,7 +260,7 @@ class _ChildCareState extends State<ChildCare> {
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica',
                                               fontSize:
-                                                  deviceSize.width * 0.045),
+                                                  deviceSize.width * 0.04),
                                         ),
                                         EasyRichTextPattern(
                                           targetString: 'Age 0 to 3 month',
@@ -323,7 +322,7 @@ class _ChildCareState extends State<ChildCare> {
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
-                                        fontSize: deviceSize.width * 0.045),
+                                        fontSize: deviceSize.width * 0.04),
                                   ),
                                 ),
                                 Consumer<ChildCareProvider>(
@@ -600,7 +599,7 @@ class _ChildCareState extends State<ChildCare> {
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
-                                                  deviceSize.width * 0.045),
+                                                  deviceSize.width * 0.04),
                                         ),
                                         EasyRichTextPattern(
                                           targetString: 'Age 3 to 12 months',
@@ -936,7 +935,7 @@ class _ChildCareState extends State<ChildCare> {
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
-                                                  deviceSize.width * 0.045),
+                                                  deviceSize.width * 0.04),
                                         ),
                                         EasyRichTextPattern(
                                           targetString: 'Age 1 to 3 years',
@@ -1271,7 +1270,7 @@ class _ChildCareState extends State<ChildCare> {
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
-                                                  deviceSize.width * 0.045),
+                                                  deviceSize.width * 0.04),
                                         ),
                                         EasyRichTextPattern(
                                           targetString: 'Age 3 to 5 years',
@@ -1608,7 +1607,7 @@ class _ChildCareState extends State<ChildCare> {
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helvetica_Bold',
                                               fontSize:
-                                                  deviceSize.width * 0.045),
+                                                  deviceSize.width * 0.04),
                                         ),
                                         EasyRichTextPattern(
                                           targetString: 'Age 5 to 12 years',
@@ -1989,37 +1988,48 @@ class _ChildCareState extends State<ChildCare> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'In case the requested care schedule varies for your children, you need to create separate care requests for each child. In such case, each care request will indicate 1 child. ',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
                 Consumer<BuildCategoriesProvider>(

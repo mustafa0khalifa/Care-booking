@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10000/screens/MyBookings/widgets/report.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/myBookingProvider.dart';
@@ -40,6 +41,101 @@ class _BookingRateState extends State<BookingRate> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffD3CFC8),
+                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                      //more than 50% of width makes circle
+                      ),
+                  padding: EdgeInsets.all(deviceSize.width * 0.01),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.4,
+                        child: Row(
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xffe9ecef),
+                                    border: Border.all(
+                                        color: Color(0xff28306e), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(100))
+                                    //more than 50% of width makes circle
+                                    ),
+                                child: Icon(
+                                  Icons.person,
+                                  size: deviceSize.width * 0.1,
+                                  color: Color(0xff495057),
+                                )), //CircleAva
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.05)),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Jane, 31",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica-Bold',
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        top: deviceSize.width * 0.02)),
+                                Text(
+                                  "Child Care",
+                                  style: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helvetica',
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                          padding: EdgeInsets.all(deviceSize.width * 0.01),
+                          alignment: Alignment.centerRight,
+                          child: SizedBox(
+                              child: Column(
+                            children: [
+                              Icon(
+                                Icons.warning_rounded,
+                                color: Colors.red,
+                                size: deviceSize.width * 0.1,
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      top: deviceSize.height * 0.01)),
+                              InkWell(
+                                child: Text(
+                                  "Report Jane",
+                                  style: TextStyle(
+                                      color: Color(0xff007bff),
+                                      fontFamily: 'Helvetica',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: deviceSize.width * 0.035),
+                                ),
+                                onTap: () => {
+                                  Navigator.of(context).pushNamed(
+                                    Report.routeName,
+                                  )
+                                },
+                              )
+                            ],
+                          ))),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,8 +153,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating1,
                         onChanged: (value) {
@@ -85,8 +181,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating2,
                         onChanged: (value) {
@@ -113,8 +209,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating3,
                         onChanged: (value) {
@@ -141,8 +237,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating4,
                         onChanged: (value) {
@@ -169,8 +265,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating5,
                         onChanged: (value) {
@@ -197,8 +293,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating6,
                         onChanged: (value) {
@@ -225,8 +321,8 @@ class _BookingRateState extends State<BookingRate> {
                     ),
                     Consumer<MyBookingProvider>(
                       builder: (_, myRating, __) => GFRating(
-                        color: GFColors.SUCCESS,
-                        borderColor: GFColors.SUCCESS,
+                        color: Color(0xff3ab284),
+                        borderColor: Color(0xff3ab284),
                         size: GFSize.SMALL,
                         value: MyBookingProvider.rating7,
                         onChanged: (value) {
@@ -253,6 +349,9 @@ class _BookingRateState extends State<BookingRate> {
                   padding: EdgeInsets.only(top: deviceSize.height * 0.03),
                 ),
                 TextField(
+                  textAlign: TextAlign.start,
+                  expands: false,
+                  maxLines: 10,
                   style: TextStyle(
                     fontSize: deviceSize.width * 0.03,
                     color: Color(0xff495057),
@@ -262,6 +361,11 @@ class _BookingRateState extends State<BookingRate> {
                     hintText: 'Your Rivew',
                     fillColor: Color(0xffe9ecef),
                     filled: true,
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width,
+                        maxHeight: MediaQuery.of(context).size.height),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                           color: Color(0xffced4da), width: 1.0),
@@ -281,17 +385,44 @@ class _BookingRateState extends State<BookingRate> {
                   padding: EdgeInsets.only(top: deviceSize.height * 0.03),
                 ),
                 Container(
-                  alignment: Alignment.bottomRight,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary:
-                            Colors.greenAccent //elevated btton background color
+                  padding: EdgeInsets.only(
+                      left: deviceSize.width * 0.1,
+                      right: deviceSize.width * 0.1),
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: deviceSize.width * 0.2,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 240, 220,
+                                  105) //elevated btton background color
+                              ),
+                          onPressed: () {
+                            // ignore: avoid_print
+                            print("Tap Post");
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Cancel"),
                         ),
-                    onPressed: () {
-                      // ignore: avoid_print
-                      print("Tap Post");
-                    },
-                    child: Text("Post"),
+                      ),
+                      SizedBox(
+                        width: deviceSize.width * 0.2,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .greenAccent //elevated btton background color
+                              ),
+                          onPressed: () {
+                            // ignore: avoid_print
+                            print("Tap Post");
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Post"),
+                        ),
+                      ),
+                    ],
                   ),
                 )
               ],

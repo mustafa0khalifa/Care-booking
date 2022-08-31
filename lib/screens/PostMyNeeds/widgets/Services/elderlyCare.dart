@@ -204,8 +204,9 @@ class _ElderlyCareState extends State<ElderlyCare> {
                   'How many elderly need care? ',
                   style: TextStyle(
                       color: Color(0xff28306e),
-                      fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontFamily: 'Helvetica_Bold',
+                      fontWeight: FontWeight.bold,
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
@@ -312,7 +313,8 @@ class _ElderlyCareState extends State<ElderlyCare> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica_Bold',
-                      fontSize: deviceSize.width * 0.045),
+                      fontWeight: FontWeight.bold,
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),

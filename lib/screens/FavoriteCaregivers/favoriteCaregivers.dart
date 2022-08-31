@@ -38,6 +38,7 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
                 width: deviceSize.width,
                 favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                 isSelectedPage: false,
+                isInArea: false,
               );
             },
           )),

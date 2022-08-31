@@ -2933,48 +2933,49 @@ class _FilterState extends State<Filter> {
                   padding: EdgeInsets.only(top: 0.01 * deviceSize.height),
                 ),
                 Container(
-                  alignment: Alignment.centerRight,
-                  child: SizedBox(
-                      width: deviceSize.width * 0.6,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Consumer<BrowseCaregiversProvider>(
-                            builder: (_, foo, __) => TextButton(
-                              child: Text('Reset Filter'),
-                              style: TextButton.styleFrom(
-                                primary: Colors.white,
-                                backgroundColor:
-                                    Color.fromARGB(255, 71, 201, 188),
-                                onSurface: Colors.grey,
-                              ),
-                              onPressed: () {
-                                BrowseCaregiversProvider.okFilter = false;
+                  padding: EdgeInsets.only(
+                    left: deviceSize.width * 0.1,
+                    right: deviceSize.width * 0.1,
+                  ),
+                  alignment: Alignment.center,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Consumer<BrowseCaregiversProvider>(
+                        builder: (_, foo, __) => TextButton(
+                          child: Text('Reset'),
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Color.fromARGB(255, 71, 201, 188),
+                            onSurface: Colors.grey,
+                          ),
+                          onPressed: () {
+                            BrowseCaregiversProvider.okFilter = false;
 
-                                foo.resetFilter();
-                                Navigator.of(context).pushNamed(
-                                  BrowseCaregivers.routeName,
-                                );
-                              },
-                            ),
-                          ),
-                          TextButton(
-                            child: Text('Apply Filter'),
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Color(0xff28306e),
-                              onSurface: Colors.grey,
-                            ),
-                            onPressed: () {
-                              BrowseCaregiversProvider.okFilter = true;
-                              Navigator.of(context).pushNamed(
-                                BrowseCaregivers.routeName,
-                              );
-                            },
-                          ),
-                        ],
-                      )),
+                            foo.resetFilter();
+                            Navigator.of(context).pushNamed(
+                              BrowseCaregivers.routeName,
+                            );
+                          },
+                        ),
+                      ),
+                      TextButton(
+                        child: Text('Apply'),
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color(0xff28306e),
+                          onSurface: Colors.grey,
+                        ),
+                        onPressed: () {
+                          BrowseCaregiversProvider.okFilter = true;
+                          Navigator.of(context).pushNamed(
+                            BrowseCaregivers.routeName,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

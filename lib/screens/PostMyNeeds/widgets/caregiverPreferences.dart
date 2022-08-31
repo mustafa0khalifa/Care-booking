@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/CareRecipients/mainRecipients.dart';
-import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/buildRequest.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
 import 'package:provider/provider.dart';
 
@@ -209,7 +207,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
@@ -334,7 +332,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 DropdownButton(
                     value: dropdownvalue,
@@ -362,7 +360,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 DropdownButton(
                     value: dropdownvalue2,

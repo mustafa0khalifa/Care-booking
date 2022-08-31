@@ -203,7 +203,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
@@ -241,7 +241,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.045),
+                        fontSize: deviceSize.width * 0.04),
                   ),
                 ),
                 Padding(
@@ -322,7 +322,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.045),
+                        fontSize: deviceSize.width * 0.04),
                   ),
                 ),
                 Padding(
@@ -579,7 +579,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                         style: TextStyle(
                             color: Color(0xff28306e),
                             fontFamily: 'Helvetica',
-                            fontSize: deviceSize.width * 0.045),
+                            fontSize: deviceSize.width * 0.04),
                       ),
                     ),
                     IconButton(onPressed: null, icon: Icon(Icons.attach_file)),

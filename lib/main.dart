@@ -61,6 +61,7 @@ import 'screens/MyBookings/myBookings.dart';
 import 'screens/MyBookings/widgets/bookingDetails.dart';
 import 'screens/MyBookings/widgets/bookingRate.dart';
 import 'providers/PostMyNeedsProvider/buildCategoriesProvider.dart';
+import 'screens/MyBookings/widgets/report.dart';
 import 'screens/PostMyNeeds/postMyNeeds.dart';
 import 'screens/PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
 import 'screens/PostMyNeeds/widgets/BrowseCaregivers/widgets/filter.dart';
@@ -90,6 +91,7 @@ import 'screens/PostMyNeeds/widgets/Categories/categories.dart';
 import 'screens/PostMyNeeds/widgets/completeYourRequest.dart';
 import 'screens/PostMyNeeds/widgets/myCareRequestSummary.dart';
 import 'screens/PostMyNeeds/widgets/WhenYoyNeed/schedule.dart';
+import 'screens/PostMyNeeds/widgets/whatToExpect.dart';
 import 'screens/auth/mainAuth.dart';
 
 void main() {
@@ -211,7 +213,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : MyBookings(),
+        home: isLoged ? BookingsDashboard() : AuthScreen(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
@@ -219,6 +221,7 @@ class _MyAppState extends State<MyApp> {
           MyBookings.routeName: (context) => MyBookings(),
           BookingDetails.routeName: (context) => BookingDetails(),
           BookingRate.routeName: (context) => BookingRate(),
+          Report.routeName: (context) => Report(),
           FavoriteCaregivers.routeName: (context) => FavoriteCaregivers(),
           ClientNotifications.routeName: (context) => ClientNotifications(),
           PostMyNeeds.routeName: (context) => PostMyNeeds(),
@@ -249,6 +252,7 @@ class _MyAppState extends State<MyApp> {
               AutomaticMatchingOption(),
           CaregaverClientRequest.routeName: (context) =>
               CaregaverClientRequest(),
+          WhatToExpect.routeName: (context) => WhatToExpect(),
           EnterAfterPost.routeName: (context) => EnterAfterPost(),
           AfterPostingRequest.routeName: (context) => AfterPostingRequest(),
           AfterBookingRequest.routeName: (context) => AfterBookingRequest(),

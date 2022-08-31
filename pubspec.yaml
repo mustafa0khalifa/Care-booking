@@ -45,6 +45,7 @@ dependencies:
   google_maps_flutter: 
   flutter_form_builder: ^7.5.0
   date_format: ^2.0.6
+  country_picker: ^1.0.4
   #flutter_facebook_login: ^1.1.1
 
 dev_dependencies:
@@ -90,6 +91,7 @@ flutter:
      - assets/images/1x/Asset 4.png
      - assets/images/1x/Asset 23.png
      - assets/images/auth/Asset 4@1x.png
+     - assets/images/lebanonFlag.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

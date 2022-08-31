@@ -242,7 +242,7 @@ class _ScheduleState extends State<Schedule> {
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',
-                      fontSize: deviceSize.width * 0.045),
+                      fontSize: deviceSize.width * 0.04),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
@@ -400,37 +400,48 @@ class _ScheduleState extends State<Schedule> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'Live-in care means having a fully trained caregiver living with you in your own home.\nYour live-in caregiver will support you with your specific needs to keep you comfortable and independent at home.',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'Live-in care means having a fully trained caregiver living with you in your own home.\nYour live-in caregiver will support you with your specific needs to keep you comfortable and independent at home.',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
                 Padding(
@@ -834,7 +845,7 @@ class _ScheduleState extends State<Schedule> {
                           style: TextStyle(
                               color: Color(0xff28306e),
                               fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.045)),
+                              fontSize: deviceSize.width * 0.04)),
                     ),
                     Consumer<ScheduleProvider>(
                         builder: (_, foo, __) => Switch.adaptive(
@@ -862,58 +873,54 @@ class _ScheduleState extends State<Schedule> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         top: deviceSize.height * 0.005)),
-                                SizedBox(
-                                  height: deviceSize.height * 0.05,
-                                  width: deviceSize.width * 0.8,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    controller: _dateController,
-                                    readOnly: true,
-                                    onTap: () => {_selectDate(context)},
-                                    style: TextStyle(
-                                      fontSize: deviceSize.width * 0.03,
-                                      color: Color(0xff495057),
-                                      fontFamily: 'Helvetica',
+                                TextField(
+                                  keyboardType: TextInputType.number,
+                                  controller: _dateController,
+                                  readOnly: true,
+                                  onTap: () => {_selectDate(context)},
+                                  style: TextStyle(
+                                    fontSize: deviceSize.width * 0.03,
+                                    color: Color(0xff495057),
+                                    fontFamily: 'Helvetica',
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintText: '08 / 17 / 2022',
+                                    constraints: BoxConstraints(
+                                        maxWidth: deviceSize.width * 0.8,
+                                        maxHeight: deviceSize.height * 0.05),
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 2),
+                                    fillColor: Color(0xffe9ecef),
+                                    filled: true,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
-                                    decoration: InputDecoration(
-                                      hintText: '08 / 17 / 2022',
-                                      fillColor: Color(0xffe9ecef),
-                                      filled: true,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffced4da), width: 1.0),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffced4da))),
+                                    suffixIcon: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffe9ecef),
+                                          border: Border.all(
                                             color: Color(0xffced4da),
-                                            width: 1.0),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Color(0xffced4da),
-                                            width: 1.0),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          borderSide: BorderSide(
-                                              color: Color(0xffced4da))),
-                                      suffixIcon: Container(
-                                        decoration: BoxDecoration(
-                                            color: Color(0xffe9ecef),
-                                            border: Border.all(
-                                              color: Color(0xffced4da),
-                                            ),
-                                            borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(5),
-                                                bottomRight: Radius.circular(5))
-                                            //more than 50% of width makes circle
-                                            ),
-                                        child: Icon(
-                                          color: Color(0xff495057),
-                                          Icons.date_range_outlined,
-                                          size: deviceSize.width * 0.07,
-                                        ),
+                                          ),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5),
+                                              bottomRight: Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Icon(
+                                        color: Color(0xff495057),
+                                        Icons.date_range_outlined,
+                                        size: deviceSize.width * 0.07,
                                       ),
                                     ),
                                   ),
@@ -933,7 +940,7 @@ class _ScheduleState extends State<Schedule> {
                           style: TextStyle(
                               color: Color(0xff28306e),
                               fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.045)),
+                              fontSize: deviceSize.width * 0.04)),
                     ),
                     Consumer<ScheduleProvider>(
                         builder: (_, foo, __) => Switch.adaptive(
@@ -951,37 +958,48 @@ class _ScheduleState extends State<Schedule> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                       //more than 50% of width makes circle
                       ),
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.note,
-                          size: deviceSize.width * 0.06,
-                          color: Color(0xff28306e),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(deviceSize.width * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
-                        Padding(
-                            padding:
-                                EdgeInsets.only(left: deviceSize.width * 0.01)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.note,
+                              size: deviceSize.width * 0.06,
+                              color: Color(0xff28306e),
+                            ),
+                            Padding(
+                                padding: EdgeInsets.only(
+                                    left: deviceSize.width * 0.01)),
+                            Text(
+                              'Note',
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff28306e),
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          'Note',
+                          'when booking for longer periods, you get a discount on company fees, and you will be able to get more offers from interested caregivers.',
                           style: TextStyle(
-                            fontSize: deviceSize.width * 0.035,
-                            fontWeight: FontWeight.bold,
+                            fontSize: deviceSize.width * 0.025,
+                            fontWeight: FontWeight.w400,
                             color: Color(0xff28306e),
                           ),
                         ),
                       ],
                     ),
-                    subtitle: Text(
-                      'when booking for longer periods, you get a discount on company fees, and you will be able to get more offers from interested caregivers.',
-                      style: TextStyle(
-                        fontSize: deviceSize.width * 0.025,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff28306e),
-                      ),
-                    ),
-                    onTap: () => {},
                   ),
                 ),
                 Consumer<CategoriesProvider>(

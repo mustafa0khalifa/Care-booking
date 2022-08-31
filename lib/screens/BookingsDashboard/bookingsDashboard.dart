@@ -95,7 +95,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                       padding: EdgeInsets.only(
                                           top: deviceSize.width * 0.03)),
                                   SizedBox(
-                                    width: deviceSize.width * 0.4,
+                                    width: deviceSize.width * 0.28,
                                     child: Center(
                                       child: Text('Previous Booking',
                                           style: TextStyle(
@@ -477,6 +477,30 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                 ),
                               ),
                             ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  top: deviceSize.width * 0.03,
+                                  left: deviceSize.width * 0.03),
+                              child: Container(
+                                height: deviceSize.width * 0.05,
+                                width: deviceSize.width * 0.05,
+                                decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    border: Border.all(
+                                        color: Color(0xffD3CFC8), width: 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(100))
+                                    //more than 50% of width makes circle
+                                    ),
+                                alignment: Alignment.center,
+                                child: Text('1',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Helvetica',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: deviceSize.width * 0.03)),
+                              ),
+                            )
                           ],
                         ),
                       ),

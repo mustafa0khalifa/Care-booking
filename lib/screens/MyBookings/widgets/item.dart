@@ -74,17 +74,20 @@ class ItemPending extends StatelessWidget {
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(left: width * 0.06)),
-                                  Text(
-                                    "|",
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica-Bold',
-                                        fontSize: width * 0.04),
+                                          EdgeInsets.only(left: width * 0.03)),
+                                  Container(
+                                    height: height * 0.03,
+                                    child: VerticalDivider(
+                                      color:
+                                          Color(0xffD3CFC8), //color of divider
+                                      width: 1, //width space of divider
+                                      thickness: 1, //thickness of divier line
+                                      //Spacing at the bottom of divider.
+                                    ),
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(left: width * 0.06)),
+                                          EdgeInsets.only(left: width * 0.03)),
                                   Text(
                                     "${careModel.CareType}",
                                     style: TextStyle(
@@ -160,17 +163,20 @@ class ItemPending extends StatelessWidget {
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(left: width * 0.06)),
-                                  Text(
-                                    "|",
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica-Bold',
-                                        fontSize: width * 0.04),
+                                          EdgeInsets.only(left: width * 0.03)),
+                                  Container(
+                                    height: height * 0.03,
+                                    child: VerticalDivider(
+                                      color:
+                                          Color(0xffD3CFC8), //color of divider
+                                      width: 1, //width space of divider
+                                      thickness: 1, //thickness of divier line
+                                      //Spacing at the bottom of divider.
+                                    ),
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(left: width * 0.06)),
+                                          EdgeInsets.only(left: width * 0.03)),
                                   Text(
                                     "${careModel.CareType}",
                                     style: TextStyle(
@@ -286,7 +292,7 @@ class ItemPending extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.whatsapp,
-                                color: Color(0xff28a745),
+                                color: Color(0xff3ab284),
                                 size: width * 0.07,
                               ),
                               Padding(
@@ -330,8 +336,9 @@ class ItemPending extends StatelessWidget {
                             Text(
                               " ${careModel.schedule_Shift}",
                               style: TextStyle(
-                                  color: Color(0xff28306e),
+                                  color: Color(0xff636eb8),
                                   fontFamily: 'Helveticas',
+                                  fontWeight: FontWeight.bold,
                                   fontSize: width * 0.035),
                             ),
                             Padding(
@@ -367,7 +374,8 @@ class ItemPending extends StatelessWidget {
                                         style: TextStyle(
                                             color: Color(0xff28306e),
                                             fontFamily: 'Helveticas_Bold',
-                                            fontSize: width * 0.035),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.03),
                                       ),
                                       EasyRichTextPattern(
                                         targetString:
@@ -419,7 +427,7 @@ class ItemPending extends StatelessWidget {
                                               fontSize: width * 0.035),
                                         ),
                                         EasyRichTextPattern(
-                                          targetString: 't2 Sep 2022o',
+                                          targetString: '2 Sep 2022',
                                           style: TextStyle(
                                               color: Color(0xff28306e),
                                               fontFamily: 'Helveticas',
@@ -479,24 +487,22 @@ class ItemPending extends StatelessWidget {
                                     padding:
                                         EdgeInsets.only(left: width * 0.01)),
                                 EasyRichText(
-                                  "Total of 350\$",
+                                  "Total of \$350",
                                   patternList: [
-                                    EasyRichTextPattern(
-                                      targetString: '350',
-                                      style: TextStyle(
-                                          color: Color(0xff28306e),
-                                          fontFamily: 'Helveticas',
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: width * 0.035),
-                                    ),
                                     EasyRichTextPattern(
                                       targetString: 'Total of',
                                       style: TextStyle(
                                           color: Color(0xff28306e),
                                           fontFamily: 'Helveticas',
+                                          fontWeight: FontWeight.normal,
                                           fontSize: width * 0.035),
                                     ),
                                   ],
+                                  defaultStyle: TextStyle(
+                                      color: Color(0xff28306e),
+                                      fontFamily: 'Helveticas',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: width * 0.035),
                                 ),
                               ],
                             ),
@@ -632,7 +638,7 @@ class ItemPending extends StatelessWidget {
                                       padding:
                                           EdgeInsets.only(top: width * 0.005)),
                                   Text(
-                                    "Balance",
+                                    "Remaining",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'Helveticas',
@@ -695,23 +701,15 @@ class ItemPending extends StatelessWidget {
                                 child: InkWell(
                                   child: Row(
                                     children: [
-                                      IconButton(
-                                        iconSize: width * 0.05,
-                                        onPressed: () => {
-                                          Navigator.of(context).pushNamed(
-                                            BookingDetails.routeName,
-                                          )
-                                        },
-                                        icon: Icon(
-                                          Icons.arrow_forward_rounded,
-                                          size: width * 0.07,
-                                          color: Color(0xff28a745),
-                                        ),
+                                      Icon(
+                                        Icons.arrow_forward_rounded,
+                                        size: width * 0.07,
+                                        color: Color(0xff3ab284),
                                       ),
                                       Text(
                                         "BOOKING DETAILS",
                                         style: TextStyle(
-                                            color: Color(0xff28a745),
+                                            color: Color(0xff3ab284),
                                             fontFamily: 'Helvetica-Bold',
                                             fontSize: width * 0.03),
                                       ),
@@ -728,23 +726,15 @@ class ItemPending extends StatelessWidget {
                                 child: InkWell(
                                   child: Row(
                                     children: [
-                                      IconButton(
-                                        iconSize: width * 0.05,
-                                        onPressed: () => {
-                                          Navigator.of(context).pushNamed(
-                                            CaregiverProfile.routeName,
-                                          )
-                                        },
-                                        icon: Icon(
-                                          Icons.play_circle_outline_sharp,
-                                          size: width * 0.07,
-                                          color: Color(0xff28a745),
-                                        ),
+                                      Icon(
+                                        Icons.play_circle_outline_sharp,
+                                        size: width * 0.07,
+                                        color: Color(0xff3ab284),
                                       ),
                                       Text(
                                         "CONTINUE PROCESS",
                                         style: TextStyle(
-                                            color: Color(0xff28a745),
+                                            color: Color(0xff3ab284),
                                             fontFamily: 'Helvetica-Bold',
                                             fontSize: width * 0.03),
                                       ),
@@ -765,7 +755,7 @@ class ItemPending extends StatelessWidget {
                                     Icon(
                                       Icons.arrow_forward_rounded,
                                       size: width * 0.07,
-                                      color: Color(0xff28a745),
+                                      color: Color(0xff3ab284),
                                     ),
                                     Padding(
                                         padding: EdgeInsets.only(
@@ -773,7 +763,7 @@ class ItemPending extends StatelessWidget {
                                     Text(
                                       "DETAILS",
                                       style: TextStyle(
-                                          color: Color(0xff28a745),
+                                          color: Color(0xff3ab284),
                                           fontFamily: 'Helvetica-Bold',
                                           fontSize: width * 0.03),
                                     ),
@@ -795,7 +785,7 @@ class ItemPending extends StatelessWidget {
                                     Icon(
                                       Icons.star_border_rounded,
                                       size: width * 0.07,
-                                      color: Color(0xff28a745),
+                                      color: Color(0xff3ab284),
                                     ),
                                     Padding(
                                         padding: EdgeInsets.only(
@@ -803,7 +793,7 @@ class ItemPending extends StatelessWidget {
                                     Text(
                                       " RATEING",
                                       style: TextStyle(
-                                          color: Color(0xff28a745),
+                                          color: Color(0xff3ab284),
                                           fontFamily: 'Helvetica-Bold',
                                           fontSize: width * 0.03),
                                     ),
@@ -825,7 +815,7 @@ class ItemPending extends StatelessWidget {
                                     Icon(
                                       Icons.refresh_rounded,
                                       size: width * 0.07,
-                                      color: Color(0xff28a745),
+                                      color: Color(0xff3ab284),
                                     ),
                                     Padding(
                                         padding: EdgeInsets.only(
@@ -833,7 +823,7 @@ class ItemPending extends StatelessWidget {
                                     Text(
                                       "RENEW",
                                       style: TextStyle(
-                                          color: Color(0xff28a745),
+                                          color: Color(0xff3ab284),
                                           fontFamily: 'Helvetica-Bold',
                                           fontSize: width * 0.03),
                                     ),

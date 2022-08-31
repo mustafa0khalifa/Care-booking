@@ -51,7 +51,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
           width: deviceSize.width,
           padding: EdgeInsets.all(0.03 * deviceSize.width),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
@@ -195,8 +195,9 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                   ),
                 ],
               ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               SizedBox(
-                height: deviceSize.height * 0.5,
+                height: deviceSize.height * 0.6,
                 child: ListView.builder(
                   itemCount: 6,
                   itemBuilder: (context, index) {
@@ -205,6 +206,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                       width: deviceSize.width,
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                       isSelectedPage: false,
+                      isInArea: true,
                     );
                   },
                 ),

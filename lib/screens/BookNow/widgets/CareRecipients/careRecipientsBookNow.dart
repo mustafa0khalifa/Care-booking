@@ -63,6 +63,7 @@ class _CareRecipientsAeaBookNowState extends State<CareRecipientsBookNow> {
                       width: deviceSize.width,
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                       isSelectedPage: true,
+                      isInArea: false,
                     );
                   },
                 ),
