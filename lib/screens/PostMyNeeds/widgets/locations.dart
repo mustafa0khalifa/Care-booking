@@ -408,7 +408,7 @@ class _LocationState extends State<Locations> {
                         height: MediaQuery.of(context).size.height / 4.5,
                         width: MediaQuery.of(context).size.width,
                         child: TextField(
-                          textAlign: TextAlign.start,
+                          textAlign: TextAlign.center,
                           expands: false,
 
                           style: TextStyle(

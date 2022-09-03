@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../PostMyNeeds/widgets/afterPostingRequest.dart';
+import 'package:country_picker/country_picker.dart';
 
 class Signup extends StatefulWidget {
   static const routeName = '/signup-screen';
@@ -21,6 +22,7 @@ class _SignupState extends State<Signup> {
   final FocusNode _mobileFocusNode = FocusNode();
   final FocusNode _passFocusNode = FocusNode();
   final FocusNode _confPassFocusNode = FocusNode();
+  String contryCode = '961';
 
   Map<String, String> _authData = {
     'email': '',
@@ -140,6 +142,7 @@ class _SignupState extends State<Signup> {
                         padding:
                             EdgeInsets.only(top: deviceSize.height * 0.03)),
                     SizedBox(
+                      height: deviceSize.height * 0.072,
                       width: deviceSize.width * 0.8,
                       child: TextFormField(
                         style: TextStyle(
@@ -187,52 +190,116 @@ class _SignupState extends State<Signup> {
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
-                      child: TextFormField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.035,
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Mobile',
-                          fillColor: Color(0xffe9ecef),
-                          filled: true,
-                          labelStyle: TextStyle(
-                              color: Color(0xff495057),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
+                      height: deviceSize.height * 0.072,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            child: Container(
+                              width: deviceSize.width * 0.1,
+                              height: deviceSize.height * 0.072,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Color(0xffe9ecef),
+                                  border: Border.all(
+                                      color: Color(0xffced4da), width: 1),
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(5),
+                                      bottomLeft: Radius.circular(5))
+                                  //more than 50% of width makes circle
+                                  ),
+                              child: Text(
+                                '+ ${contryCode}',
+                                style: TextStyle(
+                                  fontSize: deviceSize.width * 0.035,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff28306e),
+                                ),
+                              ),
+                            ),
+                            onTap: () => {
+                              showCountryPicker(
+                                context: context,
+                                showPhoneCode:
+                                    true, // optional. Shows phone code before the country name.
+                                onSelect: (Country country) {
+                                  print('dddddddd');
+                                  print('dddddddd');
+                                  print('dddddddd');
+                                  print(
+                                      'Select country: ${country.phoneCode} ');
+                                  setState(() {
+                                    contryCode = country.phoneCode;
+                                  });
+                                  print('dddddddd');
+                                  print('dddddddd');
+                                  print('dddddddd');
+                                },
+                              )
+                            },
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xffced4da), width: 1.0),
-                            borderRadius: BorderRadius.circular(5.0),
+                          SizedBox(
+                            width: deviceSize.width * 0.7,
+                            child: TextFormField(
+                              style: TextStyle(
+                                fontSize: deviceSize.width * 0.035,
+                                color: Color(0xff28306e),
+                                fontFamily: 'Helvetica',
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Mobile',
+                                fillColor: Color(0xffe9ecef),
+                                filled: true,
+                                labelStyle: TextStyle(
+                                    color: Color(0xff495057),
+                                    fontFamily: 'Helvetica',
+                                    fontSize: deviceSize.width * 0.035),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffced4da), width: 1.0),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(5),
+                                      bottomRight: Radius.circular(5)),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffced4da), width: 1.0),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(5),
+                                      bottomRight: Radius.circular(5)),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(5),
+                                        bottomRight: Radius.circular(5)),
+                                    borderSide:
+                                        BorderSide(color: Color(0xffced4da))),
+                              ),
+                              obscureText: true,
+                              controller: _passwordController,
+                              onFieldSubmitted: (_) {
+                                FocusScope.of(context)
+                                    .requestFocus(_confPassFocusNode);
+                              },
+                              focusNode: _passFocusNode,
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 5) {
+                                  return 'Password is too short!';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _authData['password'] = value!;
+                              },
+                            ),
                           ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: Color(0xffced4da))),
-                        ),
-                        keyboardType: TextInputType.number,
-                        onFieldSubmitted: (_) {
-                          FocusScope.of(context).requestFocus(_passFocusNode);
-                        },
-                        focusNode: _mobileFocusNode,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Invalid number!';
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          _authData['mobileNumber'] = value!;
-                        },
+                        ],
                       ),
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
+                      height: deviceSize.height * 0.072,
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
@@ -281,6 +348,7 @@ class _SignupState extends State<Signup> {
                     ),
                     SizedBox(
                       width: deviceSize.width * 0.8,
+                      height: deviceSize.height * 0.072,
                       child: TextFormField(
                         style: TextStyle(
                           fontSize: deviceSize.width * 0.035,
@@ -481,14 +549,12 @@ class _SignupState extends State<Signup> {
                   ),
                   Center(
                     child: EasyRichText(
-                      "Already a member: Sign in",
+                      "Already a member? Sign in",
+                      defaultStyle: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.035),
                       patternList: [
-                        EasyRichTextPattern(
-                            targetString: 'Already a member:',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.035)),
                         EasyRichTextPattern(
                             targetString: 'Sign in',
                             style: TextStyle(
@@ -518,52 +584,3 @@ class _SignupState extends State<Signup> {
     );
   }
 }
-
-
-
-/*
-
-
-  SizedBox(
-                      width: deviceSize.width * 0.8,
-                      child: TextFormField(
-                        style: TextStyle(
-                          fontSize: deviceSize.width * 0.035,
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica',
-                        ),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0xff28306e), width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          labelText: 'Mobile',
-                          labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 99, 97, 97),
-                              fontFamily: 'Helvetica',
-                              fontSize: deviceSize.width * 0.035),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: Color(0xff28306e))),
-                        ),
-                        //autofocus: ,
-                        keyboardType: TextInputType.number,
-                        onFieldSubmitted: (_) {
-                          FocusScope.of(context).requestFocus(_passFocusNode);
-                        },
-                        focusNode: _mobileFocusNode,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Invalid number!';
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          _authData['mobileNumber'] = value!;
-                        },
-                      ),
-                    ),
-                  
-
-                  */

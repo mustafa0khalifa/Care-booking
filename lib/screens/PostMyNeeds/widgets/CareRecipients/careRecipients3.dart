@@ -349,7 +349,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                             ),
                             content: Text(
                               textAlign: TextAlign.center,
-                              'We will not share this information with caregivers until after the booking is confrmed',
+                              'We will not share this information with caregivers until the booking is confirmed',
                               style: TextStyle(
                                 fontSize: deviceSize.width * 0.035,
                                 color: Color(0xff28306e),
@@ -591,7 +591,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                             ),
                             content: Text(
                               textAlign: TextAlign.center,
-                              'The gender of your care recipient will be included in the care request to help caregivers',
+                              'The gender of your care recipient will be included in the care request',
                               style: TextStyle(
                                 fontSize: deviceSize.width * 0.035,
                                 color: Color(0xff28306e),
@@ -792,6 +792,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                         ],
                       ),
                     ),
+                    /*
                     IconButton(
                       onPressed: null,
                       icon: Icon(
@@ -800,8 +801,65 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                         color: Color(0xff007bff),
                       ),
                     ),
+                */
                   ],
                 ),
+                SizedBox(
+                  width: deviceSize.width * 0.9,
+                  child: Text(
+                    'Does the care recipient suffer from any medical conditions?\nPlease share with us any relevant information to help us learn more about your needs',
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.03),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
+                ),
+                TextField(
+                  textAlign: TextAlign.start,
+                  expands: false,
+
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    constraints: BoxConstraints(
+                      maxWidth: deviceSize.width * 0.9,
+                      maxHeight: deviceSize.height * 0.05,
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                    hintText: '',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          bottomRight: Radius.circular(5)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          bottomRight: Radius.circular(5)),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(5),
+                            bottomRight: Radius.circular(5)),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
+                  //autofocus: ,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                /*
                 Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -854,6 +912,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                     ),
                   ),
                 ),
+               */
                 Padding(
                   padding: EdgeInsets.all(deviceSize.height * 0.005),
                 ),
@@ -894,7 +953,10 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                             print('dddddddd');
                             print('dddddddd');
                             print('Select country: ${country.phoneCode} ');
-                            contryCode = country.phoneCode;
+                            setState(() {
+                              contryCode = country.phoneCode;
+                            });
+
                             print('dddddddd');
                             print('dddddddd');
                             print('dddddddd');
@@ -955,7 +1017,7 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                             ),
                             content: Text(
                               textAlign: TextAlign.center,
-                              "We will not share this information with caregivers until after the booking is confrmed",
+                              'We will not share this information with caregivers until the booking is confirmed',
                               style: TextStyle(
                                 fontSize: deviceSize.width * 0.035,
                                 color: Color(0xff28306e),
@@ -998,6 +1060,63 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  width: deviceSize.width * 0.9,
+                  child: Text(
+                    'Does the care recipient have an accessible phone?\nWhat’s the phone number?',
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.03),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(deviceSize.height * 0.005),
+                ),
+                TextField(
+                  textAlign: TextAlign.start,
+                  expands: false,
+
+                  style: TextStyle(
+                    fontSize: deviceSize.width * 0.03,
+                    color: Color(0xff495057),
+                    fontFamily: 'Helvetica',
+                  ),
+                  decoration: InputDecoration(
+                    constraints: BoxConstraints(
+                      maxWidth: deviceSize.width * 0.9,
+                      maxHeight: deviceSize.height * 0.05,
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                    hintText: '',
+                    fillColor: Color(0xffe9ecef),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          bottomRight: Radius.circular(5)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color(0xffced4da), width: 1.0),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          bottomRight: Radius.circular(5)),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(5),
+                            bottomRight: Radius.circular(5)),
+                        borderSide: BorderSide(color: Color(0xffced4da))),
+                  ), //autofocus: ,
+                  //autofocus: ,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+
+                /* 
                 Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -1050,6 +1169,8 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                     ),
                   ),
                 ),
+               
+               */
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Consumer<CareRecipientsProvider>(

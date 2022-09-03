@@ -65,7 +65,7 @@ class _ChildCareState extends State<ChildCare> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Child Care",
+          "Child Care Services",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -354,7 +354,7 @@ class _ChildCareState extends State<ChildCare> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.08,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -369,33 +369,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Basic Newborn Care",
-                                              style: TextStyle(
-                                                  color: !childCare
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Holistic care including baby hygiene, bedtime routine, feeding, safety and supervision',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !childCare
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !childCare
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Basic Newborn Care",
+                                                      style: TextStyle(
+                                                          color: !childCare
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Holistic care including baby hygiene, bedtime routine, feeding, safety and supervision',
+                                                        style: TextStyle(
+                                                            color: !childCare
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -423,34 +457,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          height: deviceSize.height * 0.1,
-                                          child: ListTile(
-                                            title: Text(
-                                              "Premature Newborn Care ",
-                                              style: TextStyle(
-                                                  color: !elderlyCare
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Registered nurses with NICU experience to help you transition home safely ',
-                                              style: TextStyle(
+                                          height: deviceSize.height * 0.07,
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !elderlyCare
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !elderlyCare
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Premature Newborn Care",
+                                                      style: TextStyle(
+                                                          color: !elderlyCare
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Registered nurses with NICU experience to help you transition home safely ',
+                                                        style: TextStyle(
+                                                            color: !elderlyCare
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -464,7 +532,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -479,33 +547,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Twin Newborn Care ",
-                                              style: TextStyle(
-                                                  color: !advancedCare
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Twin and multiples care and assistance in managing a synchronized routine.',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons
+                                                      .manage_accounts_outlined,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !advancedCare
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.manage_accounts_outlined,
-                                              size: deviceSize.width * 0.1,
-                                              color: !advancedCare
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Twin Newborn Care ",
+                                                      style: TextStyle(
+                                                          color: !advancedCare
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Twin and multiples care and assistance in managing a synchronized routine.',
+                                                        style: TextStyle(
+                                                            color: !advancedCare
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -534,33 +637,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Special Services ",
-                                              style: TextStyle(
-                                                  color: !labCare
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Sleep training, maternity education and care, specialized care for babies born',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.thermostat,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !labCare
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.thermostat,
-                                              size: deviceSize.width * 0.1,
-                                              color: !labCare
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Special Services ",
+                                                      style: TextStyle(
+                                                          color: !labCare
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Sleep training, maternity education and care, specialized care for babies born',
+                                                        style: TextStyle(
+                                                            color: !labCare
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -705,33 +842,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Basic Infant Care ",
-                                              style: TextStyle(
-                                                  color: !infant1
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Holistic care including infant hygiene, bedtime routine, feeding, safety, supervision, solid food introduction and sensory play',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !infant1
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !infant1
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Basic Infant Care ",
+                                                      style: TextStyle(
+                                                          color: !infant1
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Holistic care including infant hygiene, bedtime routine, feeding, safety, supervision, solid food introduction and sensory play',
+                                                        style: TextStyle(
+                                                            color: !infant1
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -760,33 +931,67 @@ class _ChildCareState extends State<ChildCare> {
                                               //more than 50% of width makes circle
                                               ),
                                           height: deviceSize.height * 0.1,
-                                          child: ListTile(
-                                            title: Text(
-                                              "Premature Infant Care ",
-                                              style: TextStyle(
-                                                  color: !infant2
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Registered nurses with NICU experience to provide specialized premature care',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !infant2
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !infant2
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Premature Infant Care ",
+                                                      style: TextStyle(
+                                                          color: !infant2
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Registered nurses with NICU experience to provide specialized premature care',
+                                                        style: TextStyle(
+                                                            color: !infant2
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -815,33 +1020,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Twin Infant Care ",
-                                              style: TextStyle(
-                                                  color: !infant3
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Twin and multiples care and assistance in managing a synchronized routine. ',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons
+                                                      .manage_accounts_outlined,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !infant3
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.manage_accounts_outlined,
-                                              size: deviceSize.width * 0.1,
-                                              color: !infant3
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Twin Infant Care ",
+                                                      style: TextStyle(
+                                                          color: !infant3
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Twin and multiples care and assistance in managing a synchronized routine. ',
+                                                        style: TextStyle(
+                                                            color: !infant3
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -870,33 +1110,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Special Services",
-                                              style: TextStyle(
-                                                  color: !infant4
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Sleep training, Weaning support, Infant feed training ',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.thermostat,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !infant4
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.thermostat,
-                                              size: deviceSize.width * 0.1,
-                                              color: !infant4
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Special Services",
+                                                      style: TextStyle(
+                                                          color: !infant4
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Sleep training, Weaning support, Infant feed training ',
+                                                        style: TextStyle(
+                                                            color: !infant4
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    )
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1040,33 +1314,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Basic Toddler  Care ",
-                                              style: TextStyle(
-                                                  color: !toddler1
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'This includes hygiene, meals, bedtime routine, safety and interactive play time',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !toddler1
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !toddler1
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Basic Toddler  Care ",
+                                                      style: TextStyle(
+                                                          color: !toddler1
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'This includes hygiene, meals, bedtime routine, safety and interactive play time',
+                                                        style: TextStyle(
+                                                            color: !toddler1
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1095,33 +1403,67 @@ class _ChildCareState extends State<ChildCare> {
                                               //more than 50% of width makes circle
                                               ),
                                           height: deviceSize.height * 0.1,
-                                          child: ListTile(
-                                            title: Text(
-                                              "Educational Play",
-                                              style: TextStyle(
-                                                  color: !toddler2
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Age-tailored activities focused on stimulating toddlers and improving their development skills while having fun',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !toddler2
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !toddler2
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Educational Play",
+                                                      style: TextStyle(
+                                                          color: !toddler2
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Age-tailored activities focused on stimulating toddlers and improving their development skills while having fun',
+                                                        style: TextStyle(
+                                                            color: !toddler2
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1150,33 +1492,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Special Services",
-                                              style: TextStyle(
-                                                  color: !toddler3
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Potty training, language skills building, sick day nanny care, special education…etc.',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons
+                                                      .manage_accounts_outlined,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !toddler3
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.manage_accounts_outlined,
-                                              size: deviceSize.width * 0.1,
-                                              color: !toddler3
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Special Services",
+                                                      style: TextStyle(
+                                                          color: !toddler3
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Potty training, language skills building, sick day nanny care, special education…etc.',
+                                                        style: TextStyle(
+                                                            color: !toddler3
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1205,33 +1582,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Language skills building ",
-                                              style: TextStyle(
-                                                  color: !toddler4
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              '',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.thermostat,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !toddler4
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.thermostat,
-                                              size: deviceSize.width * 0.1,
-                                              color: !toddler4
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Language skills building ",
+                                                      style: TextStyle(
+                                                          color: !toddler4
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        '',
+                                                        style: TextStyle(
+                                                            color: !toddler4
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1377,33 +1788,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Basic Preschooler Care ",
-                                              style: TextStyle(
-                                                  color: !presch1
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'This includes hygiene, meals, bedtime routine, safety and interactive play time',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !presch1
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !presch1
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Basic Preschooler Care ",
+                                                      style: TextStyle(
+                                                          color: !presch1
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'This includes hygiene, meals, bedtime routine, safety and interactive play time',
+                                                        style: TextStyle(
+                                                            color: !presch1
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1432,33 +1877,67 @@ class _ChildCareState extends State<ChildCare> {
                                               //more than 50% of width makes circle
                                               ),
                                           height: deviceSize.height * 0.1,
-                                          child: ListTile(
-                                            title: Text(
-                                              "Educational Play",
-                                              style: TextStyle(
-                                                  color: !presch2
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Age-tailored activities focused on stimulating toddlers and improving their development skills while having fun',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !presch2
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !presch2
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Educational Play",
+                                                      style: TextStyle(
+                                                          color: !presch2
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Age-tailored activities focused on stimulating toddlers and improving their development skills while having fun',
+                                                        style: TextStyle(
+                                                            color: !presch2
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1487,33 +1966,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Special Services",
-                                              style: TextStyle(
-                                                  color: !presch3
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              ' Language skills building, sick day nanny care, special education…etc.',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons
+                                                      .manage_accounts_outlined,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !presch3
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.manage_accounts_outlined,
-                                              size: deviceSize.width * 0.1,
-                                              color: !presch3
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Special Services",
+                                                      style: TextStyle(
+                                                          color: !presch3
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        ' Language skills building, sick day nanny care, special education…etc.',
+                                                        style: TextStyle(
+                                                            color: !presch3
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1542,33 +2056,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Language skills building ",
-                                              style: TextStyle(
-                                                  color: !presch4
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              '',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.thermostat,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !presch4
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.thermostat,
-                                              size: deviceSize.width * 0.1,
-                                              color: !presch4
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Language skills building ",
+                                                      style: TextStyle(
+                                                          color: !presch4
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        '',
+                                                        style: TextStyle(
+                                                            color: !presch4
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1714,33 +2262,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Basic Primary schooler Care ",
-                                              style: TextStyle(
-                                                  color: !primsch1
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'This includes hygiene, meals, bedtime routine, safety and interactive play time',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !primsch1
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !primsch1
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Basic Primary schooler Care ",
+                                                      style: TextStyle(
+                                                          color: !primsch1
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'This includes hygiene, meals, bedtime routine, safety and interactive play time',
+                                                        style: TextStyle(
+                                                            color: !primsch1
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1769,33 +2351,67 @@ class _ChildCareState extends State<ChildCare> {
                                               //more than 50% of width makes circle
                                               ),
                                           height: deviceSize.height * 0.1,
-                                          child: ListTile(
-                                            title: Text(
-                                              "Educational Play",
-                                              style: TextStyle(
-                                                  color: !primsch2
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Age-tailored activities focused on stimulating kids and improving their development skills while having fun',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.man,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !primsch2
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.man,
-                                              size: deviceSize.width * 0.1,
-                                              color: !primsch2
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Educational Play",
+                                                      style: TextStyle(
+                                                          color: !primsch2
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Age-tailored activities focused on stimulating kids and improving their development skills while having fun',
+                                                        style: TextStyle(
+                                                            color: !primsch2
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1824,33 +2440,68 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Special Services ",
-                                              style: TextStyle(
-                                                  color: !primsch3
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              'Language skills building, sick day nanny care, special education…etc.',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons
+                                                      .manage_accounts_outlined,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !primsch3
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.manage_accounts_outlined,
-                                              size: deviceSize.width * 0.1,
-                                              color: !primsch3
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Special Services ",
+                                                      style: TextStyle(
+                                                          color: !primsch3
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        'Language skills building, sick day nanny care, special education…etc.',
+                                                        style: TextStyle(
+                                                            color: !primsch3
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {
@@ -1879,33 +2530,67 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          child: ListTile(
-                                            title: Text(
-                                              "Language skills building ",
-                                              style: TextStyle(
-                                                  color: !primsch4
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.035),
-                                            ),
-                                            subtitle: Text(
-                                              '',
-                                              style: TextStyle(
+                                          child: InkWell(
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.thermostat,
+                                                  size: deviceSize.width * 0.1,
                                                   color: !primsch4
                                                       ? Color(0xff495057)
                                                       : Colors.white,
-                                                  fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      deviceSize.width * 0.025),
-                                            ),
-                                            leading: Icon(
-                                              Icons.thermostat,
-                                              size: deviceSize.width * 0.1,
-                                              color: !primsch4
-                                                  ? Color(0xff495057)
-                                                  : Colors.white,
+                                                ),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: deviceSize.width *
+                                                            0.01)),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Text(
+                                                      "Language skills building ",
+                                                      style: TextStyle(
+                                                          color: !primsch4
+                                                              ? Color(
+                                                                  0xff28306e)
+                                                              : Colors.white,
+                                                          fontFamily:
+                                                              'Helvetica',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.01)),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.7,
+                                                      child: Text(
+                                                        '',
+                                                        style: TextStyle(
+                                                            color: !primsch4
+                                                                ? Color(
+                                                                    0xff495057)
+                                                                : Colors.white,
+                                                            fontFamily:
+                                                                'Helvetica',
+                                                            fontSize: deviceSize
+                                                                    .width *
+                                                                0.025),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
                                             ),
                                             onTap: () => {
                                               setState(() {

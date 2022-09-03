@@ -19,7 +19,7 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Favorite care givers",
+          "Favorite Caregivers",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -38,7 +38,7 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
                 width: deviceSize.width,
                 favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                 isSelectedPage: false,
-                isInArea: false,
+                isInArea: true,
               );
             },
           )),

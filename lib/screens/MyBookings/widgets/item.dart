@@ -113,7 +113,7 @@ class ItemPending extends StatelessWidget {
                                         ),
                                         borderRadius: BorderRadius.circular(5)),
                                     alignment: Alignment.center,
-                                    child: Text('View Profiles',
+                                    child: Text('view Profile',
                                         style: TextStyle(
                                             color: Color(0xff007bff),
                                             fontFamily: 'Helvetica_Bold',
@@ -219,7 +219,7 @@ class ItemPending extends StatelessWidget {
                                         ),
                                         borderRadius: BorderRadius.circular(5)),
                                     alignment: Alignment.center,
-                                    child: Text('View Profiles',
+                                    child: Text('view Profile',
                                         style: TextStyle(
                                             color: Color(0xff007bff),
                                             fontFamily: 'Helvetica_Bold',
@@ -358,7 +358,7 @@ class ItemPending extends StatelessWidget {
                                 SizedBox(
                                   width: width * 0.75,
                                   child: EasyRichText(
-                                    "${careModel.additionalServices} ${careModel.careRecipientsCount} ${careModel.careRecipientsDetails}",
+                                    "${careModel.additionalServices}${careModel.careRecipientsCount}\n${careModel.careRecipientsDetails}",
                                     patternList: [
                                       EasyRichTextPattern(
                                         targetString:
@@ -514,101 +514,66 @@ class ItemPending extends StatelessWidget {
                       children: [
                         Container(
                           height: height * 0.1,
-                          padding: EdgeInsets.all(width * 0.03),
+                          padding: EdgeInsets.only(top: width * 0.03),
                           alignment: Alignment.centerLeft,
-                          child: Row(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.money_off_outlined,
-                                size: width * 0.04,
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(left: width * 0.01)),
-                              Column(
+                              Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                      padding:
-                                          EdgeInsets.only(top: width * 0.005)),
-                                  Text(
-                                    "Balance",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Helveticas',
-                                        fontSize: width * 0.025),
+                                  Icon(
+                                    Icons.money_off_outlined,
+                                    size: width * 0.05,
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(top: width * 0.01)),
-                                  EasyRichText(
-                                    "\$95 remaining",
-                                    patternList: [
-                                      EasyRichTextPattern(
-                                        targetString: '95 remaining',
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.005)),
+                                      Text(
+                                        "Balance",
                                         style: TextStyle(
-                                            fontFamily: 'Helveticas',
                                             fontWeight: FontWeight.bold,
-                                            fontSize: width * 0.025),
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.035),
                                       ),
                                     ],
-                                    defaultStyle: TextStyle(
-                                        fontFamily: 'Helveticas',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.025),
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: height * 0.1,
-                          padding: EdgeInsets.all(width * 0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.date_range_outlined,
-                                size: width * 0.04,
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(left: width * 0.01)),
-                              Column(
+                              Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(top: width * 0.005)),
-                                  Text(
-                                    "Schedule",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Helveticas',
-                                        fontSize: width * 0.025),
-                                  ),
-                                  Padding(
-                                      padding:
-                                          EdgeInsets.only(top: width * 0.01)),
-                                  EasyRichText(
-                                    "01 Jul - 01 Sep '22",
-                                    defaultStyle: TextStyle(
-                                        fontFamily: 'Helveticas',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.025),
-                                    patternList: [
-                                      EasyRichTextPattern(
-                                        targetString: '01 Jul - 01 Sep',
-                                        style: TextStyle(
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.01)),
+                                      EasyRichText(
+                                        "\$95 remaining",
+                                        patternList: [
+                                          EasyRichTextPattern(
+                                            targetString: '95 remaining',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.03),
+                                          ),
+                                        ],
+                                        defaultStyle: TextStyle(
                                             fontFamily: 'Helveticas',
                                             fontWeight: FontWeight.bold,
-                                            fontSize: width * 0.025),
-                                      ),
-                                      EasyRichTextPattern(
-                                        targetString: '22',
-                                        style: TextStyle(
-                                            fontFamily: 'Helveticas',
                                             fontSize: width * 0.025),
                                       ),
                                     ],
@@ -620,65 +585,163 @@ class ItemPending extends StatelessWidget {
                         ),
                         Container(
                           height: height * 0.1,
-                          padding: EdgeInsets.all(width * 0.03),
+                          padding: EdgeInsets.only(top: width * 0.03),
                           alignment: Alignment.centerLeft,
-                          child: Row(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.luggage,
-                                size: width * 0.04,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.date_range_outlined,
+                                    size: width * 0.05,
+                                  ),
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.005)),
+                                      Text(
+                                        "Schedule",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.035),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              Padding(
-                                  padding: EdgeInsets.only(left: width * 0.01)),
-                              Column(
+                              Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(top: width * 0.005)),
-                                  Text(
-                                    "Remaining",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Helveticas',
-                                        fontSize: width * 0.025),
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.01)),
+                                      EasyRichText(
+                                        "01 Jul - 01 Sep '22",
+                                        defaultStyle: TextStyle(
+                                            fontFamily: 'Helveticas',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.03),
+                                        patternList: [
+                                          EasyRichTextPattern(
+                                            targetString: '01 Jul - 01 Sep',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.03),
+                                          ),
+                                          EasyRichTextPattern(
+                                            targetString: '22',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontSize: width * 0.03),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: height * 0.1,
+                          padding: EdgeInsets.only(top: width * 0.03),
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.luggage,
+                                    size: width * 0.05,
                                   ),
                                   Padding(
                                       padding:
-                                          EdgeInsets.only(top: width * 0.01)),
-                                  EasyRichText(
-                                    "4 out of 10 Shifts",
-                                    defaultStyle: TextStyle(
-                                        fontFamily: 'Helveticas',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.025),
-                                    patternList: [
-                                      EasyRichTextPattern(
-                                        targetString: '4',
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.005)),
+                                      Text(
+                                        "Remaining",
                                         style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Helveticas',
+                                            fontSize: width * 0.035),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(left: width * 0.01)),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: width * 0.01)),
+                                      EasyRichText(
+                                        "4 out of 10 Shifts",
+                                        defaultStyle: TextStyle(
                                             fontFamily: 'Helveticas',
                                             fontWeight: FontWeight.bold,
                                             fontSize: width * 0.025),
-                                      ),
-                                      EasyRichTextPattern(
-                                        targetString: '10',
-                                        style: TextStyle(
-                                            fontFamily: 'Helveticas',
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: width * 0.025),
-                                      ),
-                                      EasyRichTextPattern(
-                                        targetString: 'out of',
-                                        style: TextStyle(
-                                            fontFamily: 'Helveticas',
-                                            fontSize: width * 0.025),
-                                      ),
-                                      EasyRichTextPattern(
-                                        targetString: 'Shifts',
-                                        style: TextStyle(
-                                            fontFamily: 'Helveticas',
-                                            fontSize: width * 0.025),
+                                        patternList: [
+                                          EasyRichTextPattern(
+                                            targetString: '4',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.025),
+                                          ),
+                                          EasyRichTextPattern(
+                                            targetString: '10',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.025),
+                                          ),
+                                          EasyRichTextPattern(
+                                            targetString: 'out of',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontSize: width * 0.03),
+                                          ),
+                                          EasyRichTextPattern(
+                                            targetString: 'Shifts',
+                                            style: TextStyle(
+                                                fontFamily: 'Helveticas',
+                                                fontSize: width * 0.03),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
@@ -706,6 +769,9 @@ class ItemPending extends StatelessWidget {
                                         size: width * 0.07,
                                         color: Color(0xff3ab284),
                                       ),
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              left: width * 0.01)),
                                       Text(
                                         "BOOKING DETAILS",
                                         style: TextStyle(
@@ -731,6 +797,9 @@ class ItemPending extends StatelessWidget {
                                         size: width * 0.07,
                                         color: Color(0xff3ab284),
                                       ),
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              left: width * 0.01)),
                                       Text(
                                         "CONTINUE PROCESS",
                                         style: TextStyle(
@@ -791,7 +860,7 @@ class ItemPending extends StatelessWidget {
                                         padding: EdgeInsets.only(
                                             left: width * 0.005)),
                                     Text(
-                                      " RATEING",
+                                      " RATING",
                                       style: TextStyle(
                                           color: Color(0xff3ab284),
                                           fontFamily: 'Helvetica-Bold',

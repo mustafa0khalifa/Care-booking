@@ -203,7 +203,7 @@ class _CaregiverPreferencesState extends State<CaregiverPreferences> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
                 Text(
-                  'Are you looking for a caregiver from a specific age range? (select that applies)',
+                  'Are you looking for a caregiver from a specific age range? (select all that applies)',
                   style: TextStyle(
                       color: Color(0xff28306e),
                       fontFamily: 'Helvetica',

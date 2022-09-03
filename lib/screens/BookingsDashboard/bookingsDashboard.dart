@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/screens/PostMyNeeds/widgets/BrowseCaregivers/browseCaregivers.dart';
+import 'package:flutter_application_10000/screens/auth/mainAuth.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/bookDashboardProvide.dart';
@@ -24,6 +25,22 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.logout_outlined,
+              color: Color(0xff28306e),
+            ),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil<void>(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => AuthScreen()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
@@ -117,7 +134,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                         onLongPress: () => {foo.ClicedPreviousBooking()},
                         onTap: () => {
                           widget.myBook
-                              .changeStateMyBooking('Previous Booking'),
+                              .changeStateMyBooking('Previous Bookings'),
                           Navigator.of(context).pushNamed(
                             MyBookings.routeName,
                           )
@@ -164,7 +181,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
-                                      child: Text('Current Booking',
+                                      child: Text('Current Bookings',
                                           style: TextStyle(
                                               color: BookDashboardProvide
                                                       .clicedCurrentBooking
@@ -230,7 +247,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
-                                      child: Text('Pending Booking',
+                                      child: Text('Pending Bookings',
                                           style: TextStyle(
                                               color: BookDashboardProvide
                                                       .clicedPendingBooking

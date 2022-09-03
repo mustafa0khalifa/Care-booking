@@ -1,8 +1,7 @@
-import 'package:easy_rich_text/easy_rich_text.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/forgetPassProvider.dart';
 import 'package:flutter_application_10000/screens/ForgetPassword/forgetPassword.dart';
+import 'package:country_picker/country_picker.dart';
 
 import '../../auth/mainAuth.dart';
 
@@ -15,6 +14,7 @@ class EnterNumber extends StatefulWidget {
 class _EnterNumberState extends State<EnterNumber> {
   final _numberController = TextEditingController();
   final ForgetPassProvidere forget = ForgetPassProvidere();
+  String contryCode = '961';
 
   void _clickSend() {
     print(_numberController.text);
@@ -58,36 +58,96 @@ class _EnterNumberState extends State<EnterNumber> {
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
-              TextFormField(
-                controller: _numberController,
-                keyboardType: TextInputType.number,
-                style: TextStyle(
-                  fontSize: deviceSize.width * 0.035,
-                  color: Color(0xff28306e),
-                  fontFamily: 'Helvetica',
+              SizedBox(
+                width: deviceSize.width * 0.85,
+                height: deviceSize.height * 0.072,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      child: Container(
+                        width: deviceSize.width * 0.1,
+                        height: deviceSize.height * 0.072,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Color(0xffe9ecef),
+                            border:
+                                Border.all(color: Color(0xffced4da), width: 1),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                bottomLeft: Radius.circular(5))
+                            //more than 50% of width makes circle
+                            ),
+                        child: Text(
+                          '+ ${contryCode}',
+                          style: TextStyle(
+                            fontSize: deviceSize.width * 0.035,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff28306e),
+                          ),
+                        ),
+                      ),
+                      onTap: () => {
+                        showCountryPicker(
+                          context: context,
+                          showPhoneCode:
+                              true, // optional. Shows phone code before the country name.
+                          onSelect: (Country country) {
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('Select country: ${country.phoneCode} ');
+                            setState(() {
+                              contryCode = country.phoneCode;
+                            });
+                            print('dddddddd');
+                            print('dddddddd');
+                            print('dddddddd');
+                          },
+                        )
+                      },
+                    ),
+                    SizedBox(
+                      width: deviceSize.width * 0.75,
+                      child: TextFormField(
+                        style: TextStyle(
+                          fontSize: deviceSize.width * 0.035,
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica',
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Mobile',
+                          fillColor: Color(0xffe9ecef),
+                          filled: true,
+                          labelStyle: TextStyle(
+                              color: Color(0xff495057),
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.035),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color(0xffced4da), width: 1.0),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5)),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(5),
+                                  bottomRight: Radius.circular(5)),
+                              borderSide: BorderSide(color: Color(0xffced4da))),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                decoration: InputDecoration(
-                    fillColor: Color(0xffe9ecef),
-                    filled: true,
-                    hintText: 'Enter your number',
-                    hintStyle: TextStyle(
-                        color: Color(0xff495057),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.035),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color(0xffced4da), width: 1.0),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color(0xffced4da), width: 1.0),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color(0xffced4da))),
-                    prefixIcon: Icon(Icons.phone_locked_outlined)),
               ),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
               Row(

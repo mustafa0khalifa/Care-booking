@@ -490,7 +490,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                           SizedBox(
                             width: deviceSize.width * 0.3,
                             child: Text(
-                              "Care Recipient ",
+                              "Care Recipient(s)",
                               style: TextStyle(
                                   color: Color(0xff28306e),
                                   fontFamily: 'Helvetica-Bold',
@@ -530,7 +530,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                       SizedBox(
                         width: deviceSize.width * 0.9,
                         child: Text(
-                          "Services Request",
+                          "Requested Services",
                           style: TextStyle(
                               color: Color(0xff28306e),
                               fontFamily: 'Helvetica-Bold',

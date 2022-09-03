@@ -39,11 +39,11 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Review",
+          "Automatic Matching Option",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
-              fontSize: deviceSize.width * 0.055),
+              fontSize: deviceSize.width * 0.05),
         ),
       ),
       body: Container(
@@ -101,6 +101,7 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                         Container(
                           height: deviceSize.height * 0.07,
                           padding: EdgeInsets.all(deviceSize.width * 0.01),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color:
                                   isSelected ? Color(0xff28306e) : Colors.white,
@@ -112,7 +113,7 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                               //more than 50% of width makes circle
                               ),
                           child: SizedBox(
-                            width: deviceSize.width * 0.79,
+                            width: deviceSize.width * 0.78,
                             child: Text(
                               "I want to browse profiles all interested candidates and select my preferred caregiver",
                               style: TextStyle(
@@ -246,6 +247,7 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                         ),
                         Container(
                           height: deviceSize.height * 0.07,
+                          alignment: Alignment.center,
                           padding: EdgeInsets.all(deviceSize.width * 0.01),
                           decoration: BoxDecoration(
                               color: !isSelected
@@ -259,7 +261,7 @@ class _AutomaticMatchingOptionState extends State<AutomaticMatchingOption> {
                               //more than 50% of width makes circle
                               ),
                           child: SizedBox(
-                            width: deviceSize.width * 0.79,
+                            width: deviceSize.width * 0.78,
                             child: Text(
                               "I want to be automatically matched with one or more caregivers based on who applies first to my request",
                               style: TextStyle(

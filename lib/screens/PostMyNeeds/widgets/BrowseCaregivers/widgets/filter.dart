@@ -14,14 +14,7 @@ class Filter extends StatefulWidget {
 class _FilterState extends State<Filter> {
   String groupValueRadio = 'all';
   String dropdownvalue = '8 hours';
-  var items = [
-    '8 hours',
-    '1 hours',
-    '2 hours',
-    '3 hours',
-    '3 hours',
-    '5 hours'
-  ];
+  var items = ['8 hours', '1 hour', '2 hours', '3 hours', '3 hours', '5 hours'];
 
   String dropdownvalue2 = 'USD';
   var items2 = ['USD', 'LBP'];
@@ -364,7 +357,7 @@ class _FilterState extends State<Filter> {
                                           child: Consumer<
                                               BrowseCaregiversProvider>(
                                             builder: (_, foo, __) => Text(
-                                              "${BrowseCaregiversProvider.valueSlider.toInt()}  areoun me",
+                                              "${BrowseCaregiversProvider.valueSlider.toInt()}  caregivers around me",
                                               style: TextStyle(
                                                   color: Color(0xff28306e),
                                                   fontFamily: 'Helvetica',
@@ -960,6 +953,8 @@ class _FilterState extends State<Filter> {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
                                                     padding: EdgeInsets.only(
@@ -1005,8 +1000,12 @@ class _FilterState extends State<Filter> {
                                             ),
                                             Column(
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                  CrossAxisAlignment.start,
                                               children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: deviceSize.height *
+                                                            0.02)),
                                                 SizedBox(
                                                   child: Text('And',
                                                       style: TextStyle(

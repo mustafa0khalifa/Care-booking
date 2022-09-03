@@ -18,7 +18,7 @@ class Budget extends StatefulWidget {
 
 class _BudgetState extends State<Budget> {
   String dropdownvalue = 'USD';
-  var items = ['USD'];
+  var items = ['USD', 'LBP'];
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -268,6 +268,7 @@ class _BudgetState extends State<Budget> {
                         children: [
                           Text(
                             'Total number of days of booking',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
@@ -304,6 +305,7 @@ class _BudgetState extends State<Budget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
+                            textAlign: TextAlign.center,
                             'Total number of shifts',
                             style: TextStyle(
                                 color: Color(0xff28306e),
@@ -341,6 +343,7 @@ class _BudgetState extends State<Budget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
+                            textAlign: TextAlign.center,
                             'Total number of hours requested',
                             style: TextStyle(
                                 color: Color(0xff28306e),
@@ -446,63 +449,59 @@ class _BudgetState extends State<Budget> {
                                     fontSize: deviceSize.width * 0.035),
                               ));
                         }).toList(),
-                        onChanged: (val) {}),
+                        onChanged: (val) {
+                          setState(() {
+                            dropdownvalue = val as String;
+                            if (dropdownvalue == 'LBP') {
+                              showDialog(
+                                context: context,
+                                builder: (ctx) => AlertDialog(
+                                  title: Icon(
+                                    Icons.note,
+                                    size: deviceSize.width * 0.06,
+                                  ),
+                                  content: Text(
+                                    textAlign: TextAlign.center,
+                                    'You cannot change currency to LL since the start date is more than 2 months from now.',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffD3CFC8),
+                                            border: Border.all(
+                                                color: Color(0xffD3CFC8),
+                                                width: 1),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(5))
+                                            //more than 50% of width makes circle
+                                            ),
+                                        padding: const EdgeInsets.all(14),
+                                        child: Text(
+                                          "okay",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: deviceSize.width * 0.035,
+                                            color: Color(0xff28306e),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                          });
+                        }),
                   ],
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffD3CFC8), width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                      //more than 50% of width makes circle
-                      ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(deviceSize.width * 0.01),
-                    decoration: BoxDecoration(
-                        color: Colors.orange[100],
-                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(5))
-                        //more than 50% of width makes circle
-                        ),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Icon(
-                              Icons.note,
-                              size: deviceSize.width * 0.06,
-                              color: Colors.red,
-                            ),
-                            Padding(
-                                padding: EdgeInsets.only(
-                                    left: deviceSize.width * 0.01)),
-                            Text(
-                              'Note',
-                              style: TextStyle(
-                                fontSize: deviceSize.width * 0.035,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'You cannot change currency to LL since the start date is more than 2 months from now.',
-                          style: TextStyle(
-                            fontSize: deviceSize.width * 0.025,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Container(
                   decoration: BoxDecoration(
                       border: Border.all(color: Color(0xffD3CFC8), width: 1),

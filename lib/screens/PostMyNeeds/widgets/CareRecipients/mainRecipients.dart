@@ -241,7 +241,7 @@ class _MainRecipientsState extends State<MainRecipients> {
                                 fontSize: deviceSize.width * 0.025),
                           ),
                           leading: Icon(
-                            Icons.person,
+                            Icons.child_friendly_outlined,
                             size: deviceSize.width * 0.1,
                             color: !liste1 ? Color(0xff495057) : Colors.white,
                           ),
@@ -287,7 +287,7 @@ class _MainRecipientsState extends State<MainRecipients> {
                                 fontSize: deviceSize.width * 0.025),
                           ),
                           leading: Icon(
-                            Icons.person,
+                            Icons.child_care_rounded,
                             size: deviceSize.width * 0.1,
                             color: !liste2 ? Color(0xff495057) : Colors.white,
                           ),

@@ -34,7 +34,7 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Review",
+          "Review and Submit",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -574,7 +574,29 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.03)),
+                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: deviceSize.height * 0.05,
+                      right: deviceSize.height * 0.05),
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary:
+                          Color(0xff3ab284), //elevated btton background color
+                    ),
+                    onPressed: () => {
+                      /*Navigator.of(context).pushNamed(
+                                CareCategory.routeName,
+                              ),*/
+                      Navigator.of(context).pop()
+                    },
+                    child: Text(
+                      "Confirm and post now",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,

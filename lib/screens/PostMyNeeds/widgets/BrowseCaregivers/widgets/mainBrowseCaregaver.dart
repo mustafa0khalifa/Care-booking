@@ -54,7 +54,7 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
           backgroundColor: Colors.white,
           centerTitle: true,
           title: Text(
-            "Browse Caregaver",
+            "Browse Caregivers",
             style: TextStyle(
                 color: Color(0xff28306e),
                 fontFamily: 'Helvetica-Bold',
@@ -166,12 +166,12 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                                         width: deviceSize.width * 0.32,
                                         child: Text(
                                             maxLines: 2,
-                                            "Matched caregavers",
+                                            "Matched caregivers",
                                             style: TextStyle(
                                                 color: Color(0xff28306e),
                                                 fontFamily: 'Helvetica',
                                                 fontSize:
-                                                    deviceSize.width * 0.035)),
+                                                    deviceSize.width * 0.03)),
                                       ),
                                     ],
                                   ),
@@ -343,7 +343,7 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                         favoriteCaregiversModel:
                             TestModel.testFavoriteCaregivers,
                         isSelectedPage: false,
-                        isInArea: false,
+                        isInArea: true,
                       );
                     },
                   ),
