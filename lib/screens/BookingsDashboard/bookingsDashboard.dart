@@ -114,7 +114,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
-                                      child: Text('Previous Booking',
+                                      child: Text('Previous bookings',
                                           style: TextStyle(
                                               color: BookDashboardProvide
                                                       .clicedPreviousBooking
@@ -181,7 +181,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
-                                      child: Text('Current Bookings',
+                                      child: Text('Current bookings',
                                           style: TextStyle(
                                               color: BookDashboardProvide
                                                       .clicedCurrentBooking
@@ -247,7 +247,7 @@ class _BookingsDashboardState extends State<BookingsDashboard> {
                                   SizedBox(
                                     width: deviceSize.width * 0.28,
                                     child: Center(
-                                      child: Text('Pending Bookings',
+                                      child: Text('Pending bookings',
                                           style: TextStyle(
                                               color: BookDashboardProvide
                                                       .clicedPendingBooking

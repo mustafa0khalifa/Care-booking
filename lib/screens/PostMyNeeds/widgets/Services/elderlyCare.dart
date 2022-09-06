@@ -288,7 +288,7 @@ class _ElderlyCareState extends State<ElderlyCare> {
                                   padding: EdgeInsets.only(
                                       top: deviceSize.height * 0.01)),
                               Text(
-                                "2 elder / seniors",
+                                "2 elders / seniors",
                                 style: TextStyle(
                                     color: !select1Elder
                                         ? Colors.white

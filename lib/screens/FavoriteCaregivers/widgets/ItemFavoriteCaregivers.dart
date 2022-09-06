@@ -13,6 +13,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
   var width;
   var height;
   bool isInArea;
+  bool isBrowse;
   FavoriteCaregiversModel favoriteCaregiversModel;
   bool isSelectedPage;
   ItemFavoriteCaregivers({
@@ -21,6 +22,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
     required this.favoriteCaregiversModel,
     required this.isSelectedPage,
     required this.isInArea,
+    required this.isBrowse,
   });
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                !isInArea
+                !isInArea && !isBrowse
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,164 +227,431 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         ],
                       ),
                 Padding(padding: EdgeInsets.only(top: height * 0.03)),
-                !isInArea
+                !isInArea && !isBrowse
                     ? SizedBox()
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    : isInArea
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: width * 0.15,
+                                width: width * 0.24,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(width * 0.01),
+                                child: Column(
+                                  children: [
+                                    Text('5',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.04)),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: height * 0.01)),
+                                    Text('References',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontSize: width * 0.03)),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              Container(
+                                height: height * 0.06,
+                                child: VerticalDivider(
+                                  color: Color(0xffD3CFC8), //color of divider
+                                  width: 1, //width space of divider
+                                  thickness: 1, //thickness of divier line
+                                  //Spacing at the bottom of divider.
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              Container(
+                                height: width * 0.15,
+                                width: width * 0.24,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(width * 0.01),
+                                child: Column(
+                                  children: [
+                                    Text('32',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.04)),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: height * 0.01)),
+                                    Text('Hours of care',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontSize: width * 0.03)),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              Container(
+                                height: height * 0.06,
+                                child: VerticalDivider(
+                                  color: Color(0xffD3CFC8), //color of divider
+                                  width: 1, //width space of divider
+                                  thickness: 1, //thickness of divier line
+                                  //Spacing at the bottom of divider.
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              Container(
+                                height: width * 0.15,
+                                width: width * 0.24,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(width * 0.01),
+                                child: Column(
+                                  children: [
+                                    Text('10',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.04)),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: height * 0.01)),
+                                    Text('Families served',
+                                        style: TextStyle(
+                                            color: Color(0xff28306e),
+                                            fontFamily: 'Helvetica',
+                                            fontSize: width * 0.03)),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: width * 0.2,
+                                width: width * 0.2,
+                                padding: EdgeInsets.all(width * 0.02),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.filter_vintage_outlined,
+                                            size: width * 0.05,
+                                          ),
+                                          Icon(
+                                            Icons.filter_vintage_outlined,
+                                            size: width * 0.05,
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.filter_vintage_outlined,
+                                            size: width * 0.05,
+                                          ),
+                                          Icon(
+                                            Icons.filter_vintage_outlined,
+                                            size: width * 0.05,
+                                          )
+                                        ],
+                                      )
+                                    ]),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: width * 0.15,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(width * 0.02),
+                                        child: Column(
+                                          children: [
+                                            Text('5',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: width * 0.04)),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: height * 0.01)),
+                                            Text('References',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: width * 0.03)),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        height: height * 0.06,
+                                        child: VerticalDivider(
+                                          color: Color(
+                                              0xffD3CFC8), //color of divider
+                                          width: 1, //width space of divider
+                                          thickness:
+                                              1, //thickness of divier line
+                                          //Spacing at the bottom of divider.
+                                        ),
+                                      ),
+                                      Container(
+                                        height: width * 0.15,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(width * 0.02),
+                                        child: Column(
+                                          children: [
+                                            Text('32',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: width * 0.04)),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: height * 0.01)),
+                                            Text('Hours of care',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: width * 0.03)),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        height: height * 0.06,
+                                        child: VerticalDivider(
+                                          color: Color(
+                                              0xffD3CFC8), //color of divider
+                                          width: 1, //width space of divider
+                                          thickness:
+                                              1, //thickness of divier line
+                                          //Spacing at the bottom of divider.
+                                        ),
+                                      ),
+                                      Container(
+                                        height: width * 0.15,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(width * 0.02),
+                                        child: Column(
+                                          children: [
+                                            Text('10',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: width * 0.04)),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: height * 0.01)),
+                                            Text('Families served',
+                                                style: TextStyle(
+                                                    color: Color(0xff28306e),
+                                                    fontFamily: 'Helvetica',
+                                                    fontSize: width * 0.03)),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.7,
+                                    child: Center(
+                                      child: Text(
+                                          '${favoriteCaregiversModel.caregiversBiography}',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 129, 127, 127),
+                                              fontFamily: 'Helvetica',
+                                              fontSize: width * 0.04)),
+                                    ),
+                                  ),
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: height * 0.01)),
+                                ],
+                              )
+                            ],
+                          ),
+                isBrowse
+                    ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            height: width * 0.15,
-                            width: width * 0.24,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(width * 0.01),
-                            child: Column(
-                              children: [
-                                Text('5',
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                child: Container(
+                                  width: width * 0.4,
+                                  padding: EdgeInsets.all(width * 0.02),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text('Registered nurse',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: width * 0.035)),
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              SizedBox(
+                                child: Container(
+                                  width: width * 0.4,
+                                  padding: EdgeInsets.all(width * 0.02),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text('First aid certifcation',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: width * 0.035)),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.only(top: height * 0.01)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                child: Container(
+                                  width: width * 0.4,
+                                  padding: EdgeInsets.all(width * 0.02),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text('Member of the order',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: width * 0.035)),
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: width * 0.03)),
+                              SizedBox(
+                                child: Container(
+                                  width: width * 0.4,
+                                  padding: EdgeInsets.all(width * 0.02),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffD3CFC8),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text('Meal Preparation',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: width * 0.035)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : SizedBox(),
+                !isBrowse
+                    ? SizedBox(
+                        width: width * 0.9,
+                        child: Center(
+                          child: Text(
+                              '${favoriteCaregiversModel.caregiversBiography}',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 129, 127, 127),
+                                  fontFamily: 'Helvetica',
+                                  fontSize: width * 0.04)),
+                        ),
+                      )
+                    : SizedBox(),
+                !isBrowse
+                    ? Padding(padding: EdgeInsets.only(top: height * 0.03))
+                    : SizedBox(),
+                !isBrowse
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            child: Container(
+                              padding: EdgeInsets.all(width * 0.02),
+                              decoration: BoxDecoration(
+                                  color: Color(0xffD3CFC8),
+                                  borderRadius: BorderRadius.circular(15)),
+                              alignment: Alignment.center,
+                              child: Text(
+                                  '${favoriteCaregiversModel.qualifications}',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Helvetica_Bold',
+                                      fontSize: width * 0.04)),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.only(left: width * 0.06)),
+                          SizedBox(
+                            child: EasyRichText(
+                              "Can Provide ${favoriteCaregiversModel.providedHoursofcare}h",
+                              patternList: [
+                                EasyRichTextPattern(
+                                    targetString: 'Can Provide',
+                                    style: TextStyle(
+                                        color: Color(0xff28306e),
+                                        fontFamily: 'Helvetica',
+                                        fontSize: width * 0.035)),
+                                EasyRichTextPattern(
+                                    targetString:
+                                        '${favoriteCaregiversModel.providedHoursofcare}h',
                                     style: TextStyle(
                                         color: Color(0xff28306e),
                                         fontFamily: 'Helvetica',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.04)),
-                                Padding(
-                                    padding:
-                                        EdgeInsets.only(top: height * 0.01)),
-                                Text('References',
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: width * 0.03)),
-                              ],
-                            ),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: width * 0.03)),
-                          Container(
-                            height: height * 0.06,
-                            child: VerticalDivider(
-                              color: Color(0xffD3CFC8), //color of divider
-                              width: 1, //width space of divider
-                              thickness: 1, //thickness of divier line
-                              //Spacing at the bottom of divider.
-                            ),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: width * 0.03)),
-                          Container(
-                            height: width * 0.15,
-                            width: width * 0.24,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(width * 0.01),
-                            child: Column(
-                              children: [
-                                Text('32',
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.04)),
-                                Padding(
-                                    padding:
-                                        EdgeInsets.only(top: height * 0.01)),
-                                Text('Hours of care',
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: width * 0.03)),
-                              ],
-                            ),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: width * 0.03)),
-                          Container(
-                            height: height * 0.06,
-                            child: VerticalDivider(
-                              color: Color(0xffD3CFC8), //color of divider
-                              width: 1, //width space of divider
-                              thickness: 1, //thickness of divier line
-                              //Spacing at the bottom of divider.
-                            ),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: width * 0.03)),
-                          Container(
-                            height: width * 0.15,
-                            width: width * 0.24,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(width * 0.01),
-                            child: Column(
-                              children: [
-                                Text('10',
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: width * 0.04)),
-                                Padding(
-                                    padding:
-                                        EdgeInsets.only(top: height * 0.01)),
-                                Text('Families served',
-                                    style: TextStyle(
-                                        color: Color(0xff28306e),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: width * 0.03)),
+                                        fontSize: width * 0.035)),
                               ],
                             ),
                           ),
                         ],
-                      ),
-                SizedBox(
-                  width: width * 0.9,
-                  child: Center(
-                    child: Text(
-                        '${favoriteCaregiversModel.caregiversBiography}',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 129, 127, 127),
-                            fontFamily: 'Helvetica',
-                            fontSize: width * 0.04)),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(top: height * 0.03)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      child: Container(
-                        padding: EdgeInsets.all(width * 0.02),
-                        decoration: BoxDecoration(
-                            color: Color(0xffD3CFC8),
-                            borderRadius: BorderRadius.circular(15)),
-                        alignment: Alignment.center,
-                        child: Text('${favoriteCaregiversModel.qualifications}',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Helvetica_Bold',
-                                fontSize: width * 0.04)),
-                      ),
-                    ),
-                    Padding(padding: EdgeInsets.only(left: width * 0.06)),
-                    SizedBox(
-                      child: EasyRichText(
-                        "Can Provide ${favoriteCaregiversModel.providedHoursofcare}h",
-                        patternList: [
-                          EasyRichTextPattern(
-                              targetString: 'Can Provide',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: width * 0.035)),
-                          EasyRichTextPattern(
-                              targetString:
-                                  '${favoriteCaregiversModel.providedHoursofcare}h',
-                              style: TextStyle(
-                                  color: Color(0xff28306e),
-                                  fontFamily: 'Helvetica',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: width * 0.035)),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(padding: EdgeInsets.only(top: height * 0.03)),
-                isInArea
+                      )
+                    : SizedBox(),
+                !isBrowse
+                    ? Padding(padding: EdgeInsets.only(top: height * 0.03))
+                    : SizedBox(),
+                isInArea || isBrowse
                     ? SizedBox()
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

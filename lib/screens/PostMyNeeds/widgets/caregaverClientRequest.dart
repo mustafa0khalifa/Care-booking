@@ -573,30 +573,6 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: deviceSize.height * 0.05,
-                      right: deviceSize.height * 0.05),
-                  alignment: Alignment.bottomRight,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xff3ab284), //elevated btton background color
-                    ),
-                    onPressed: () => {
-                      /*Navigator.of(context).pushNamed(
-                                CareCategory.routeName,
-                              ),*/
-                      Navigator.of(context).pop()
-                    },
-                    child: Text(
-                      "Confirm and post now",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
                 Container(
                   margin: EdgeInsets.all(deviceSize.height * 0.05),
                   alignment: Alignment.bottomRight,
@@ -619,7 +595,7 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                       ),
                       Padding(
                           padding:
-                              EdgeInsets.only(left: deviceSize.width * 0.2)),
+                              EdgeInsets.only(left: deviceSize.width * 0.1)),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: Colors
@@ -632,7 +608,7 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                           Navigator.of(context)
                               .pushNamed(WhatToExpect.routeName),
                         },
-                        child: Text("Next"),
+                        child: Text("Confirm and Post now"),
                       ),
                     ],
                   ),

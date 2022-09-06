@@ -207,6 +207,7 @@ class _CaregiversInrAeaState extends State<CaregiversInrAea> {
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                       isSelectedPage: false,
                       isInArea: true,
+                      isBrowse: false,
                     );
                   },
                 ),

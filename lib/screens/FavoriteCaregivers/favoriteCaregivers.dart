@@ -39,6 +39,7 @@ class _FavoriteCaregiversState extends State<FavoriteCaregivers> {
                 favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                 isSelectedPage: false,
                 isInArea: true,
+                isBrowse: false,
               );
             },
           )),

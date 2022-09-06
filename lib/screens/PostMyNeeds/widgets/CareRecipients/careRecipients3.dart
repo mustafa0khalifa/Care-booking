@@ -914,7 +914,17 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 ),
                */
                 Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
+                  padding: EdgeInsets.all(deviceSize.height * 0.01),
+                ),
+                SizedBox(
+                  width: deviceSize.width * 0.9,
+                  child: Text(
+                    'Does the care recipient have an accessible phone?\nWhat’s the phone number?',
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica',
+                        fontSize: deviceSize.width * 0.03),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -1060,61 +1070,6 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  width: deviceSize.width * 0.9,
-                  child: Text(
-                    'Does the care recipient have an accessible phone?\nWhat’s the phone number?',
-                    style: TextStyle(
-                        color: Color(0xff28306e),
-                        fontFamily: 'Helvetica',
-                        fontSize: deviceSize.width * 0.03),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(deviceSize.height * 0.005),
-                ),
-                TextField(
-                  textAlign: TextAlign.start,
-                  expands: false,
-
-                  style: TextStyle(
-                    fontSize: deviceSize.width * 0.03,
-                    color: Color(0xff495057),
-                    fontFamily: 'Helvetica',
-                  ),
-                  decoration: InputDecoration(
-                    constraints: BoxConstraints(
-                      maxWidth: deviceSize.width * 0.9,
-                      maxHeight: deviceSize.height * 0.05,
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                    hintText: '',
-                    fillColor: Color(0xffe9ecef),
-                    filled: true,
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color(0xffced4da), width: 1.0),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(5),
-                          bottomRight: Radius.circular(5)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color(0xffced4da), width: 1.0),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(5),
-                          bottomRight: Radius.circular(5)),
-                    ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(5),
-                            bottomRight: Radius.circular(5)),
-                        borderSide: BorderSide(color: Color(0xffced4da))),
-                  ), //autofocus: ,
-                  //autofocus: ,
-                  keyboardType: TextInputType.emailAddress,
-                ),
 
                 /* 
                 Container(
@@ -1171,8 +1126,6 @@ class _CareRecipientsAeaState extends State<CareRecipients3> {
                 ),
                
                */
-                Padding(
-                    padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Consumer<CareRecipientsProvider>(
                     builder: (_, foo, __) => CareRecipientsProvider
                                 .genderGroub ==

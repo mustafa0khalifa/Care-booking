@@ -3,6 +3,7 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
 import 'package:flutter_application_10000/screens/BookNow/bookNow.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,7 @@ class CaregiverProfile extends StatefulWidget {
 class _CaregiverProfileState extends State<CaregiverProfile> {
   late GoogleMapController mapController;
   bool isFavorite = false;
+  bool clickNoteFees = false;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
@@ -28,19 +30,40 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    Widget buildText(List<String> l) {
+    Widget buildText(List<String> l, bool calculate) {
       return ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: l.length,
-          itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(top: deviceSize.height * 0.005),
-                child: Text(l[index],
-                    style: TextStyle(
+          itemBuilder: (context, index) => !calculate
+              ? Padding(
+                  padding: EdgeInsets.only(top: deviceSize.height * 0.005),
+                  child: Text(l[index],
+                      style: TextStyle(
+                          color: Color(0xff28306e),
+                          fontFamily: 'Helvetica_Bold',
+                          fontSize: deviceSize.width * 0.04)),
+                )
+              : Padding(
+                  padding: EdgeInsets.only(top: deviceSize.height * 0.005),
+                  child: EasyRichText(
+                    l[index],
+                    defaultStyle: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica_Bold',
-                        fontSize: deviceSize.width * 0.04)),
-              ));
+                        fontSize: deviceSize.width * 0.04),
+                    patternList: [
+                      EasyRichTextPattern(
+                        targetString: 'Calculate',
+                        style: TextStyle(
+                            color: Color(0xff007bff),
+                            fontFamily: 'Helvetica_Bold',
+                            decoration: TextDecoration.underline,
+                            fontSize: deviceSize.width * 0.04),
+                      ),
+                    ],
+                  ),
+                ));
     }
 
     Widget buildSubText(List<String> l) {
@@ -91,10 +114,12 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                           children: [
                             Container(
                               height: deviceSize.height * 0.17,
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.01),
                               color: Color(0xff17a2b8),
-                              alignment: Alignment.center,
+                              alignment: Alignment.centerLeft,
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
@@ -168,8 +193,11 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                       Container(
                                         height: deviceSize.height * 0.05,
                                         width: deviceSize.width * 0.3,
-                                        padding: EdgeInsets.all(
-                                            deviceSize.width * 0.02),
+                                        padding: EdgeInsets.only(
+                                            top: deviceSize.width * 0.01,
+                                            left: deviceSize.width * 0.02,
+                                            right: deviceSize.width * 0.02,
+                                            bottom: deviceSize.width * 0.02),
                                         decoration: BoxDecoration(
                                             border: Border.all(
                                               color: Color(0xff17a2b8),
@@ -178,7 +206,7 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                                 BorderRadius.circular(5)),
                                         alignment: Alignment.center,
                                         child: Icon(
-                                          Icons.email_outlined,
+                                          Icons.phone,
                                           color: Color(0xff17a2b8),
                                         ),
                                       ),
@@ -209,23 +237,32 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                       Container(
                           height: deviceSize.height * 0.31,
                           alignment: Alignment.topRight,
-                          child: IconButton(
-                            onPressed: () => {
-                              setState(
-                                () => {
-                                  isFavorite = !isFavorite,
+                          child: Column(
+                            children: [
+                              IconButton(
+                                onPressed: () => {
+                                  setState(
+                                    () => {
+                                      isFavorite = !isFavorite,
+                                    },
+                                  )
                                 },
-                              )
-                            },
-                            icon: Icon(
-                              !isFavorite
-                                  ? Icons.favorite_border
-                                  : Icons.favorite,
-                              color: !isFavorite
-                                  ? Colors.white
-                                  : Color(0xff007bff),
-                              size: deviceSize.width * 0.07,
-                            ),
+                                icon: Icon(
+                                  !isFavorite
+                                      ? Icons.favorite_border
+                                      : Icons.favorite,
+                                  color: !isFavorite
+                                      ? Colors.white
+                                      : Color(0xff007bff),
+                                  size: deviceSize.width * 0.07,
+                                ),
+                              ),
+                              Icon(
+                                Icons.info_outline_rounded,
+                                color: Colors.white,
+                                size: deviceSize.width * 0.07,
+                              ),
+                            ],
                           )),
                     ],
                   )),
@@ -309,22 +346,13 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                           MainAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          width: deviceSize.width * 0.35,
+                                          width: deviceSize.width * 0.45,
                                           child: EasyRichText(
-                                            "Age : ${TestModel.testCaregaverModel.age} years",
+                                            "${TestModel.testCaregaverModel.age} years old",
                                             patternList: [
                                               EasyRichTextPattern(
-                                                  targetString: 'Age :',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
-                                              EasyRichTextPattern(
                                                   targetString:
-                                                      '${TestModel.testCaregaverModel.age} years',
+                                                      '${TestModel.testCaregaverModel.age} years old',
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily:
@@ -335,31 +363,39 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(
-                                          child: EasyRichText(
-                                            "Nationality : ${TestModel.testCaregaverModel.nationality}",
-                                            patternList: [
-                                              EasyRichTextPattern(
-                                                  targetString: 'Nationality :',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
-                                              EasyRichTextPattern(
-                                                  targetString:
-                                                      '${TestModel.testCaregaverModel.nationality}',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.035)),
-                                            ],
-                                          ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                                child: Image.asset(
+                                              'assets/images/flebanonFlag2.jpg',
+                                              scale: 25,
+                                            )),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  left:
+                                                      deviceSize.width * 0.03),
+                                            ),
+                                            SizedBox(
+                                              child: EasyRichText(
+                                                "${TestModel.testCaregaverModel.distance} kms away",
+                                                patternList: [
+                                                  EasyRichTextPattern(
+                                                      targetString:
+                                                          '${TestModel.testCaregaverModel.distance} kms away',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff28306e),
+                                                          fontFamily:
+                                                              'Helvetica_Bold',
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035)),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -371,45 +407,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                           MainAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          width: deviceSize.width * 0.35,
+                                          width: deviceSize.width * 0.45,
                                           child: EasyRichText(
-                                            "Distance : ${TestModel.testCaregaverModel.distance} kms",
+                                            "${TestModel.testCaregaverModel.clientRef}",
                                             patternList: [
-                                              EasyRichTextPattern(
-                                                  targetString: 'Distance :',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
-                                              EasyRichTextPattern(
-                                                  targetString:
-                                                      '${TestModel.testCaregaverModel.distance} kms',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.035)),
-                                            ],
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          child: EasyRichText(
-                                            "ClientRef : ${TestModel.testCaregaverModel.clientRef}",
-                                            patternList: [
-                                              EasyRichTextPattern(
-                                                  targetString: 'ClientRef :',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
                                               EasyRichTextPattern(
                                                   targetString:
                                                       '${TestModel.testCaregaverModel.clientRef}',
@@ -423,59 +424,13 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             ],
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: deviceSize.height * 0.01)),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          width: deviceSize.width * 0.35,
-                                          child: EasyRichText(
-                                            "Rating : ${TestModel.testCaregaverModel.rating}",
-                                            patternList: [
-                                              EasyRichTextPattern(
-                                                  targetString: 'Rating :',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
-                                              EasyRichTextPattern(
-                                                  targetString:
-                                                      '${TestModel.testCaregaverModel.distance} kms',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.035)),
-                                            ],
-                                          ),
-                                        ),
                                         SizedBox(
                                           child: EasyRichText(
-                                            "provided hours: ${TestModel.testCaregaverModel.providedHoursOfCare} houres",
+                                            "${TestModel.testCaregaverModel.providedHoursOfCare}  provided hours of care",
                                             patternList: [
                                               EasyRichTextPattern(
                                                   targetString:
-                                                      'provided hours:',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
-                                              EasyRichTextPattern(
-                                                  targetString:
-                                                      '${TestModel.testCaregaverModel.providedHoursOfCare} houres',
+                                                      '${TestModel.testCaregaverModel.providedHoursOfCare}  provided hours of care',
                                                   style: TextStyle(
                                                       color: Color(0xff28306e),
                                                       fontFamily:
@@ -496,40 +451,39 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                           MainAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          width: deviceSize.width * 0.35,
-                                          child: EasyRichText(
-                                            "Qualifications: ",
-                                            patternList: [
-                                              EasyRichTextPattern(
-                                                  targetString:
-                                                      'Qualifications:',
-                                                  style: TextStyle(
-                                                      color: Color(0xff28306e),
-                                                      fontFamily:
-                                                          'Helvetica_Bold',
-                                                      fontSize:
-                                                          deviceSize.width *
-                                                              0.04)),
+                                          width: deviceSize.width * 0.445,
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                alignment: Alignment.centerLeft,
+                                                padding: EdgeInsets.all(
+                                                    deviceSize.width * 0.01),
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffD3CFC8),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15)),
+                                                child: Text(
+                                                    '${TestModel.testCaregaverModel.qualifications}',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontFamily:
+                                                            'Helvetica_Bold',
+                                                        fontSize:
+                                                            deviceSize.width *
+                                                                0.035)),
+                                              ),
                                             ],
                                           ),
                                         ),
-                                        SizedBox(
-                                          child: Container(
-                                            alignment: Alignment.centerLeft,
-                                            padding: EdgeInsets.all(
-                                                deviceSize.width * 0.02),
-                                            decoration: BoxDecoration(
-                                                color: Color(0xffD3CFC8),
-                                                borderRadius:
-                                                    BorderRadius.circular(15)),
-                                            child: Text(
-                                                '${TestModel.testCaregaverModel.qualifications}',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.04)),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          child: GFRating(
+                                            color: Colors.yellow[500],
+                                            borderColor: Colors.yellow[200],
+                                            size: 20,
+                                            value: 3,
+                                            onChanged: (value) {},
                                           ),
                                         ),
                                       ],
@@ -538,16 +492,15 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
                                     SizedBox(
-                                      width: deviceSize.width * 0.35,
                                       child: EasyRichText(
-                                        "Biography",
+                                        "${TestModel.testCaregaverModel.aboutMe}",
                                         patternList: [
                                           EasyRichTextPattern(
-                                              targetString: 'about me',
+                                              targetString:
+                                                  '${TestModel.testCaregaverModel.aboutMe}',
                                               style: TextStyle(
                                                   color: Color(0xff28306e),
                                                   fontFamily: 'Helvetica_Bold',
-                                                  fontWeight: FontWeight.bold,
                                                   fontSize: deviceSize.width *
                                                       0.035)),
                                         ],
@@ -763,8 +716,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(TestModel
-                                        .testCaregaverModel.providedServices),
+                                    buildText(
+                                        TestModel.testCaregaverModel
+                                            .providedServices,
+                                        false),
                                     buildSubText(TestModel
                                         .testCaregaverModel.supProvidedServices)
                                   ],
@@ -852,8 +807,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(TestModel
-                                        .testCaregaverModel.additionalServices),
+                                    buildText(
+                                        TestModel.testCaregaverModel
+                                            .additionalServices,
+                                        false),
                                   ],
                                 ),
                               )
@@ -939,8 +896,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(TestModel.testCaregaverModel
-                                        .ratingReviewsAndReferences),
+                                    buildText(
+                                        TestModel.testCaregaverModel
+                                            .ratingReviewsAndReferences,
+                                        false),
                                   ],
                                 ),
                               )
@@ -1026,8 +985,9 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(TestModel
-                                        .testCaregaverModel.experience),
+                                    buildText(
+                                        TestModel.testCaregaverModel.experience,
+                                        false),
                                     buildSubText(TestModel
                                         .testCaregaverModel.supExperience),
                                   ],
@@ -1115,8 +1075,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(TestModel.testCaregaverModel
-                                        .qualificationsEducation),
+                                    buildText(
+                                        TestModel.testCaregaverModel
+                                            .qualificationsEducation,
+                                        false),
                                   ],
                                 ),
                               )
@@ -1201,31 +1163,205 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    buildText(
-                                        TestModel.testCaregaverModel.fees),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.85,
-                                      child: Text(
-                                          'You will be billed per hour according to the below pricing table',
-                                          style: TextStyle(
-                                              color: Color(0xff28306e),
-                                              fontFamily: 'Helvetica_Bold',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize:
-                                                  deviceSize.width * 0.04)),
-                                    ),
-                                    buildSubText(
-                                        TestModel.testCaregaverModel.supFees),
-                                    SizedBox(
-                                      width: deviceSize.width * 0.85,
-                                      child: Text(
-                                          'The lab test fee does NOT include the lab fee and only covers the technician fee Sub Category 1 - 20 USD',
-                                          style: TextStyle(
-                                              color: Color(0xff28306e),
-                                              fontFamily: 'Helvetica_Bold',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize:
-                                                  deviceSize.width * 0.04)),
+                                    buildText(TestModel.testCaregaverModel.fees,
+                                        true),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: deviceSize.height * 0.005)),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.only(
+                                          left: deviceSize.width * 0.02,
+                                          right: deviceSize.width * 0.02),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xfff2f5fa),
+                                          border: Border.all(
+                                              color: Color(0xffD3CFC8),
+                                              width: 1),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: deviceSize.height * 0.05,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  width:
+                                                      deviceSize.width * 0.73,
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'Note',
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                    onPressed: () => {
+                                                          setState(
+                                                            () => {
+                                                              clickNoteFees =
+                                                                  !clickNoteFees
+                                                            },
+                                                          )
+                                                        },
+                                                    icon: !clickNoteFees
+                                                        ? Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down_outlined,
+                                                            color: Color(
+                                                                0xff17a2b8),
+                                                            size: deviceSize
+                                                                    .width *
+                                                                0.05,
+                                                          )
+                                                        : Icon(
+                                                            Icons
+                                                                .keyboard_arrow_up_outlined,
+                                                            color: Color(
+                                                                0xff17a2b8),
+                                                            size: deviceSize
+                                                                    .width *
+                                                                0.05,
+                                                          )),
+                                              ],
+                                            ),
+                                          ),
+                                          clickNoteFees
+                                              ? Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.85,
+                                                      child: Text(
+                                                          'You will be billed per hour according to the pricing table below',
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xff28306e),
+                                                              fontFamily:
+                                                                  'Helvetica_Bold',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: deviceSize
+                                                                      .width *
+                                                                  0.035)),
+                                                    ),
+                                                    buildSubText(TestModel
+                                                        .testCaregaverModel
+                                                        .supFees),
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.85,
+                                                      child: Text(
+                                                          'The lab test fee does NOT include the lab fee and only covers the technician fee Sub Category 1 - 20 USD',
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xff28306e),
+                                                              fontFamily:
+                                                                  'Helvetica_Bold',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: deviceSize
+                                                                      .width *
+                                                                  0.035)),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                    Container(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      padding: EdgeInsets.all(
+                                                          deviceSize.width *
+                                                              0.01),
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Color(0xfff2f5fa),
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xffD3CFC8),
+                                                              width: 1),
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))
+                                                          //more than 50% of width makes circle
+                                                          ),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Icon(
+                                                                Icons.note,
+                                                                size: deviceSize
+                                                                        .width *
+                                                                    0.04,
+                                                                color:
+                                                                    Colors.red,
+                                                              ),
+                                                              Padding(
+                                                                  padding: EdgeInsets.only(
+                                                                      left: deviceSize
+                                                                              .width *
+                                                                          0.02)),
+                                                              SizedBox(
+                                                                width: deviceSize
+                                                                        .width *
+                                                                    0.78,
+                                                                child: Text(
+                                                                  'The lab fee does NOT include the lab fee and only covers the technician fee',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        deviceSize.width *
+                                                                            0.025,
+                                                                    color: Colors
+                                                                        .red,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                  ],
+                                                )
+                                              : SizedBox()
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -1350,8 +1486,43 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             fontFamily: 'Helvetica_Bold',
                                             fontWeight: FontWeight.bold,
                                             fontSize: deviceSize.width * 0.04)),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        IconButton(
+                                            onPressed: null,
+                                            icon: Icon(
+                                              Icons
+                                                  .format_list_numbered_rounded,
+                                              size: deviceSize.width * 0.06,
+                                            )),
+                                        IconButton(
+                                            onPressed: null,
+                                            icon: Icon(
+                                              Icons.photo_album_outlined,
+                                              size: deviceSize.width * 0.06,
+                                            )),
+                                        IconButton(
+                                            onPressed: null,
+                                            icon: Icon(
+                                              Icons.credit_score_rounded,
+                                              size: deviceSize.width * 0.06,
+                                            )),
+                                        IconButton(
+                                            onPressed: null,
+                                            icon: Icon(
+                                              Icons.receipt_long_rounded,
+                                              size: deviceSize.width * 0.06,
+                                            )),
+                                      ],
+                                    ),
+                                    /*
                                     buildSubText(
                                         TestModel.testCaregaverModel.documents),
+                                  */
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
@@ -1375,82 +1546,23 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
               Divider(thickness: 1),
               Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
               Padding(
-                padding: EdgeInsets.all(deviceSize.width * 0.03),
+                padding: EdgeInsets.only(
+                    left: deviceSize.width * 0.02,
+                    right: deviceSize.width * 0.02),
                 child: SizedBox(
-                  width: deviceSize.width * 0.85,
+                  width: deviceSize.width * 0.9,
                   child: Text(
-                      maxLines: 4,
-                      "It is the client’s responsibility to verify any educational credentials that the caregiver has provided. Find A Nurse is NOT responsible for any wrong information or documentation that might submitted by any caregiver.",
+                      'It is the client’s responsibility to verify any educational credentials that the caregiver has provided.\nFind A Nurse is NOT responsible for any wrong information or documentation that might be submitted by any caregiver',
                       style: TextStyle(
-                        fontSize: deviceSize.width * 0.04,
+                        fontSize: deviceSize.width * 0.035,
                         fontWeight: FontWeight.w400,
                         color: Color(0xff28306e),
                       )),
                 ),
               ),
+              Padding(padding: EdgeInsets.only(top: deviceSize.height * 0.02)),
             ],
           )),
     );
   }
 }
-
-/*
-
-  SizedBox(
-                                            width: deviceSize.width * 0.4,
-                                            child: TextButton(
-                                              child: Text('Book Now'),
-                                              onPressed: () {
-                                                Navigator.of(context).pushNamed(
-                                                    BookNow.routeName);
-                                              },
-                                            ),
-                                          ),
-                                          Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: deviceSize.width * 0.1)),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              SizedBox(
-                                                width: deviceSize.width * 0.4,
-                                                child: Center(
-                                                  child: TextButton(
-                                                      child: Text(
-                                                        'Message Caregiver',
-                                                        style: TextStyle(
-                                                          fontSize:
-                                                              deviceSize.width *
-                                                                  0.025,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        ),
-                                                      ),
-                                                      onPressed: null),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: deviceSize.width * 0.4,
-                                                child: Center(
-                                                  child: Text(
-                                                    maxLines: 2,
-                                                    'This feature is not available now',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            deviceSize.width *
-                                                                0.02,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        color: Color.fromARGB(
-                                                            255, 146, 22, 13)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        
-
-                                        */

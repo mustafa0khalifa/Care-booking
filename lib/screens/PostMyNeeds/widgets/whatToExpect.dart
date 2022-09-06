@@ -64,42 +64,45 @@ class _WhatToExpectState extends State<WhatToExpect> {
                       ),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.78,
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Stage 1: After posting the need ',
-                                  style: TextStyle(
-                                    fontSize: deviceSize.width * 0.035,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff28306e),
+                      Container(
+                        height: deviceSize.height * 0.05,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: deviceSize.width * 0.78,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Stage 1: After posting the need ',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff28306e),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          IconButton(
-                              onPressed: () => {
-                                    setState(
-                                      () => {clickNote1 = !clickNote1},
-                                    )
-                                  },
-                              icon: !clickNote1
-                                  ? Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )
-                                  : Icon(
-                                      Icons.keyboard_arrow_up_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )),
-                        ],
+                            IconButton(
+                                onPressed: () => {
+                                      setState(
+                                        () => {clickNote1 = !clickNote1},
+                                      )
+                                    },
+                                icon: !clickNote1
+                                    ? Icon(
+                                        Icons.keyboard_arrow_down_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )
+                                    : Icon(
+                                        Icons.keyboard_arrow_up_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )),
+                          ],
+                        ),
                       ),
                       clickNote1
                           ? Text(
@@ -127,42 +130,45 @@ class _WhatToExpectState extends State<WhatToExpect> {
                       ),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.78,
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Stage 2: Client got responses from caregivers',
-                                  style: TextStyle(
-                                    fontSize: deviceSize.width * 0.035,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff28306e),
+                      Container(
+                        height: deviceSize.height * 0.05,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: deviceSize.width * 0.78,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Stage 2: Client got responses from caregivers',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff28306e),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          IconButton(
-                              onPressed: () => {
-                                    setState(
-                                      () => {clickNote2 = !clickNote2},
-                                    )
-                                  },
-                              icon: !clickNote2
-                                  ? Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )
-                                  : Icon(
-                                      Icons.keyboard_arrow_up_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )),
-                        ],
+                            IconButton(
+                                onPressed: () => {
+                                      setState(
+                                        () => {clickNote2 = !clickNote2},
+                                      )
+                                    },
+                                icon: !clickNote2
+                                    ? Icon(
+                                        Icons.keyboard_arrow_down_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )
+                                    : Icon(
+                                        Icons.keyboard_arrow_up_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )),
+                          ],
+                        ),
                       ),
                       clickNote2
                           ? Text(
@@ -190,42 +196,45 @@ class _WhatToExpectState extends State<WhatToExpect> {
                       ),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: deviceSize.width * 0.78,
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Stage 3: Client clicked Accept',
-                                  style: TextStyle(
-                                    fontSize: deviceSize.width * 0.035,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff28306e),
+                      Container(
+                        height: deviceSize.height * 0.05,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: deviceSize.width * 0.78,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Stage 3: Client clicked Accept',
+                                    style: TextStyle(
+                                      fontSize: deviceSize.width * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff28306e),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          IconButton(
-                              onPressed: () => {
-                                    setState(
-                                      () => {clickNote3 = !clickNote3},
-                                    )
-                                  },
-                              icon: !clickNote3
-                                  ? Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )
-                                  : Icon(
-                                      Icons.keyboard_arrow_up_outlined,
-                                      color: Color(0xff17a2b8),
-                                      size: deviceSize.width * 0.05,
-                                    )),
-                        ],
+                            IconButton(
+                                onPressed: () => {
+                                      setState(
+                                        () => {clickNote3 = !clickNote3},
+                                      )
+                                    },
+                                icon: !clickNote3
+                                    ? Icon(
+                                        Icons.keyboard_arrow_down_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )
+                                    : Icon(
+                                        Icons.keyboard_arrow_up_outlined,
+                                        color: Color(0xff17a2b8),
+                                        size: deviceSize.width * 0.05,
+                                      )),
+                          ],
+                        ),
                       ),
                       clickNote3
                           ? Text(

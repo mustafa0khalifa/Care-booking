@@ -212,7 +212,7 @@ class _SignupState extends State<Signup> {
                               child: Text(
                                 '+ ${contryCode}',
                                 style: TextStyle(
-                                  fontSize: deviceSize.width * 0.035,
+                                  fontSize: deviceSize.width * 0.03,
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xff28306e),
                                 ),

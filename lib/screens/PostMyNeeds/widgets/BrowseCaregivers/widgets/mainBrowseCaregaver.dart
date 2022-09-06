@@ -61,7 +61,7 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                 fontSize: deviceSize.width * 0.055),
           ),
         ),
-        drawer: Filter(),
+        // drawer: Filter(),
         key: scaffoldKey,
         body: Container(
           child: ListView(
@@ -111,6 +111,10 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                                       : Colors.white,
                                 )),
                             onTap: () => {
+                              Navigator.of(context).pushNamed(
+                                Filter.routeName,
+                              )
+                              /*
                               if (scaffoldKey.currentState!.isDrawerOpen)
                                 {
                                   scaffoldKey.currentState!.closeDrawer(),
@@ -124,6 +128,7 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                                   scaffoldKey.currentState!.openDrawer(),
                                   //open drawer, if drawer is closed
                                 }
+                           */
                             },
                           ),
                           Padding(
@@ -162,8 +167,9 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                                       Padding(
                                           padding: EdgeInsets.only(
                                               left: deviceSize.width * 0.01)),
-                                      SizedBox(
+                                      Container(
                                         width: deviceSize.width * 0.32,
+                                        alignment: Alignment.center,
                                         child: Text(
                                             maxLines: 2,
                                             "Matched caregivers",
@@ -186,14 +192,14 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                                   "Sort By",
                                   style: TextStyle(
                                     fontSize: deviceSize.width * 0.035,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.bold,
                                     color: Color(0xff28306e),
                                   ),
                                 ),
                               ),
                               Padding(
                                   padding: EdgeInsets.only(
-                                      left: deviceSize.width * 0.03)),
+                                      left: deviceSize.width * 0.02)),
                               SizedBox(
                                 child: DropdownButton(
                                     value: dropdownvalue2,
@@ -343,7 +349,8 @@ class _MainBrowseCaregaverState extends State<MainBrowseCaregaver> {
                         favoriteCaregiversModel:
                             TestModel.testFavoriteCaregivers,
                         isSelectedPage: false,
-                        isInArea: true,
+                        isInArea: false,
+                        isBrowse: true,
                       );
                     },
                   ),

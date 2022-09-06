@@ -609,7 +609,7 @@ class _BudgetState extends State<Budget> {
                                 value: BudgetProvider.valueSlider,
                                 min: 10.0,
                                 max: 100.0,
-                                divisions: 10,
+                                divisions: 100,
                                 activeColor: Colors.green,
                                 inactiveColor: Colors.orange,
                                 label: '${BudgetProvider.valueSlider}',

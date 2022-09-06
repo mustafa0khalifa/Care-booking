@@ -10,11 +10,12 @@ class TestModel {
       nationality: 'Lebanese Arabic',
       rating: 3,
       distance: 20.0,
-      providedHoursOfCare: '6',
-      clientRef: 'Client References',
+      providedHoursOfCare: '50',
+      clientRef: '2 client references',
       qualifications: 'baby sitter',
       badgesIcons: ['Badges - ICONS (up to 5)'],
-      aboutMe: 'Beirut',
+      aboutMe:
+          'I’m a 35 years old babysitter and a mom of two young girls.\nI’m passionate about kids and enjoy fun games and educational play…',
       location: 'Town',
       providedServices: [
         'Child Care',
@@ -60,9 +61,9 @@ class TestModel {
       ],
       supFees: [
         '1 hour shift - 20 USD',
-        '2 hours shift - 20 USD	',
-        '3 hours shift - 20 USD',
-        '4 hours shift - 20 USD',
+        '2 hour shift - 25 USD	',
+        '3 hour shift - 30 USD',
+        '4 hour shift - 35 USD',
       ],
       avallabillty: [''],
       generalAvallabillty: [

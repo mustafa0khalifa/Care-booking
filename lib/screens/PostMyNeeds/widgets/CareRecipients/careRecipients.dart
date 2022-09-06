@@ -64,6 +64,7 @@ class _CareRecipientsAeaState extends State<CareRecipients> {
                       favoriteCaregiversModel: TestModel.testFavoriteCaregivers,
                       isSelectedPage: true,
                       isInArea: false,
+                      isBrowse: false,
                     );
                   },
                 ),

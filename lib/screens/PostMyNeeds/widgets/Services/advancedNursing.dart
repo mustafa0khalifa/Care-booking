@@ -39,7 +39,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Advanced Nursing",
+          "Advanced Nursing Care",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -208,14 +208,21 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 TextField(
+                  textAlign: TextAlign.start,
+                  expands: false,
+
                   style: TextStyle(
-                    fontSize: deviceSize.width * 0.03,
+                    fontSize: MediaQuery.of(context).size.width * 0.03,
                     color: Color(0xff495057),
                     fontFamily: 'Helvetica',
                   ),
                   decoration: InputDecoration(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4,
+                        maxHeight: MediaQuery.of(context).size.height * 0.05),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 2),
                     hintText: 'Search',
-                    fillColor: Color(0xffe9ecef),
+                    fillColor: Color.fromARGB(193, 233, 236, 239),
                     filled: true,
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
@@ -231,6 +238,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide(color: Color(0xffced4da))),
                   ), //autofocus: ,
+                  keyboardType: TextInputType.emailAddress,
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),

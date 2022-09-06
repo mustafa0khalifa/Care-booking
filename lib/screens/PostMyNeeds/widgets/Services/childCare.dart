@@ -385,7 +385,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -474,7 +474,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -564,7 +564,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -622,7 +622,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -653,7 +653,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -827,7 +827,7 @@ class _ChildCareState extends State<ChildCare> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -858,7 +858,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -930,7 +930,7 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           child: InkWell(
                                             child: Row(
                                               children: [
@@ -947,7 +947,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1005,7 +1005,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1037,7 +1037,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1095,7 +1095,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1126,7 +1126,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1299,7 +1299,7 @@ class _ChildCareState extends State<ChildCare> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1330,7 +1330,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1402,7 +1402,7 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           child: InkWell(
                                             child: Row(
                                               children: [
@@ -1419,7 +1419,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1477,7 +1477,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1509,7 +1509,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1567,7 +1567,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1598,7 +1598,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1773,7 +1773,7 @@ class _ChildCareState extends State<ChildCare> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1804,7 +1804,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1876,7 +1876,7 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           child: InkWell(
                                             child: Row(
                                               children: [
@@ -1893,7 +1893,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -1951,7 +1951,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -1983,7 +1983,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -2041,7 +2041,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -2072,7 +2072,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -2247,7 +2247,7 @@ class _ChildCareState extends State<ChildCare> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -2278,7 +2278,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -2350,7 +2350,7 @@ class _ChildCareState extends State<ChildCare> {
                                                   Radius.circular(5))
                                               //more than 50% of width makes circle
                                               ),
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           child: InkWell(
                                             child: Row(
                                               children: [
@@ -2367,7 +2367,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -2425,7 +2425,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -2457,7 +2457,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(
@@ -2515,7 +2515,7 @@ class _ChildCareState extends State<ChildCare> {
                                                 top:
                                                     deviceSize.height * 0.005)),
                                         Container(
-                                          height: deviceSize.height * 0.1,
+                                          height: deviceSize.height * 0.07,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
@@ -2546,7 +2546,7 @@ class _ChildCareState extends State<ChildCare> {
                                                             0.01)),
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
                                                         padding: EdgeInsets.only(

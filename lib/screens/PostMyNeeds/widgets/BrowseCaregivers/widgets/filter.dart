@@ -336,8 +336,8 @@ class _FilterState extends State<Filter> {
                                               value: BrowseCaregiversProvider
                                                   .valueSlider,
                                               min: 0.0,
-                                              max: 100.0,
-                                              divisions: 10,
+                                              max: 50.0,
+                                              divisions: 50,
                                               activeColor: Color(0xff28306e),
                                               inactiveColor: Color(0xffcbcbcb),
                                               label:
@@ -800,8 +800,8 @@ class _FilterState extends State<Filter> {
                                                 value: BrowseCaregiversProvider
                                                     .valueSlider2,
                                                 min: 0.0,
-                                                max: 100.0,
-                                                divisions: 10,
+                                                max: 50.0,
+                                                divisions: 50,
                                                 activeColor: Color(0xff28306e),
                                                 inactiveColor:
                                                     Color(0xffcbcbcb),
@@ -823,7 +823,7 @@ class _FilterState extends State<Filter> {
                                             child: Consumer<
                                                 BrowseCaregiversProvider>(
                                               builder: (_, foo, __) => Text(
-                                                "${BrowseCaregiversProvider.valueSlider2.toInt()}  \$",
+                                                "${BrowseCaregiversProvider.valueSlider2.toInt()}  ${dropdownvalue2}",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2056,7 +2056,7 @@ class _FilterState extends State<Filter> {
                                       width: deviceSize.width * 0.7,
                                       child: Text(
                                           maxLines: 2,
-                                          "Education / Degre",
+                                          "Education / Degree",
                                           style: TextStyle(
                                               color: BrowseCaregiversProvider
                                                       .setEducation
@@ -2247,7 +2247,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("Mastrer\'s degre",
+                                            child: Text("Mastrer\'s degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2549,7 +2549,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("Mastrer\'s degre",
+                                            child: Text("Mastrer\'s degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2777,7 +2777,7 @@ class _FilterState extends State<Filter> {
                                           ),
                                           SizedBox(
                                             child: Text(
-                                                "Brovet Bp. oroquivaion1",
+                                                "Brevet/BP or equivalent",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
