@@ -222,6 +222,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -374,6 +381,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -583,6 +597,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -840,6 +861,13 @@ class _FilterState extends State<Filter> {
                                           child: TextButton(
                                             child: Text(
                                               'Reset',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontFamily: 'Helvetica',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize:
+                                                      deviceSize.width * 0.035),
                                             ),
                                             style: TextButton.styleFrom(
                                               primary: Colors.white,
@@ -1052,6 +1080,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -1365,6 +1400,12 @@ class _FilterState extends State<Filter> {
                                     child: TextButton(
                                       child: Text(
                                         'Reset',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'Helvetica',
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: deviceSize.width * 0.035),
                                       ),
                                       style: TextButton.styleFrom(
                                         primary: Colors.white,
@@ -1648,6 +1689,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -1855,6 +1903,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -1997,6 +2052,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -2134,7 +2196,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("No Dergre",
+                                            child: Text("No Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2172,7 +2234,7 @@ class _FilterState extends State<Filter> {
                                           ),
                                           SizedBox(
                                             child: Text(
-                                                "Brovet Bp. oroquivaion1",
+                                                "Brevet/BP or equivalent",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2247,7 +2309,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("Mastrer\'s degree",
+                                            child: Text("Master’s Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2300,6 +2362,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -2436,7 +2505,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("No Dergre",
+                                            child: Text("No Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2474,7 +2543,7 @@ class _FilterState extends State<Filter> {
                                           ),
                                           SizedBox(
                                             child: Text(
-                                                "Brovet Bp. oroquivaion1",
+                                                "Brevet/BP or equivalent",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2549,7 +2618,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("Mastrer\'s degree",
+                                            child: Text("Master’s Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2602,6 +2671,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -2738,7 +2814,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("No Dergre",
+                                            child: Text("No Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2854,7 +2930,7 @@ class _FilterState extends State<Filter> {
                                             ),
                                           ),
                                           SizedBox(
-                                            child: Text("Mastrer\'s degre",
+                                            child: Text("Master’s Degree",
                                                 style: TextStyle(
                                                     color: Color(0xff28306e),
                                                     fontFamily: 'Helvetica',
@@ -2908,6 +2984,13 @@ class _FilterState extends State<Filter> {
                                         child: TextButton(
                                           child: Text(
                                             'Reset',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    deviceSize.width * 0.035),
                                           ),
                                           style: TextButton.styleFrom(
                                             primary: Colors.white,
@@ -2943,7 +3026,15 @@ class _FilterState extends State<Filter> {
                     children: [
                       Consumer<BrowseCaregiversProvider>(
                         builder: (_, foo, __) => TextButton(
-                          child: Text('Reset'),
+                          child: Text(
+                            'Reset',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                           style: TextButton.styleFrom(
                             primary: Colors.white,
                             backgroundColor: Color.fromARGB(255, 71, 201, 188),
@@ -2953,14 +3044,20 @@ class _FilterState extends State<Filter> {
                             BrowseCaregiversProvider.okFilter = false;
 
                             foo.resetFilter();
-                            Navigator.of(context).pushNamed(
-                              BrowseCaregivers.routeName,
-                            );
+                            Navigator.of(context).pop();
                           },
                         ),
                       ),
                       TextButton(
-                        child: Text('Apply'),
+                        child: Text(
+                          'Apply',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.w500,
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                         style: TextButton.styleFrom(
                           primary: Colors.white,
                           backgroundColor: Color(0xff28306e),
@@ -2968,9 +3065,7 @@ class _FilterState extends State<Filter> {
                         ),
                         onPressed: () {
                           BrowseCaregiversProvider.okFilter = true;
-                          Navigator.of(context).pushNamed(
-                            BrowseCaregivers.routeName,
-                          );
+                          Navigator.of(context).pop();
                         },
                       ),
                     ],

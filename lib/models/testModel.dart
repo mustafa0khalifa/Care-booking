@@ -57,7 +57,6 @@ class TestModel {
         '- Child Care - 8 hours shift - 17 USD  Calculate',
         '- Elderly Care - 8 hours shift - 17 USD Calculate',
         '- Advanced Nursing Care ',
-        '- Laboratory',
       ],
       supFees: [
         '1 hour shift - 20 USD',

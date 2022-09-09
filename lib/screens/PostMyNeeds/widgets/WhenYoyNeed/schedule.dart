@@ -447,391 +447,358 @@ class _ScheduleState extends State<Schedule> {
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.01)),
                 Consumer<ScheduleProvider>(
-                  builder: (_, foo, __) => ScheduleProvider.isLiveIn
-                      ? Container(
-                          padding: EdgeInsets.all(deviceSize.width * 0.02),
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Color(0xffD3CFC8), width: 1),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                              //more than 50% of width makes circle
-                              ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[0]
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color(0xff28306e),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'M',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[0]
-                                                        ? Color(0xff28306e)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(0)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[1]
-                                                      ? Color.fromARGB(
-                                                          255, 117, 126, 93)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 117, 126, 93),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'T',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[1]
-                                                        ? Color.fromARGB(
-                                                            255, 117, 126, 93)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(1)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[2]
-                                                      ? Color.fromARGB(
-                                                          255, 151, 44, 128)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 151, 44, 128),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'W',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[2]
-                                                        ? Color.fromARGB(
-                                                            255, 151, 44, 128)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(2)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[3]
-                                                      ? Color.fromARGB(
-                                                          255, 160, 31, 106)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 160, 31, 106),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'T',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[3]
-                                                        ? Color.fromARGB(
-                                                            255, 160, 31, 106)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(3)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[4]
-                                                      ? Color.fromARGB(
-                                                          255, 104, 40, 110)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 104, 40, 110),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'F',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[4]
-                                                        ? Color.fromARGB(
-                                                            255, 104, 40, 110)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_Bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(4)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[5]
-                                                      ? Color.fromARGB(
-                                                          255, 92, 7, 117)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 92, 7, 117),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'S',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[5]
-                                                        ? Color.fromARGB(
-                                                            255, 92, 7, 117)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(5)},
-                                          )),
-                                  Consumer<ScheduleDateProvider>(
-                                      builder: (_, foo, __) => InkWell(
-                                            child: Container(
-                                              width: deviceSize.width * 0.1,
-                                              height: deviceSize.width * 0.1,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  deviceSize.width * 0.01),
-                                              decoration: BoxDecoration(
-                                                  color: ScheduleDateProvider
-                                                          .clickDay[6]
-                                                      ? Color(0xff28306e)
-                                                      : Colors.white,
-                                                  border: Border.all(
-                                                    color: Color(0xff28306e),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              child: Text(
-                                                'S',
-                                                style: TextStyle(
-                                                    color: !ScheduleDateProvider
-                                                            .clickDay[6]
-                                                        ? Color(0xff28306e)
-                                                        : Colors.white,
-                                                    fontFamily:
-                                                        'Helvetica_bold',
-                                                    fontSize: deviceSize.width *
-                                                        0.035),
-                                              ),
-                                            ),
-                                            onTap: () =>
-                                                {foo.changeclickDayOk(6)},
-                                          )),
-                                ],
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) =>
-                                    ScheduleDateProvider.clickDay.contains(true)
-                                        ? Padding(
-                                            padding: EdgeInsets.only(
-                                                top: deviceSize.height * 0.03),
-                                          )
-                                        : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[0]
-                                    ? DaySh(
-                                        day: 'Monday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 0,
-                                        color:
-                                            Color.fromARGB(255, 141, 150, 221),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[1]
-                                    ? DaySh(
-                                        day: 'Tuesday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 1,
-                                        color:
-                                            Color.fromARGB(255, 117, 126, 93),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[2]
-                                    ? DaySh(
-                                        day: 'Wednesday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 2,
-                                        color:
-                                            Color.fromARGB(255, 151, 44, 128),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[3]
-                                    ? DaySh(
-                                        day: 'Thursday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 3,
-                                        color:
-                                            Color.fromARGB(255, 160, 31, 106),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[4]
-                                    ? DaySh(
-                                        day: 'Friday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 4,
-                                        color:
-                                            Color.fromARGB(255, 104, 40, 110),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) => ScheduleDateProvider
-                                        .clickDay[5]
-                                    ? DaySh(
-                                        day: 'Saturday',
-                                        height: deviceSize.height,
-                                        width: deviceSize.width,
-                                        index: 5,
-                                        color: Color.fromARGB(255, 92, 7, 117),
-                                      )
-                                    : SizedBox(),
-                              ),
-                              Consumer<ScheduleDateProvider>(
-                                builder: (_, foo, __) =>
-                                    ScheduleDateProvider.clickDay[6]
-                                        ? DaySh(
-                                            day: 'Sunday',
-                                            height: deviceSize.height,
-                                            width: deviceSize.width,
-                                            index: 6,
-                                            color: Color(0xff28306e),
-                                          )
-                                        : SizedBox(),
-                              ),
-                            ],
-                          ),
-                        )
-                      : Padding(
-                          padding:
-                              EdgeInsets.only(top: deviceSize.height * 0.01),
+                  builder: (_, foo, __) => Container(
+                    padding: EdgeInsets.all(deviceSize.width * 0.02),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffD3CFC8), width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(5))
+                        //more than 50% of width makes circle
                         ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[0]
+                                                    ? Color(0xff28306e)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color(0xff28306e),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'M',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[0]
+                                                  ? Color(0xff28306e)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(0)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[1]
+                                                    ? Color.fromARGB(
+                                                        255, 117, 126, 93)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 117, 126, 93),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'T',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[1]
+                                                  ? Color.fromARGB(
+                                                      255, 117, 126, 93)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(1)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[2]
+                                                    ? Color.fromARGB(
+                                                        255, 151, 44, 128)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 151, 44, 128),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'W',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[2]
+                                                  ? Color.fromARGB(
+                                                      255, 151, 44, 128)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(2)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[3]
+                                                    ? Color.fromARGB(
+                                                        255, 160, 31, 106)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 160, 31, 106),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'T',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[3]
+                                                  ? Color.fromARGB(
+                                                      255, 160, 31, 106)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(3)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[4]
+                                                    ? Color.fromARGB(
+                                                        255, 104, 40, 110)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 104, 40, 110),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'F',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[4]
+                                                  ? Color.fromARGB(
+                                                      255, 104, 40, 110)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(4)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[5]
+                                                    ? Color.fromARGB(
+                                                        255, 92, 7, 117)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 92, 7, 117),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'S',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[5]
+                                                  ? Color.fromARGB(
+                                                      255, 92, 7, 117)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(5)},
+                                    )),
+                            Consumer<ScheduleDateProvider>(
+                                builder: (_, foo, __) => InkWell(
+                                      child: Container(
+                                        width: deviceSize.width * 0.1,
+                                        height: deviceSize.width * 0.1,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(
+                                            deviceSize.width * 0.01),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                ScheduleDateProvider.clickDay[6]
+                                                    ? Color(0xff28306e)
+                                                    : Colors.white,
+                                            border: Border.all(
+                                              color: Color(0xff28306e),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100)),
+                                        child: Text(
+                                          'S',
+                                          style: TextStyle(
+                                              color: !ScheduleDateProvider
+                                                      .clickDay[6]
+                                                  ? Color(0xff28306e)
+                                                  : Colors.white,
+                                              fontFamily: 'Helvetica_bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.035),
+                                        ),
+                                      ),
+                                      onTap: () => {foo.changeclickDayOk(6)},
+                                    )),
+                          ],
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay.contains(true)
+                                  ? Padding(
+                                      padding: EdgeInsets.only(
+                                          top: deviceSize.height * 0.03),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[0]
+                                  ? DaySh(
+                                      day: 'Monday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 0,
+                                      color: Color.fromARGB(255, 141, 150, 221),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[1]
+                                  ? DaySh(
+                                      day: 'Tuesday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 1,
+                                      color: Color.fromARGB(255, 117, 126, 93),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[2]
+                                  ? DaySh(
+                                      day: 'Wednesday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 2,
+                                      color: Color.fromARGB(255, 151, 44, 128),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[3]
+                                  ? DaySh(
+                                      day: 'Thursday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 3,
+                                      color: Color.fromARGB(255, 160, 31, 106),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[4]
+                                  ? DaySh(
+                                      day: 'Friday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 4,
+                                      color: Color.fromARGB(255, 104, 40, 110),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[5]
+                                  ? DaySh(
+                                      day: 'Saturday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 5,
+                                      color: Color.fromARGB(255, 92, 7, 117),
+                                    )
+                                  : SizedBox(),
+                        ),
+                        Consumer<ScheduleDateProvider>(
+                          builder: (_, foo, __) =>
+                              ScheduleDateProvider.clickDay[6]
+                                  ? DaySh(
+                                      day: 'Sunday',
+                                      height: deviceSize.height,
+                                      width: deviceSize.width,
+                                      index: 6,
+                                      color: Color(0xff28306e),
+                                    )
+                                  : SizedBox(),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: deviceSize.height * 0.02)),
@@ -1021,7 +988,15 @@ class _ScheduleState extends State<Schedule> {
                               ),*/
                             Navigator.of(context).pop()
                           },
-                          child: Text("Back"),
+                          child: Text(
+                            "Back",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                         Padding(
                             padding:
@@ -1037,7 +1012,15 @@ class _ScheduleState extends State<Schedule> {
                               ),*/
                             Navigator.of(context).pushNamed(Budget.routeName),
                           },
-                          child: Text("Next"),
+                          child: Text(
+                            "Next",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                       ],
                     ),

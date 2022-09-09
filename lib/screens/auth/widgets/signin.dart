@@ -123,7 +123,7 @@ class _SigninState extends State<Signin> {
             child: Container(
                 padding: EdgeInsets.only(top: 0.03 * deviceSize.height),
                 margin: EdgeInsets.all(deviceSize.height * 0.03),
-                child: Image.asset('assets/images/auth/Asset 4@1x.png')),
+                child: Image.asset('assets/images/logo2.jpeg')),
           ),
           Center(
             child: Text(
@@ -246,35 +246,42 @@ class _SigninState extends State<Signin> {
                     ),
                   ),
                   Center(
-                    child: EasyRichText(
-                      "I Forgot My Password",
-                      patternList: [
-                        EasyRichTextPattern(
-                            targetString: 'I Forgot My Password',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.04),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // ignore: avoid_print
-                                print("Tap Sign up");
-                                auth.changeAuthSteta();
-                                Navigator.pushAndRemoveUntil<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          ForgetPassword()),
-                                  (Route<dynamic> route) => false,
-                                );
-                              }),
+                      child: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "I Forgot My Password",
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.04),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              // ignore: avoid_print
+                              print("Tap Sign up");
+                              auth.changeAuthSteta();
+                              Navigator.pushAndRemoveUntil<void>(
+                                context,
+                                MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        ForgetPassword()),
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                        ),
                       ],
                     ),
-                  ),
+                  )),
                   SizedBox(
                     width: deviceSize.width * 0.8,
                     child: TextButton(
-                      child: Text('Sign in'),
+                      child: Text(
+                        'Sign in',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Helvetica',
+                            fontSize: deviceSize.width * 0.035),
+                      ),
                       style: TextButton.styleFrom(
                         primary: Colors.white,
                         backgroundColor: Color.fromARGB(255, 71, 201, 188),
@@ -365,17 +372,16 @@ class _SigninState extends State<Signin> {
                     ],
                   ),
                   Center(
-                    child: EasyRichText(
-                      "Don't have an account: Create one Now",
-                      patternList: [
-                        EasyRichTextPattern(
-                            targetString: 'Don\'t have an account:',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.035)),
-                        EasyRichTextPattern(
-                          targetString: 'Create one Now',
+                      child: RichText(
+                    text: TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontFamily: 'Helvetica',
+                          fontSize: deviceSize.width * 0.035),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Create One Now',
                           style: TextStyle(
                               color: Colors.blue,
                               fontFamily: 'Helvetica',
@@ -396,7 +402,7 @@ class _SigninState extends State<Signin> {
                         ),
                       ],
                     ),
-                  ),
+                  )),
                 ],
               )),
         ],

@@ -328,7 +328,15 @@ class _WhatToExpectState extends State<WhatToExpect> {
                               ),*/
                           Navigator.of(context).pop()
                         },
-                        child: Text("Back"),
+                        child: Text(
+                          "Back",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.w500,
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                       ),
                       Padding(
                           padding:
@@ -345,7 +353,15 @@ class _WhatToExpectState extends State<WhatToExpect> {
                           Navigator.of(context)
                               .pushNamed(AfterPostingRequest.routeName),
                         },
-                        child: Text("Next"),
+                        child: Text(
+                          "Next",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.w500,
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                       ),
                     ],
                   ),

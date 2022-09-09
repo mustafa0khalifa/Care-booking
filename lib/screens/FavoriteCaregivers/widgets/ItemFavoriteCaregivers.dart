@@ -226,7 +226,8 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                           ),
                         ],
                       ),
-                Padding(padding: EdgeInsets.only(top: height * 0.03)),
+                Padding(padding: EdgeInsets.only(top: height * 0.01)),
+                ////////////////////////////////////
                 !isInArea && !isBrowse
                     ? SizedBox()
                     : isInArea
@@ -334,57 +335,58 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                               ),
                             ],
                           )
-                        : Row(
+                        : Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                height: width * 0.2,
-                                width: width * 0.2,
-                                padding: EdgeInsets.all(width * 0.02),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            Icons.filter_vintage_outlined,
-                                            size: width * 0.05,
-                                          ),
-                                          Icon(
-                                            Icons.filter_vintage_outlined,
-                                            size: width * 0.05,
-                                          )
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            Icons.filter_vintage_outlined,
-                                            size: width * 0.05,
-                                          ),
-                                          Icon(
-                                            Icons.filter_vintage_outlined,
-                                            size: width * 0.05,
-                                          )
-                                        ],
-                                      )
-                                    ]),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+                                  Container(
+                                    height: width * 0.2,
+                                    width: width * 0.2,
+                                    padding: EdgeInsets.all(width * 0.02),
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Icon(
+                                                Icons.filter_vintage_outlined,
+                                                size: width * 0.05,
+                                              ),
+                                              Icon(
+                                                Icons.filter_vintage_outlined,
+                                                size: width * 0.05,
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Icon(
+                                                Icons.filter_vintage_outlined,
+                                                size: width * 0.05,
+                                              ),
+                                              Icon(
+                                                Icons.filter_vintage_outlined,
+                                                size: width * 0.05,
+                                              )
+                                            ],
+                                          )
+                                        ]),
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -484,25 +486,27 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    width: width * 0.7,
-                                    child: Center(
-                                      child: Text(
-                                          '${favoriteCaregiversModel.caregiversBiography}',
-                                          style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 129, 127, 127),
-                                              fontFamily: 'Helvetica',
-                                              fontSize: width * 0.04)),
-                                    ),
-                                  ),
-                                  Padding(
-                                      padding:
-                                          EdgeInsets.only(top: height * 0.01)),
                                 ],
-                              )
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(top: height * 0.01)),
+                              SizedBox(
+                                width: width * 0.9,
+                                child: Center(
+                                  child: Text(
+                                      '${favoriteCaregiversModel.caregiversBiography}',
+                                      style: TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 129, 127, 127),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: width * 0.04)),
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(top: height * 0.02)),
                             ],
                           ),
+                ////////////////////////////////////
                 isBrowse
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -587,6 +591,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         ],
                       )
                     : SizedBox(),
+                ////////////////////////////////////
                 !isBrowse
                     ? SizedBox(
                         width: width * 0.9,
@@ -600,6 +605,7 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         ),
                       )
                     : SizedBox(),
+                ////////////////////////////////////
                 !isBrowse
                     ? Padding(padding: EdgeInsets.only(top: height * 0.03))
                     : SizedBox(),
@@ -648,9 +654,11 @@ class ItemFavoriteCaregivers extends StatelessWidget {
                         ],
                       )
                     : SizedBox(),
+                ////////////////////////////////////
                 !isBrowse
                     ? Padding(padding: EdgeInsets.only(top: height * 0.03))
                     : SizedBox(),
+                ////////////////////////////////////
                 isInArea || isBrowse
                     ? SizedBox()
                     : Row(

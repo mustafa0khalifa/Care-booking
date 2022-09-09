@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/providers/PostMyNeedsProvider/budgetProvider.dart';
@@ -584,7 +586,7 @@ class _BudgetState extends State<Budget> {
                         padding:
                             EdgeInsets.only(left: deviceSize.width * 0.03)),
                     Text(
-                      'USD',
+                      '${dropdownvalue}',
                       style: TextStyle(
                           color: Color(0xff28306e),
                           fontFamily: 'Helvetica',
@@ -603,7 +605,7 @@ class _BudgetState extends State<Budget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: deviceSize.width * 0.8,
+                          width: deviceSize.width * 0.78,
                           child: Consumer<BudgetProvider>(
                             builder: (_, foo, __) => Slider(
                                 value: BudgetProvider.valueSlider,
@@ -623,7 +625,7 @@ class _BudgetState extends State<Budget> {
                         ),
                         Consumer<BudgetProvider>(
                           builder: (_, foo, __) => Text(
-                            '${BudgetProvider.valueSlider}',
+                            '${(BudgetProvider.valueSlider).toInt()} ',
                             style: TextStyle(
                                 color: Color(0xff28306e),
                                 fontFamily: 'Helvetica',
@@ -695,22 +697,22 @@ class _BudgetState extends State<Budget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         BookingDate(context, 'Monday   11/04/2022', '1:00 PM',
-                            '2:00 PM', '21 USD'),
+                            '2:00 PM', '21 ${dropdownvalue}'),
                         Padding(
                             padding:
                                 EdgeInsets.only(top: deviceSize.height * 0.02)),
                         BookingDate(context, 'TuesDay  12/04/2022', '1:00 PM',
-                            '2:00 PM', '21 USD'),
+                            '2:00 PM', '21 ${dropdownvalue}'),
                         Padding(
                             padding:
                                 EdgeInsets.only(top: deviceSize.height * 0.02)),
                         BookingDate(context, 'Monday   18/04/2022', '1:00 PM',
-                            '2:00 PM', '21 USD'),
+                            '2:00 PM', '21 ${dropdownvalue}'),
                         Padding(
                             padding:
                                 EdgeInsets.only(top: deviceSize.height * 0.02)),
                         BookingDate(context, 'TuesDay  19/04/2022', '1:00 PM',
-                            '2:00 PM', '21 USD'),
+                            '2:00 PM', '21 ${dropdownvalue}'),
                       ],
                     ),
                   ),
@@ -734,7 +736,15 @@ class _BudgetState extends State<Budget> {
                               ),*/
                             Navigator.of(context).pop()
                           },
-                          child: Text("Back"),
+                          child: Text(
+                            "Back",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                         Padding(
                             padding:
@@ -751,7 +761,15 @@ class _BudgetState extends State<Budget> {
                             Navigator.of(context)
                                 .pushNamed(MainRecipients.routeName),
                           },
-                          child: Text("Next"),
+                          child: Text(
+                            "Next",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                       ],
                     ),

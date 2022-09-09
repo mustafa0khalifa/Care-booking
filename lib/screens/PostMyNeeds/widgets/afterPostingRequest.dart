@@ -89,8 +89,13 @@ class _AfterPostingRequestState extends State<AfterPostingRequest> {
                           onPressed: () {
                             widget.myBook
                                 .changeStateMyBooking('My Pending Bookings');
-                            Navigator.of(context).pushNamed(
-                              MyBookings.routeName,
+
+                            Navigator.pushAndRemoveUntil<void>(
+                              context,
+                              MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      MyBookings()),
+                              (Route<dynamic> route) => false,
                             );
                           },
                         ),

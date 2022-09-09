@@ -23,7 +23,7 @@ class _BookingRateState extends State<BookingRate> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Booking Rating",
+          "Rate and Review",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -337,7 +337,7 @@ class _BookingRateState extends State<BookingRate> {
                 ),
                 SizedBox(
                   child: Text(
-                    "Write your Review",
+                    "Write Your Review",
                     style: TextStyle(
                         color: Color(0xff28306e),
                         fontFamily: 'Helvetica',
@@ -358,7 +358,7 @@ class _BookingRateState extends State<BookingRate> {
                     fontFamily: 'Helvetica',
                   ),
                   decoration: InputDecoration(
-                    hintText: 'Your Rivew',
+                    hintText: 'Your Review',
                     fillColor: Color(0xffe9ecef),
                     filled: true,
                     constraints: BoxConstraints(
@@ -404,7 +404,15 @@ class _BookingRateState extends State<BookingRate> {
                             print("Tap Post");
                             Navigator.of(context).pop();
                           },
-                          child: Text("Cancel"),
+                          child: Text(
+                            "Cancel",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w600,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -419,7 +427,15 @@ class _BookingRateState extends State<BookingRate> {
                             print("Tap Post");
                             Navigator.of(context).pop();
                           },
-                          child: Text("Post"),
+                          child: Text(
+                            "Post",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w600,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                       ),
                     ],

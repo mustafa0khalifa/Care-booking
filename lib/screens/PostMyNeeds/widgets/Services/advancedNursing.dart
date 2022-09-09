@@ -39,7 +39,7 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Advanced Nursing Care",
+          "Advanced Nursing",
           style: TextStyle(
               color: Color(0xff28306e),
               fontFamily: 'Helvetica-Bold',
@@ -612,7 +612,15 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                               ),*/
                             Navigator.of(context).pop()
                           },
-                          child: Text("Back"),
+                          child: Text(
+                            "Back",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                         Padding(
                             padding:
@@ -629,7 +637,15 @@ class _AdvancedNursingState extends State<AdvancedNursing> {
                             Navigator.of(context)
                                 .pushNamed(CaregiverPreferences.routeName),
                           },
-                          child: Text("Next"),
+                          child: Text(
+                            "Next",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Helvetica',
+                                fontWeight: FontWeight.w500,
+                                fontSize: deviceSize.width * 0.035),
+                          ),
                         ),
                       ],
                     ),

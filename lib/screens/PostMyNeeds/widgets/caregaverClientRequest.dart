@@ -591,7 +591,15 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                               ),*/
                           Navigator.of(context).pop()
                         },
-                        child: Text("Back"),
+                        child: Text(
+                          "Back",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.w500,
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                       ),
                       Padding(
                           padding:
@@ -608,7 +616,15 @@ class _CaregaverClientRequestState extends State<CaregaverClientRequest> {
                           Navigator.of(context)
                               .pushNamed(WhatToExpect.routeName),
                         },
-                        child: Text("Confirm and Post now"),
+                        child: Text(
+                          "Confirm and Post now",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.w500,
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                       ),
                     ],
                   ),

@@ -2,12 +2,12 @@ import 'package:date_format/date_format.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10000/models/testModel.dart';
-import 'package:flutter_application_10000/screens/BookNow/bookNow.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/profileProvider.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class CaregiverProfile extends StatefulWidget {
   static const routeName = '/caregiverProfile-screen';
@@ -20,6 +20,7 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
   late GoogleMapController mapController;
   bool isFavorite = false;
   bool clickNoteFees = false;
+  bool clickNoteFees0 = false;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
@@ -30,20 +31,42 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    Widget buildText(List<String> l, bool calculate) {
+    Widget buildText(List<String> l, bool calculate, bool services) {
       return ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: l.length,
           itemBuilder: (context, index) => !calculate
-              ? Padding(
-                  padding: EdgeInsets.only(top: deviceSize.height * 0.005),
-                  child: Text(l[index],
-                      style: TextStyle(
-                          color: Color(0xff28306e),
-                          fontFamily: 'Helvetica_Bold',
-                          fontSize: deviceSize.width * 0.04)),
-                )
+              ? !services
+                  ? Padding(
+                      padding: EdgeInsets.only(top: deviceSize.height * 0.005),
+                      child: Text(l[index],
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.04)),
+                    )
+                  : Padding(
+                      padding: EdgeInsets.only(top: deviceSize.height * 0.005),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.check_circle_outline,
+                            size: deviceSize.width * 0.04,
+                            color: Color(0xff28a745),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  left: deviceSize.width * 0.02)),
+                          Text(l[index],
+                              style: TextStyle(
+                                  color: Color(0xff28306e),
+                                  fontFamily: 'Helvetica_Bold',
+                                  fontSize: deviceSize.width * 0.04)),
+                        ],
+                      ),
+                    )
               : Padding(
                   padding: EdgeInsets.only(top: deviceSize.height * 0.005),
                   child: EasyRichText(
@@ -66,7 +89,7 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                 ));
     }
 
-    Widget buildSubText(List<String> l) {
+    Widget buildSubText(List<String> l, bool services) {
       return Padding(
         padding: EdgeInsets.only(
             left: deviceSize.width * 0.03, top: deviceSize.height * 0.005),
@@ -74,11 +97,30 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: l.length,
-            itemBuilder: (context, index) => Text(l[index],
-                style: TextStyle(
-                    color: Color(0xff28306e),
-                    fontFamily: 'Helvetica_Bold',
-                    fontSize: deviceSize.width * 0.035))),
+            itemBuilder: (context, index) => services
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.check_circle_outline,
+                        size: deviceSize.width * 0.04,
+                        color: Color(0xff28a745),
+                      ),
+                      Padding(
+                          padding:
+                              EdgeInsets.only(left: deviceSize.width * 0.02)),
+                      Text(l[index],
+                          style: TextStyle(
+                              color: Color(0xff28306e),
+                              fontFamily: 'Helvetica_Bold',
+                              fontSize: deviceSize.width * 0.035)),
+                    ],
+                  )
+                : Text(l[index],
+                    style: TextStyle(
+                        color: Color(0xff28306e),
+                        fontFamily: 'Helvetica_Bold',
+                        fontSize: deviceSize.width * 0.035))),
       );
     }
 
@@ -258,7 +300,7 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                 ),
                               ),
                               Icon(
-                                Icons.info_outline_rounded,
+                                Icons.warning_rounded,
                                 color: Colors.white,
                                 size: deviceSize.width * 0.07,
                               ),
@@ -719,9 +761,12 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                     buildText(
                                         TestModel.testCaregaverModel
                                             .providedServices,
-                                        false),
-                                    buildSubText(TestModel
-                                        .testCaregaverModel.supProvidedServices)
+                                        false,
+                                        true),
+                                    buildSubText(
+                                        TestModel.testCaregaverModel
+                                            .supProvidedServices,
+                                        false)
                                   ],
                                 ),
                               )
@@ -810,7 +855,8 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                     buildText(
                                         TestModel.testCaregaverModel
                                             .additionalServices,
-                                        false),
+                                        false,
+                                        true),
                                   ],
                                 ),
                               )
@@ -899,7 +945,8 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                     buildText(
                                         TestModel.testCaregaverModel
                                             .ratingReviewsAndReferences,
-                                        false),
+                                        false,
+                                        true),
                                   ],
                                 ),
                               )
@@ -987,9 +1034,12 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   children: [
                                     buildText(
                                         TestModel.testCaregaverModel.experience,
+                                        false,
                                         false),
-                                    buildSubText(TestModel
-                                        .testCaregaverModel.supExperience),
+                                    buildSubText(
+                                        TestModel
+                                            .testCaregaverModel.supExperience,
+                                        false),
                                   ],
                                 ),
                               )
@@ -1078,7 +1128,8 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                     buildText(
                                         TestModel.testCaregaverModel
                                             .qualificationsEducation,
-                                        false),
+                                        false,
+                                        true),
                                   ],
                                 ),
                               )
@@ -1164,7 +1215,131 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     buildText(TestModel.testCaregaverModel.fees,
-                                        true),
+                                        true, false),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: deviceSize.height * 0.005)),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.only(
+                                          left: deviceSize.width * 0.02,
+                                          right: deviceSize.width * 0.02),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xfff2f5fa),
+                                          border: Border.all(
+                                              color: Color(0xffD3CFC8),
+                                              width: 1),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5))
+                                          //more than 50% of width makes circle
+                                          ),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: deviceSize.height * 0.05,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  width:
+                                                      deviceSize.width * 0.73,
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'Note',
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                    onPressed: () => {
+                                                          setState(
+                                                            () => {
+                                                              clickNoteFees0 =
+                                                                  !clickNoteFees0
+                                                            },
+                                                          )
+                                                        },
+                                                    icon: !clickNoteFees0
+                                                        ? Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down_outlined,
+                                                            color: Color(
+                                                                0xff17a2b8),
+                                                            size: deviceSize
+                                                                    .width *
+                                                                0.05,
+                                                          )
+                                                        : Icon(
+                                                            Icons
+                                                                .keyboard_arrow_up_outlined,
+                                                            color: Color(
+                                                                0xff17a2b8),
+                                                            size: deviceSize
+                                                                    .width *
+                                                                0.05,
+                                                          )),
+                                              ],
+                                            ),
+                                          ),
+                                          clickNoteFees0
+                                              ? Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    SizedBox(
+                                                      width: deviceSize.width *
+                                                          0.85,
+                                                      child: Text(
+                                                          'You will be billed per hour according to the pricing table below',
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xff28306e),
+                                                              fontFamily:
+                                                                  'Helvetica_Bold',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: deviceSize
+                                                                      .width *
+                                                                  0.035)),
+                                                    ),
+                                                    buildSubText(
+                                                        TestModel
+                                                            .testCaregaverModel
+                                                            .supFees,
+                                                        false),
+                                                    Padding(
+                                                        padding: EdgeInsets.only(
+                                                            top: deviceSize
+                                                                    .height *
+                                                                0.005)),
+                                                  ],
+                                                )
+                                              : SizedBox()
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: deviceSize.height * 0.005),
+                                      child: Text('- Laboratory',
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontSize:
+                                                  deviceSize.width * 0.04)),
+                                    ),
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.005)),
@@ -1263,26 +1438,11 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                                                       .width *
                                                                   0.035)),
                                                     ),
-                                                    buildSubText(TestModel
-                                                        .testCaregaverModel
-                                                        .supFees),
-                                                    SizedBox(
-                                                      width: deviceSize.width *
-                                                          0.85,
-                                                      child: Text(
-                                                          'The lab test fee does NOT include the lab fee and only covers the technician fee Sub Category 1 - 20 USD',
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xff28306e),
-                                                              fontFamily:
-                                                                  'Helvetica_Bold',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: deviceSize
-                                                                      .width *
-                                                                  0.035)),
-                                                    ),
+                                                    buildSubText(
+                                                        TestModel
+                                                            .testCaregaverModel
+                                                            .supFees,
+                                                        false),
                                                     Padding(
                                                         padding: EdgeInsets.only(
                                                             top: deviceSize
@@ -1449,12 +1609,293 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                        'Booked until End of Last Booking Date',
-                                        style: TextStyle(
-                                            color: Color(0xff28306e),
-                                            fontFamily: 'Helvetica_Bold',
-                                            fontSize: deviceSize.width * 0.04)),
+                                    TableCalendar(
+                                      firstDay: DateTime.utc(2010, 10, 16),
+                                      lastDay: DateTime.utc(2030, 3, 14),
+                                      focusedDay: DateTime.now(),
+                                    ),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: deviceSize.height * 0.01)),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        InkWell(
+                                          child: Text('Booked Times',
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontFamily: 'Helvetica_Bold',
+                                                  fontSize: deviceSize.width *
+                                                      0.035)),
+                                          onTap: () => {
+                                            showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                content: Text(
+                                                  textAlign: TextAlign.center,
+                                                  'Nadia Carmichael is booked during this time.\nYou cannot book her during this time',
+                                                  style: TextStyle(
+                                                    fontSize: deviceSize.width *
+                                                        0.035,
+                                                    color: Color(0xff28306e),
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Color(0xffD3CFC8),
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xffD3CFC8),
+                                                              width: 1),
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))
+                                                          //more than 50% of width makes circle
+                                                          ),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              14),
+                                                      child: Text(
+                                                        "okay",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          },
+                                        ),
+                                        InkWell(
+                                          child: Text('Unavailable',
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 116, 67, 250),
+                                                  fontFamily: 'Helvetica_Bold',
+                                                  fontSize: deviceSize.width *
+                                                      0.035)),
+                                          onTap: () => {
+                                            showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                content: Text(
+                                                  textAlign: TextAlign.center,
+                                                  'Nadia Carmichael has indicated that she is NOT available during this time.\nYou can still try to send this caregiver a booking request during this time',
+                                                  style: TextStyle(
+                                                    fontSize: deviceSize.width *
+                                                        0.035,
+                                                    color: Color(0xff28306e),
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Color(0xffD3CFC8),
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xffD3CFC8),
+                                                              width: 1),
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))
+                                                          //more than 50% of width makes circle
+                                                          ),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              14),
+                                                      child: Text(
+                                                        "okay",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          },
+                                        ),
+                                        InkWell(
+                                          child: Text('Unsure',
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 202, 185, 31),
+                                                  fontFamily: 'Helvetica_Bold',
+                                                  fontSize: deviceSize.width *
+                                                      0.035)),
+                                          onTap: () => {
+                                            showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                content: Text(
+                                                  textAlign: TextAlign.center,
+                                                  'Nadia Carmichael is unable to confrm her availability during this time.\nYou can send this caregiver a booking request during this time',
+                                                  style: TextStyle(
+                                                    fontSize: deviceSize.width *
+                                                        0.035,
+                                                    color: Color(0xff28306e),
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Color(0xffD3CFC8),
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xffD3CFC8),
+                                                              width: 1),
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))
+                                                          //more than 50% of width makes circle
+                                                          ),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              14),
+                                                      child: Text(
+                                                        "okay",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          },
+                                        ),
+                                        InkWell(
+                                          child: Text('Available',
+                                              style: TextStyle(
+                                                  color: Color(0xff28a745),
+                                                  fontFamily: 'Helvetica_Bold',
+                                                  fontSize: deviceSize.width *
+                                                      0.035)),
+                                          onTap: () => {
+                                            showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                content: Text(
+                                                  textAlign: TextAlign.center,
+                                                  'Nadia Carmichael has indicated that she is available during this time.\nYou still need to confrm her availability during this time',
+                                                  style: TextStyle(
+                                                    fontSize: deviceSize.width *
+                                                        0.035,
+                                                    color: Color(0xff28306e),
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Color(0xffD3CFC8),
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xffD3CFC8),
+                                                              width: 1),
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5))
+                                                          //more than 50% of width makes circle
+                                                          ),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              14),
+                                                      child: Text(
+                                                        "okay",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              deviceSize.width *
+                                                                  0.035,
+                                                          color:
+                                                              Color(0xff28306e),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: deviceSize.height * 0.02)),
+                                    EasyRichText(
+                                      'Booked until End of 6 Sep 2022',
+                                      defaultStyle: TextStyle(
+                                          color: Color(0xff28306e),
+                                          fontFamily: 'Helvetica_Bold',
+                                          fontSize: deviceSize.width * 0.04),
+                                      patternList: [
+                                        EasyRichTextPattern(
+                                          targetString: '6 Sep 2022',
+                                          style: TextStyle(
+                                              color: Color(0xff28306e),
+                                              fontFamily: 'Helvetica_Bold',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  deviceSize.width * 0.04),
+                                        ),
+                                      ],
+                                    ),
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
@@ -1464,8 +1905,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             fontFamily: 'Helvetica_Bold',
                                             fontWeight: FontWeight.bold,
                                             fontSize: deviceSize.width * 0.04)),
-                                    buildSubText(TestModel.testCaregaverModel
-                                        .generalAvallabillty),
+                                    buildSubText(
+                                        TestModel.testCaregaverModel
+                                            .generalAvallabillty,
+                                        false),
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
@@ -1475,8 +1918,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             fontFamily: 'Helvetica_Bold',
                                             fontWeight: FontWeight.bold,
                                             fontSize: deviceSize.width * 0.04)),
-                                    buildSubText(TestModel
-                                        .testCaregaverModel.specialRemarks),
+                                    buildSubText(
+                                        TestModel
+                                            .testCaregaverModel.specialRemarks,
+                                        false),
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
@@ -1519,10 +1964,6 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             )),
                                       ],
                                     ),
-                                    /*
-                                    buildSubText(
-                                        TestModel.testCaregaverModel.documents),
-                                  */
                                     Padding(
                                         padding: EdgeInsets.only(
                                             top: deviceSize.height * 0.01)),
@@ -1532,8 +1973,10 @@ class _CaregiverProfileState extends State<CaregiverProfile> {
                                             fontFamily: 'Helvetica_Bold',
                                             fontWeight: FontWeight.bold,
                                             fontSize: deviceSize.width * 0.04)),
-                                    buildSubText(TestModel.testCaregaverModel
-                                        .additionalInformation),
+                                    buildSubText(
+                                        TestModel.testCaregaverModel
+                                            .additionalInformation,
+                                        true),
                                   ],
                                 ),
                               )

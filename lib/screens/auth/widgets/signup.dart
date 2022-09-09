@@ -447,7 +447,14 @@ class _SignupState extends State<Signup> {
                     SizedBox(
                       width: deviceSize.width * 0.8,
                       child: TextButton(
-                        child: Text('Sign up now'),
+                        child: Text(
+                          'Sign up now',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.035),
+                        ),
                         style: TextButton.styleFrom(
                           primary: Colors.white,
                           backgroundColor: Color.fromARGB(255, 71, 201, 188),
@@ -548,35 +555,37 @@ class _SignupState extends State<Signup> {
                     ],
                   ),
                   Center(
-                    child: EasyRichText(
-                      "Already a member? Sign in",
-                      defaultStyle: TextStyle(
+                      child: RichText(
+                    text: TextSpan(
+                      text: "Already a member? ",
+                      style: TextStyle(
                           color: Color.fromARGB(255, 255, 255, 255),
                           fontFamily: 'Helvetica',
                           fontSize: deviceSize.width * 0.035),
-                      patternList: [
-                        EasyRichTextPattern(
-                            targetString: 'Sign in',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontFamily: 'Helvetica',
-                                fontSize: deviceSize.width * 0.045),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // ignore: avoid_print
-                                print("Tap Sign up");
-                                auth.changeAuthSteta();
-                                Navigator.pushAndRemoveUntil<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          AuthScreen()),
-                                  (Route<dynamic> route) => false,
-                                );
-                              }),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Sign in',
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontFamily: 'Helvetica',
+                              fontSize: deviceSize.width * 0.04),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              // ignore: avoid_print
+                              print("Tap Sign up");
+                              auth.changeAuthSteta();
+                              Navigator.pushAndRemoveUntil<void>(
+                                context,
+                                MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        AuthScreen()),
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                        ),
                       ],
                     ),
-                  ),
+                  )),
                 ],
               )),
         ],

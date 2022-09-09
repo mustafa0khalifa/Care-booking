@@ -213,7 +213,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           fontFamily: 'Lato',
         ),
-        home: isLoged ? BookingsDashboard() : AutomaticMatchingOption(),
+        home: isLoged ? BookingsDashboard() : AuthScreen(),
         routes: {
           AuthScreen.routeName: (context) => AuthScreen(),
           ForgetPassword.routeName: (context) => ForgetPassword(),
